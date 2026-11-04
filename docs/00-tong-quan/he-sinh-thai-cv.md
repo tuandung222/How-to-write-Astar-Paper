@@ -17,7 +17,7 @@ Bài này mô tả hệ sinh thái CV từ góc nhìn của người viết. Ch�
 
 CVPR (IEEE/CVF Conference on Computer Vision and Pattern Recognition) diễn ra hằng năm, thường vào tháng 6, với deadline vào khoảng đầu đến giữa tháng 11 năm trước. ICCV (IEEE/CVF International Conference on Computer Vision) chỉ diễn ra vào các năm lẻ, còn ECCV (European Conference on Computer Vision, do hiệp hội ECVA tổ chức) chỉ diễn ra vào các năm chẵn; cả hai đều có deadline vào khoảng đầu tháng 3 và diễn ra vào khoảng tháng 9 hoặc tháng 10. Nhờ sự luân phiên này, mỗi năm cộng đồng CV luôn có đúng hai hội nghị đỉnh: CVPR vào mùa hè và một trong hai hội nghị ICCV hoặc ECCV vào mùa thu.
 
-Về uy tín, ba hội nghị được coi là gần như ngang hàng. Trong cộng đồng, ICCV và ECCV đôi khi được nhìn nhận là chọn lọc tương đương hoặc nhỉnh hơn CVPR một chút do quy mô nhỏ hơn, còn CVPR có ảnh hưởng trích dẫn lớn nhất do số lượng paper. Với các hội đồng đánh giá dùng nhãn A\*, cả ba thường được đối xử như nhau, dù người học vẫn nên tra cứu phiên bản CORE mà cơ quan mình áp dụng.
+Về uy tín, ba hội nghị được coi là gần như ngang hàng. Trong cộng đồng, ICCV và ECCV đôi khi được nhìn nhận là chọn lọc tương đương hoặc nhỉnh hơn CVPR một chút do quy mô nhỏ hơn, còn CVPR có ảnh hưởng trích dẫn lớn nhất do số lượng paper. Với các hội đồng đánh giá dùng nhãn A\*, cả ba thường được đối xử như nhau, dù người học vẫn nên tra cứu phiên bản CORE mà cơ quan đánh giá đang áp dụng.
 
 | | CVPR | ICCV | ECCV |
 |---|---|---|---|
@@ -47,7 +47,7 @@ Những năm gần đây, cả ba hội nghị đều chuyển sang dùng OpenRe
 
 Quy trình nộp ở CV thường có một bước đăng ký paper (paper registration) khoảng một tuần trước deadline, trong đó nhóm tác giả khai báo title, abstract, danh sách tác giả và subject area. Ở nhiều năm, danh sách tác giả bị khóa sau một mốc nhất định, nên mọi đồng tác giả cần được thống nhất trước bước đăng ký.
 
-Với hơn mười nghìn submission mỗi năm ở CVPR, hệ thống review cần hàng nghìn reviewer, và phần lớn trong số đó là nghiên cứu sinh và postdoc. Để đáp ứng nhu cầu này, những năm gần đây các hội nghị CV đã đưa ra nghĩa vụ review đối với tác giả: những tác giả đủ điều kiện phải tham gia review, và một reviewer vô trách nhiệm có thể khiến chính paper của mình bị ảnh hưởng, thậm chí bị desk reject theo chính sách của một số năm. Một số năm còn đặt giới hạn số paper mà một người được đứng tên. Các chính sách này thay đổi nhanh, nên cần được kiểm tra trong Author Guidelines của năm nộp.
+Với hơn mười nghìn submission mỗi năm ở CVPR, hệ thống review cần hàng nghìn reviewer, và phần lớn trong số đó là nghiên cứu sinh và postdoc. Để đáp ứng nhu cầu này, những năm gần đây các hội nghị CV đã đưa ra nghĩa vụ review đối với tác giả: những tác giả đủ điều kiện phải tham gia review, và một reviewer vô trách nhiệm có thể khiến chính các paper mà người đó đứng tên bị ảnh hưởng, thậm chí bị desk reject theo chính sách của một số năm. Một số năm còn đặt giới hạn số paper mà một người được đứng tên. Các chính sách này thay đổi nhanh, nên cần được kiểm tra trong Author Guidelines của năm nộp.
 
 ## Poster, highlight và oral
 
@@ -75,7 +75,7 @@ Một khía cạnh chiến lược khác là độ cạnh tranh của từng m�
 
 Toàn bộ paper của CVPR, ICCV, WACV và nhiều workshop đi kèm được công bố miễn phí trên CVF Open Access (openaccess.thecvf.com), thường kèm cả supplementary. Paper của ECCV có trên trang của ECVA (ecva.net) và trong loạt sách Springer LNCS. Đây là kho học liệu quan trọng nhất cho người muốn học cách viết paper CV, vì nó chứa phiên bản cuối cùng của mọi paper được chấp nhận.
 
-Cách dùng kho này hiệu quả nhất là đọc với con mắt của người viết, không phải của người học kỹ thuật. Mỗi năm, người học có thể chọn khoảng mười paper oral hoặc được đề cử giải thưởng trong mảng của mình và ghi chú về *cấu trúc*: Figure 1 truyền tải điều gì, đoạn đóng góp được viết thế nào, bảng kết quả chính so sánh với ai, ablation được tổ chức ra sao. Nên đọc cả supplementary, vì nhiều chi tiết thuyết phục reviewer, như phân tích lỗi, kết quả trên tập dữ liệu phụ hay video minh họa, nằm ở đó. Chương 5 thực hiện kiểu phân tích này cho các paper kinh điển như [ResNet](../05-case-studies/resnet.md) hay [NeRF](../05-case-studies/nerf.md).
+Cách dùng kho này hiệu quả nhất là đọc với con mắt của người viết, không phải của người học kỹ thuật. Mỗi năm, người học có thể chọn khoảng mười paper oral hoặc được đề cử giải thưởng trong mảng nghiên cứu đang theo đuổi và ghi chú về *cấu trúc*: Figure 1 truyền tải điều gì, đoạn đóng góp được viết thế nào, bảng kết quả chính so sánh với ai, ablation được tổ chức ra sao. Nên đọc cả supplementary, vì nhiều chi tiết thuyết phục reviewer, như phân tích lỗi, kết quả trên tập dữ liệu phụ hay video minh họa, nằm ở đó. Chương 5 thực hiện kiểu phân tích này cho các paper kinh điển như [ResNet](../05-case-studies/resnet.md) hay [NeRF](../05-case-studies/nerf.md).
 
 ## Văn hóa của cộng đồng Computer Vision
 
@@ -83,7 +83,7 @@ Các quy định hình thức chỉ là phần nổi. Điều quyết định m�
 
 ### Benchmark và bảng kết quả chính
 
-Cộng đồng CV phát triển quanh các benchmark chuẩn như ImageNet, COCO, ADE20K hay các bộ dữ liệu chuyên biệt của từng bài toán. Hệ quả là reviewer CV gần như luôn tìm tới bảng kết quả chính rất sớm khi đọc paper, và câu hỏi đầu tiên của họ thường là: phương pháp được so sánh với những ai, trên benchmark nào, trong điều kiện có công bằng không. Bảng kết quả chính không cần phải thắng mọi phương pháp ở mọi chỉ số, nhưng nó phải bao gồm các baseline mạnh và gần đây, cùng backbone, cùng dữ liệu huấn luyện, và nếu không thắng tuyệt đối thì paper phải chủ động giải thích giá trị của mình nằm ở đâu: tốc độ, bộ nhớ, tính đơn giản, hay khả năng tổng quát.
+Cộng đồng CV phát triển quanh các benchmark chuẩn như ImageNet, COCO, ADE20K hay các bộ dữ liệu chuyên biệt của từng bài toán. Hệ quả là reviewer CV gần như luôn tìm tới bảng kết quả chính rất sớm khi đọc paper, và câu hỏi đầu tiên của họ thường là: phương pháp được so sánh với những ai, trên benchmark nào, trong điều kiện có công bằng không. Bảng kết quả chính không cần phải thắng mọi phương pháp ở mọi chỉ số, nhưng nó phải bao gồm các baseline mạnh và gần đây, cùng backbone, cùng dữ liệu huấn luyện, và nếu không thắng tuyệt đối thì paper phải chủ động giải thích giá trị của phương pháp nằm ở đâu: tốc độ, bộ nhớ, tính đơn giản, hay khả năng tổng quát.
 
 ### Hình ảnh: teaser và kết quả định tính
 

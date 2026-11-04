@@ -138,7 +138,7 @@ Abstract NLP thường nêu rõ tên dataset, tác vụ và **ngôn ngữ** đư
 
 Abstract ML thường nhấn mạnh **tính tổng quát** và **cơ sở lý thuyết** hơn là con số trên một benchmark cụ thể. Abstract của Adam (ICLR 2015) là ví dụ rõ nhất: nó gần như không có con số nào, mà liệt kê các tính chất của phương pháp (dễ cài đặt, hiệu quả về tính toán, tốn ít bộ nhớ, bất biến với việc co giãn gradient theo đường chéo, phù hợp với bài toán lớn, gradient nhiễu hoặc thưa), nêu một chặn regret về tốc độ hội tụ tương đương các kết quả tốt nhất đã biết trong khung tối ưu lồi trực tuyến, rồi mới nói rằng thực nghiệm cho thấy phương pháp hoạt động tốt so với các phương pháp tối ưu ngẫu nhiên khác. Abstract của DDPM (NeurIPS 2020) kết hợp cả hai: nó nêu một mối liên hệ lý thuyết mới giữa mô hình khuếch tán và denoising score matching, rồi đưa ra con số cụ thể trên CIFAR-10 (Inception score 9.46, FID 3.17). Người viết ML nên tự hỏi: ngoài con số, phương pháp có tính chất tổng quát nào đáng được nêu trong abstract?
 
-### Abstract trên hệ thống nộp bài
+## Abstract trên hệ thống nộp bài
 
 Hầu hết các hội nghị ở cả ba cộng đồng hiện dùng OpenReview hoặc các hệ thống tương tự, trong đó abstract được nhập vào một ô văn bản riêng, tách khỏi file PDF. Ô này thường có **giới hạn số ký tự** (con số cụ thể tùy hội nghị), và các ký hiệu LaTeX có thể hiển thị không như mong muốn. Hai hệ quả thực tế: abstract nên được viết ở dạng văn bản thuần, gần như không có ký hiệu toán; và abstract trên hệ thống phải khớp với abstract trong PDF, vì reviewer đọc cả hai và sự khác biệt giữa chúng gây ấn tượng cẩu thả.
 

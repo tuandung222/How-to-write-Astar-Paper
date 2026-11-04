@@ -46,7 +46,7 @@ Mẫu này bỏ qua tên gọi và mô tả thẳng nội dung của paper.
 - *Denoising Diffusion Probabilistic Models* (NeurIPS 2020)
 - *Deep contextualized word representations* (NAACL 2018, paper giới thiệu ELMo)
 
-Điều đáng chú ý là title của ResNet không chứa chữ "ResNet", title của ELMo cũng không chứa chữ "ELMo"; tên gọi nằm trong thân bài và cộng đồng tự tiếp nhận nó. Mô tả trực tiếp hoạt động tốt khi ý tưởng đủ tổng quát để một cụm danh từ gọi được tên nó: "residual learning" là một nguyên lý, không phải một mạng cụ thể. Title của DDPM còn đi xa hơn: nó chính là tên của một lớp mô hình. Lựa chọn này hợp lý vì paper định hình lại lớp mô hình đó một cách có hệ thống, và về sau chính tên trong title trở thành tên gọi của cả hướng nghiên cứu.
+Điều đáng chú ý là title của ResNet không chứa chữ "ResNet", title của ELMo cũng không chứa chữ "ELMo"; tên gọi nằm trong thân bài và cộng đồng tự tiếp nhận nó. Mô tả trực tiếp hoạt động tốt khi ý tưởng đủ tổng quát để một cụm danh từ gọi được tên nó: "residual learning" là một nguyên lý, không phải một mạng cụ thể. Title của DDPM còn đi xa hơn: nó chính là tên của một lớp mô hình. Lựa chọn này hợp lý vì paper cho thấy lớp mô hình khuếch tán, vốn đã được đề xuất từ trước, có thể sinh ảnh chất lượng cao; tên trong title, viết tắt thành DDPM, về sau trở thành cách cộng đồng gọi phương pháp này.
 
 Mẫu này phù hợp với ý tưởng đơn giản, tổng quát. Nhược điểm là nếu cụm mô tả quá chung (chẳng hạn "Deep Learning for Image Recognition"), title sẽ không phân biệt được paper với hàng trăm paper khác.
 
@@ -170,7 +170,7 @@ Title ML thường tổng quát hơn, ít khi gắn với một ứng dụng c�
 
 ## Title sau khi nộp
 
-Ở nhiều hội nghị, title được phép chỉnh sửa ở bản camera-ready trong phạm vi hợp lý, đôi khi cần sự đồng ý của chương trình hội nghị (program committee). Tuy nhiên, title đăng ký ở thời điểm đăng ký abstract chính là title mà reviewer nhìn thấy khi bid. Vì vậy, title phải được đặt nghiêm túc ngay từ đầu, không nên coi là một thứ tạm thời để sửa sau. Ở ICLR, nơi bài nộp hiển thị công khai trên OpenReview, title ban đầu còn được cộng đồng nhìn thấy ngay cả khi paper không được chấp nhận.
+Ở nhiều hội nghị, title được phép chỉnh sửa ở bản camera-ready trong phạm vi hợp lý, đôi khi cần sự đồng ý của chương trình hội nghị (program committee). Tuy nhiên, title đăng ký ở thời điểm đăng ký abstract chính là title mà reviewer nhìn thấy khi bid. Vì vậy, title phải được đặt nghiêm túc ngay từ đầu, không nên coi là một thứ tạm thời để sửa sau. Ở ICLR, nơi bài nộp hiển thị công khai trên OpenReview trong suốt quá trình review, title ban đầu còn được cả cộng đồng nhìn thấy chứ không chỉ reviewer.
 
 ## Tóm tắt
 

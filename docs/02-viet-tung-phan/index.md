@@ -22,7 +22,7 @@ Bảng dưới đây lấy chuẩn một paper 8 trang hai cột, tức khung c�
 | Method | 2–2,5 trang | khoảng 25–30% | Phương pháp làm chính xác điều gì, có tái hiện được không? |
 | Experiments | 2,5–3 trang | khoảng 30–38% | Bằng chứng có đủ, có công bằng không? |
 | Conclusion | 0,2–0,4 trang | khoảng 3–5% | Rốt cuộc paper chứng minh được điều gì? |
-| Limitations | vài đoạn | thường nằm ngoài giới hạn trang ở ACL | Kết luận đúng trong phạm vi nào? |
+| Limitations | vài đoạn; ở ACL nằm ngoài giới hạn trang | — | Kết luận đúng trong phạm vi nào? |
 | References | không tính vào giới hạn trang ở hầu hết hội nghị | — | Paper dựa trên những công trình nào? |
 | Appendix / Supplementary | tùy hội nghị | — | Chi tiết để kiểm chứng, kết quả bổ sung, chứng minh |
 
