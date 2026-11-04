@@ -92,17 +92,17 @@ Một điểm đáng chú ý là ICASSP có những kênh kết nối với tạ
 
 Bên cạnh hai hội nghị lớn, cộng đồng speech có một số nơi công bố nhỏ hơn nhưng chuyên sâu, thường được dùng cho những công trình tập trung vào một nhánh hẹp hoặc cho các phiên bản mở rộng.
 
-Hai hội nghị chuyên sâu nhất về nhận dạng và hiểu tiếng nói là **ASRU** (IEEE Automatic Speech Recognition and Understanding Workshop) và **SLT** (IEEE Spoken Language Technology Workshop), cùng được tổ chức dưới sự bảo trợ của IEEE SPS. Dù mang tên "workshop", cả hai đều là hội nghị có bình duyệt đầy đủ và kỷ yếu lưu trữ, với quy mô nhỏ hơn và reviewer chuyên sâu hơn ICASSP. Hai hội nghị thường luân phiên nhau: ASRU vào các năm lẻ, SLT vào các năm chẵn, và thường diễn ra vào khoảng cuối năm. Với nhánh nhận dạng người nói và nhận dạng ngôn ngữ, **Odyssey** (The Speaker and Language Recognition Workshop) của ISCA là nơi gặp gỡ chuyên biệt, thường hai năm một lần. Nhánh tổng hợp tiếng nói có **Speech Synthesis Workshop** (SSW), cũng gắn với ISCA.
+Hai hội nghị chuyên sâu nhất về nhận dạng và hiểu tiếng nói là **ASRU** (IEEE Automatic Speech Recognition and Understanding Workshop) và **SLT** (IEEE Spoken Language Technology Workshop), cùng được tổ chức dưới sự bảo trợ của IEEE SPS. Dù mang tên "workshop", cả hai đều là hội nghị có bình duyệt đầy đủ và kỷ yếu lưu trữ, với quy mô nhỏ hơn và reviewer chuyên sâu hơn ICASSP. Hai hội nghị thường luân phiên nhau: ASRU vào các năm lẻ, SLT vào các năm chẵn, và thường diễn ra vào khoảng cuối năm. Với nhánh nhận dạng người nói và nhận dạng ngôn ngữ, **Odyssey** (The Speaker and Language Recognition Workshop), gắn với ISCA, là nơi gặp gỡ chuyên biệt, thường hai năm một lần. Nhánh tổng hợp tiếng nói có **Speech Synthesis Workshop** (SSW), cũng gắn với ISCA.
 
-Về tạp chí, **IEEE/ACM Transactions on Audio, Speech, and Language Processing** (TASLP) là tạp chí chính của lĩnh vực, phù hợp với các công trình dài và các phiên bản mở rộng của paper hội nghị. **Speech Communication** và **Computer Speech & Language** là hai tạp chí lâu đời khác, trong đó Speech Communication đặc biệt cởi mở với các công trình về khoa học tiếng nói. IEEE Signal Processing Letters nhận các bài ngắn, gần với độ dài paper ICASSP.
+Về tạp chí, **IEEE/ACM Transactions on Audio, Speech, and Language Processing** (TASLP) là tạp chí chính của lĩnh vực, phù hợp với các công trình dài và các phiên bản mở rộng của paper hội nghị. **Speech Communication** và **Computer Speech & Language** là hai tạp chí lâu đời khác, nhận cả công trình về khoa học lẫn công nghệ tiếng nói. IEEE Signal Processing Letters nhận các bài ngắn, gần với độ dài paper ICASSP.
 
 Cuối cùng, cần lưu ý rằng nhiều công trình speech có ảnh hưởng lớn không được công bố ở các nơi kể trên. wav2vec 2.0 được công bố tại NeurIPS 2020, mô hình Whisper tại ICML 2023, còn HuBERT được công bố trên tạp chí TASLP. Ranh giới giữa speech và ML ngày càng mờ, và đây là cơ sở cho một chiến lược sẽ được bàn ở mục tiếp theo.
 
 | Nơi công bố | Loại | Trọng tâm | Khi nào nên cân nhắc |
 |---|---|---|---|
 | ASRU, SLT | Hội nghị IEEE, luân phiên năm lẻ, năm chẵn | Nhận dạng và hiểu tiếng nói | Công trình ASR hoặc SLU cần reviewer chuyên sâu |
-| Odyssey | Hội nghị chuyên đề của ISCA | Nhận dạng người nói và ngôn ngữ | Speaker verification, diarization, language ID |
-| SSW | Hội nghị chuyên đề của ISCA | Tổng hợp tiếng nói | TTS, chuyển đổi giọng nói |
+| Odyssey | Hội nghị chuyên đề gắn với ISCA | Nhận dạng người nói và ngôn ngữ | Speaker verification, diarization, language ID |
+| SSW | Hội nghị chuyên đề gắn với ISCA | Tổng hợp tiếng nói | TTS, chuyển đổi giọng nói |
 | IEEE/ACM TASLP | Tạp chí | Âm thanh, tiếng nói, ngôn ngữ | Công trình dài, bản mở rộng của paper hội nghị |
 | Speech Communication, Computer Speech & Language | Tạp chí | Khoa học và công nghệ tiếng nói | Nghiên cứu sâu, đặc biệt về khoa học tiếng nói |
 
@@ -172,7 +172,7 @@ Trong bốn trang, mỗi bảng phải gánh nhiều việc. Một bảng đư�
 
 ### Mỗi claim một con số, mỗi từ một lý do
 
-Vì không có chỗ cho phụ lục, mọi claim thực nghiệm phải được nối trực tiếp với một con số hoặc một bảng ngay trong văn bản. Một câu như "Empirical observations indicate that variant A performs better" không trỏ tới đâu cả là một chỗ hở mà reviewer sẽ chỉ ra; thêm một cụm ngắn trong ngoặc, như "(WER 5.1 vs. 5.6 on test-other)", thường đủ để vá. Cũng vì mỗi dòng đều quý, các tính từ không mang thông tin như "novel", "rigorously" hay "significantly" khi không có kiểm định thống kê nên được thay bằng nội dung cụ thể. Bài [Experiments](../02-viet-tung-phan/experiments.md) phân tích cách dùng ngôn từ khớp với bằng chứng.
+Vì không có chỗ cho phụ lục, mọi claim thực nghiệm phải được nối trực tiếp với một con số hoặc một bảng ngay trong văn bản. Một câu như "Empirical observations indicate that variant A performs better" không trỏ tới đâu cả là một chỗ hở mà reviewer sẽ chỉ ra; thêm một cụm ngắn trong ngoặc, như "(WER X vs. Y on test-other)" với các con số thật của dự án, thường đủ để vá. Cũng vì mỗi dòng đều quý, các tính từ không mang thông tin như "novel", "rigorously" hay "significantly" khi không có kiểm định thống kê nên được thay bằng nội dung cụ thể. Bài [Experiments](../02-viet-tung-phan/experiments.md) phân tích cách dùng ngôn từ khớp với bằng chứng.
 
 !!! tip "Không cứu một paper dài bằng cách sửa template"
     Thu nhỏ lề, giảm cỡ chữ, chèn `\vspace` âm quanh hình hay ép bảng xuống cỡ chữ quá nhỏ để vừa bốn trang là những cách dễ bị phát hiện và có thể dẫn tới desk reject. Khi paper dài hơn giới hạn, cách sửa bền vững là cắt nội dung theo ngân sách trang: bỏ một thí nghiệm phụ, gộp hai hình, viết lại một đoạn dài thành một câu.
