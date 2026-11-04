@@ -155,6 +155,8 @@ Trường hợp thường gặp nhất là **mức cải thiện tổng thể nh
 
 Trường hợp thứ ba là **một phát hiện phụ bất ngờ**. Đôi khi, trong quá trình làm, nhóm phát hiện ra điều đáng giá hơn phương pháp chính, chẳng hạn rằng một baseline đơn giản được tune kỹ mạnh hơn mọi phương pháp phức tạp, hay một benchmark phổ biến có lỗi gán nhãn có hệ thống. Không nên ngại đổi câu chuyện sang hướng phân tích; như đã thấy ở bài [Tìm và thẩm định ý tưởng](y-tuong.md), paper phân tích là một kiểu đóng góp được cộng đồng đánh giá cao. Trường hợp cuối cùng là **kết quả âm tính**, khi giả thuyết hoàn toàn không đúng. Nếu giả thuyết đó là điều mà cộng đồng tin tưởng rộng rãi, việc bác bỏ nó một cách chặt chẽ là một đóng góp. Ngoài main conference, có những nơi công bố phù hợp với kiểu kết quả này, như workshop *Insights from Negative Results in NLP*, hoặc tạp chí TMLR với tiêu chí chú trọng tính đúng đắn của claim và mức độ được quan tâm hơn là mức độ nổi bật.
 
+Mục này chỉ điểm qua những trường hợp phổ biến nhất. Chương 8, [Những tình huống trớ trêu trong nghiên cứu](../08-tinh-huong-kho/index.md), phân tích chi tiết ba mươi lăm tình huống như vậy, từ ý tưởng mới mà thua baseline, ý tưởng đơn giản mà nghe thiếu novelty, tới bằng chứng mâu thuẫn với câu chuyện, kèm chẩn đoán, các lối ra và câu mẫu cho từng tình huống.
+
 ## Trung thực
 
 Mọi kỹ thuật trong bài này đều nhằm *trình bày* bằng chứng có thật theo cách rõ ràng và thuyết phục nhất. Ranh giới giữa trình bày tốt và che giấu cần được giữ tuyệt đối.

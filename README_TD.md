@@ -25,6 +25,7 @@ Giáo trình đi theo vòng đời thực tế của một bài báo: hiểu lu�
 | 5. Case studies | Paper kinh điển (ResNet, Mask R-CNN, NeRF, MAE, LDM, SAM, ControlNet, BERT, CheckList, Transformer, Adam, DDPM) và paper của các nhóm Việt Nam (Anti-DreamBooth, SwiftBrush, PhoBERT, EDWARD-NMT, Top-K Sparse MoE, ViP-VL, Streaming ITN), cùng một bài thực hành |
 | 6. Đặc thù từng cộng đồng | Viết cho ML, viết cho NLP, chuyển paper giữa các cộng đồng, AAAI/IJCAI/KDD/journal |
 | 7. Chuyên đề AI Security | Xu hướng đóng góp trong AI Security; 10 case study về prompt injection, jailbreak và phòng vệ cho LLM, VLM và agent đa phương thức |
+| 8. Tình huống trớ trêu | Cẩm nang 35 tình huống khó trong nghiên cứu (ý tưởng mới mà thua baseline, đơn giản mà nghe thiếu novelty, ghép nhiều ý tưởng, độn đóng góp, con số không đẹp, bằng chứng mâu thuẫn câu chuyện, bị trùng ý tưởng, deadline, reject lặp lại, bài toán chưa có baseline, dữ liệu riêng) và ranh giới trung thực, cùng một bài thực hành |
 | Phụ lục | Checklist, template và mẫu câu, thuật ngữ, tài nguyên |
 
 ## Chạy trên máy cá nhân

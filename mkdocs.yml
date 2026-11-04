@@ -184,6 +184,16 @@ nav:
           - MELON (ICML 2025): 07-ai-security/melon.md
           - StruQ (USENIX Security 2025): 07-ai-security/struq.md
           - VLGuard (ICML 2024): 07-ai-security/vlguard.md
+  - "8. Tình huống trớ trêu":
+      - 08-tinh-huong-kho/index.md
+      - Khi novelty và hiệu quả lệch pha: 08-tinh-huong-kho/novelty-va-hieu-qua.md
+      - Ghép ý tưởng và "độn" đóng góp: 08-tinh-huong-kho/ghep-va-don.md
+      - Khi con số không đẹp: 08-tinh-huong-kho/con-so-khong-dep.md
+      - Khi câu chuyện và bằng chứng không khớp: 08-tinh-huong-kho/cau-chuyen-va-bang-chung.md
+      - Áp lực từ bên ngoài: 08-tinh-huong-kho/ap-luc-ben-ngoai.md
+      - Bài toán, dữ liệu và phạm vi: 08-tinh-huong-kho/bai-toan-va-pham-vi.md
+      - Ranh giới trung thực: 08-tinh-huong-kho/ranh-gioi-trung-thuc.md
+      - "Thực hành: ba dự án đi qua ngõ cụt": 08-tinh-huong-kho/thuc-hanh.md
   - Phụ lục:
       - phu-luc/index.md
       - Checklist tổng hợp: phu-luc/checklist.md
