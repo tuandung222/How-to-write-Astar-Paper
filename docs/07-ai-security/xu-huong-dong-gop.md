@@ -9,7 +9,7 @@
     - nêu tiêu chí mà reviewer ở các hội nghị CV, ML, NLP, Multimedia, AI tổng quát và Security dùng để đánh giá cùng một loại đóng góp;
     - chọn kiểu đóng góp phù hợp cho một dự án visual hoặc multimodal prompt injection và tránh các cái bẫy phổ biến.
 
-Khi lần đầu đọc các paper về an toàn của mô hình ngôn ngữ lớn (LLM), mô hình thị giác–ngôn ngữ (VLM) và agent, nhiều người học có chung một băn khoăn. Ở các chương trước, đóng góp của một paper thường là một phương pháp mới được huấn luyện rồi so sánh trên benchmark. Trong khi đó, nhiều paper AI Security được nhận ở ICLR, ICML, ACL hay USENIX Security lại không huấn luyện mô hình nào: có paper chỉ chèn một pop-up vào ảnh chụp màn hình, có paper thêm một ô nhập liệu vô hình vào trang web, có paper che prompt của người dùng rồi cho agent chạy lại. Nhìn bằng thói quen của cộng đồng ML, những việc này giống "mẹo" hơn là nghiên cứu.
+Khi lần đầu đọc các paper về an toàn của mô hình ngôn ngữ lớn (LLM), mô hình thị giác–ngôn ngữ (VLM) và agent, nhiều người học có chung một băn khoăn. Ở các chương trước, đóng góp thường là một phương pháp mới được huấn luyện rồi so sánh trên benchmark. Còn nhiều paper AI Security được nhận ở ICLR, ICML, ACL hay USENIX Security lại không huấn luyện mô hình nào: có paper chỉ chèn một pop-up vào ảnh chụp màn hình, có paper thêm một ô nhập liệu vô hình vào trang web, có paper che prompt của người dùng rồi cho agent chạy lại. Những việc này trông giống "mẹo" hơn là nghiên cứu.
 
 Băn khoăn đó xuất phát từ việc dùng sai khung đánh giá. Trong bảo mật, câu hỏi trung tâm không phải là "mô hình đạt bao nhiêu điểm" mà là "hệ thống có bị phá vỡ dưới những giả định thực tế về kẻ tấn công không, và phòng vệ thế nào". Một bằng chứng thuyết phục rằng hệ thống bị phá vỡ, một công cụ đo cho phép so sánh công bằng, hay một phòng vệ chịu được kẻ tấn công biết rõ cơ chế của nó đều là đóng góp có giá trị, bất kể tốn bao nhiêu GPU. Bài này dùng mười paper của chương, mỗi paper có trang case study riêng, để trả lời ba câu hỏi: đóng góp thường là gì, reviewer đánh giá theo tiêu chí nào, và nên chọn kiểu đóng góp nào.
 
@@ -19,7 +19,7 @@ Hai thuật ngữ hay bị dùng lẫn là jailbreak và prompt injection. **Jai
 
 Khái niệm quan trọng nhất của lĩnh vực là **threat model** (mô hình mối đe dọa): mô tả tường minh mục tiêu của kẻ tấn công, những gì kẻ tấn công biết và những gì kẻ tấn công thay đổi được. Paper [hình thức hóa prompt injection](formalizing-pi.md) trình bày threat model theo đúng ba trục đó và nêu một nguyên tắc mà reviewer bảo mật nào cũng thuộc: tấn công càng có tác động khi giả định càng ít hiểu biết và năng lực của kẻ tấn công; phòng vệ càng có tác động khi an toàn trước kẻ tấn công càng mạnh.
 
-Cuối cùng là vài thuật ngữ xuất hiện liên tục. **Attack success rate (ASR)** đo tỉ lệ tấn công đạt mục tiêu; **utility** đo mức hệ thống vẫn làm tốt nhiệm vụ gốc, khi không bị tấn công và khi đang bị tấn công. **White-box** nghĩa là kẻ tấn công biết trọng số và tính được gradient; **black-box** nghĩa là chỉ tương tác qua API hay giao diện. **Tấn công thích nghi** (adaptive attack) là tấn công được thiết kế khi đã biết cơ chế của phòng vệ, phép thử khắt khe nhất đối với mọi phòng vệ.
+Cuối cùng, **attack success rate (ASR)** đo tỉ lệ tấn công đạt mục tiêu; **utility** đo mức hệ thống vẫn làm tốt nhiệm vụ gốc. **White-box** nghĩa là kẻ tấn công biết trọng số và tính được gradient; **black-box** nghĩa là chỉ tương tác qua API hay giao diện. **Tấn công thích nghi** (adaptive attack) là tấn công được thiết kế khi đã biết cơ chế của phòng vệ.
 
 ## Bảng phân loại đóng góp
 
@@ -35,15 +35,15 @@ Reviewer mong đợi một threat model neo vào kịch bản có thật (EIA ne
 
 ### Phương pháp tấn công
 
-Kiểu đóng góp thứ hai là một phương pháp tấn công mạnh hơn, rẻ hơn hoặc thực tế hơn. Có hai trục phân loại. Trục thứ nhất là **cơ chế**. Tấn công dựa trên tối ưu hóa tìm nhiễu ảnh hay chuỗi token bằng gradient: paper visual adversarial jailbreak chạy PGD (projected gradient descent) 5000 vòng lặp; Dissecting dùng PGD tấn công một captioner mã nguồn mở; CrossInject kết hợp SSA-CWA cho ảnh với GCG (Greedy Coordinate Gradient) cho văn bản. Tấn công dựa trên thiết kế nội dung không cần gradient: Pop-ups xây một không gian thiết kế bốn thành phần (attention hook, chỉ thị, banner thông tin, mô tả ALT); EIA thiết kế hai chiến lược Form Injection và Mirror Injection; [AgentDojo](agentdojo.md) dùng một thông điệp kiểu "Important message"; paper hình thức hóa prompt injection ghép ba chiến lược có sẵn thành Combined Attack.
+Kiểu đóng góp thứ hai là một phương pháp tấn công mạnh hơn, rẻ hơn hoặc thực tế hơn, phân loại theo hai trục. Trục thứ nhất là **cơ chế**. Tấn công dựa trên tối ưu hóa tìm nhiễu ảnh hay chuỗi token bằng gradient: paper visual adversarial jailbreak chạy PGD (projected gradient descent) 5000 vòng lặp; CrossInject kết hợp SSA-CWA cho ảnh với GCG (Greedy Coordinate Gradient) cho văn bản. Tấn công dựa trên thiết kế nội dung không cần gradient: Pop-ups xây một không gian thiết kế bốn thành phần (attention hook, chỉ thị, banner thông tin, mô tả ALT); EIA thiết kế hai chiến lược Form Injection và Mirror Injection; [AgentDojo](agentdojo.md) dùng một thông điệp kiểu "Important message"; paper hình thức hóa ghép ba chiến lược có sẵn thành Combined Attack.
 
-Trục thứ hai là **mức hiểu biết**: white-box hay black-box. Tấn công tối ưu hóa không nhất thiết là white-box: khi mô hình đích đóng, kẻ tấn công tối ưu trên **mô hình thay thế** (surrogate model) công khai rồi chuyển giao (transfer) sang mô hình đích. Dissecting tối ưu ảnh trên một tập bộ mã hóa CLIP để tấn công agent dùng LM thương mại; CrossInject dùng các bộ mã hóa thị giác công khai và Llama-3.1-8B làm mô hình thay thế; paper visual adversarial jailbreak, vốn white-box là chính, cũng kiểm chứng chuyển giao black-box giữa ba VLM.
+Trục thứ hai là **mức hiểu biết**: white-box hay black-box. Tấn công tối ưu hóa không nhất thiết là white-box: khi mô hình đích đóng, kẻ tấn công tối ưu trên **mô hình thay thế** (surrogate model) công khai rồi chuyển giao (transfer) sang mô hình đích. Dissecting tối ưu ảnh trên một tập bộ mã hóa CLIP để tấn công agent dùng LM thương mại; CrossInject dùng các bộ mã hóa thị giác công khai và Llama-3.1-8B làm mô hình thay thế.
 
 Reviewer đánh giá tấn công theo bốn tiêu chí: so sánh với tấn công trước trong cùng threat model (CrossInject so với JIP và FB); ablation từng thành phần (Pop-ups thay lần lượt từng thành phần của pop-up); độ nhạy với hiểu biết của kẻ tấn công (Pop-ups thay yêu cầu thật của người dùng bằng yêu cầu được LLM phỏng đoán từ màn hình; AgentDojo thử đoán đúng hay sai tên người dùng và tên mô hình); và hiệu quả trước phòng vệ hiện có. Tấn công thiết kế nội dung chủ yếu tốn tiền API; tấn công tối ưu hóa cần GPU, như cụm A800 mà CrossInject ghi rõ. Paper visual adversarial jailbreak còn cho biết tấn công văn bản tương ứng tốn khoảng gấp 12 lần chi phí tính toán so với tấn công ảnh, củng cố lập luận rằng ảnh là mắt xích yếu.
 
 ### Phòng vệ
 
-Kiểu đóng góp thứ ba là phòng vệ, nơi tiêu chuẩn bằng chứng khắt khe nhất. **Phòng vệ dựa trên huấn luyện** thay đổi trọng số mô hình. StruQ (USENIX Security 2025) coi prompt injection là thêm một trường hợp của lỗi kinh điển "trộn kênh điều khiển với kênh dữ liệu" như SQL injection, và đề xuất tách hai kênh giống cách prepared statement đã làm với SQL: một front-end mã hóa prompt và dữ liệu bằng token đặc biệt dành riêng, lọc các token đó khỏi dữ liệu, và một LLM được tinh chỉnh bằng structured instruction tuning để chỉ làm theo chỉ thị trong phần prompt. [VLGuard](vlguard.md) (ICML 2024) xuất phát từ phân tích nguyên nhân: tinh chỉnh thị giác–ngôn ngữ làm LLM nền "quên" căn chỉnh an toàn, một phần vì dữ liệu tinh chỉnh chứa nội dung độc hại.
+Kiểu đóng góp thứ ba là phòng vệ, nơi tiêu chuẩn bằng chứng khắt khe nhất. **Phòng vệ dựa trên huấn luyện** thay đổi trọng số mô hình. StruQ (USENIX Security 2025) coi prompt injection là một trường hợp của lỗi kinh điển "trộn kênh điều khiển với kênh dữ liệu" như SQL injection, và tách hai kênh: một front-end mã hóa prompt và dữ liệu bằng token đặc biệt dành riêng, lọc các token đó khỏi dữ liệu, và một LLM được tinh chỉnh bằng structured instruction tuning để chỉ làm theo chỉ thị trong phần prompt. [VLGuard](vlguard.md) (ICML 2024) xuất phát từ phân tích nguyên nhân: tinh chỉnh thị giác–ngôn ngữ làm LLM nền "quên" căn chỉnh an toàn, một phần vì dữ liệu tinh chỉnh chứa nội dung độc hại.
 
 **Phòng vệ tại thời điểm suy luận** (training-free) giữ nguyên mô hình và có bốn dạng. Dạng dựa trên prompt gồm delimiter bao dữ liệu, "sandwich" (nhắc lại chỉ thị gốc sau dữ liệu) hay câu cảnh báo trong system prompt. Dạng phát hiện gồm đo perplexity, dùng bộ phân loại như DeBERTa, hay known-answer detection (chèn một chỉ thị có đáp án biết trước để xem LLM còn làm theo ứng dụng không). Dạng kiểm tra nhất quán đối chiếu hai nguồn thông tin: Dissecting cho LM chú thích riêng từng ảnh rồi so với văn bản; [MELON](melon.md) (ICML 2025) chạy lại quỹ đạo của agent với prompt người dùng bị che, dựa trên quan sát rằng khi tấn công thành công, lời gọi công cụ không còn phụ thuộc vào yêu cầu của người dùng. Dạng kiến trúc hệ thống hạn chế hành động: tool filter trong AgentDojo cho LLM chọn trước tập công cụ trước khi thấy dữ liệu không đáng tin; Task Shield (ACL 2025), theo mô tả trong Related Work của MELON, kiểm tra lời gọi công cụ có khớp với nhiệm vụ của người dùng không.
 
@@ -57,7 +57,7 @@ AgentDojo lập luận rằng benchmark tĩnh không đủ cho prompt injection:
 
 ### Hình thức hóa và đo lường
 
-Kiểu đóng góp thứ năm là một khung hình thức hoặc hệ chỉ số. [Formalizing and Benchmarking Prompt Injection Attacks and Defenses](formalizing-pi.md) (USENIX Security 2024) nhận xét rằng các công trình trước chủ yếu là case study, rồi đề xuất định nghĩa prompt injection dựa trên "target task" và "injected task", một khung mà các tấn công có sẵn là trường hợp đặc biệt, và hệ chỉ số gồm PNA (hiệu năng khi không bị tấn công), ASV (mức thành công của nhiệm vụ bị chèn), MR (tỉ lệ khớp với đầu ra khi chạy trực tiếp nhiệm vụ bị chèn), cùng FPR và FNR cho bộ phát hiện. Dissecting đề xuất khung ARE (Agent Robustness Evaluation), coi agent là đồ thị các thành phần và đo "ảnh hưởng đối kháng" lan truyền qua từng cạnh.
+Kiểu đóng góp thứ năm là một khung hình thức hoặc hệ chỉ số. [Formalizing and Benchmarking Prompt Injection Attacks and Defenses](formalizing-pi.md) (USENIX Security 2024) nhận xét rằng các công trình trước chủ yếu là case study, rồi đề xuất định nghĩa prompt injection dựa trên "target task" và "injected task", một khung mà các tấn công có sẵn là trường hợp đặc biệt, và các chỉ số như PNA (hiệu năng khi không bị tấn công), ASV (mức thành công của nhiệm vụ bị chèn), cùng FPR và FNR cho bộ phát hiện. Dissecting đề xuất khung ARE (Agent Robustness Evaluation), coi agent là đồ thị các thành phần và đo "ảnh hưởng đối kháng" lan truyền qua từng cạnh.
 
 Reviewer kiểm tra xem khung hình thức có *làm được việc* không. Khung của paper hình thức hóa thống nhất các tấn công có sẵn, gợi ý một tấn công mới mạnh hơn, và cho phép đánh giá có hệ thống 5 tấn công, 10 phòng vệ, 10 LLM trên 7 nhiệm vụ; khung ARE giải thích vì sao thêm một thành phần có thể vừa giúp vừa hại. Khung chỉ thêm ký hiệu mà không dẫn tới phát hiện mới sẽ bị coi là trang trí.
 
@@ -84,7 +84,7 @@ Reviewer xem xét độ bao phủ của phân loại nội dung có hại, chấ
 | [StruQ](struq.md) | USENIX Security 2025 | Phòng vệ huấn luyện kèm thiết kế hệ thống | TAP, GCG cho prompt injection; tấn công thích nghi | Có | Tinh chỉnh toàn bộ mô hình 7B |
 | [VLGuard](vlguard.md) | ICML 2024 | Dataset huấn luyện an toàn | Phân tích mất căn chỉnh; chiến lược tinh chỉnh | Có | Dưới một giờ trên hai A100 cho bản 7B |
 
-Còn "evaluation method" và "prompting method", hai cụm từ người học hay dùng? "Evaluation method" tương ứng với nhóm benchmark và nhóm hình thức hóa. "Prompting method" hiếm khi là đóng góp chính. Trong tấn công, prompt là *vật liệu*, còn đóng góp nằm ở threat model và phân tích, dù chữ quan trọng tới mức khi Pop-ups vẽ pop-up không có chữ, ASR giảm gần như về không. Trong phòng vệ, phương pháp chỉ dựa trên prompt liên tục bị chứng minh là yếu: paper hình thức hóa kết luận phòng vệ phòng ngừa có hiệu quả hạn chế hoặc làm giảm utility; Dissecting, EIA và Pop-ups đều thấy lời dặn trong system prompt không chặn được tấn công; sandwich prompting trong CrossInject trung bình chỉ giảm ASR vài điểm phần trăm. Một paper chỉ đề xuất "system prompt tốt hơn" khó thuyết phục reviewer, trừ khi prompt đó thể hiện một insight lớn hơn về cơ chế thất bại.
+Còn "evaluation method" và "prompting method"? "Evaluation method" tương ứng với nhóm benchmark và nhóm hình thức hóa. "Prompting method" hiếm khi là đóng góp chính. Trong tấn công, prompt là *vật liệu*, còn đóng góp nằm ở threat model và phân tích, dù chữ quan trọng tới mức khi Pop-ups vẽ pop-up không có chữ, ASR giảm gần như về không. Trong phòng vệ, phương pháp chỉ dựa trên prompt liên tục bị chứng minh là yếu: paper hình thức hóa kết luận phòng vệ phòng ngừa có hiệu quả hạn chế hoặc làm giảm utility; Dissecting, EIA và Pop-ups đều thấy lời dặn trong system prompt không chặn được tấn công. Một paper chỉ đề xuất "system prompt tốt hơn" khó thuyết phục reviewer, trừ khi prompt đó thể hiện một insight lớn hơn về cơ chế thất bại.
 
 ## Vì sao ít cần GPU mà vẫn được nhận
 
@@ -92,13 +92,13 @@ Tám trong mười paper không thay đổi trọng số của mô hình đích,
 
 **Đóng góp nằm ở threat model và insight.** Trong bảo mật, một kết quả mạnh là một *mệnh đề về thế giới*, chẳng hạn "agent dùng GPT-4o kèm tree search có thể bị chiếm quyền chỉ bằng nhiễu không nhìn thấy trên một ảnh sản phẩm do kẻ tấn công đăng". Mệnh đề đó đúng hay sai không phụ thuộc vào số GPU dùng để kiểm chứng. Dissecting có giá trị vì cho thấy thêm thành phần suy luận có thể làm agent kém bền hơn trong trường hợp xấu nhất; paper visual adversarial jailbreak có giá trị vì nối hai dòng nghiên cứu adversarial examples và alignment.
 
-**Mô hình mục tiêu thường là mô hình đóng.** Hệ thống đáng tấn công nhất là hệ thống đang triển khai, thường chạy trên mô hình thương mại. Pop-ups thử GPT-4-Turbo, GPT-4o, Gemini 1.5 Pro và hai phiên bản Claude 3.5 Sonnet; AgentDojo gọi phần lớn mô hình qua API chính thức; paper hình thức hóa dùng GPT-4 qua API làm mô hình mặc định. Không thể huấn luyện lại các mô hình này dù có bao nhiêu GPU, nên đóng góp buộc phải nằm ở đầu vào, môi trường hoặc kiến trúc bao quanh mô hình.
+**Mô hình mục tiêu thường là mô hình đóng.** Hệ thống đáng tấn công nhất là hệ thống đang triển khai, thường chạy trên mô hình thương mại: Pop-ups thử các mô hình GPT-4, Gemini và Claude; AgentDojo gọi phần lớn mô hình qua API chính thức; paper hình thức hóa dùng GPT-4 qua API làm mô hình mặc định. Không thể huấn luyện lại các mô hình này dù có bao nhiêu GPU, nên đóng góp buộc phải nằm ở đầu vào, môi trường hoặc kiến trúc bao quanh mô hình.
 
 **Tính thực tế là điểm mạnh của tấn công.** Theo nguyên tắc threat model, tấn công black-box, rẻ, không cần tối ưu được đánh giá *cao hơn* tấn công white-box tốn kém. Pop-ups nêu thẳng rằng tấn công dựa trên gradient cần hàng nghìn bước và kém chuyển giao sang VLM thương mại. Dissecting khuyến nghị tập trung vào kịch bản chỉ sửa được ảnh, vì nhiễu ảnh khó phát hiện và kẻ tấn công dễ chối bỏ. EIA giả định kẻ tấn công không biết trước nhiệm vụ của người dùng và yêu cầu tấn công không làm hỏng nhiệm vụ đó, vì nếu agent thất bại rõ ràng, người dùng sẽ phát hiện và đưa trang web vào danh sách đen.
 
 **Phòng vệ suy luận dễ triển khai.** Phương pháp không huấn luyện áp dụng được cho mô hình đóng mà không đòi hạ tầng huấn luyện. MELON đưa lập luận này vào chính threat model của paper khi giả định bên phòng vệ không có tài nguyên huấn luyện LLM và không truy cập được biểu diễn bên trong. Tuy vậy, "không huấn luyện" không có nghĩa là miễn phí: MELON nhân đôi số lần gọi mô hình, còn kiểm tra nhất quán của Dissecting tốn nhiều lần gọi API vì phần lớn trang web trong đánh giá có hơn mười ảnh.
 
-**Nhưng hướng huấn luyện vẫn có chỗ**, với điều kiện có lập luận vì sao phải can thiệp vào trọng số. StruQ lập luận rằng giao diện hiện tại của LLM, vốn trộn chỉ thị với dữ liệu trong một chuỗi, là "unsafe-by-design", và muốn tách hai kênh thì phải huấn luyện mô hình hiểu giao diện mới. VLGuard lập luận rằng nguyên nhân nằm ở dữ liệu tinh chỉnh nên cách sửa cũng nằm ở đó. Dissecting còn gợi ý gián tiếp: GPT-4o bền hơn GPT-4V rõ rệt trong thí nghiệm, và phỏng đoán tốt nhất của tác giả là nhờ instruction hierarchy, một phương pháp huấn luyện giúp mô hình không bị chỉ thị từ nguồn không đáng tin dẫn dắt. Có thể hiểu rằng phòng vệ huấn luyện là việc của nhà cung cấp mô hình, còn phòng vệ suy luận là việc nhà phát triển ứng dụng làm được ngay.
+**Nhưng hướng huấn luyện vẫn có chỗ**, với điều kiện có lập luận vì sao phải can thiệp vào trọng số. StruQ lập luận rằng giao diện hiện tại của LLM, vốn trộn chỉ thị với dữ liệu trong một chuỗi, là "unsafe-by-design", và muốn tách hai kênh thì phải huấn luyện mô hình hiểu giao diện mới. VLGuard lập luận rằng nguyên nhân nằm ở dữ liệu tinh chỉnh nên cách sửa cũng nằm ở đó. Dissecting còn gợi ý gián tiếp: GPT-4o bền hơn GPT-4V rõ rệt, và phỏng đoán tốt nhất của tác giả là nhờ instruction hierarchy, một phương pháp huấn luyện giúp mô hình không bị đầu vào không đáng tin dẫn dắt. Phòng vệ huấn luyện vì thế phù hợp với nhà cung cấp mô hình, còn phòng vệ suy luận là thứ nhà phát triển ứng dụng làm được ngay.
 
 ### Các "trò lạ" là lựa chọn thiết kế có chủ đích
 
@@ -106,14 +106,14 @@ Những thủ thuật khiến người học ngạc nhiên có chung một logic
 
 | Thủ thuật | Paper | Kẻ tấn công được mô phỏng | Câu hỏi được kiểm chứng |
 |---|---|---|---|
-| Pop-up mang câu tóm tắt yêu cầu người dùng | Pop-ups | Kẻ mua chỗ quảng cáo, chèn script qua XSS, gửi ảnh qua email lừa đảo | Agent có bỏ qua nội dung đáng ngờ như con người không? |
-| Chỉ thị độc hại dưới dạng ảnh chữ | FigStep, được VLGuard dùng để đánh giá | Người dùng black-box chỉ gửi được ảnh và văn bản | Căn chỉnh an toàn học trên văn bản có chuyển sang kênh ảnh không? |
+| Pop-up mang câu tóm tắt yêu cầu người dùng | Pop-ups | Kẻ mua chỗ quảng cáo, chèn script qua XSS, gửi email lừa đảo | Agent có bỏ qua nội dung đáng ngờ như con người không? |
+| Chỉ thị độc hại dưới dạng ảnh chữ | FigStep, được VLGuard dùng để đánh giá | Người dùng black-box chỉ gửi được ảnh và văn bản | Lớp an toàn có giữ được khi chỉ thị đi qua kênh ảnh không? |
 | Nhiễu không nhìn thấy trên ảnh sản phẩm | Dissecting | Người bán hợp lệ, chỉ sửa được nội dung do họ đăng | Thay đổi dưới 5% điểm ảnh có lan qua cả hệ thống agent không? |
-| Ô nhập liệu trong suốt nhân bản phần tử thật, kèm script tự gửi dữ liệu | EIA | Thư viện front-end nhiễm mã độc hoặc nhà phát triển xấu | Agent có điền thông tin cá nhân vào phần tử giả mà vẫn hoàn thành nhiệm vụ không? |
+| Ô nhập liệu trong suốt nhân bản phần tử thật | EIA | Thư viện front-end nhiễm mã độc hoặc nhà phát triển xấu | Agent có điền thông tin cá nhân vào phần tử giả mà vẫn hoàn thành nhiệm vụ không? |
 | Che prompt người dùng rồi chạy lại agent | MELON | Bên phòng vệ không có tài nguyên huấn luyện | Hành động của agent còn phụ thuộc vào yêu cầu người dùng không? |
 | Delimiter thành token đặc biệt, lọc khỏi dữ liệu | StruQ | Bên phòng vệ thiết kế giao diện mới cho LLM | Tách kênh có chặn được tấn công giả mạo delimiter không? |
 
-Đọc theo cột cuối, mỗi thủ thuật là một *thí nghiệm có kiểm soát* cho một câu hỏi khoa học. Reviewer không chấm độ "thông minh" của thủ thuật mà chấm độ khớp giữa thủ thuật và kẻ tấn công được mô phỏng. Đó cũng là lý do Pop-ups thử cả các phiên bản yếu hơn, như phỏng đoán thay vì biết yêu cầu người dùng, hay gắn nhãn "ADVERTISEMENT" theo quy định quảng cáo: chúng trả lời câu hỏi "nếu kẻ tấn công thực tế bị ràng buộc hơn thì sao".
+Đọc theo cột cuối, mỗi thủ thuật là một *thí nghiệm có kiểm soát* cho một câu hỏi khoa học. Reviewer không chấm độ "thông minh" của thủ thuật mà chấm độ khớp giữa thủ thuật và kẻ tấn công được mô phỏng. Vì vậy Pop-ups thử cả các phiên bản yếu hơn, như phỏng đoán yêu cầu người dùng hay gắn nhãn "ADVERTISEMENT" theo quy định quảng cáo, để trả lời câu hỏi "nếu kẻ tấn công bị ràng buộc hơn thì sao".
 
 ## Xu hướng theo thời gian
 
@@ -129,7 +129,7 @@ Mười paper trải từ các bản arXiv năm 2023 tới hội nghị năm 202
 
 **Từ phòng vệ heuristic sang phòng vệ có bảo đảm hoặc ở mức hệ thống.** StruQ đổi giao diện của LLM; tool filter và Task Shield kiểm soát hành động ở mức hệ thống; MELON bổ sung phân tích lý thuyết cho thấy khi kết hợp nhiều bộ phát hiện yếu, cận sai số giảm theo hàm mũ với số bộ phát hiện, nếu một điều kiện về độ tương đồng trung bình được thỏa mãn.
 
-**Tấn công thích nghi trở thành kỳ vọng.** Paper visual adversarial jailbreak đã lưu ý rằng DiffPure có thể thất bại trước tấn công thích nghi tinh vi hơn. AgentDojo đưa tư tưởng này vào chỉ số khi coi một tập tấn công là thành công nếu bất kỳ tấn công nào trong tập thành công. StruQ dành hẳn một mục cho tấn công thích nghi, còn Dissecting kết luận bằng lời kêu gọi xây dựng tấn công thích nghi mạnh hơn khi phòng vệ mới xuất hiện. Nhìn từ năm 2026, một phòng vệ thiếu mục này gần như chắc chắn bị reviewer hỏi tới.
+**Tấn công thích nghi trở thành kỳ vọng.** Paper visual adversarial jailbreak đã lưu ý rằng DiffPure có thể thất bại trước tấn công thích nghi tinh vi hơn. AgentDojo đưa tư tưởng này vào chỉ số khi coi một tập tấn công là thành công nếu bất kỳ tấn công nào trong tập thành công; StruQ dành hẳn một mục cho tấn công thích nghi; Dissecting kết luận bằng lời kêu gọi xây dựng tấn công thích nghi mạnh hơn. Nhìn từ năm 2026, một phòng vệ thiếu mục này gần như chắc chắn bị reviewer hỏi tới.
 
 ## Reviewer ở từng loại hội nghị đánh giá thế nào
 
@@ -137,7 +137,7 @@ Mười paper được nhận ở sáu loại hội nghị, và cùng một ki�
 
 ### Computer Vision
 
-Reviewer CVPR, ICCV, ECCV quan tâm tới bản chất *thị giác* của lỗ hổng: ngân sách nhiễu và mức khó nhận thấy, chuyển giao giữa các bộ mã hóa thị giác, độ bền trước biến đổi ảnh, khả năng hiện thực hóa trong thế giới vật lý, và hình định tính. Ablation ngân sách nhiễu (CrossInject thử từ 2 tới 32 theo chuẩn L∞) hay miếng dán đối kháng có hình biển báo dừng là loại bằng chứng cộng đồng này quen đọc. Benchmark an toàn đa phương thức cũng có chỗ, ví dụ MM-SafetyBench ở ECCV 2024. Một tấn công chỉ dựa vào chữ hiển thị trong ảnh có thể bị hỏi "đóng góp thị giác ở đâu".
+Reviewer CVPR, ICCV, ECCV quan tâm tới bản chất *thị giác* của lỗ hổng: ngân sách nhiễu và mức khó nhận thấy, chuyển giao giữa các bộ mã hóa thị giác, độ bền trước biến đổi ảnh, khả năng hiện thực hóa trong thế giới vật lý, và hình định tính. Ablation ngân sách nhiễu (CrossInject thử từ 2 tới 32 theo chuẩn L∞) hay miếng dán đối kháng có hình biển báo dừng là loại bằng chứng cộng đồng này quen đọc; benchmark an toàn đa phương thức cũng có chỗ, ví dụ MM-SafetyBench ở ECCV 2024. Một tấn công chỉ dựa vào chữ trong ảnh có thể bị hỏi "đóng góp thị giác ở đâu".
 
 ### Machine Learning
 
@@ -145,11 +145,11 @@ Reviewer NeurIPS, ICML, ICLR tìm tính tổng quát và insight chuyển đư�
 
 ### NLP
 
-Reviewer ACL và EMNLP, qua ACL Rolling Review, quan tâm tới hành vi ngôn ngữ và chất lượng phân tích. Pop-ups, ở ACL, dành phần lớn thực nghiệm cho phân tích cách các thành phần văn bản, như câu tóm tắt yêu cầu người dùng do LLM sinh hay nhãn quảng cáo, ảnh hưởng tới quyết định của agent; Task Shield cũng ở ACL 2025. Cộng đồng này đòi mục Limitations nghiêm túc, thảo luận đạo đức, Responsible NLP Checklist, phân tích lỗi bằng ví dụ, và đọc kỹ cách xử lý nội dung độc hại. Xem bài [Viết cho ACL / EMNLP / NAACL](../06-cong-dong/nlp.md).
+Reviewer ACL và EMNLP, qua ACL Rolling Review, quan tâm tới hành vi ngôn ngữ và chất lượng phân tích. Pop-ups, ở ACL, dành phần lớn thực nghiệm cho phân tích cách các thành phần văn bản, như câu tóm tắt yêu cầu người dùng hay nhãn quảng cáo, ảnh hưởng tới quyết định của agent; Task Shield cũng ở ACL 2025. Cộng đồng này đòi mục Limitations nghiêm túc, thảo luận đạo đức, Responsible NLP Checklist và phân tích lỗi bằng ví dụ. Xem bài [Viết cho ACL / EMNLP / NAACL](../06-cong-dong/nlp.md).
 
 ### Multimedia
 
-ACM MM quan tâm tới tương tác giữa các phương thức. CrossInject hợp với cộng đồng này vì luận điểm chính là tấn công đơn phương thức bỏ qua tương tác giữa các phương thức, và tấn công phải phối hợp qua nhiều nguồn đầu vào mới khai thác được điểm yếu của việc hợp nhất đa phương thức. Thử nghiệm trên hệ thống thực được đánh giá cao.
+ACM MM quan tâm tới tương tác giữa các phương thức. CrossInject hợp với cộng đồng này vì luận điểm chính là tấn công đơn phương thức bỏ qua tương tác đó, và phải phối hợp qua nhiều nguồn đầu vào mới khai thác được điểm yếu của việc hợp nhất đa phương thức. Thử nghiệm trên hệ thống thực được đánh giá cao.
 
 ### AI tổng quát
 
@@ -157,7 +157,7 @@ AAAI nhận paper từ mọi nhánh AI, nên reviewer có thể không chuyên v
 
 ### Security
 
-USENIX Security, ACM CCS, IEEE S&P và NDSS thường được coi là bốn hội nghị bảo mật hàng đầu; hạng CORE của từng hội nghị cần tra cứu trên cổng ICORE với đúng phiên bản mà cơ quan đánh giá áp dụng. Mục threat model ở đây là bắt buộc và bị đọc rất kỹ; một giả định thiếu thực tế về kẻ tấn công có thể đủ để paper bị từ chối, bất kể kết quả mạnh tới đâu. Với phòng vệ, tấn công thích nghi gần như là điều kiện cần. Reviewer bảo mật trân trọng việc hệ thống hóa, như paper hình thức hóa biến các case study rời rạc thành một khung thống nhất, và việc nối vấn đề mới với nguyên lý kinh điển, như StruQ đặt prompt injection cạnh SQL injection. Những năm gần đây, các hội nghị này thường có nhiều đợt nộp, có quyết định yêu cầu sửa lớn (major revision), và có yêu cầu về đạo đức, công bố có trách nhiệm (responsible disclosure) và chia sẻ artifact; chi tiết đổi theo năm.
+USENIX Security, ACM CCS, IEEE S&P và NDSS thường được coi là bốn hội nghị bảo mật hàng đầu; hạng CORE của từng hội nghị cần tra cứu trên cổng ICORE với đúng phiên bản mà cơ quan đánh giá áp dụng. Mục threat model ở đây là bắt buộc và bị đọc rất kỹ; một giả định thiếu thực tế về kẻ tấn công có thể đủ để paper bị từ chối. Với phòng vệ, tấn công thích nghi gần như là điều kiện cần. Reviewer bảo mật trân trọng việc hệ thống hóa, như paper hình thức hóa biến các case study rời rạc thành một khung thống nhất, và việc nối vấn đề mới với nguyên lý kinh điển, như StruQ đặt prompt injection cạnh SQL injection. Những năm gần đây, các hội nghị này thường có nhiều đợt nộp, quyết định yêu cầu sửa lớn (major revision), và yêu cầu về đạo đức, công bố có trách nhiệm (responsible disclosure) và chia sẻ artifact; chi tiết đổi theo năm.
 
 | Loại hội nghị | Câu hỏi đầu tiên của reviewer | Bằng chứng được đánh giá cao | Ví dụ |
 |---|---|---|---|
@@ -189,13 +189,13 @@ flowchart TD
 
 | Tình huống của nhóm | Kiểu đóng góp | Hội nghị phù hợp | Bằng chứng tối thiểu |
 |---|---|---|---|
-| Agent computer-use làm theo chữ trong một phần tử giao diện mà người dùng sẽ bỏ qua; chỉ có ngân sách API | Bề mặt tấn công mới, tấn công thiết kế nội dung | NLP, ML; Security nếu threat model rất chặt | Nhiều mô hình thương mại; ablation từng thành phần; phiên bản kẻ tấn công ít hiểu biết hơn; phòng vệ cơ bản; utility khi bị tấn công |
-| Có GPU, muốn tạo nhiễu ảnh ép VLM làm theo chỉ thị ẩn | Tấn công tối ưu hóa qua mô hình thay thế | CV, Multimedia | Ngân sách nhiễu; chuyển giao sang mô hình đóng; so sánh tấn công trước; phòng vệ tiền xử lý |
-| Thấy một dấu hiệu hành vi phân biệt quỹ đạo bị tấn công với quỹ đạo bình thường | Phòng vệ suy luận | ML, Security | Môi trường động chuẩn; nhiều tấn công; utility, dương tính giả; chi phí; tấn công thích nghi |
-| Chẩn đoán được nguyên nhân trong dữ liệu hay giao diện huấn luyện | Phòng vệ huấn luyện, dataset an toàn | ML, Security | Phân tích nguyên nhân; helpfulness, an toàn thái quá; tấn công chưa thấy khi huấn luyện; tấn công thích nghi |
-| Các paper trong hướng không so sánh được vì mỗi paper tự dựng kịch bản | Benchmark động, khung đo lường | ML (D&B), Security | Nhiệm vụ thực tế; chấm điểm không phụ thuộc giám khảo dễ bị chiếm quyền; chưa bão hòa; mở rộng được |
+| Agent computer-use làm theo chữ trong một phần tử giao diện; chỉ có ngân sách API | Bề mặt tấn công, tấn công thiết kế nội dung | NLP, ML; Security nếu threat model rất chặt | Nhiều mô hình thương mại; ablation; phiên bản kẻ tấn công ít hiểu biết; phòng vệ cơ bản; utility |
+| Có GPU, muốn tạo nhiễu ảnh ép VLM làm theo chỉ thị ẩn | Tấn công tối ưu hóa qua mô hình thay thế | CV, Multimedia | Ngân sách nhiễu; chuyển giao sang mô hình đóng; phòng vệ tiền xử lý |
+| Thấy một dấu hiệu hành vi phân biệt quỹ đạo bị tấn công | Phòng vệ suy luận | ML, Security | Môi trường động; utility, dương tính giả; chi phí; tấn công thích nghi |
+| Chẩn đoán được nguyên nhân trong dữ liệu hay giao diện huấn luyện | Phòng vệ huấn luyện, dataset an toàn | ML, Security | Phân tích nguyên nhân; an toàn thái quá; tấn công chưa thấy; tấn công thích nghi |
+| Các paper trong hướng không so sánh được với nhau | Benchmark động, khung đo lường | ML (D&B), Security | Nhiệm vụ thực tế; chấm điểm khó bị chiếm quyền; chưa bão hòa; mở rộng được |
 
-Hai kiểu đóng góp đầu thường là điểm vào hợp lý cho paper đầu tay vì chi phí thấp và vòng thử nghiệm nhanh, nhưng cạnh tranh mạnh về tính mới. Phòng vệ có thời gian sống lâu hơn nếu vượt qua được tấn công thích nghi, nhưng rủi ro bị phá ngay sau khi công bố cũng cao hơn.
+Hai kiểu đóng góp đầu là điểm vào hợp lý cho paper đầu tay vì chi phí thấp và vòng thử nghiệm nhanh, nhưng cạnh tranh mạnh về tính mới. Phòng vệ sống lâu hơn nếu vượt qua được tấn công thích nghi, nhưng rủi ro bị phá ngay sau khi công bố cũng cao hơn.
 
 ### Những cái bẫy thường gặp
 
@@ -235,7 +235,7 @@ Câu này cho reviewer biết tấn công được đo trên nhiệm vụ mà ag
 </div>
 
 !!! tip "Khi dùng LLM làm giám khảo"
-    Nhiều paper dùng LLM để chấm ASR hay utility, như CrossInject dùng LLM-as-a-Judge. AgentDojo chỉ ra rủi ro đặc thù: tấn công chèn chỉ thị có thể chiếm quyền chính giám khảo. Khi dùng LLM làm giám khảo, nên giải thích vì sao giám khảo không bị ảnh hưởng bởi nội dung bị chèn, hoặc kiểm tra thủ công một mẫu kết quả.
+    Nhiều paper dùng LLM để chấm ASR hay utility, như CrossInject. AgentDojo chỉ ra rủi ro đặc thù: tấn công chèn chỉ thị có thể chiếm quyền chính giám khảo. Khi đó nên giải thích vì sao giám khảo không bị nội dung bị chèn ảnh hưởng, hoặc kiểm tra thủ công một mẫu kết quả.
 
 ## Tóm tắt
 
