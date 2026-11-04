@@ -2,7 +2,7 @@
 
 Các chương trước mô tả con đường suôn sẻ của một paper: ý tưởng được thẩm định, pilot cho tín hiệu tốt, thí nghiệm xác nhận giả thuyết, và câu chuyện được xây trên những bằng chứng đó. Thực tế nghiên cứu hiếm khi đi thẳng như vậy. Người mới thường mất phương hướng không phải vì thiếu nhiệt huyết, mà vì gặp những tình huống mà các tiêu chí của một paper tốt kéo về những hướng khác nhau. Ý tưởng mới và hấp dẫn nhưng số liệu thua baseline. Một mẹo đơn giản đến bất ngờ lại cho kết quả rất tốt, nhưng nghe như chẳng có gì mới. Ghép nhiều thứ lại thì đạt SOTA, nhưng không ai giải thích được cái gì tạo ra kết quả. Phần đóng góp chính có vẻ "thiếu thiếu", nên nảy ra ý thêm một pipeline dữ liệu hay một benchmark vào danh sách contribution cho đủ.
 
-Chương này là một **cẩm nang tình huống**. Hai mươi chín tình huống thường gặp được chia thành năm nhóm, và mỗi tình huống được xử lý theo cùng một khung năm bước: *nhận diện* tình huống qua triệu chứng, *chẩn đoán* nguyên nhân, liệt kê *các lối ra* hợp lệ kèm điều kiện áp dụng, hướng dẫn *viết thế nào* với câu mẫu tiếng Anh, và chỉ rõ *điều không được làm*. Bài cuối chương không phải một nhóm tình huống. Nó bàn về ranh giới giữa việc đóng khung lại một kết quả một cách hợp lệ và việc bóp méo kết quả, vì gần như mọi lối ra trong chương đều chạm tới ranh giới này.
+Chương này là một **cẩm nang tình huống**. Ba mươi lăm tình huống thường gặp được chia thành sáu nhóm, và mỗi tình huống được xử lý theo cùng một khung năm bước: *nhận diện* tình huống qua triệu chứng, *chẩn đoán* nguyên nhân, liệt kê *các lối ra* hợp lệ kèm điều kiện áp dụng, hướng dẫn *viết thế nào* với câu mẫu tiếng Anh, và chỉ rõ *điều không được làm*. Hai bài cuối chương không phải nhóm tình huống. Bài thứ nhất bàn về ranh giới giữa việc đóng khung lại một kết quả một cách hợp lệ và việc bóp méo kết quả, vì gần như mọi lối ra trong chương đều chạm tới ranh giới này. Bài thứ hai là bài thực hành, theo chân ba dự án giả định đi qua nhiều tình huống liên tiếp, để thấy các lối ra được kết hợp với nhau như thế nào trong một dự án thật.
 
 Chương được đặt sau các chương về kỹ năng viết, cộng đồng và chuyên đề vì nó giả định người đọc đã nắm khung chuẩn: các kiểu đóng góp, cách xây câu chuyện, cách thiết kế thí nghiệm và cách reviewer đọc paper. Một số tình huống đã được nhắc ngắn gọn ở những chương đó, chẳng hạn bẫy "A + B" và concurrent work trong bài [Tìm và thẩm định ý tưởng](../01-truoc-khi-viet/y-tuong.md), hay mục *Khi kết quả không như mong đợi* trong bài [Xây "câu chuyện" của paper](../01-truoc-khi-viet/cau-chuyen.md). Ở chương này, chúng được mổ xẻ sâu hơn nhiều, cùng với nhiều tình huống chưa được bàn tới.
 
@@ -49,14 +49,17 @@ flowchart TD
     Q1 -->|"Số liệu nhỏ, không ổn định, không cân sức"| C["Bài: Khi con số không đẹp (TH11–TH17)"]
     Q1 -->|"Bằng chứng nói khác với câu chuyện"| D["Bài: Câu chuyện và bằng chứng không khớp (TH18–TH23)"]
     Q1 -->|"Bị trùng ý tưởng, deadline, reviewer, reject"| E["Bài: Áp lực từ bên ngoài (TH24–TH29)"]
+    Q1 -->|"Không có baseline, motivation yếu, chi phí, dữ liệu, phạm vi"| F["Bài: Bài toán, dữ liệu và phạm vi (TH30–TH35)"]
     A --> T["Trước khi đổi khung: đọc bài Ranh giới trung thực"]
     B --> T
     C --> T
     D --> T
     E --> T
+    F --> T
+    T --> P["Xem cách kết hợp các lối ra: bài Thực hành"]
 ```
 
-## Bản đồ hai mươi chín tình huống
+## Bản đồ ba mươi lăm tình huống
 
 | # | Tình huống | Bài |
 |---|---|---|
@@ -89,6 +92,12 @@ flowchart TD
 | 27 | Kết quả phụ thuộc vào API hoặc mô hình đóng có thể thay đổi | [Áp lực từ bên ngoài](ap-luc-ben-ngoai.md) |
 | 28 | Reviewer đòi thí nghiệm không thể làm | [Áp lực từ bên ngoài](ap-luc-ben-ngoai.md) |
 | 29 | Bị reject nhiều lần với cùng lời phê "thiếu novelty" | [Áp lực từ bên ngoài](ap-luc-ben-ngoai.md) |
+| 30 | Bài toán mới nên không có baseline nào để so sánh | [Bài toán, dữ liệu và phạm vi](bai-toan-va-pham-vi.md) |
+| 31 | Kết quả tốt cho một bài toán mà reviewer không thấy quan trọng | [Bài toán, dữ liệu và phạm vi](bai-toan-va-pham-vi.md) |
+| 32 | Phương pháp tốt hơn nhưng chậm hơn hoặc tốn kém hơn nhiều | [Bài toán, dữ liệu và phạm vi](bai-toan-va-pham-vi.md) |
+| 33 | Dữ liệu riêng không thể công bố | [Bài toán, dữ liệu và phạm vi](bai-toan-va-pham-vi.md) |
+| 34 | Lý thuyết đẹp nhưng thí nghiệm ở quy mô đồ chơi, hoặc thực nghiệm mạnh mà không có lý thuyết | [Bài toán, dữ liệu và phạm vi](bai-toan-va-pham-vi.md) |
+| 35 | Kết quả trên benchmark đẹp nhưng không chuyển được sang thực tế | [Bài toán, dữ liệu và phạm vi](bai-toan-va-pham-vi.md) |
 
 ## Các bài trong chương
 
@@ -97,10 +106,12 @@ flowchart TD
 - [Khi con số không đẹp](con-so-khong-dep.md): cải thiện nằm trong nhiễu, kết quả không đồng đều giữa các dataset, baseline không tái lập được, giới hạn tài nguyên, metric lệch với đánh giá của con người, và so sánh không cân sức.
 - [Khi câu chuyện và bằng chứng không khớp](cau-chuyen-va-bang-chung.md): khi ablation phủ nhận câu chuyện, khi không giải thích được vì sao phương pháp hoạt động, kết quả âm tính, paper "reality check", lỗi benchmark, và bug được phát hiện muộn.
 - [Áp lực từ bên ngoài](ap-luc-ben-ngoai.md): bị trùng ý tưởng, mô hình nền mới làm bài toán lỗi thời, deadline, mô hình đóng thay đổi theo thời gian, yêu cầu bất khả thi từ reviewer, và những lần reject lặp lại.
+- [Bài toán, dữ liệu và phạm vi](bai-toan-va-pham-vi.md): bài toán mới chưa có baseline, motivation yếu, phương pháp tốt hơn nhưng tốn kém, dữ liệu riêng không công bố được, khoảng cách giữa lý thuyết và thực nghiệm, và khoảng cách giữa benchmark với thực tế.
 - [Đóng khung lại hay bóp méo: ranh giới trung thực](ranh-gioi-trung-thuc.md): phổ hành vi từ trình bày tốt tới sai phạm, HARKing, khu vườn rẽ nhánh, tập test, ngôn từ thổi phồng, và các phép thử trước khi nộp.
+- [Thực hành: ba dự án đi qua ngõ cụt](thuc-hanh.md): ba dự án giả định ở Computer Vision, NLP và Machine Learning, mỗi dự án đi qua nhiều tình huống liên tiếp, với abstract và danh sách đóng góp trước và sau khi gỡ, cùng một mẫu nhật ký quyết định.
 
 ## Cách đọc chương
 
-Chương không cần đọc theo thứ tự. Người đang bế tắc có thể tìm tình huống gần nhất trong bảng hoặc sơ đồ trên, đọc tình huống đó, rồi đọc bài [Ranh giới trung thực](ranh-gioi-trung-thuc.md) trước khi quyết định đổi khung câu chuyện. Người chưa gặp tình huống nào nên đọc lướt cả chương một lần, ngay khi dự án bắt đầu. Nhận ra sớm rằng dự án đang đi vào một tình huống quen thuộc, chẳng hạn đang ghép thêm thành phần thứ tư mà chưa ablation ba thành phần đầu, rẻ hơn nhiều so với phát hiện ra điều đó khi chỉ còn hai tuần đến deadline.
+Chương không cần đọc theo thứ tự. Người đang bế tắc có thể tìm tình huống gần nhất trong bảng hoặc sơ đồ trên, đọc tình huống đó, rồi đọc bài [Ranh giới trung thực](ranh-gioi-trung-thuc.md) trước khi quyết định đổi khung câu chuyện. Bài [Thực hành](thuc-hanh.md) cho thấy trong một dự án thật, các tình huống hiếm khi xuất hiện riêng lẻ: một kết quả thua baseline thường kéo theo câu hỏi về chế độ thắng, về so sánh cân sức và về cách đóng khung lại. Người chưa gặp tình huống nào nên đọc lướt cả chương một lần, ngay khi dự án bắt đầu. Nhận ra sớm rằng dự án đang đi vào một tình huống quen thuộc, chẳng hạn đang ghép thêm thành phần thứ tư mà chưa ablation ba thành phần đầu, rẻ hơn nhiều so với phát hiện ra điều đó khi chỉ còn hai tuần đến deadline.
 
 Mọi kịch bản minh họa trong chương đều là ví dụ giả định, được ghi rõ khi xuất hiện. Các paper thật chỉ được nêu khi chúng là những ví dụ nổi tiếng, được cộng đồng biết đến rộng rãi cho đúng điểm đang bàn.
