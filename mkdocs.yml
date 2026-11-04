@@ -150,7 +150,7 @@ nav:
       - NLP:
           - BERT (NAACL 2019): 05-case-studies/bert.md
           - CheckList (ACL 2020): 05-case-studies/checklist-acl2020.md
-          - PhoMT (EMNLP 2021): 05-case-studies/phomt.md
+          - PhoBERT (Findings of EMNLP 2020): 05-case-studies/phobert.md
           - EDWARD-NMT (Findings of EMNLP 2026): 05-case-studies/edward-nmt.md
       - ML/DL:
           - Transformer (NeurIPS 2017): 05-case-studies/transformer.md
@@ -169,8 +169,9 @@ nav:
       - AAAI / IJCAI / KDD / Journal: 06-cong-dong/khac.md
   - "7. Chuyên đề: AI Security":
       - 07-ai-security/index.md
+      - Xu hướng đóng góp trong AI Security: 07-ai-security/xu-huong-dong-gop.md
       - Tấn công qua ảnh:
-          - Image Hijacks (ICML 2024): 07-ai-security/image-hijacks.md
+          - Visual Adversarial Jailbreak (AAAI 2024): 07-ai-security/visual-adv-jailbreak.md
           - CrossInject (ACM MM 2025): 07-ai-security/crossinject.md
       - Tấn công agent đa phương thức:
           - Dissecting MM Agents (ICLR 2025): 07-ai-security/dissecting-mm-agents.md
@@ -181,8 +182,8 @@ nav:
           - AgentDojo (NeurIPS 2024): 07-ai-security/agentdojo.md
       - Phòng vệ:
           - MELON (ICML 2025): 07-ai-security/melon.md
-          - Task Shield (ACL 2025): 07-ai-security/task-shield.md
-          - ARGUS (CVPR 2026): 07-ai-security/argus.md
+          - StruQ (USENIX Security 2025): 07-ai-security/struq.md
+          - VLGuard (ICML 2024): 07-ai-security/vlguard.md
   - Phụ lục:
       - phu-luc/index.md
       - Checklist tổng hợp: phu-luc/checklist.md
