@@ -120,7 +120,7 @@ Những câu như "our method significantly improves performance" hay "the model
 *Our method improves mAP by 2.1 points on COCO and maintains its accuracy for inputs of up to 8k tokens, whereas the strongest baseline degrades beyond 2k tokens.*
 </div>
 
-Cụ thể cũng có nghĩa là chính xác về mức độ chắc chắn. Một kết quả thực nghiệm "*suggests*" hoặc "*indicates*" điều gì đó; chỉ một chứng minh mới "*proves*". Một thuật toán không chỉ "*converges*" mà "*converges at a rate of O(1/√T) under Assumption 1*". Việc chọn đúng động từ thể hiện mức độ chắc chắn (*hedging*) không phải là sự rụt rè, mà là dấu hiệu của người viết hiểu rõ bằng chứng của mình tới đâu.
+Cụ thể cũng có nghĩa là chính xác về mức độ chắc chắn. Một kết quả thực nghiệm "*suggests*" hoặc "*indicates*" điều gì đó; chỉ một chứng minh mới "*proves*". Một thuật toán không chỉ "*converges*" mà "*converges at a rate of O(1/√T) under Assumption 1*". Việc chọn đúng động từ thể hiện mức độ chắc chắn (*hedging*) không phải là sự rụt rè, mà là dấu hiệu của người viết hiểu rõ bằng chứng đang có mạnh tới đâu.
 
 ## Thì và ngôi
 
@@ -146,7 +146,7 @@ Phần lớn lỗi tiếng Anh của người viết Việt Nam không ngẫu nh
 
 Tiếng Việt không có mạo từ. Những gì gần nhất là các từ chỉ định như "này", "đó" (gần với "the") và việc dùng loại từ "một" khi giới thiệu (gần với "a"), nhưng cả hai đều không bắt buộc. Vì thế, người viết Việt thường bỏ mạo từ ở nơi tiếng Anh bắt buộc, hoặc thêm "the" vào nơi không cần. Ba quy tắc kinh nghiệm bao quát phần lớn trường hợp trong paper. Thứ nhất, danh từ đếm được số ít luôn cần một từ hạn định (a/an, the, this, our…): không viết "*network takes image as input*" mà viết "*the network takes an image as input*". Thứ hai, lần đầu giới thiệu một thực thể dùng "a/an", các lần sau khi người đọc đã biết thực thể đó thì dùng "the": "*We propose a module… The module consists of…*". Thứ ba, danh từ chỉ khái niệm chung, danh từ không đếm được và danh từ số nhiều mang nghĩa tổng quát thì không dùng "the": "*Deep learning has…*", "*Transformers are widely used*", chứ không viết "*The deep learning has…*".
 
-Một số trường hợp đặc thù của paper cũng cần lưu ý. Tên phương pháp và tên mô hình thường không đi với mạo từ ("*BERT outperforms…*", "*ResNet uses…*"). Tên dataset đứng một mình cũng vậy ("*on COCO*", "*on ImageNet*"), nhưng khi đi kèm danh từ chung thì cần "the" ("*the COCO dataset*", "*the GLUE benchmark*"). Các cụm "*the proposed method*", "*the encoder in Figure 2*" luôn có "the" vì người đọc biết chính xác thực thể nào đang được nói tới.
+Một số trường hợp đặc thù của paper cũng cần lưu ý. Tên phương pháp và tên mô hình thường không đi với mạo từ ("*BERT outperforms…*", "*ResNet uses…*"). Tên dataset dùng riêng lẻ cũng vậy ("*on COCO*", "*on ImageNet*"), nhưng khi đi kèm danh từ chung thì cần "the" ("*the COCO dataset*", "*the GLUE benchmark*"). Các cụm "*the proposed method*", "*the encoder in Figure 2*" luôn có "the" vì người đọc biết chính xác thực thể nào đang được nói tới.
 
 ### Số nhiều và danh từ không đếm được
 
@@ -192,7 +192,7 @@ Bảng dưới đây gom các lỗi đã phân tích để người viết tiệ
 
 ## Cụm từ nên tránh và cách thay thế
 
-Ngoài lỗi ngữ pháp, có những cụm từ đúng ngữ pháp nhưng gây hiệu ứng ngược với reviewer. Chúng thường rơi vào ba nhóm: cụm tự khen (tự gọi phương pháp của mình là "novel" thay vì để reviewer đánh giá), cụm có nghĩa kỹ thuật bị dùng sai ("significantly" khi không có kiểm định thống kê, một điểm mà reviewer NLP và ML đặc biệt hay bắt lỗi), và cụm mòn hoặc thiếu trang trọng. Nhận ra chúng giúp văn bản nghe khách quan và tự tin hơn.
+Ngoài lỗi ngữ pháp, có những cụm từ đúng ngữ pháp nhưng gây hiệu ứng ngược với reviewer. Chúng thường rơi vào ba nhóm: cụm tự khen (tự gọi phương pháp đề xuất là "novel" thay vì để reviewer đánh giá), cụm có nghĩa kỹ thuật bị dùng sai ("significantly" khi không có kiểm định thống kê, một điểm mà reviewer NLP và ML đặc biệt hay bắt lỗi), và cụm mòn hoặc thiếu trang trọng. Nhận ra chúng giúp văn bản nghe khách quan và tự tin hơn.
 
 | Nên tránh | Vì sao | Thay bằng |
 |---|---|---|

@@ -86,7 +86,7 @@ Outline nên được gửi cho người hướng dẫn **trước** khi viết 
 
 ### Tầng 2: Draft "xấu xí"
 
-Tầng 2 có một mục tiêu duy nhất: đưa **toàn bộ** nội dung lên trang, từ đầu tới cuối, càng nhanh càng tốt. Bản draft được phép vụng về, lặp từ, sai ngữ pháp, có chỗ trống. Lý do của cách tiếp cận này là viết và sửa là hai hoạt động tư duy khác nhau: viết đòi hỏi tạo ra ý, còn sửa đòi hỏi phán xét ý. Khi cố làm cả hai cùng lúc, người viết liên tục tự ngắt mạch suy nghĩ của mình để sửa câu vừa viết, và kết quả là sau một buổi chỉ có một đoạn văn. Tâm lý cầu toàn là nguyên nhân phổ biến nhất khiến người mới bị kẹt ở trang đầu.
+Tầng 2 có một mục tiêu duy nhất: đưa **toàn bộ** nội dung lên trang, từ đầu tới cuối, càng nhanh càng tốt. Bản draft được phép vụng về, lặp từ, sai ngữ pháp, có chỗ trống. Lý do của cách tiếp cận này là viết và sửa là hai hoạt động tư duy khác nhau: viết đòi hỏi tạo ra ý, còn sửa đòi hỏi phán xét ý. Khi cố làm cả hai cùng lúc, người viết liên tục tự ngắt mạch suy nghĩ để sửa câu vừa viết, và kết quả là sau một buổi chỉ có một đoạn văn. Tâm lý cầu toàn là nguyên nhân phổ biến nhất khiến người mới bị kẹt ở trang đầu.
 
 Một số kỹ thuật giúp viết draft nhanh. Đặt giới hạn thời gian cho từng mục, ví dụ hai giờ cho bản draft Related Work, và dừng khi hết giờ dù chưa hài lòng. Đánh dấu mọi chỗ còn thiếu bằng `\todo{}`, kể cả các con số chưa có: "*improves accuracy by \todo{X} points*". Khi bí một cách diễn đạt tiếng Anh, viết tạm ý đó bằng tiếng Việt trong một comment rồi đi tiếp; vấn đề câu chữ sẽ được giải quyết ở tầng 4. Không đọc lại những gì vừa viết trong cùng một phiên.
 
@@ -115,7 +115,7 @@ Mỗi paper sẽ được đánh giá bởi một vài reviewer mà nhóm tác g
 Trong lúc đọc, điền form dưới đây. Form được thiết kế để buộc người viết trả lời những câu hỏi mà reviewer sẽ trả lời trong bản review thật.
 
 ```markdown
-## Self-review form
+SELF-REVIEW FORM
 
 1. Tóm tắt paper trong ba câu, không nhìn bản thảo:
 2. Các claim chính là gì? Bằng chứng cho từng claim nằm ở đâu (bảng, hình, định lý nào)?

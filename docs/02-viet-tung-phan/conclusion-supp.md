@@ -9,7 +9,7 @@
     - Phân biệt supplementary material (kiểu CV) và appendix (kiểu ML, NLP), lựa chọn và tổ chức nội dung cho phần bổ sung.
     - Ẩn danh code và dữ liệu nộp kèm để không vi phạm quy định double-blind.
 
-Những phần ở cuối paper thường được viết vào những giờ cuối cùng trước deadline, khi người viết đã kiệt sức và chỉ muốn nộp cho xong. Kết quả là một Conclusion chép lại abstract, một đoạn Limitations chiếu lệ và một appendix lộn xộn. Đây là một sự lãng phí, vì mỗi phần trong số này đều có chức năng riêng trong mắt reviewer. Conclusion là điều người đọc mang theo khi gấp paper lại. Limitations xác định phạm vi mà các kết luận có giá trị, và cách tác giả viết nó cho thấy tác giả hiểu công trình của mình sâu tới đâu. Ethics statement trả lời những lo ngại về tác động xã hội trước khi chúng được nêu ra. Appendix hay supplementary chứa những bằng chứng giúp kết quả tái hiện được.
+Những phần ở cuối paper thường được viết vào những giờ cuối cùng trước deadline, khi người viết đã kiệt sức và chỉ muốn nộp cho xong. Kết quả là một Conclusion chép lại abstract, một đoạn Limitations chiếu lệ và một appendix lộn xộn. Đây là một sự lãng phí, vì mỗi phần trong số này đều có chức năng riêng trong mắt reviewer. Conclusion là điều người đọc mang theo khi gấp paper lại. Limitations xác định phạm vi mà các kết luận có giá trị, và cách tác giả viết nó cho thấy tác giả hiểu công trình sâu tới đâu. Ethics statement trả lời những lo ngại về tác động xã hội trước khi chúng được nêu ra. Appendix hay supplementary chứa những bằng chứng giúp kết quả tái hiện được.
 
 Thêm vào đó, trong những năm gần đây, nhiều phần trong số này đã chuyển từ "tùy chọn" sang "bắt buộc". Ở ACL Rolling Review, paper thiếu mục Limitations có thể bị desk reject; ở NeurIPS, Paper Checklist hỏi trực tiếp về limitations, broader impacts và tính tái hiện. Vì vậy, người viết nên lên dàn ý cho các phần cuối ngay từ khi viết bản nháp đầu tiên, không để dồn tới phút chót. Bài này lần lượt đi qua Conclusion, Limitations, broader impact và ethics statement, rồi tới supplementary và appendix, và kết thúc bằng việc ẩn danh code.
 
@@ -96,14 +96,15 @@ Trong thân bài, mọi tham chiếu tới phần bổ sung nên **cụ thể**:
 \section{Additional Ablations}\label{app:ablation}
 \section{Proof of Theorem~\ref{thm:sgd}}\label{app:proof_sgd}
 
-% CV: supplementary là file riêng (supp.tex), đánh số riêng cho hình và bảng
-\renewcommand{\thesection}{\Alph{section}}
-\renewcommand{\thefigure}{S\arabic{figure}}
-\renewcommand{\thetable}{S\arabic{table}}
+% CV: supplementary là file riêng (supp.tex); các dòng dưới đặt trong preamble
 % Tham chiếu tới nhãn của main.tex bằng gói xr
 % (cần file main.aux từ lần biên dịch main.tex; trên Overleaf có thể phải cấu hình thêm)
 \usepackage{xr}
 \externaldocument{main}
+% Đánh số riêng cho mục, hình và bảng của supplementary
+\renewcommand{\thesection}{\Alph{section}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
 ```
 
 Một số hội nghị, ở một số năm, cho phép hoặc yêu cầu cách làm khác với mô hình điển hình của cộng đồng, chẳng hạn cho phép nối supplementary vào cuối PDF của paper CV, hoặc yêu cầu appendix ML nộp thành file riêng. Hướng dẫn của năm nộp luôn là căn cứ cuối cùng.
@@ -141,5 +142,5 @@ Các phần cuối của paper đáng được đầu tư như mọi phần khá
 
 1. **Viết lại Conclusion.** Đặt abstract và Conclusion của bản nháp hiện tại cạnh nhau. Đánh dấu mọi câu trùng ý giữa hai phần, rồi viết lại Conclusion theo ba bước, trong đó có ít nhất một phát hiện từ phần analysis và một hướng nghiên cứu tiếp theo đủ cụ thể để người khác có thể bắt tay vào làm.
 2. **Liệt kê hạn chế.** Liệt kê ít nhất năm hạn chế của công trình, mỗi hạn chế thuộc một nhóm khác nhau (giả định, phạm vi dữ liệu hoặc ngôn ngữ, chi phí, đánh giá, failure case). Chọn ba hạn chế quan trọng nhất và viết mục Limitations theo công thức hạn chế, nguyên nhân, hướng giải quyết, kèm tham chiếu tới bằng chứng.
-3. **Ethics statement.** Trả lời bằng văn bản các câu hỏi trong mục broader impact và ethics statement cho dự án của mình. Nếu dự án nhắm tới NeurIPS hoặc ARR, đối chiếu với các câu hỏi tương ứng trong NeurIPS Paper Checklist hoặc Responsible NLP Research checklist của năm gần nhất.
+3. **Ethics statement.** Trả lời bằng văn bản các câu hỏi trong mục broader impact và ethics statement cho dự án đang thực hiện. Nếu dự án nhắm tới NeurIPS hoặc ARR, đối chiếu với các câu hỏi tương ứng trong NeurIPS Paper Checklist hoặc Responsible NLP Research checklist của năm gần nhất.
 4. **Rà soát ẩn danh.** Nén thư mục code định nộp kèm, giải nén ở một máy khác, rồi tìm kiếm tên các thành viên trong nhóm, tên phòng thí nghiệm, đường dẫn tuyệt đối và đường link ngoài trong toàn bộ file. Ghi lại mọi chỗ phát hiện và cách xử lý.

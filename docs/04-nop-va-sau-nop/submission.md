@@ -179,9 +179,9 @@ flowchart TD
   N --> R["Review và author response"]
   R --> M["Meta-review của AC"]
   M --> Q{"Kết quả đủ tốt<br/>cho hội nghị mục tiêu?"}
-  Q -->|"Có"| C["Commit trên trang commitment<br/>của hội nghị, kèm link paper ARR"]
+  Q -->|"Có"| C["Commit tới hội nghị<br/>(kèm link paper ARR)"]
   C --> D["PC quyết định:<br/>Main, Findings hoặc reject"]
-  Q -->|"Chưa"| V["Sửa paper, nộp lại chu kỳ sau<br/>kèm revision notes"]
+  Q -->|"Chưa"| V["Sửa paper, nộp lại chu kỳ sau<br/>(kèm revision notes)"]
   V --> R
 ```
 
