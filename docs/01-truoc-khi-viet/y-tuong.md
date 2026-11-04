@@ -116,6 +116,8 @@ Câu này chỉ mô tả thao tác và con số. Reviewer không biết vì sao 
 Câu này có chẩn đoán (lỗi có hệ thống ở cấu trúc mảnh), cơ chế (downsampling xóa mất chi tiết), giải pháp xuất phát từ cơ chế, và bằng chứng về tính tổng quát.
 </div>
 
+Những biến thể khó hơn của bẫy này, như khi đã lỡ ghép nhiều thành phần và đạt SOTA, hoặc khi muốn thêm dataset hay training recipe vào danh sách đóng góp cho "đủ", được phân tích trong bài [Ghép ý tưởng và "độn" đóng góp](../08-tinh-huong-kho/ghep-va-don.md) của Chương 8.
+
 ## Ý tưởng đến từ đâu?
 
 Câu hỏi tự nhiên tiếp theo là làm sao có được những ý tưởng vượt qua bẫy "A + B". Kinh nghiệm của những nhà nghiên cứu thành công cho thấy ý tưởng tốt hiếm khi đến từ cảm hứng bất chợt; chúng thường là sản phẩm của những thói quen làm việc có hệ thống. Dưới đây là các nguồn ý tưởng đáng tin cậy nhất, mỗi nguồn kèm ví dụ minh họa.
