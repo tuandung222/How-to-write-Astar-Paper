@@ -2,7 +2,9 @@
 
 > Bài giảng dành cho người **chưa từng tự viết một paper hội nghị A\*** — trước đây có người viết hộ, giờ muốn tự làm chủ toàn bộ quy trình. Tập trung vào **Computer Vision (CVPR, ICCV, ECCV)** trước, sau đó mở rộng sang **NeurIPS, ICML, ICLR, ACL, EMNLP, AAAI…**
 
-[:material-file-pdf-box: Tải bản PDF](pdf/viet-paper-astar.pdf){ .md-button .md-button--primary } [:material-printer: Xem bản in](print_page/){ .md-button }
+<!-- Dùng HTML thô: PDF được sinh SAU bước mkdocs build nên link Markdown sẽ bị --strict báo lỗi -->
+<a class="md-button md-button--primary" href="pdf/viet-paper-astar.pdf">:material-file-pdf-box: Tải bản PDF</a>
+<a class="md-button" href="print_page/">:material-printer: Xem bản in</a>
 
 ## Bạn sẽ học được gì?
 
