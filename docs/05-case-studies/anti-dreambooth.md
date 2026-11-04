@@ -45,11 +45,11 @@ Phiên bản này thêm insight, hai con số và một câu giới hạn, đổ
 
 ## Introduction: từ năng lực đến mối đe dọa, từ mối đe dọa đến khó khăn
 
-Introduction gồm sáu đoạn, Figure 1 và bốn đóng góp viết liền trong đoạn văn. Lập luận đi qua hai bước chuyển: từ năng lực của công nghệ sang mối đe dọa, rồi từ mối đe dọa sang những khó khăn khiến việc phòng vệ không tầm thường.
+Introduction gồm sáu đoạn và Figure 1, với lập luận đi qua hai bước chuyển: từ năng lực của công nghệ sang mối đe dọa, rồi từ mối đe dọa sang những khó khăn khiến việc phòng vệ không tầm thường.
 
 ### Đoạn 1 đến 3: năng lực của công cụ chính là nguồn gốc của rủi ro
 
-Hai đoạn đầu ca ngợi chính công nghệ mà paper sẽ chống lại: ảnh chân thực, ảnh tổng hợp khó phân biệt với ảnh thật, ControlNet thêm khả năng điều khiển, rồi cá nhân hóa và lý do DreamBooth phổ biến hơn Textual Inversion. Lựa chọn này có chủ đích: rủi ro tỉ lệ với năng lực và khả năng tiếp cận, nên mỗi "điểm mạnh" trở thành một tiền đề của mối đe dọa. Ảnh khó phân biệt thì tin giả dễ được tin; chỉ cần vài ảnh thì ai có ảnh công khai cũng có thể là nạn nhân. Hai trích dẫn ở đoạn đầu là bài báo của NBC News và New York Times; với paper phòng vệ, báo chí là nguồn hợp lý để chứng minh *tầm quan trọng xã hội*, miễn là các claim kỹ thuật vẫn dựa vào tài liệu học thuật.
+Hai đoạn đầu ca ngợi chính công nghệ mà paper sẽ chống lại: ảnh chân thực, khó phân biệt với ảnh thật, ControlNet thêm khả năng điều khiển, rồi cá nhân hóa và lý do DreamBooth phổ biến hơn Textual Inversion. Lựa chọn này có chủ đích: rủi ro tỉ lệ với năng lực và khả năng tiếp cận, nên mỗi "điểm mạnh" trở thành một tiền đề của mối đe dọa. Trong số các trích dẫn ở đoạn đầu có bài báo của NBC News và New York Times; với paper phòng vệ, báo chí là nguồn hợp lý để chứng minh *tầm quan trọng xã hội*, miễn là các claim kỹ thuật vẫn dựa vào tài liệu học thuật.
 
 Đoạn ba nêu hai kịch bản có nạn nhân cụ thể: tin giả bằng ảnh người nổi tiếng, xếp vào DeepFakes, và ảnh gây hại nhắm vào một người. Câu kết về tính cấp bách có thể chặt hơn. Về ngữ pháp, "has yet to be aware by the community" nên là "has yet to be recognized by the community". Về nội dung, chính Section 2.4 ghi nhận hai công trình đồng thời cũng bảo vệ trước mô hình cá nhân hóa, nên claim "cộng đồng chưa nhận thức" dễ bị phản biện; thu hẹp về đúng chỗ mới, chẳng hạn "the risk to personal identity, as opposed to artistic style, has received little attention", vừa an toàn vừa làm sắc định vị.
 
@@ -83,11 +83,11 @@ Hai tiểu mục đầu nghiêng về tổng quan hơn định vị; câu mở �
 
 ## Định nghĩa bài toán: phần làm nên một paper phòng vệ
 
-Section 3, mang tên "Problem", đứng riêng trước phương pháp. Phần Background (PGD, diffusion, diffusion có điều kiện, hàm mất mát DreamBooth) khá dài so với mức quen thuộc của độc giả ICCV, nhưng có chức năng rõ: hàm mất mát ở phương trình (7) được dùng lại trong các phương trình (8), (9), (10), đúng cách dùng preliminaries ở bài [Method](../02-viet-tung-phan/method.md).
+Section 3, mang tên "Problem", đứng riêng trước phương pháp. Phần Background khá dài so với mức quen thuộc của độc giả ICCV, nhưng có chức năng rõ: hàm mất mát DreamBooth ở phương trình (7) được dùng lại trong các phương trình (8), (9), (10), đúng cách dùng preliminaries ở bài [Method](../02-viet-tung-phan/method.md).
 
 ### Từ mục tiêu lý tưởng đến mục tiêu khả thi
 
-Phần Problem definition đi qua ba bước, và đây là đoạn lập luận chặt chẽ nhất của paper.
+Phần Problem definition (Section 3.2), nối sang hướng tổng thể ở Section 4.1, đi qua ba bước; đây là đoạn lập luận chặt chẽ nhất của paper.
 
 ```mermaid
 flowchart LR
@@ -98,7 +98,7 @@ flowchart LR
 
 Bước thứ nhất là **mục tiêu lý tưởng**: kẻ tấn công fine-tune DreamBooth trên $N_{db}$ ảnh đã nhiễu để được trọng số $\theta^*$, và bên phòng vệ muốn tìm nhiễu làm cực tiểu một hàm $\mathcal{A}$ đo chất lượng ảnh sinh và độ đúng danh tính, với ràng buộc độ lớn nhiễu không vượt ngân sách $\eta$. Bước thứ hai là **thừa nhận giới hạn**: khó định nghĩa một $\mathcal{A}$ thống nhất, nên paper coi phòng vệ thành công khi ảnh sinh thỏa một trong ba tiêu chí: chất lượng tệ, không có hoặc không nhận ra người, hoặc sai danh tính. Bước thứ ba là **mục tiêu thay thế**: cực đại hóa hàm mất mát khử nhiễu của $\theta^*$ trên ảnh *sạch*, trong đó $\theta^*$ học trên ảnh *đã nhiễu*, với trực giác rằng mô hình overfit trên ảnh đối kháng sẽ tái tạo ảnh sạch kém hơn.
 
-Chuỗi này cho thấy nhóm tác giả biết điều họ thực sự muốn, thừa nhận điều đó không tối ưu trực tiếp được, và biến mục tiêu thay thế thành một lựa chọn có lý do. Ba tiêu chí còn *định nghĩa trước* thế nào là thành công, để phần thí nghiệm gán mỗi tiêu chí một metric; khi thành công nghĩa là "một mô hình thất bại", có rất nhiều cách để thất bại, nên việc định nghĩa trước càng cần thiết.
+Chuỗi này cho thấy nhóm tác giả biết điều họ thực sự muốn, thừa nhận điều đó không tối ưu trực tiếp được, và biến mục tiêu thay thế thành một lựa chọn có lý do. Ba tiêu chí còn *định nghĩa trước* thế nào là thành công, điều càng cần thiết khi thành công nghĩa là "một mô hình thất bại", vì có rất nhiều cách để thất bại.
 
 Hai chỗ có thể chính xác hơn. Paper gọi $\theta^*$ và $\theta_{\text{clean}}$ là "hyper-parameters" (Section 3.2 và 4.2), trong khi đây là trọng số mô hình. Và ràng buộc được viết với chuẩn $\ell_p$ tổng quát, còn phần thí nghiệm chỉ nêu $\eta = 0{,}05$, không nói rõ $p$ nào và thang giá trị pixel nào, trong khi ý nghĩa của các mức ngân sách trong Table 3 phụ thuộc trực tiếp vào thang này.
 
@@ -162,7 +162,7 @@ Table 3 đáng học vì báo cáo **cả hai phía của sự đánh đổi**: 
 
 ### Thiết lập adverse: ba kiểu lệch và một đối chứng còn thiếu
 
-**Lệch mô hình.** Nhiễu học trên SD v1.4 chống DreamBooth từ v2.1 và v2.0 cho FDFR 0,62 và 0,70, tương đương Table 1; ensemble E-ASPL (v1.4, v1.5, v2.1) cải thiện thêm. Người đọc cẩn thận sẽ thấy ensemble *chứa* v2.1, nên chỉ kết quả trên v2.0 mới là phép thử trên mô hình chưa thấy, trong khi paper viết ensemble cải thiện "in both cases" mà không phân biệt. **Lệch term.** Đổi "sks" thành "t@t" làm FDFR giảm từ 0,63 xuống 0,34 nhưng ISM gần như giữ nguyên (0,30): phòng vệ chuyển từ dạng "không còn khuôn mặt" sang dạng "sai danh tính". **Lệch prompt.** Khi kẻ tấn công huấn luyện với "a dslr portrait of sks person" rồi suy luận bằng "a photo of sks person", ba metric gần mức không phòng vệ của Table 1 (FDFR 0,07, SER-FQA 0,69, BRISQUE 17,34), chỉ ISM thấp rõ (0,15). Thân bài chỉ nhắc ISM, còn Phụ lục C.2 thừa nhận phòng vệ khi đó biểu hiện bằng việc *đổi danh tính*; nói thẳng điều này trong thân bài sẽ trung thực hơn.
+**Lệch mô hình.** Nhiễu học trên SD v1.4 chống DreamBooth từ v2.1 và v2.0 cho FDFR 0,62 và 0,70, tương đương Table 1; ensemble E-ASPL (v1.4, v1.5, v2.1) cải thiện thêm. Người đọc cẩn thận sẽ thấy ensemble *chứa* v2.1, nên chỉ kết quả trên v2.0 mới là phép thử trên mô hình chưa thấy, trong khi paper viết ensemble cải thiện "in both cases" mà không phân biệt. **Lệch term.** Đổi "sks" thành "t@t" làm FDFR giảm từ 0,63 xuống 0,34 nhưng ISM gần như giữ nguyên (0,30): phòng vệ chuyển từ dạng "không còn khuôn mặt" sang dạng "sai danh tính". **Lệch prompt.** Khi kẻ tấn công huấn luyện với "a dslr portrait of sks person" rồi suy luận bằng "a photo of sks person", ba metric gần mức không phòng vệ của Table 1 (FDFR 0,07, SER-FQA 0,69, BRISQUE 17,34), chỉ ISM thấp rõ (0,15). Thân bài chỉ nhắc ISM, còn Phụ lục C.2 thừa nhận phòng vệ khi đó có thể biểu hiện bằng việc *đổi danh tính*; nói thẳng điều này trong thân bài sẽ trung thực hơn.
 
 Cả ba kiểu lệch đều thiếu **một hàng "không phòng vệ" cùng cấu hình** (ảnh sạch với SD v2.0, với term "t@t", với prompt "a dslr portrait"), nên người đọc chỉ so được với hàng không phòng vệ của Table 1, vốn có cấu hình khác, và không thể biết bao nhiêu phần của mức ISM 0,15 đến từ nhiễu, bao nhiêu từ chính việc đổi prompt. Khi thành công được đo bằng việc một con số *giảm*, người đọc cần biết nó giảm so với cái gì.
 
@@ -199,7 +199,7 @@ Paper cũng không có ethics statement, dù ở CV phần này trở nên cần
 !!! warning "Với paper phòng vệ, overclaim có cái giá xã hội"
     Trong paper phương pháp, một claim quá mức chủ yếu làm mất lòng tin của reviewer. Trong paper phòng vệ, nó có thể khiến người dùng tin vào một sự bảo vệ không đứng vững trong điều kiện thật, một dạng "false sense of security". Những cụm như "guaranteeing user protection regardless of the term mismatching" (Phụ lục A.2) nên được hiệu chỉnh thành phát biểu có phạm vi ("in our experiments", "substantially reduces") và đi kèm một đoạn Limitations. Chữ "guarantee" chỉ nên dùng khi có bảo đảm hình thức.
 
-Văn phong chung của paper rõ và trực tiếp: kịch bản được mô tả bằng câu cụ thể, thuật toán được đặt tên đúng cơ chế, bảng giữ một khuôn nhất quán, và caption các hình phụ lục ghi rõ đối tượng được chọn ngẫu nhiên ("We test with two random subjects"). Bản arXiv còn một số lỗi nhỏ mà một vòng đọc soát có thể bắt được, chẳng hạn trích dẫn lặp "[53, 53, 61]", paper DALL-E 2 xuất hiện hai lần trong tài liệu tham khảo ([42] và [43]), "APSL" thay cho ASPL ở Phụ lục A, và cấu hình Astria thứ hai được gọi là "Progen 3.4 + Prism" trong văn bản nhưng "Protogen with Prism" trong caption Figure 5. Từng lỗi đều nhỏ, nhưng độ tin cậy của paper phòng vệ dựa nhiều vào sự chính xác (xem [Quy trình viết & tự review](../03-ky-thuat/quy-trinh-viet.md)).
+Văn phong chung của paper rõ và trực tiếp: kịch bản được mô tả bằng câu cụ thể, thuật toán được đặt tên đúng cơ chế, bảng giữ một khuôn nhất quán, và caption của một số hình phụ lục ghi rõ đối tượng được chọn ngẫu nhiên ("We test with two random subjects"). Bản arXiv còn vài lỗi nhỏ mà một vòng đọc soát có thể bắt được, như trích dẫn lặp "[53, 53, 61]", paper DALL-E 2 xuất hiện hai lần trong tài liệu tham khảo ([42] và [43]), hay cấu hình Astria thứ hai được gọi là "Progen 3.4 + Prism" trong văn bản nhưng "Protogen with Prism" trong caption Figure 5. Từng lỗi đều nhỏ, nhưng độ tin cậy của paper phòng vệ dựa nhiều vào sự chính xác (xem [Quy trình viết & tự review](../03-ky-thuat/quy-trinh-viet.md)).
 
 ## Bài học cho người viết
 
@@ -219,7 +219,7 @@ Trong **NLP**, cấu trúc này chuyển gần như nguyên vẹn sang các pape
 
 ## Tóm tắt
 
-Anti-DreamBooth cho thấy cách viết một paper phòng vệ có khía cạnh Responsible AI ở một hội nghị CV hàng đầu. Paper dựng mối đe dọa từ chính năng lực của công nghệ, gọi tên ba khác biệt khiến phòng vệ cũ không dùng thẳng được, rồi dành hẳn một mục để định nghĩa bài toán, từ mục tiêu lý tưởng qua ba tiêu chí thành công tới một mục tiêu thay thế tối ưu được, cùng một thang thiết lập vận hành như một threat model. Thí nghiệm gán mỗi tiêu chí một metric, dùng lưới hai nhân hai làm ablation, giữ và kiểm tra lại kết quả âm, định lượng cái giá về độ khó nhận thấy, và đi tới tận chỗ phương pháp thất bại. Những điểm có thể làm tốt hơn gồm sự khớp giữa ngôn từ và bằng chứng, các hàng đối chứng còn thiếu, tên gọi của một số mục và metric, threat model chưa nói tới hiểu biết của kẻ tấn công về phòng vệ, và các hạn chế nằm rải rác thay vì được gom vào một đoạn Limitations. Với paper phòng vệ, những sửa đổi ấy còn giúp người dùng hiểu đúng phạm vi của sự bảo vệ.
+Anti-DreamBooth cho thấy cách viết một paper phòng vệ có khía cạnh Responsible AI ở một hội nghị CV hàng đầu. Paper dựng mối đe dọa từ chính năng lực của công nghệ, gọi tên ba khác biệt khiến phòng vệ cũ không dùng thẳng được, rồi dành hẳn một mục để định nghĩa bài toán, từ mục tiêu lý tưởng qua ba tiêu chí thành công tới một mục tiêu thay thế, cùng một thang thiết lập vận hành như một threat model. Thí nghiệm gán mỗi tiêu chí một metric, dùng lưới hai nhân hai làm ablation, giữ kết quả âm, định lượng cái giá về độ khó nhận thấy, và đi tới tận chỗ phương pháp thất bại. Những điểm có thể làm tốt hơn gồm sự khớp giữa ngôn từ và bằng chứng, các hàng đối chứng còn thiếu, tên gọi của một số mục và metric, threat model chưa nói tới hiểu biết của kẻ tấn công về phòng vệ, và các hạn chế nằm rải rác thay vì được gom vào một đoạn Limitations. Với paper phòng vệ, những sửa đổi ấy còn giúp người dùng hiểu đúng phạm vi của sự bảo vệ.
 
 ## Bài tập
 

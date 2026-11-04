@@ -20,7 +20,7 @@ Với người học Việt Nam, paper đáng chú ý vì đóng góp lớn nh�
 
 ## Bối cảnh: khi đối tượng bị tấn công là một hệ thống
 
-Section 2 của paper tóm tắt gọn giả định chung của các tấn công trước, từ adversarial example tới jailbreak bằng ảnh: kẻ tấn công kiểm soát gần như toàn bộ đầu vào, và tồn tại một đầu ra đích để tối ưu. Agent phá vỡ cả hai. Kẻ tấn công chỉ chạm được một mảnh môi trường, và tấn công phải tồn tại qua nhiều bước suy luận và tương tác.
+Section 2 của paper tóm tắt gọn giả định chung của các tấn công trước, từ adversarial example tới jailbreak bằng ảnh: kẻ tấn công kiểm soát gần như toàn bộ đầu vào, và tồn tại một đầu ra đích để tối ưu. Agent phá vỡ cả hai: kẻ tấn công chỉ chạm được một mảnh môi trường, và tấn công phải tồn tại qua nhiều bước suy luận.
 
 Agent hiện đại còn gồm nhiều thành phần: **input processor** (như captioner chuyển ảnh thành văn bản), **policy model** (sinh hành động), **evaluator** (trong reflexion agent, đánh giá quỹ đạo và viết reflection nếu chưa đạt), **value function** (trong tree search agent, chấm điểm hành động ứng viên). Hai thành phần sau là inference-time compute, tốn thêm tính toán để agent làm tốt hơn. Câu hỏi của paper: những thành phần làm agent giỏi hơn có làm nó bền vững hơn không? Ở ICLR, nơi cộng đồng adversarial robustness có truyền thống lâu dài, reviewer kỳ vọng threat model chính xác và định nghĩa hình thức (xem [Viết cho NeurIPS / ICML / ICLR](../06-cong-dong/ml.md)); trình bày đóng góp thành một khung có định nghĩa toán học khớp với kỳ vọng đó.
 
@@ -65,7 +65,7 @@ Related Work có ba đoạn (agent tự hành, adversarial robustness, indirect 
 
 ### Agent graph và trọng số cạnh
 
-Section 3.2 mô hình agent như đồ thị có hướng: một nút cho mọi quan sát từ môi trường, một nút lá kết thúc, các nút còn lại là thành phần, mỗi cạnh nghĩa là nút con nhận đầu ra của nút cha. Figure 2 cho bốn ví dụ: base agent, agent có captioner, reflexion agent, tree search agent. Sơ đồ dưới đây phỏng theo mô tả reflexion agent trong văn bản (lược bỏ captioner như các hình kết quả của paper):
+Section 3.2 mô hình agent như đồ thị có hướng: một nút cho mọi quan sát từ môi trường, một nút lá kết thúc, các nút còn lại là thành phần, mỗi cạnh nghĩa là nút con nhận đầu ra của nút cha. Figure 2 minh họa các ví dụ được mô tả trong văn bản: base agent, agent có captioner, reflexion agent và tree search agent. Sơ đồ dưới đây phỏng theo mô tả reflexion agent trong văn bản (lược bỏ captioner như các hình kết quả của paper):
 
 ```mermaid
 flowchart LR
@@ -82,7 +82,7 @@ Section 3.3 định nghĩa **adversarial influence** (AdvIn) của một đầu 
 
 Rồi paper đưa một ví dụ số: nếu 80% caption bảo policy theo mục tiêu đối kháng và policy chỉ làm theo một nửa số lần, cạnh từ captioner có trọng số 0,8 (một policy khác làm theo hoàn toàn sẽ đạt 80%), cạnh ra khỏi policy có trọng số 0,4. Ba dòng này làm rõ chữ "worst-case" tốt hơn mọi giải thích trừu tượng, đúng nguyên tắc ở bài [Method](../02-viet-tung-phan/method.md). Từ đó, thành phần làm $\lambda$ giảm được gọi là "robustifying"; thêm thành phần chỉ nhận đầu vào tin cậy thường hạ $\lambda$, còn nếu thành phần mới bị tấn công, một cạnh trọng số 1 xuất hiện và $\lambda$ có thể tăng. Figure 3 vẽ cả hai kịch bản **trước khi có số liệu**, nên phần thí nghiệm đọc như kiểm chứng dự đoán của khung.
 
-Một chi tiết nhỏ đáng sửa: đoạn về cạnh rẽ nhánh viết "we define ASR(∅) = 0", trong khi đại lượng đang định nghĩa là AdvIn; với paper mà đóng góp chính là bộ định nghĩa, nhất quán ký hiệu quan trọng hơn bình thường. Ngoài ra, cách xác định AdvIn cho từng loại cạnh (caption, hành động, reflection, điểm số) chủ yếu được truyền đạt qua ví dụ ở Table 1; một đoạn quy tắc vận hành trong phụ lục sẽ giúp người khác tái lập.
+Một chi tiết nhỏ đáng sửa: đoạn về cạnh rẽ nhánh viết "we define ASR(∅) = 0", trong khi đại lượng đang định nghĩa là AdvIn; với paper mà đóng góp chính là bộ định nghĩa, nhất quán ký hiệu quan trọng hơn bình thường. Cách xác định AdvIn cho từng loại cạnh cũng chủ yếu được truyền đạt qua ví dụ ở Table 1; một đoạn quy tắc vận hành trong phụ lục sẽ giúp người khác tái lập.
 
 ### VWA-Adv: bốn bước, mỗi bước một lý do
 
@@ -156,7 +156,7 @@ Appendix D, "Limitations and Broader Impact", nêu rủi ro khi triển khai age
 
 ## Limitations, kết luận và văn phong
 
-Conclusion có một ý rất đáng giá: phòng vệ nên được ưu tiên để gia cố **những cạnh dễ tổn thương nhất** trong mạng của agent, một hệ quả hành động được biến ARE từ công cụ đo thành công cụ định hướng thiết kế. Mục Limitations nằm trong Appendix D với ba hạn chế cụ thể (tấn công chỉ là cận dưới, môi trường cố định, tập agent có hạn); ICLR không bắt buộc mục này, nhưng một bản ba câu ở cuối phần thân sẽ giúp reviewer không phải tìm. Về văn phong, tiêu đề đoạn in đậm kiểu run-in ("Text access", "Paraphrase defense") và tiêu đề dạng câu hỏi giúp một paper dày số liệu vẫn dễ dò.
+Conclusion có một ý rất đáng giá: phòng vệ nên được ưu tiên để gia cố **những cạnh dễ tổn thương nhất** trong mạng của agent, một hệ quả hành động được biến ARE từ công cụ đo thành công cụ định hướng thiết kế. Mục Limitations nằm trong Appendix D với ba hạn chế cụ thể (tấn công chỉ là cận dưới, môi trường cố định, tập agent có hạn); một bản ba câu ở cuối phần thân sẽ giúp reviewer không phải tìm. Tiêu đề đoạn in đậm kiểu run-in và tiêu đề dạng câu hỏi giúp một paper dày số liệu vẫn dễ dò.
 
 ## Bài học cho người viết
 
