@@ -19,7 +19,7 @@ Mỗi tình huống, đánh số từ 18 đến 23, đi qua năm bước: nhận
 
 ### Nhận diện
 
-Một nhóm làm semantic segmentation đề xuất module "boundary-aware attention" với câu chuyện gọn gàng: các phương pháp hiện có xử lý vùng biên kém, và module mới sửa được điểm yếu đó (ví dụ giả định). Bảng chính cho thấy mức tăng 2,1 điểm mIoU. Nhưng trong ablation, cấu hình bỏ module mà vẫn giữ lịch huấn luyện dài gấp đôi và bộ augmentation mạnh, vốn được thêm dần trong quá trình phát triển, chỉ thấp hơn 0,3 điểm, trong khi baseline ở bảng chính chạy recipe của paper gốc (số liệu minh họa). Gần như toàn bộ cải thiện đến từ công thức huấn luyện (*training recipe*), không phải từ module được vẽ trong Figure 1.
+Một nhóm làm semantic segmentation đề xuất module "boundary-aware attention" với câu chuyện gọn gàng: các phương pháp hiện có xử lý vùng biên kém, và module mới sửa được điểm yếu đó (ví dụ giả định). Bảng chính cho thấy mức tăng 2,1 điểm mIoU. Nhưng trong ablation, cấu hình bỏ module mà vẫn giữ lịch huấn luyện dài gấp đôi và bộ augmentation mạnh, vốn được thêm dần trong quá trình phát triển, chỉ thấp hơn phương pháp đầy đủ 0,3 điểm, trong khi baseline ở bảng chính chạy recipe của paper gốc (số liệu minh họa). Gần như toàn bộ cải thiện đến từ công thức huấn luyện (*training recipe*), không phải từ module được vẽ trong Figure 1.
 
 Dấu hiệu nhận biết: thành phần "then chốt" đóng góp ít, có khi nhỏ hơn độ dao động giữa các seed; baseline chạy với recipe khác; cải thiện không tập trung ở chỗ insight dự đoán; và nhóm ngần ngại chạy "baseline với cùng recipe".
 
@@ -31,7 +31,7 @@ Nhóm cần trả lời bốn câu hỏi. Ablation có đúng không, hay một 
 
 ### Các lối ra
 
-**Lối ra thứ nhất: viết lại câu chuyện quanh nguyên nhân thật.** Nếu recipe chứa điều đáng học, chẳng hạn nhiều phương pháp gần đây được so với baseline chạy recipe lỗi thời, đó là câu chuyện. *Revisiting ResNets* là mẫu mực: paper tách ba yếu tố kiến trúc, huấn luyện, scaling, rồi khuyến nghị dùng ResNet cập nhật làm baseline; *Bag of Tricks for Image Classification with Convolutional Neural Networks* (He et al., CVPR 2019) là một mẫu khác. Lối ra này cần nghiên cứu có hệ thống: ablation cộng dồn qua từng thay đổi recipe, nhiều phương pháp, backbone và dataset. Nó không phù hợp khi "recipe" chỉ là huấn luyện lâu hơn.
+**Lối ra thứ nhất: viết lại câu chuyện quanh nguyên nhân thật.** Nếu recipe chứa điều đáng học, chẳng hạn nhiều phương pháp gần đây được so với baseline chạy recipe lỗi thời, đó chính là câu chuyện mới. *Revisiting ResNets* là mẫu mực: paper tách ba yếu tố kiến trúc, huấn luyện, scaling, rồi khuyến nghị dùng ResNet cập nhật làm baseline; *Bag of Tricks for Image Classification with Convolutional Neural Networks* (He et al., CVPR 2019) là một mẫu khác. Lối ra này cần nghiên cứu có hệ thống: ablation cộng dồn qua từng thay đổi recipe, nhiều phương pháp, backbone và dataset. Nó không phù hợp khi "recipe" chỉ là huấn luyện lâu hơn.
 
 **Lối ra thứ hai: giữ module nhưng thu hẹp claim.** Nếu sau khi đồng bộ recipe, module vẫn giúp ổn định ở đúng chỗ insight dự đoán, claim phải nhỏ lại: module cải thiện chất lượng biên, không phải độ chính xác tổng thể. Kết quả cần lặp qua nhiều seed, và bảng chính vẫn báo cáo con số tổng thể. Nếu muốn liệt kê cả recipe lẫn module là đóng góp, nhớ rằng mỗi đóng góp là một claim phải bảo vệ (bài [Ghép ý tưởng và "độn" đóng góp](ghep-va-don.md)).
 
@@ -63,13 +63,13 @@ Không giấu ablation: không bỏ dòng "baseline + recipe mới", không đ�
 
 ### Nhận diện
 
-Một nhóm làm dịch máy cho ngôn ngữ ít tài nguyên phát hiện rằng khi fine-tune một mô hình đa ngôn ngữ, trộn thêm một tỉ lệ nhỏ cặp câu có phía nguồn bị xáo trộn thứ tự từ làm chất lượng dịch tăng ổn định trên nhiều cặp ngôn ngữ, qua nhiều seed (ví dụ giả định). Ý tưởng đến từ một lần cấu hình sai. Nhóm có vài giả thuyết nhưng chưa kiểm chứng giả thuyết nào, vậy mà bản nháp viết rằng việc xáo trộn "buộc mô hình học biểu diễn độc lập với ngôn ngữ".
+Một nhóm làm dịch máy cho ngôn ngữ ít tài nguyên phát hiện rằng khi fine-tune một mô hình đa ngôn ngữ, trộn thêm một tỉ lệ nhỏ cặp câu có phía nguồn bị xáo trộn thứ tự từ làm chất lượng dịch tăng ổn định trên nhiều cặp ngôn ngữ, qua nhiều seed (ví dụ giả định). Ý tưởng đến từ một lần cấu hình sai. Nhóm có vài giả thuyết, như regularization hay giảm phụ thuộc vào trật tự từ, nhưng chưa kiểm chứng giả thuyết nào, vậy mà bản nháp viết rằng việc xáo trộn "buộc mô hình học biểu diễn độc lập với ngôn ngữ".
 
 Khác với Tình huống 18, ở đây chưa có lời giải thích nào được kiểm chứng. Dấu hiệu: bản nháp dùng động từ khẳng định như *forces*, *ensures* mà không có thí nghiệm tương ứng; mỗi đồng tác giả giải thích một kiểu; và nhóm không dự đoán được khi nào phương pháp thất bại.
 
 ### Chẩn đoán
 
-Trong deep learning, tìm ra thứ hoạt động thường nhanh hơn nhiều so với hiểu vì sao nó hoạt động. Batch Normalization (Ioffe & Szegedy, ICML 2015) giải thích hiệu quả của phương pháp bằng việc giảm *internal covariate shift*; Lipton và Steinhardt dùng chính ví dụ này để minh họa việc trình bày suy đoán dưới vỏ bọc giải thích: khái niệm không được định nghĩa đủ chặt để kiểm chứng, một số công trình sau cho thấy nó có thể không đúng, vậy mà nó vẫn bị nhắc lại như sự thật. Bài học có hai mặt: phương pháp hữu ích vẫn đứng vững dù lời giải thích lung lay, nhưng lời giải thích không có bằng chứng, khi được viết như sự thật, có thể dẫn cả cộng đồng đi sai hướng.
+Trong deep learning, tìm ra thứ hoạt động thường nhanh hơn nhiều so với hiểu vì sao nó hoạt động. Batch Normalization (Ioffe & Szegedy, ICML 2015) giải thích hiệu quả của phương pháp bằng việc giảm *internal covariate shift*; Lipton và Steinhardt dùng chính ví dụ này để minh họa việc trình bày suy đoán dưới vỏ bọc giải thích: khái niệm không được định nghĩa đủ chặt để kiểm chứng, một số công trình sau cho thấy lời giải thích này có thể không đúng, vậy mà nó vẫn bị nhắc lại như sự thật. Bài học có hai mặt: phương pháp hữu ích vẫn đứng vững dù lời giải thích lung lay, nhưng lời giải thích không có bằng chứng, khi được viết như sự thật, có thể dẫn cả cộng đồng đi sai hướng.
 
 Nhóm cần tự hỏi: hiệu ứng có thật không, hay do một khác biệt cấu hình khác, chẳng hạn câu xáo trộn được *thêm vào* nên mô hình huấn luyện nhiều bước hơn? Và quan trọng nhất, mỗi giả thuyết dự đoán điều gì *khác nhau*? Nếu chỉ là regularization chung, dropout hay label smoothing ở cường độ tương đương cũng cho hiệu ứng tương tự; nếu là giảm phụ thuộc trật tự từ, hiệu ứng sẽ lớn hơn ở các cặp ngôn ngữ có trật tự từ khác nhau nhiều.
 
@@ -83,7 +83,7 @@ Nhóm cần tự hỏi: hiệu ứng có thật không, hay do một khác biệ
 
 ### Viết thế nào
 
-Kỹ năng cốt lõi là hiệu chỉnh ngôn ngữ theo ba tầng bằng chứng: điều đã chứng minh (*we show*, *we find*), điều phù hợp với bằng chứng (*our results suggest*, *is consistent with*), và suy đoán (*we hypothesize*, *one possible explanation is*). Cụm *we hypothesize* đúng chỗ khi nêu một giả thuyết mà paper kiểm tra ngay sau đó, hoặc một giả thuyết chưa kiểm tra trong Discussion hay Limitations; nó bị dùng sai khi làm lá bùa ở một câu rồi các đoạn sau coi giả thuyết là đã chứng minh.
+Kỹ năng cốt lõi là hiệu chỉnh ngôn ngữ theo ba tầng: điều đã chứng minh (*we show*, *we find*), điều phù hợp với bằng chứng (*our results suggest*, *is consistent with*), và suy đoán (*we hypothesize*, *one possible explanation is*). Cụm *we hypothesize* đúng chỗ khi nêu một giả thuyết mà paper kiểm tra ngay sau đó, hoặc một giả thuyết chưa kiểm tra trong Discussion hay Limitations; nó bị dùng sai khi làm lá bùa ở một câu rồi các đoạn sau coi giả thuyết là đã chứng minh.
 
 <div class="bad" markdown>
 *"Source shuffling forces the model to learn language-agnostic representations, which explains the improvements on low-resource pairs."*
@@ -113,9 +113,9 @@ Khác với trường hợp phương pháp "thua baseline" (bài [Khi con số k
 
 ### Chẩn đoán
 
-Một kết quả âm tính chỉ mạnh bằng quá trình tìm kiếm đã tạo ra nó: "không tìm thấy bằng chứng cho hiệu ứng" khác xa "có bằng chứng rằng không có hiệu ứng", và giá trị của paper âm tính nằm ở việc thu hẹp khoảng cách đó.
+Tình huống này xảy ra khi giả thuyết dựa trên một niềm tin chưa được kiểm tra ở bối cảnh mới, hoặc chỉ đúng ở quy mô nhỏ. Một kết quả âm tính chỉ mạnh bằng quá trình tìm kiếm đã tạo ra nó: "không tìm thấy bằng chứng cho hiệu ứng" khác xa "có bằng chứng rằng không có hiệu ứng", và giá trị của paper âm tính nằm ở việc thu hẹp khoảng cách đó.
 
-Vì vậy, chẩn đoán ở đây nghiêm ngặt hơn. Cài đặt có đúng không? Phép thử mạnh nhất là một *sanity check dương tính*: tái lập được chính kết quả dương tính mà niềm tin dựa vào. Thí nghiệm có đủ mạnh để thấy hiệu ứng nếu nó tồn tại không? Paper âm tính tốt báo cáo khoảng tin cậy quanh giá trị không, thay vì chỉ nói "không có ý nghĩa thống kê" (mục *Số liệu và ý nghĩa thống kê* trong bài [Experiments](../02-viet-tung-phan/experiments.md)). Phương pháp bị bác bỏ đã được tune đủ chưa? Và đây là niềm tin của ai: chỉ của nhóm, hay được nhiều paper dùng làm động lực?
+Cài đặt có đúng không? Phép thử mạnh nhất là một *sanity check dương tính*: tái lập được chính kết quả dương tính mà niềm tin dựa vào. Thí nghiệm có đủ mạnh để thấy hiệu ứng nếu nó tồn tại không? Paper âm tính tốt báo cáo khoảng tin cậy quanh giá trị không, thay vì chỉ nói "không có ý nghĩa thống kê" (mục *Số liệu và ý nghĩa thống kê* trong bài [Experiments](../02-viet-tung-phan/experiments.md)). Phương pháp bị bác bỏ đã được tune đủ chưa? Và đây là niềm tin của ai: chỉ của nhóm, hay được nhiều paper dùng làm động lực?
 
 ### Các lối ra
 
@@ -125,7 +125,7 @@ Một kết quả âm tính đáng công bố khi nó phản bác một niềm t
 
 Cuộc tranh luận cho thấy ba điều. Kết quả âm tính về một niềm tin phổ biến có thể trở thành paper có ảnh hưởng ở main track. Nó mời gọi phản biện, nên phải định nghĩa thuật ngữ chính xác và lường trước phản biện mạnh nhất, vì paper thứ hai tấn công đúng vào định nghĩa và cách dựng phân phối đối kháng. Và paper phản biện cũng là đóng góp, vì cả cuộc tranh luận buộc cộng đồng làm rõ thế nào là một lời giải thích.
 
-**Lối ra thứ hai: biến kết quả âm tính thành điều kiện biên.** Niềm tin thường chỉ đúng trong một số điều kiện, chẳng hạn độ phẳng vẫn dự đoán được độ bền khi so các mô hình cùng recipe. *Rethinking ImageNet Pre-training* (He, Girshick, Dollár; ICCV 2019) có tinh thần này: thay vì tuyên bố pre-training vô ích, paper cho thấy trên COCO, huấn luyện từ đầu có thể đạt kết quả tương đương nếu huấn luyện đủ lâu. Điều kiện biên phải được kiểm chứng trên thiết lập độc lập.
+**Lối ra thứ hai: biến kết quả âm tính thành điều kiện biên.** Niềm tin thường chỉ đúng trong một số điều kiện; chẳng hạn, có thể độ phẳng vẫn dự đoán được độ bền khi so các mô hình cùng recipe. *Rethinking ImageNet Pre-training* (He, Girshick, Dollár; ICCV 2019) có tinh thần này: thay vì tuyên bố pre-training vô ích, paper cho thấy trên COCO, huấn luyện từ đầu có thể đạt kết quả tương đương nếu huấn luyện đủ lâu. Điều kiện biên phải được kiểm chứng trên thiết lập độc lập.
 
 **Lối ra thứ ba: chọn nơi công bố dành cho kết quả âm tính.** Khi niềm tin là trung tâm của một hướng nghiên cứu, main track hoàn toàn khả thi; khi phạm vi hẹp hơn, có những nơi được thiết kế riêng: workshop *I Can't Believe It's Not Better!* (ICBINB) tại NeurIPS từ năm 2020, dành cho kết quả lẽ ra phải tốt nhưng không; workshop *Insights from Negative Results in NLP*, từ năm 2020, đi cùng các hội nghị ACL và EMNLP; và TMLR, với tiêu chí là claim có được bằng chứng ủng hộ chính xác, rõ ràng và có người quan tâm không, thay vì mức "nổi bật" như hội nghị. Lưu ý rằng workshop có proceedings có thể ảnh hưởng tới việc nộp bản mở rộng sau này (bài [Chuẩn bị nộp bài](../04-nop-va-sau-nop/submission.md)).
 
@@ -157,7 +157,7 @@ Không lục tìm một tập con thắng rồi viết như giả thuyết ban �
 
 ### Nhận diện
 
-Một nhóm làm phân loại ảnh ít mẫu (*few-shot classification*) bằng meta-learning cài đặt lại baseline đơn giản nhất: một bộ phân loại tuyến tính trên đặc trưng của backbone đã pre-train, tune với cùng ngân sách như phương pháp của nhóm (ví dụ giả định). Khi sáu phương pháp meta-learning gần đây được chạy trên cùng backbone và giao thức, baseline này vượt cả sáu trên phần lớn benchmark, trong đó có paper của chính nhóm năm trước.
+Một nhóm làm phân loại ảnh ít mẫu (*few-shot classification*) bằng meta-learning cài đặt lại baseline đơn giản nhất: một bộ phân loại tuyến tính trên đặc trưng của backbone đã pre-train, tune với cùng ngân sách như phương pháp của nhóm (ví dụ giả định). Khi sáu phương pháp meta-learning gần đây được chạy trên cùng backbone và giao thức, baseline này vượt cả sáu trên phần lớn benchmark, kể cả phương pháp mà chính nhóm công bố năm trước.
 
 Dấu hiệu báo trước gồm: số liệu baseline trong các paper trước thấp hơn nhiều so với khi tự chạy cẩn thận; các paper khác nhau về backbone và augmentation nhưng vẫn được xếp chung một bảng; và hyperparameter baseline được chép từ paper cũ.
 
@@ -179,7 +179,7 @@ Trước khi viết, cần hỏi: so sánh có công bằng theo *cả hai chi�
 
 ### Viết thế nào
 
-Paper reality check phải thuyết phục chính những người có phương pháp bị đánh giá, vì họ có thể là reviewer. Có ba nguyên tắc. **Công bằng và hào phóng với công trình trước**: mô tả vấn đề như thuộc tính của giao thức chứ không của con người, và ghi nhận những ý tưởng có thể vẫn có giá trị ở chế độ khác. **Giao thức tái lập được**: backbone, ngân sách tuning, cách chọn hyperparameter, số seed, và số liệu công bố đặt cạnh số liệu tái lập. **Khuyến nghị cụ thể** mà cộng đồng làm được ngay.
+Paper phải thuyết phục chính những người có phương pháp bị đánh giá, vì họ có thể là reviewer. Có ba nguyên tắc. **Công bằng và hào phóng với công trình trước**: mô tả vấn đề như thuộc tính của giao thức chứ không của con người, và ghi nhận những ý tưởng có thể vẫn có giá trị ở chế độ khác. **Giao thức tái lập được**: backbone, ngân sách tuning, cách chọn hyperparameter, số seed, và số liệu công bố đặt cạnh số liệu tái lập. **Khuyến nghị cụ thể** mà cộng đồng làm được ngay.
 
 <div class="bad" markdown>
 *"We show that years of meta-learning research have made no real progress: a simple linear classifier beats all of these methods, whose reported gains are due to unfair comparisons."*
@@ -193,7 +193,7 @@ Câu văn phán xét cả lĩnh vực, quy lỗi cho tác giả và vượt ph�
 Claim gắn với điều kiện cụ thể, công trình trước được ghi nhận, phương pháp của nhóm được đặt lên bàn cân, và có khuyến nghị làm được (số liệu minh họa).
 </div>
 
-Reviewer **Machine Learning** đánh giá cao nghiên cứu thực nghiệm quy mô lớn và hỏi về ý nghĩa thống kê; reviewer **Computer Vision** hỏi về độ phủ backbone và dataset; ở **NLP**, nghiên cứu tái lập là một loại đóng góp được nêu rõ trong ARR. Ở cả ba nơi, phần cài đặt lại sẽ bị soi kỹ, nên cần dùng code chính thức khi có.
+Reviewer **Machine Learning** đánh giá cao nghiên cứu thực nghiệm quy mô lớn và hỏi về ý nghĩa thống kê; reviewer **Computer Vision** hỏi về độ phủ backbone và dataset; ở **NLP**, nghiên cứu tái lập là một loại đóng góp được nêu rõ trong ARR. Ở cả ba nơi, phần cài đặt lại sẽ bị soi kỹ.
 
 ### Điều không được làm
 
@@ -209,7 +209,7 @@ Dấu hiệu gồm: mô hình vẫn làm tốt khi bỏ đi một phần input; 
 
 ### Chẩn đoán
 
-Benchmark được tạo theo một quy trình, và quy trình nào cũng để lại dấu vết. *Annotation Artifacts in Natural Language Inference Data* (Gururangan et al., NAACL 2018) cho thấy quy trình crowdsourcing của các bộ NLI để lại dấu vết, như phủ định tương quan mạnh với một số nhãn, khiến một bộ phân loại chỉ nhìn hypothesis đoán đúng nhãn ở một phần đáng kể dữ liệu. *Right for the Wrong Reasons* (McCoy, Pavlick, Linzen; ACL 2019) xây bộ đánh giá có kiểm soát HANS gồm các ví dụ mà ba heuristic cú pháp nông cho đáp án sai; các mô hình huấn luyện trên MNLI, kể cả BERT, làm rất kém trên đó. Ở Computer Vision, *Making the V in VQA Matter* (Goyal et al., CVPR 2017) chỉ ra rằng thiên lệch ngôn ngữ cho phép mô hình VQA phần lớn bỏ qua ảnh.
+Benchmark được tạo theo một quy trình, và quy trình nào cũng để lại dấu vết. *Annotation Artifacts in Natural Language Inference Data* (Gururangan et al., NAACL 2018) cho thấy quy trình crowdsourcing của các bộ NLI để lại dấu vết, như phủ định tương quan mạnh với một số nhãn, khiến một bộ phân loại chỉ nhìn hypothesis đoán đúng nhãn ở một phần đáng kể dữ liệu. *Right for the Wrong Reasons* (McCoy, Pavlick, Linzen; ACL 2019) xây bộ đánh giá có kiểm soát HANS gồm các ví dụ mà ba heuristic cú pháp nông cho đáp án sai; các mô hình huấn luyện trên MNLI, kể cả BERT, làm rất kém trên đó. Ở Computer Vision, *Making the V in VQA Matter* (Goyal et al., CVPR 2017) cho thấy thiên lệch ngôn ngữ cho phép mô hình VQA phần lớn bỏ qua ảnh.
 
 Phê bình benchmark không nhất thiết kết luận tiến bộ là ảo. *Do ImageNet Classifiers Generalize to ImageNet?* (Recht et al., ICML 2019) tạo lại tập kiểm tra theo quy trình gốc: độ chính xác giảm rõ, nhưng thứ hạng giữa các mô hình phần lớn được giữ. Vấn đề cũng có thể nằm ở công cụ đo: *Sanity Checks for Saliency Maps* (Adebayo et al., NeurIPS 2018) cho thấy một số phương pháp saliency cho kết quả gần như độc lập với mô hình và dữ liệu, nên đánh giá chúng bằng mắt dễ gây hiểu lầm.
 
@@ -253,13 +253,13 @@ Không giấu artifact khi đã biết nó tạo ra cải thiện của chính n
 
 Một nhóm đề xuất mô hình chuỗi dự đoán việc người dùng rời bỏ dịch vụ, vượt các baseline mạnh một khoảng lớn (ví dụ giả định). Khi chuẩn bị công bố code, nhóm phát hiện script chia dữ liệu theo bản ghi thay vì theo người dùng, nên nhiều người dùng có bản ghi ở cả hai tập. Mô hình của nhóm, với bộ nhớ dài hơn, khai thác rò rỉ này tốt hơn baseline; chạy lại với cách chia theo người dùng, cải thiện chỉ còn một phần nhỏ.
 
-Rò rỉ có nhiều dạng: bản ghi trùng giữa các tập, rò rỉ theo nhóm hay theo thời gian, tiền xử lý khớp trên toàn bộ dữ liệu, chọn mô hình trên tập kiểm tra, và với mô hình lớn là *contamination*, khi dữ liệu kiểm tra đã lọt vào dữ liệu pre-training. Dấu hiệu chung là kết quả tốt bất thường.
+Rò rỉ có nhiều dạng: bản ghi trùng giữa các tập, rò rỉ theo nhóm hay theo thời gian, tiền xử lý khớp trên toàn bộ dữ liệu, chọn mô hình trên tập kiểm tra, và với mô hình lớn là *contamination*, khi dữ liệu kiểm tra đã lọt vào dữ liệu pre-training. Dấu hiệu chung là kết quả tốt bất thường, vượt mọi công trình trước một khoảng xa.
 
 ### Chẩn đoán
 
 Pipeline nghiên cứu thường được viết vội, và nhóm debug kỹ khi kết quả xấu nhưng hiếm khi debug khi kết quả đẹp. Kết quả tốt bất ngờ đáng được soi xét ít nhất như kết quả xấu bất ngờ; thói quen ở mục *Ghi chép thí nghiệm* trong bài [Thiết kế thí nghiệm](../01-truoc-khi-viet/thi-nghiem.md) giúp truy được bug ảnh hưởng tới kết quả nào.
 
-Contamination ở mô hình lớn thường khó sửa triệt để. Paper GPT-3 (*Language Models are Few-Shot Learners*, NeurIPS 2020) là ví dụ đáng học: nhóm tác giả cố loại bỏ phần trùng lặp với các tập dev và test của các benchmark trong paper, nhưng một bug trong bước lọc khiến một phần trùng lặp bị bỏ sót, và chi phí khiến việc huấn luyện lại không khả thi. Họ nói thẳng điều này và dành một mục riêng để đo ảnh hưởng của phần trùng lặp còn lại. Bài học: khi không thể sửa, hãy đo và công khai. Xem thêm mục *Đánh giá với LLM* trong bài [Viết cho ACL / EMNLP / NAACL](../06-cong-dong/nlp.md).
+Contamination ở mô hình lớn thường khó sửa triệt để, và paper GPT-3 (*Language Models are Few-Shot Learners*, NeurIPS 2020) là ví dụ đáng học: nhóm tác giả cố loại bỏ phần trùng lặp với các tập dev và test của các benchmark trong paper, nhưng một bug trong bước lọc khiến một phần trùng lặp bị bỏ sót, và chi phí khiến việc huấn luyện lại không khả thi. Họ nói thẳng điều này và dành một mục riêng để đo ảnh hưởng của phần trùng lặp còn lại. Bài học: khi không thể sửa, hãy đo và công khai. Xem thêm mục *Đánh giá với LLM* trong bài [Viết cho ACL / EMNLP / NAACL](../06-cong-dong/nlp.md).
 
 Khi phát hiện bug, cần hỏi: bug ảnh hưởng tới kết luận hay chỉ tới con số? Nó có ảnh hưởng đều tới baseline không? Những phiên bản kết quả nào đã ra khỏi nhóm? Và mọi đồng tác giả đã được báo chưa, vì đây là trách nhiệm chung?
 
@@ -302,7 +302,7 @@ Không im lặng với hy vọng không ai phát hiện, không tìm cấu hình
 
 ## Tổng hợp: từ triệu chứng đến lối ra
 
-Sáu tình huống là sáu cách bằng chứng "nói khác" câu chuyện: về *cơ chế* (TH18, TH19), về *giả thuyết* (TH20), về *thước đo tiến bộ* của cả lĩnh vực (TH21, TH22), và về *chính các con số* (TH23). Lối ra hợp lệ luôn đi theo một hướng: câu chuyện thay đổi để khớp với bằng chứng.
+Sáu tình huống là sáu cách bằng chứng "nói khác" câu chuyện: về *cơ chế* (TH18, TH19), về *giả thuyết* (TH20), về *thước đo tiến bộ* của cả lĩnh vực (TH21, TH22), và về *chính các con số* (TH23).
 
 | Tình huống | Triệu chứng | Câu hỏi chẩn đoán đầu tiên | Lối ra chính | Ranh giới không được vượt |
 |---|---|---|---|---|
