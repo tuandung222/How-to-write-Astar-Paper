@@ -57,7 +57,7 @@ Phần lời cảm ơn, vốn bị bỏ ra ở bản nộp vì lý do ẩn danh,
 
 ### Thực hiện cam kết trong rebuttal và meta-review
 
-Đây là phần quan trọng nhất về mặt nội dung, và cũng là phần thể hiện sự chính trực của nhóm tác giả. Mọi thay đổi đã hứa trong rebuttal, như thêm bảng so sánh, làm rõ một công thức hay bổ sung thảo luận về giới hạn, đều phải xuất hiện trong bản camera-ready. AC và PC có thể kiểm tra, và ở các hội nghị công khai review như ICLR, bất kỳ người đọc nào cũng có thể đối chiếu lời hứa với bản cuối. Ngoài các cam kết, nhóm tác giả nên xem lại toàn bộ review và meta-review để tiếp thu những góp ý hợp lý mà mình chưa kịp hứa. Ở ARR, meta-review thường tóm tắt những điểm cần sửa; đáp ứng chúng là kỳ vọng mặc định đối với bản camera-ready.
+Đây là phần quan trọng nhất về mặt nội dung, và cũng là phần thể hiện sự chính trực của nhóm tác giả. Mọi thay đổi đã hứa trong rebuttal, như thêm bảng so sánh, làm rõ một công thức hay bổ sung thảo luận về giới hạn, đều phải xuất hiện trong bản camera-ready. AC và PC có thể kiểm tra, và ở các hội nghị công khai review như ICLR, bất kỳ người đọc nào cũng có thể đối chiếu lời hứa với bản cuối. Ngoài các cam kết, nhóm tác giả nên xem lại toàn bộ review và meta-review để tiếp thu những góp ý hợp lý chưa được hứa trong rebuttal. Ở ARR, meta-review thường tóm tắt những điểm cần sửa; đáp ứng chúng là kỳ vọng mặc định đối với bản camera-ready.
 
 Một nguyên tắc cần nhớ là camera-ready không phải cơ hội để bổ sung một đóng góp lớn mới chưa được review. Các thay đổi nên giới hạn trong phạm vi đã thảo luận với reviewer, cộng với sửa lỗi và cải thiện trình bày.
 

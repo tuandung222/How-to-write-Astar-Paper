@@ -127,7 +127,7 @@ Hai lưu ý giúp tránh các lỗi phổ biến. Thứ nhất, những từ nh�
 
 ## Cùng kết quả, hai câu chuyện
 
-Một điều mà người viết mới thường ngạc nhiên là cùng một bộ kết quả có thể được kể thành những câu chuyện có giá trị rất khác nhau. Khác biệt không nằm ở việc tô vẽ, mà ở việc tác giả có đầu tư vào việc *hiểu* kết quả của mình hay không. Hai ví dụ giả định dưới đây minh họa điều đó.
+Một điều mà người viết mới thường ngạc nhiên là cùng một bộ kết quả có thể được kể thành những câu chuyện có giá trị rất khác nhau. Khác biệt không nằm ở việc tô vẽ, mà ở việc tác giả có đầu tư vào việc *hiểu* kết quả thu được hay không. Hai ví dụ giả định dưới đây minh họa điều đó.
 
 Ví dụ thứ nhất đến từ Computer Vision. Giả sử nhóm tác giả thêm một module hiệu chỉnh độ sâu vào một detector 3D từ ảnh đơn và tăng 2 điểm mAP.
 

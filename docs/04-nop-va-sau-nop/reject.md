@@ -17,7 +17,7 @@ Một lần reject chứa đựng một thứ có giá trị: những nhận xé
 
 Đọc một review tiêu cực về công trình đã tốn nhiều tháng là trải nghiệm khó chịu, và cảm giác bực bội, thất vọng hay bất công là hoàn toàn bình thường. Vấn đề không nằm ở cảm xúc, mà ở những quyết định được đưa ra trong lúc cảm xúc còn mạnh: một email gay gắt gửi chair, một bài đăng chỉ trích reviewer trên mạng xã hội, hay quyết định vội vàng bỏ dự án. Những hành động này hầu như không mang lại lợi ích và đôi khi gây hại lâu dài cho uy tín.
 
-Cách tiếp cận được nhiều nhóm nghiên cứu áp dụng là đọc review và meta-review **một lần**, rồi tạm gác lại trong một tới hai ngày. Khi quay lại, người đọc cố gắng đặt mình vào vị trí của một người không quen với dự án và tự hỏi: nếu chỉ có trong tay bản PDF này, liệu có hiểu nhầm giống như reviewer không? Câu hỏi này chuyển trọng tâm từ "reviewer sai ở đâu" sang "paper chưa truyền đạt được điều gì", và đó là câu hỏi có thể hành động được. Với nghiên cứu sinh, buổi trao đổi với người hướng dẫn sau khoảng thời gian này thường hiệu quả hơn nhiều so với buổi họp ngay trong ngày nhận kết quả.
+Cách tiếp cận được nhiều nhóm nghiên cứu áp dụng là đọc review và meta-review **một lần**, rồi tạm gác lại trong một tới hai ngày. Khi quay lại, người đọc cố gắng nhìn paper từ vị trí của một người không quen với dự án và tự hỏi: nếu chỉ có trong tay bản PDF này, liệu có hiểu nhầm giống như reviewer không? Câu hỏi này chuyển trọng tâm từ "reviewer sai ở đâu" sang "paper chưa truyền đạt được điều gì", và đó là câu hỏi có thể hành động được. Với nghiên cứu sinh, buổi trao đổi với người hướng dẫn sau khoảng thời gian này thường hiệu quả hơn nhiều so với buổi họp ngay trong ngày nhận kết quả.
 
 ## Đọc review như dữ liệu
 
@@ -74,7 +74,7 @@ flowchart LR
     ARR["Chu kỳ ARR hiện tại"]
     ARR2["Chu kỳ ARR kế tiếp<br/>kèm revision notes"]
   end
-  subgraph OTH["Ngoài ba mùa deadline chính"]
+  subgraph OTH["Lựa chọn khác"]
     AAAI["AAAI<br/>nộp ~T8"]
     TMLR["TMLR<br/>nộp bất kỳ lúc nào"]
     JNL["Journal: TPAMI, IJCV,<br/>TACL, JMLR"]
@@ -83,7 +83,7 @@ flowchart LR
   CVPR -->|"framing tổng quát hơn"| NIPS
   IE -->|"reject"| AAAI
   IE -->|"reject"| ICLR
-  IE -->|"sửa lớn"| CVPR
+  IE -->|"sửa lớn: năm sau"| CVPR
   ICML -->|"sửa trong ~2 tuần"| NIPS
   NIPS -->|"rất sát deadline"| ICLR
   NIPS -->|"đóng góp NLP rõ"| ARR2
@@ -96,7 +96,7 @@ flowchart LR
   ICLR --> TMLR
 ```
 
-Một số lộ trình trong sơ đồ cần được giải thích thêm. Lộ trình **CVPR sang ICCV hoặc ECCV** là phổ biến nhất ở CV, nhưng khoảng cách giữa kết quả CVPR và deadline của hội nghị kế tiếp chỉ khoảng hai tuần, nên chỉ phù hợp với sửa nhỏ, và còn đi kèm việc chuyển template nếu là ECCV. Lộ trình **ICML sang NeurIPS** có đặc điểm tương tự ở ML. Lộ trình **NeurIPS sang ICLR** rất sát nhau về thời gian: kết quả NeurIPS thường được công bố chỉ vài ngày trước deadline của ICLR, và abstract registration của ICLR có khi còn sớm hơn, nên nhóm tác giả cần chuẩn bị trước bản sửa.
+Một số lộ trình trong sơ đồ cần được giải thích thêm. Lộ trình **CVPR sang ICCV hoặc ECCV** là phổ biến nhất ở CV, nhưng khoảng cách giữa kết quả CVPR và deadline của hội nghị kế tiếp chỉ khoảng hai tuần, nên chỉ phù hợp với sửa nhỏ, và còn đi kèm việc chuyển template nếu là ECCV. Lộ trình **ICML sang NeurIPS** có đặc điểm tương tự ở ML. Lộ trình **NeurIPS sang ICLR** rất sát nhau về thời gian: kết quả NeurIPS thường được công bố chỉ khoảng một tuần trước deadline full paper của ICLR, còn abstract registration của ICLR lại đến sớm hơn deadline đó vài ngày, nên nhóm tác giả cần chuẩn bị sẵn bản sửa trong lúc chờ kết quả.
 
 Ở ICLR, review được công bố khoảng giữa tháng 11, trước khi có quyết định cuối cùng vài tháng. Nếu review rõ ràng không thuận lợi, nhiều nhóm chọn rút paper sớm để nộp sang CVPR (với paper thiên về vision) hoặc chuẩn bị cho ICML. Lựa chọn này đòi hỏi cân nhắc kỹ: deadline của CVPR thường rơi vào cùng thời điểm review ICLR được công bố, và việc rút paper phải hoàn tất trước khi nộp nơi mới.
 
@@ -130,7 +130,7 @@ Một thực tế mà nhiều người mới không lường trước là khả 
 
 Ngoài ra, có những cơ chế khiến lịch sử của paper trở nên minh bạch. Ở ARR, khi nộp lại dưới dạng resubmission, review cũ đi kèm paper, và tác giả có thể đề nghị giữ reviewer cũ hoặc đổi reviewer mới kèm lý do; revision notes là nơi chứng minh các mối lo đã được giải quyết. Ở ICLR, trang OpenReview của paper bị reject, kèm toàn bộ review và thảo luận, thường vẫn công khai, nên reviewer ở hội nghị sau có thể tìm thấy. Một số hội nghị khác hỏi tác giả về lần nộp trước và cho phép, hoặc yêu cầu, đính kèm review cũ cùng mô tả thay đổi.
 
-Những cơ chế này không nên được nhìn như một mối đe dọa, mà như một lý do nữa để thực sự tiếp thu review. Một paper đã sửa nghiêm túc theo review cũ có thể biến reviewer cũ thành người ủng hộ: họ thấy ý kiến của mình được lắng nghe và paper đã tốt hơn rõ rệt.
+Những cơ chế này không nên được nhìn như một mối đe dọa, mà như một lý do nữa để thực sự tiếp thu review. Một paper đã sửa nghiêm túc theo review cũ có thể biến reviewer cũ thành người ủng hộ: họ thấy ý kiến của họ được lắng nghe và paper đã tốt hơn rõ rệt.
 
 ## Tóm tắt
 

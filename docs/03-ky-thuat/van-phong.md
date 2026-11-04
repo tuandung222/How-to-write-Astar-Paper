@@ -174,10 +174,10 @@ Bảng dưới đây gom các lỗi đã phân tích để người viết tiệ
 
 | Lỗi | Sai | Đúng | Nguồn gốc |
 |---|---|---|---|
-| Thiếu mạo từ | *We propose novel method for detection.* | *We propose **a** novel method for detection.* | Tiếng Việt không có mạo từ |
-| Danh từ số ít không có từ hạn định | *Network takes image as input.* | ***The** network takes **an** image as input.* | Tiếng Việt không có mạo từ |
+| Thiếu mạo từ | *"We propose novel method for detection."* | *"We propose **a** novel method for detection."* | Tiếng Việt không có mạo từ |
+| Danh từ số ít không có từ hạn định | *"Network takes image as input."* | *"**The** network takes **an** image as input."* | Tiếng Việt không có mạo từ |
 | Thừa "the" với khái niệm chung | *The deep learning has…* | *Deep learning has…* | Dùng "the" như "cái/này" |
-| Quên số nhiều | *one of the main challenge* | *one of the main challenge**s*** | Danh từ tiếng Việt không biến đổi |
+| Quên số nhiều | *"one of the main challenge"* | *"one of the main challenges"* | Danh từ tiếng Việt không biến đổi |
 | Số nhiều hóa danh từ không đếm được | *many researches, informations, softwares* | *many studies, information, software* | "Các nghiên cứu", "các thông tin" đếm được trong tiếng Việt |
 | Sai hòa hợp chủ ngữ–động từ | *The results shows…* | *The results show…* | Động từ tiếng Việt không chia |
 | Nhảy thì trong đoạn | *We trained… We evaluate… We have observed…* | Chọn một thì, giữ nhất quán | "Đã/đang/sẽ" là tùy chọn |

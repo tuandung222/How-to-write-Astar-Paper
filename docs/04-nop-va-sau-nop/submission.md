@@ -171,7 +171,7 @@ Các bước dưới đây được trình bày theo thứ tự thời gian, kè
 
 ### ACL Rolling Review
 
-Với NLP, quy trình có thêm một tầng. ARR **tách việc nhận review khỏi việc chọn hội nghị**: paper được nộp vào một chu kỳ review chung, nhận review và meta-review, rồi tác giả mới quyết định "commit" (cam kết) paper cùng bộ review đó tới một hội nghị cụ thể. Mỗi năm có vài chu kỳ ARR, và mỗi hội nghị như ACL, EMNLP hay NAACL công bố chu kỳ nào kết thúc kịp deadline commit của mình. Do đó, việc đầu tiên là tính ngược: từ hội nghị mục tiêu, xác định chu kỳ ARR tương ứng và deadline nộp của chu kỳ đó.
+Với NLP, quy trình có thêm một tầng. ARR **tách việc nhận review khỏi việc chọn hội nghị**: paper được nộp vào một chu kỳ review chung, nhận review và meta-review, rồi tác giả mới quyết định "commit" (cam kết) paper cùng bộ review đó tới một hội nghị cụ thể. Mỗi năm có vài chu kỳ ARR, và mỗi hội nghị như ACL, EMNLP hay NAACL công bố chu kỳ nào kết thúc kịp deadline commit của hội nghị đó. Do đó, việc đầu tiên là tính ngược: từ hội nghị mục tiêu, xác định chu kỳ ARR tương ứng và deadline nộp của chu kỳ đó.
 
 ```mermaid
 flowchart TD
@@ -189,7 +189,7 @@ Khi nộp vào ARR, form nộp bài trên OpenReview của ARR bao gồm Respons
 
 ## Checklist và tuyên bố bắt buộc theo cộng đồng
 
-Trong khoảng một thập kỷ gần đây, các cộng đồng AI liên tục bổ sung những checklist và mục bắt buộc vào quy trình nộp bài. Động lực chính là những lo ngại về khả năng tái hiện kết quả (reproducibility), về các tác động xã hội của nghiên cứu, và về việc tác giả trình bày quá mức đóng góp của mình. Người mới thường coi checklist là thủ tục giấy tờ, nhưng cách nhìn đó dẫn tới hai sai lầm. Thứ nhất, reviewer thực sự đọc checklist, và một câu trả lời "Yes" không có căn cứ trong paper làm giảm độ tin cậy của toàn bộ submission. Thứ hai, checklist là bản tổng hợp những câu hỏi reviewer sẽ đặt ra; soạn nó từ khi viết bản nháp giúp phát hiện sớm những chỗ thiếu sót. Một điểm quan trọng nữa: trả lời "No" kèm lý giải trung thực là hoàn toàn chấp nhận được, và tốt hơn nhiều so với một câu "Yes" không có cơ sở.
+Trong khoảng một thập kỷ gần đây, các cộng đồng AI liên tục bổ sung những checklist và mục bắt buộc vào quy trình nộp bài. Động lực chính là những lo ngại về khả năng tái hiện kết quả (reproducibility), về các tác động xã hội của nghiên cứu, và về việc tác giả phóng đại đóng góp của paper. Người mới thường coi checklist là thủ tục giấy tờ, nhưng cách nhìn đó dẫn tới hai sai lầm. Thứ nhất, reviewer thực sự đọc checklist, và một câu trả lời "Yes" không có căn cứ trong paper làm giảm độ tin cậy của toàn bộ submission. Thứ hai, checklist là bản tổng hợp những câu hỏi reviewer sẽ đặt ra; soạn nó từ khi viết bản nháp giúp phát hiện sớm những chỗ thiếu sót. Một điểm quan trọng nữa: trả lời "No" kèm lý giải trung thực là hoàn toàn chấp nhận được, và tốt hơn nhiều so với một câu "Yes" không có cơ sở.
 
 ### Machine Learning
 

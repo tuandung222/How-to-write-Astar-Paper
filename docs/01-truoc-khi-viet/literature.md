@@ -9,7 +9,7 @@
     - Xây dựng bảng literature và bản đồ định vị, rồi dùng chúng làm nguyên liệu cho Introduction, Related Work và danh sách baseline.
     - Ước lượng số trích dẫn hợp lý và tránh bỏ sót công trình gần nhất.
 
-Mục tiêu của việc đọc tài liệu khi chuẩn bị một paper không phải là "đọc thật nhiều", mà là **biết chính xác công trình của mình nằm ở đâu** trên bản đồ của lĩnh vực: ai đã giải quyết bài toán này, bằng cách nào, với những giả định gì, và khoảng trống nào còn lại. Hiểu biết đó được kiểm tra ở ít nhất ba nơi trong paper. Phần Introduction phải nêu được khoảng trống một cách thuyết phục; phần Related Work phải cho thấy tác giả nắm vững các hướng tiếp cận chính; và phần Experiments phải so sánh với đúng những baseline mạnh nhất. Một lỗ hổng về tài liệu thường lộ ra ở cả ba nơi cùng lúc.
+Mục tiêu của việc đọc tài liệu khi chuẩn bị một paper không phải là "đọc thật nhiều", mà là **biết chính xác công trình đang thực hiện nằm ở đâu** trên bản đồ của lĩnh vực: ai đã giải quyết bài toán này, bằng cách nào, với những giả định gì, và khoảng trống nào còn lại. Hiểu biết đó được kiểm tra ở ít nhất ba nơi trong paper. Phần Introduction phải nêu được khoảng trống một cách thuyết phục; phần Related Work phải cho thấy tác giả nắm vững các hướng tiếp cận chính; và phần Experiments phải so sánh với đúng những baseline mạnh nhất. Một lỗ hổng về tài liệu thường lộ ra ở cả ba nơi cùng lúc.
 
 Có một lý do thực tế khác khiến việc đọc kỹ trở nên quan trọng. Ở nhiều hội nghị, việc phân công reviewer dựa một phần trên mức độ tương đồng giữa paper được nộp và các công trình mà reviewer đã công bố. Hệ quả là những người có công trình gần nhất với paper, tức chính tác giả của các paper mà nhóm cần trích dẫn, có khả năng cao nằm trong số reviewer. Họ biết rõ lĩnh vực, biết những công trình mới nhất, và sẽ nhận ra ngay nếu một công trình quan trọng bị bỏ sót.
 
@@ -23,7 +23,7 @@ Với tốc độ công bố hiện nay, không ai có thể đọc kỹ mọi p
 
 **Lượt thứ hai** có thể mất tới khoảng một giờ. Người đọc đi qua toàn bộ paper một cách cẩn thận nhưng bỏ qua những chi tiết như chứng minh. Trọng tâm của lượt này là các hình và bảng: trục có được ghi chú rõ không, có error bar không, so sánh có công bằng không, kết luận rút ra có thực sự được hình và bảng ủng hộ không. Người đọc cũng đánh dấu những tài liệu tham khảo chưa đọc mà có vẻ quan trọng, vì đó là nguồn để mở rộng tìm kiếm. Sau lượt này, người đọc phải tóm tắt được ý chính và bằng chứng của paper cho người khác.
 
-**Lượt thứ ba** dành cho số ít paper cốt lõi nhất, thường chỉ năm đến mười paper gần nhất với dự án. Keshav mô tả lượt này như việc "tái hiện" paper trong đầu: với cùng giả định như tác giả, người đọc tự hỏi mình sẽ trình bày và chứng minh thế nào, từ đó nhận ra những giả định ngầm, những thí nghiệm còn thiếu và những điểm yếu có thể khai thác. Với người mới, lượt này có thể mất nhiều giờ. Trong bối cảnh CV, NLP và ML, lượt thứ ba thường bao gồm cả việc đọc code chính thức, tự suy lại các phương trình và có thể chạy thử code. Những paper đi tới lượt thứ ba thường chính là baseline chính hoặc nền tảng trực tiếp của dự án.
+**Lượt thứ ba** dành cho số ít paper cốt lõi nhất, thường chỉ năm đến mười paper gần nhất với dự án. Keshav mô tả lượt này như việc "tái hiện" paper trong đầu: với cùng giả định như tác giả, người đọc tự hỏi nếu ở vị trí tác giả thì sẽ trình bày và chứng minh thế nào, từ đó nhận ra những giả định ngầm, những thí nghiệm còn thiếu và những điểm yếu có thể khai thác. Với người mới, lượt này có thể mất nhiều giờ. Trong bối cảnh CV, NLP và ML, lượt thứ ba thường bao gồm cả việc đọc code chính thức, tự suy lại các phương trình và có thể chạy thử code. Những paper đi tới lượt thứ ba thường chính là baseline chính hoặc nền tảng trực tiếp của dự án.
 
 | Lượt | Thời gian | Đọc gì | Kết quả cần có |
 |---|---|---|---|
@@ -33,7 +33,7 @@ Với tốc độ công bố hiện nay, không ai có thể đọc kỹ mọi p
 
 ## Đọc như người viết
 
-Phương pháp ba lượt giúp hiểu *nội dung* của paper. Nhưng với người đang học viết paper, mỗi paper tốt còn là một bài mẫu về *cách trình bày*. Khi đọc một paper xuất sắc trong lĩnh vực của mình, người học nên thêm một lớp câu hỏi khác: tác giả mở đầu Introduction bằng gì, khoảng trống được nêu ra ở đoạn thứ mấy và bằng loại bằng chứng nào, Figure 1 truyền đạt điều gì, đoạn liệt kê đóng góp được viết ra sao, mỗi điểm yếu tiềm tàng được "phòng thủ" bằng thí nghiệm nào, và phần Limitations thừa nhận những gì.
+Phương pháp ba lượt giúp hiểu *nội dung* của paper. Nhưng với người đang học viết paper, mỗi paper tốt còn là một bài mẫu về *cách trình bày*. Khi đọc một paper xuất sắc trong lĩnh vực đang nghiên cứu, người học nên thêm một lớp câu hỏi khác: tác giả mở đầu Introduction bằng gì, khoảng trống được nêu ra ở đoạn thứ mấy và bằng loại bằng chứng nào, Figure 1 truyền đạt điều gì, đoạn liệt kê đóng góp được viết ra sao, mỗi điểm yếu tiềm tàng được "phòng thủ" bằng thí nghiệm nào, và phần Limitations thừa nhận những gì.
 
 ResNet là một ví dụ đáng phân tích theo cách này. Introduction của paper bắt đầu từ thành công của các mạng sâu, rồi đặt một câu hỏi rất ngắn: *"Is learning better networks as easy as stacking more layers?"* Ngay sau đó, Figure 1 không minh họa kiến trúc đề xuất mà trình bày bằng chứng của vấn đề: một mạng thông thường 56 lớp có training error và test error cao hơn mạng 20 lớp trên CIFAR-10. Với một hình duy nhất, người đọc hiểu rằng vấn đề không phải overfitting mà là tối ưu hóa, và lời giải được đưa ra sau đó trở nên tự nhiên. Người đọc như người viết sẽ rút ra một bài học có thể áp dụng: Figure 1 không nhất thiết phải là hình kiến trúc; nó có thể là bằng chứng thuyết phục nhất cho khoảng trống mà paper giải quyết (xem thêm [Introduction & Figure 1](../02-viet-tung-phan/introduction.md) và case study [ResNet](../05-case-studies/resnet.md)).
 
@@ -127,7 +127,7 @@ Việc chọn trục phụ thuộc vào bài toán và cộng đồng. Ở Compu
                  Độ chính xác thấp
 ```
 
-Hai lưu ý giúp bản đồ có giá trị thực. Thứ nhất, một góc trống có thể trống vì chưa ai làm được, nhưng cũng có thể vì không ai cần; người viết phải lập luận được rằng vị trí của mình đáp ứng một nhu cầu thực. Thứ hai, bản đồ định vị không chỉ là công cụ tư duy: ở nhiều paper về hiệu quả tính toán, nó trở thành chính Figure 1 dưới dạng biểu đồ đánh đổi giữa độ chính xác và chi phí, với phương pháp đề xuất nằm trên đường biên Pareto.
+Hai lưu ý giúp bản đồ có giá trị thực. Thứ nhất, một góc trống có thể trống vì chưa ai làm được, nhưng cũng có thể vì không ai cần; người viết phải lập luận được rằng vị trí được chọn đáp ứng một nhu cầu thực. Thứ hai, bản đồ định vị không chỉ là công cụ tư duy: ở nhiều paper về hiệu quả tính toán, nó trở thành chính Figure 1 dưới dạng biểu đồ đánh đổi giữa độ chính xác và chi phí, với phương pháp đề xuất nằm trên đường biên Pareto.
 
 ## Bao nhiêu trích dẫn là đủ?
 

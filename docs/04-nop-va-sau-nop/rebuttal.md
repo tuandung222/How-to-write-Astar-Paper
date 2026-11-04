@@ -19,13 +19,13 @@ Bài này bắt đầu bằng việc xác định người đọc của rebuttal
 
 Sai lầm phổ biến nhất khi viết rebuttal là coi nó như một cuộc tranh luận với reviewer, đặc biệt là với reviewer cho điểm thấp nhất. Người viết dồn hết tâm sức để chứng minh reviewer đó sai, với hy vọng họ sẽ đổi ý. Trên thực tế, người có quyền quyết định là **Area Chair (AC)**, ở ARR gọi là meta-reviewer, chứ không phải từng reviewer. AC phải đọc vài chục paper trong một thời gian ngắn, mỗi paper kèm ba tới năm review và một bản phản hồi. AC đọc rebuttal để trả lời hai câu hỏi: những điểm yếu chính mà các reviewer nêu ra đã được giải quyết chưa, và có reviewer nào đã hiểu sai paper không.
 
-Từ góc nhìn đó, rebuttal phục vụ ba nhóm người đọc với ba mục đích khác nhau. **AC** cần một bản đồ rõ ràng về các mối lo chính và trạng thái giải quyết của từng mối lo. **Reviewer tích cực** cần "đạn dược" để bảo vệ paper trong giai đoạn thảo luận nội bộ, chẳng hạn một kết quả mới trả lời đúng câu hỏi mà reviewer tiêu cực đặt ra. **Reviewer tiêu cực nhưng có thể thuyết phục** cần thấy mối lo cụ thể của mình được giải quyết bằng bằng chứng, không phải bằng lời khẳng định. Còn reviewer có định kiến sâu sắc với hướng nghiên cứu thì rebuttal khó thay đổi được; mục tiêu đối với họ là trả lời lịch sự và đầy đủ để AC thấy rằng mối lo đã được xử lý, chứ không phải để "thắng" họ.
+Từ góc nhìn đó, rebuttal phục vụ ba nhóm người đọc với ba mục đích khác nhau. **AC** cần một bản đồ rõ ràng về các mối lo chính và trạng thái giải quyết của từng mối lo. **Reviewer tích cực** cần "đạn dược" để bảo vệ paper trong giai đoạn thảo luận nội bộ, chẳng hạn một kết quả mới trả lời đúng câu hỏi mà reviewer tiêu cực đặt ra. **Reviewer tiêu cực nhưng có thể thuyết phục** cần thấy mối lo cụ thể mà họ nêu ra được giải quyết bằng bằng chứng, không phải bằng lời khẳng định. Còn reviewer có định kiến sâu sắc với hướng nghiên cứu thì rebuttal khó thay đổi được; mục tiêu đối với họ là trả lời lịch sự và đầy đủ để AC thấy rằng mối lo đã được xử lý, chứ không phải để "thắng" họ.
 
 Cách nhìn này có hệ quả trực tiếp tới cách viết. Một rebuttal tốt được tổ chức theo **mối lo** chứ không theo thứ tự reviewer, ưu tiên những mối lo được nhiều reviewer cùng nêu, và mở đầu bằng việc nhắc lại những điểm mạnh đã được công nhận. Nó giúp AC hoàn thành công việc nhanh hơn, và một AC được giúp đỡ thường đánh giá paper công bằng hơn.
 
 ## Ba cơ chế phản hồi ở ba cộng đồng
 
-Dù mục tiêu chung giống nhau, hình thức phản hồi ở ba cộng đồng khác nhau đến mức chiến lược viết cũng phải thay đổi. Hiểu rõ cơ chế của hội nghị mình nộp là điều kiện để phân bổ công sức đúng chỗ.
+Dù mục tiêu chung giống nhau, hình thức phản hồi ở ba cộng đồng khác nhau đến mức chiến lược viết cũng phải thay đổi. Hiểu rõ cơ chế của hội nghị nhắm tới là điều kiện để phân bổ công sức đúng chỗ.
 
 ### Computer Vision: một trang PDF, một lần duy nhất
 
@@ -202,7 +202,7 @@ We hope these answers address your concerns. If any point remains unclear,
 we would be happy to discuss further during the discussion period.
 ```
 
-Hai mẫu trên chia sẻ một số nguyên tắc chung. General response chỉ chứa những gì liên quan tới nhiều reviewer, để tránh lặp lại cùng một bảng trong ba phản hồi riêng. Mỗi phản hồi riêng trích lại ngắn gọn ý kiến của reviewer (W cho weakness, Q cho question), giúp reviewer không phải tìm lại review của mình. Câu trả lời bắt đầu bằng sự đồng ý ở những điểm reviewer có lý, rồi mới giải thích phạm vi; cách này làm giảm tính đối đầu và tăng sức thuyết phục. Câu kết mời thảo luận tiếp, phù hợp với cơ chế nhiều vòng của ML.
+Hai mẫu trên chia sẻ một số nguyên tắc chung. General response chỉ chứa những gì liên quan tới nhiều reviewer, để tránh lặp lại cùng một bảng trong ba phản hồi riêng. Mỗi phản hồi riêng trích lại ngắn gọn ý kiến của reviewer (W cho weakness, Q cho question), giúp reviewer không phải tìm lại review đã viết. Câu trả lời bắt đầu bằng sự đồng ý ở những điểm reviewer có lý, rồi mới giải thích phạm vi; cách này làm giảm tính đối đầu và tăng sức thuyết phục. Câu kết mời thảo luận tiếp, phù hợp với cơ chế nhiều vòng của ML.
 
 Trong giai đoạn thảo luận, nếu reviewer chưa phản hồi khi thời hạn sắp hết, có thể gửi một lời nhắc ngắn và lịch sự, chẳng hạn: *"We would be grateful if you could let us know whether our response has addressed your concerns, or if there is anything else we can clarify before the discussion period ends."* Một lời nhắc là đủ; nhắc nhiều lần dễ tạo cảm giác gây áp lực. Với ARR, mẫu phản hồi riêng cho từng reviewer vẫn áp dụng được, nhưng nên viết với ý thức rằng meta-reviewer và sau đó là chair của hội nghị sẽ đọc toàn bộ, nên mỗi phản hồi cần tự đứng vững mà không phụ thuộc vào một vòng hỏi đáp tiếp theo.
 
