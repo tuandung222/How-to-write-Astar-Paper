@@ -56,7 +56,7 @@ Introduction gồm chín đoạn (đoạn cuối là lộ trình) và một hìn
 
 **Đoạn 5–6 giới thiệu hai thành phần**, với một câu định vị sắc: instruction tuning chuẩn là "a core contributor" của lỗ hổng, vì nó dạy mô hình làm theo chỉ dẫn ở bất cứ đâu. Một kỹ thuật ai cũng dùng trở thành nguyên nhân, và structured instruction tuning trở thành phiên bản sửa lỗi của chính nó.
 
-**Đoạn 7–8 tóm tắt bằng chứng**: ít nhất 15 loại tấn công, mọi tấn công thủ công giảm xuống "<2%", TAP và GCG giảm như đã nêu, một câu thừa nhận cần thêm nghiên cứu, và utility gần như không đổi; đoạn 8 chọn ra ba ý chính (delimiter bằng token dành riêng, front-end có lọc, structured instruction tuning).
+**Đoạn 7–8 tóm tắt bằng chứng**: ít nhất 15 loại tấn công, tấn công thủ công giảm xuống "<2%", TAP và GCG giảm như đã nêu, utility gần như không đổi; đoạn 8 chọn ra ba ý chính (token dành riêng, front-end có lọc, structured instruction tuning).
 
 Hai chi tiết đáng rút kinh nghiệm. Paper không có danh sách đóng góp mà dùng đoạn "three main ideas"; một danh sách ba dòng ứng với ba thành phần và các mục ablation tương ứng sẽ giúp reviewer đối chiếu nhanh hơn, như bài [Introduction & Figure 1](../02-viet-tung-phan/introduction.md) khuyến nghị. Và con số "<2%" lệch nhẹ so với Table 2, nơi ô Completion-RealCmb trên Mistral là 2%; "at most 2%" mới chính xác.
 
@@ -78,7 +78,7 @@ Discussion chạm tới khoảng cách này khi gợi ý các kiến trúc vốn
 
 BIPIA, công trình đồng thời gần nhất, được mô tả công bằng rồi hẹn so sánh thực nghiệm ở Section 5.5. Instruction hierarchy, ra đời vài tháng sau bản đầu của paper, được mô tả là "a generalization of StruQ", vừa ghi nhận công trình đến sau vừa xác lập thứ tự thời gian một cách nhã nhặn. Jatmo, một phòng vệ fine-tune theo từng tác vụ có chung tác giả với paper, được trích ở ngôi thứ ba và phân biệt bằng một điểm cụ thể: Jatmo cần một mô hình cho mỗi tác vụ, StruQ làm cứng một mô hình cho mọi tác vụ.
 
-Một chi tiết nhỏ: giữa đoạn về BIPIA có ký hiệu "[R2]" không được giải thích ở đâu trong paper. Dù nguồn gốc là gì, những ký hiệu lạ như vậy nên được dọn trước khi công bố bất kỳ phiên bản nào; bài [Camera-ready, poster, code](../04-nop-va-sau-nop/camera-ready.md) có danh sách kiểm tra cho bước này.
+Một chi tiết nhỏ: giữa đoạn về BIPIA có ký hiệu "[R2]" không được giải thích ở đâu trong paper. Những ký hiệu lạ như vậy nên được dọn trước khi công bố bất kỳ phiên bản nào (xem [Camera-ready, poster, code](../04-nop-va-sau-nop/camera-ready.md)).
 
 ## Phương pháp: hệ thống hai thành phần
 
@@ -142,7 +142,7 @@ Threat model nằm trong một đoạn ngắn ở Section 3.1: kẻ tấn công 
 
 ### Định nghĩa thành công và metric
 
-Hai metric (ASR theo từng tấn công, utility theo AlpacaEval) đều được định nghĩa rõ, và thói quen báo cáo "best attack success rate" trong ablation tránh để trung bình hóa che mất tấn công mạnh nhất. Khoảng trống đáng kể nhất là paper không đo **utility under attack**, tức mô hình còn hoàn thành tác vụ hợp lệ khi bị tấn công hay không; một phòng vệ khiến mô hình trả lời sai khi gặp dữ liệu bị cài cắm vẫn là một dạng hỏng dịch vụ, và benchmark [AgentDojo](agentdojo.md) đưa metric này thành tiêu chuẩn cho agent. Ngoài ra, utility chỉ được đo bằng một benchmark với một giám khảo LLM.
+Hai metric (ASR theo từng tấn công, utility theo AlpacaEval) được định nghĩa rõ, và việc báo cáo "best attack success rate" trong ablation tránh để trung bình hóa che mất tấn công mạnh nhất. Khoảng trống đáng kể nhất là paper không đo **utility under attack**, tức mô hình còn hoàn thành tác vụ hợp lệ khi bị tấn công hay không; một phòng vệ khiến mô hình trả lời sai khi gặp dữ liệu bị cài cắm vẫn là một dạng hỏng dịch vụ, và benchmark [AgentDojo](agentdojo.md) đưa metric này thành tiêu chuẩn cho agent. Ngoài ra, utility chỉ được đo bằng một benchmark với một giám khảo LLM.
 
 ### Đánh giá chống lại phản biện
 

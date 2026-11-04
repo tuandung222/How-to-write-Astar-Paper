@@ -45,7 +45,7 @@ Abstract dài khoảng mười một câu, nhưng cấu trúc rõ:
 | 8–10 | Phát hiện thứ hai | Inference-time compute có thể mở lỗ hổng; tấn công evaluator và value function làm ASR tăng tương đối 15% và 20% |
 | 11 | Tài nguyên mở | Dữ liệu và mã cho tấn công, phòng vệ, đánh giá |
 
-Điểm mạnh là con số đi kèm điều kiện: 67% đặt cạnh "một ảnh", "dưới 5% điểm ảnh". Trong bảo mật, ASR tách khỏi threat model gần như vô nghĩa. Hai chỗ có thể chặt hơn. Câu 67% đứng ngay sau cụm nói về agent có reflection và tree search, nên dễ bị hiểu là các agent đó bị phá tới 67%; theo Section 5.4, 67% là của agent dùng GPT-4V, agent tương ứng dùng GPT-4o có ASR 31%, còn reflexion và tree search agent khi bị tấn công có ASR 36% và 38%. Ngoài ra, "tăng tương đối 15% và 20%" là phần trăm của phần trăm, dễ bị đọc thành điểm phần trăm; viết "from 31% to 36% and 38%" vừa ngắn vừa không mơ hồ.
+Điểm mạnh là con số đi kèm điều kiện: 67% đặt cạnh "một ảnh", "dưới 5% điểm ảnh"; trong bảo mật, ASR tách khỏi threat model gần như vô nghĩa. Hai chỗ có thể chặt hơn. Câu 67% đứng ngay sau cụm nói về agent có reflection và tree search, nên dễ bị hiểu là các agent đó bị phá tới 67%; theo Section 5.4, 67% là của agent dùng GPT-4V, agent tương ứng dùng GPT-4o có ASR 31%, còn reflexion và tree search agent khi bị tấn công có ASR 36% và 38%. Và "tăng tương đối 15% và 20%" là phần trăm của phần trăm, dễ bị đọc thành điểm phần trăm; "from 31% to 36% and 38%" vừa ngắn vừa không mơ hồ.
 
 ## Introduction: sáu đoạn và ba đóng góp
 
