@@ -25,7 +25,7 @@ flowchart LR
   L2 --> L3["Tầng 3<br/>Sửa cấu trúc<br/>(reverse outline)"]
   L3 --> L4["Tầng 4<br/>Sửa câu chữ,<br/>hình, số liệu"]
   L4 --> L5["Tầng 5<br/>Polish + checklist"]
-  L3 -. "cấu trúc sai" .-> L1
+  L3 -. cấu trúc sai .-> L1
 ```
 
 Nguyên tắc quan trọng nhất của quy trình là **không sửa câu chữ (tầng 4) khi cấu trúc (tầng 3) còn sai**. Lý do nằm ở chi phí thay đổi: ở tầng 1, đổi thứ tự hai ý chỉ là đổi chỗ hai dòng; ở tầng 4, cùng thay đổi đó đòi hỏi viết lại các câu chuyển tiếp, sửa tham chiếu và cân chỉnh lại độ dài. Thời gian dành để đánh bóng một đoạn văn sắp bị xóa là thời gian mất trắng, và cảm giác tiếc công sức còn khiến người viết ngần ngại xóa đoạn đó dù biết nó không còn phù hợp. Mũi tên nét đứt trong sơ đồ thể hiện một thực tế: khi tầng 3 phát hiện câu chuyện có vấn đề, việc đúng đắn là quay về sửa outline chứ không vá víu trên văn bản.
@@ -88,7 +88,7 @@ Outline nên được gửi cho người hướng dẫn **trước** khi viết 
 
 Tầng 2 có một mục tiêu duy nhất: đưa **toàn bộ** nội dung lên trang, từ đầu tới cuối, càng nhanh càng tốt. Bản draft được phép vụng về, lặp từ, sai ngữ pháp, có chỗ trống. Lý do của cách tiếp cận này là viết và sửa là hai hoạt động tư duy khác nhau: viết đòi hỏi tạo ra ý, còn sửa đòi hỏi phán xét ý. Khi cố làm cả hai cùng lúc, người viết liên tục tự ngắt mạch suy nghĩ để sửa câu vừa viết, và kết quả là sau một buổi chỉ có một đoạn văn. Tâm lý cầu toàn là nguyên nhân phổ biến nhất khiến người mới bị kẹt ở trang đầu.
 
-Một số kỹ thuật giúp viết draft nhanh. Đặt giới hạn thời gian cho từng mục, ví dụ hai giờ cho bản draft Related Work, và dừng khi hết giờ dù chưa hài lòng. Đánh dấu mọi chỗ còn thiếu bằng `\todo{}`, kể cả các con số chưa có: "*improves accuracy by \todo{X} points*". Khi bí một cách diễn đạt tiếng Anh, viết tạm ý đó bằng tiếng Việt trong một comment rồi đi tiếp; vấn đề câu chữ sẽ được giải quyết ở tầng 4. Không đọc lại những gì vừa viết trong cùng một phiên.
+Một số kỹ thuật giúp viết draft nhanh. Đặt giới hạn thời gian cho từng mục, ví dụ hai giờ cho bản draft Related Work, và dừng khi hết giờ dù chưa hài lòng. Đánh dấu mọi chỗ còn thiếu bằng `\todo{}`, kể cả các con số chưa có: "*improves accuracy by* `\todo{X}` *points*". Khi bí một cách diễn đạt tiếng Anh, viết tạm ý đó bằng tiếng Việt trong một comment rồi đi tiếp; vấn đề câu chữ sẽ được giải quyết ở tầng 4. Không đọc lại những gì vừa viết trong cùng một phiên.
 
 Về thứ tự các mục, không có quy tắc bắt buộc, nhưng nhiều nhóm bắt đầu với Method và Experiments, vì đó là những phần cụ thể nhất và người viết đã nắm rõ. Introduction nên được viết nháp sớm như một phép thử cho câu chuyện, rồi viết lại ở cuối khi mọi kết quả đã rõ. Abstract thường được viết sau cùng, dựa trên Introduction đã hoàn thiện. Chương [Viết từng phần](../02-viet-tung-phan/index.md) trình bày chi tiết cách viết từng mục.
 

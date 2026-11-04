@@ -26,7 +26,7 @@ Người viết tiếng Việt quen với những câu dài nối nhiều mệnh
 *In order to address the problem that existing multilingual models perform poorly on low-resource languages because their pre-training data is dominated by high-resource languages, which leads to unbalanced representations, we propose a sampling strategy that reweights languages during pre-training and also introduce a vocabulary extension method that adds subwords for underrepresented scripts.*
 </div>
 
-Câu này chứa bốn ý: hiện tượng (mô hình kém trên ngôn ngữ ít tài nguyên), nguyên nhân (dữ liệu mất cân bằng), hệ quả (biểu diễn mất cân bằng) và giải pháp gồm hai phần. Người đọc phải đi qua hơn bốn mươi từ mới gặp động từ chính "we propose". Tách thành nhiều câu, mỗi câu mang một ý, cho kết quả dễ đọc hơn hẳn mà không mất thông tin nào:
+Câu này chứa bốn ý: hiện tượng (mô hình kém trên ngôn ngữ ít tài nguyên), nguyên nhân (dữ liệu mất cân bằng), hệ quả (biểu diễn mất cân bằng) và giải pháp gồm hai phần. Người đọc phải đi qua gần ba mươi từ mới gặp chủ ngữ và động từ chính "we propose". Tách thành nhiều câu, mỗi câu mang một ý, cho kết quả dễ đọc hơn hẳn mà không mất thông tin nào:
 
 <div class="good" markdown>
 *Existing multilingual models perform poorly on low-resource languages. A key reason is that their pre-training data is dominated by high-resource languages, which leads to unbalanced representations. We address this imbalance in two ways. First, we reweight languages during pre-training. Second, we extend the vocabulary with subwords for underrepresented scripts.*
@@ -117,8 +117,10 @@ Những câu như "our method significantly improves performance" hay "the model
 </div>
 
 <div class="good" markdown>
-*Our method improves mAP by 2.1 points on COCO and maintains its accuracy for inputs of up to 8k tokens, whereas the strongest baseline degrades beyond 2k tokens.*
+*Our method improves exact match by 2.1 points on average over the three QA benchmarks. The gain grows to 5.3 points for questions whose context exceeds 4k tokens, whereas the strongest baseline degrades sharply beyond this length.*
 </div>
+
+Ví dụ trên thuộc một paper NLP, nhưng nguyên tắc giống hệt ở các cộng đồng khác: trong một paper CV, "*works better on small objects*" nên được thay bằng "*improves AP on small objects by 3.0 points on COCO*"; trong một paper ML, "*trains faster*" nên được thay bằng "*reaches the same validation loss with 30% fewer gradient steps*".
 
 Cụ thể cũng có nghĩa là chính xác về mức độ chắc chắn. Một kết quả thực nghiệm "*suggests*" hoặc "*indicates*" điều gì đó; chỉ một chứng minh mới "*proves*". Một thuật toán không chỉ "*converges*" mà "*converges at a rate of O(1/√T) under Assumption 1*". Việc chọn đúng động từ thể hiện mức độ chắc chắn (*hedging*) không phải là sự rụt rè, mà là dấu hiệu của người viết hiểu rõ bằng chứng đang có mạnh tới đâu.
 

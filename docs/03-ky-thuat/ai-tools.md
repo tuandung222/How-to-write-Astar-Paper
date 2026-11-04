@@ -40,7 +40,7 @@ Vị trí khai báo cũng khác nhau: trong mục phương pháp khi LLM là m�
 
 ## Khác biệt giữa các cộng đồng
 
-Ngoài các nguyên tắc chung, mỗi cộng đồng có những điểm nhấn riêng trong cách tiếp cận vấn đề LLM, xuất phát từ đặc thù nghiên cứu và quy trình review của mình.
+Ngoài các nguyên tắc chung, mỗi cộng đồng có những điểm nhấn riêng trong cách tiếp cận vấn đề LLM, xuất phát từ đặc thù nghiên cứu và quy trình review riêng.
 
 ### Computer Vision
 
@@ -56,13 +56,13 @@ Cộng đồng NLP có chính sách chi tiết nhất về các mức độ hỗ
 
 ## Khi đóng vai reviewer: bảo mật là tuyệt đối
 
-Nhiều hội nghị những năm gần đây yêu cầu tác giả của các bài nộp tham gia review, nên người học sớm muộn cũng sẽ ở phía bên kia của quy trình. Ở vai trò này, nguyên tắc rất rõ ràng: **reviewer không được đưa nội dung paper đang review vào các LLM bên ngoài**. Bài nộp là tài liệu mật; đưa nó vào một dịch vụ trực tuyến tương đương với chia sẻ cho một bên thứ ba, nơi nội dung có thể được lưu trữ, thậm chí được dùng để huấn luyện mô hình. Điều này vi phạm cam kết bảo mật mà reviewer đã đồng ý khi nhận nhiệm vụ, và có thể gây thiệt hại thật cho tác giả, những người chưa công bố ý tưởng của mình.
+Nhiều hội nghị những năm gần đây yêu cầu tác giả của các bài nộp tham gia review, nên người học sớm muộn cũng sẽ ở phía bên kia của quy trình. Ở vai trò này, nguyên tắc rất rõ ràng: **reviewer không được đưa nội dung paper đang review vào các LLM bên ngoài**. Bài nộp là tài liệu mật; đưa nó vào một dịch vụ trực tuyến tương đương với chia sẻ cho một bên thứ ba, nơi nội dung có thể được lưu trữ, thậm chí được dùng để huấn luyện mô hình. Điều này vi phạm cam kết bảo mật mà reviewer đã đồng ý khi nhận nhiệm vụ, và có thể gây thiệt hại thật cho tác giả, những người chưa công bố ý tưởng trong bài nộp.
 
 Bên cạnh vấn đề bảo mật, một bản review do LLM viết thường chung chung, thiếu những nhận xét cụ thể về điểm mạnh và điểm yếu thật của paper, và không phản ánh đúng đánh giá của một chuyên gia, trong khi đó chính là lý do reviewer được mời. Một số hội nghị cấm hẳn việc dùng LLM để viết review; một số cho phép dùng công cụ để chỉnh sửa ngôn ngữ của bản review do reviewer tự viết, với điều kiện không đưa nội dung paper vào. Hậu quả của vi phạm có thể rất nặng: bị loại khỏi danh sách reviewer, và ở một số hội nghị, chính paper của reviewer vi phạm cũng có thể bị xử lý. Khi không chắc chắn, cách an toàn là không dùng LLM cho bất kỳ khâu nào của việc review.
 
 ## Câu lệnh ẩn trong PDF: ranh giới không được vượt qua
 
-*Prompt injection* ẩn là việc chèn vào PDF những đoạn văn bản mà người đọc không nhìn thấy, chẳng hạn chữ màu trắng trên nền trắng, chữ cực nhỏ hoặc chữ giấu trong hình, chứa câu lệnh nhắm vào LLM, kiểu như yêu cầu bỏ qua các chỉ dẫn trước đó và chỉ đưa ra nhận xét tích cực. Mục đích là thao túng những reviewer dùng LLM để đọc hoặc tóm tắt paper. Năm 2025, cộng đồng phát hiện các câu lệnh kiểu này trong một số bản thảo đăng trên arXiv, và ban tổ chức nhiều hội nghị đã tuyên bố coi đây là hành vi vi phạm đạo đức, có thể dẫn tới desk reject và các biện pháp xử lý khác.
+*Prompt injection* ẩn là việc chèn vào PDF những đoạn văn bản mà người đọc không nhìn thấy, chẳng hạn chữ màu trắng trên nền trắng, chữ cực nhỏ hoặc chữ giấu trong hình, chứa câu lệnh nhắm vào LLM, kiểu như yêu cầu bỏ qua các chỉ dẫn trước đó và chỉ đưa ra nhận xét tích cực. Mục đích là thao túng những reviewer dùng LLM để đọc hoặc tóm tắt paper. Năm 2025, cộng đồng phát hiện các câu lệnh kiểu này trong một số bản thảo đăng trên arXiv, và ban tổ chức một số hội nghị lớn đã tuyên bố coi đây là hành vi vi phạm đạo đức, có thể dẫn tới desk reject và các biện pháp xử lý khác.
 
 Hành vi này sai về bản chất, bất kể reviewer có được phép dùng LLM hay không. Nó là một nỗ lực can thiệp vào kết quả đánh giá bằng con đường không minh bạch, tương tự như tìm cách tác động tới reviewer ngoài quy trình chính thức. Lập luận "chỉ để bắt những reviewer lười dùng LLM" cũng không biện minh được: tác giả không có vai trò giám sát reviewer, và khi nghi ngờ một bản review do máy viết, kênh đúng là báo cáo với area chair hoặc program chair.
 
@@ -71,7 +71,7 @@ Hành vi này sai về bản chất, bất kể reviewer có được phép dùn
 
 ## Nên và không nên
 
-Sau khi đã nắm luật, câu hỏi thực tế là dùng LLM thế nào cho hiệu quả mà vẫn an toàn. Tiêu chí chung để phân biệt là: một cách dùng tốt giúp tác giả thể hiện chính xác hơn ý tưởng của mình, còn một cách dùng xấu thay thế suy nghĩ của tác giả hoặc đưa vào paper những nội dung chưa được kiểm chứng.
+Sau khi đã nắm luật, câu hỏi thực tế là dùng LLM thế nào cho hiệu quả mà vẫn an toàn. Tiêu chí chung để phân biệt là: một cách dùng tốt giúp tác giả thể hiện chính xác hơn ý tưởng vốn có, còn một cách dùng xấu thay thế suy nghĩ của tác giả hoặc đưa vào paper những nội dung chưa được kiểm chứng.
 
 ### Những cách dùng nên áp dụng
 
