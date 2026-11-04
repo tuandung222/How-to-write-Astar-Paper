@@ -42,6 +42,20 @@ theme:
 
 plugins:
   - search
+  # print-site phải đứng CUỐI danh sách plugins
+  - print-site:
+      add_to_navigation: false
+      print_page_title: "Bản in"
+      add_print_site_banner: false
+      add_cover_page: true
+      cover_page_template: pdf/cover.tpl
+      add_table_of_contents: true
+      toc_title: "Mục lục"
+      toc_depth: 2
+      enumerate_headings: false   # tiêu đề đã tự đánh số 0., 1., ...
+      enumerate_figures: false
+      add_full_urls: false
+      path_to_pdf: ""
 
 markdown_extensions:
   - admonition
@@ -74,11 +88,14 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 extra_javascript:
+  # Mermaid + MathJax được tải về bằng scripts/fetch_vendor.sh (không phụ thuộc CDN)
+  - javascripts/vendor/mermaid.min.js
   - javascripts/mathjax.js
-  - https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js
+  - javascripts/vendor/tex-svg.js
 
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/print.css
 
 nav:
   - Trang chủ: index.md

@@ -4,5 +4,6 @@ window.MathJax = {
 };
 document$.subscribe(() => {
   if (!window.MathJax || !MathJax.startup || !MathJax.startup.output) return;
-  MathJax.startup.output.clearCache(); MathJax.typesetClear(); MathJax.texReset(); MathJax.typesetPromise();
+  if (typeof MathJax.startup.output.clearCache === "function") MathJax.startup.output.clearCache();
+  MathJax.typesetClear(); MathJax.texReset(); MathJax.typesetPromise();
 });

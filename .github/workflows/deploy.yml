@@ -1,4 +1,4 @@
-name: Build & Deploy site
+name: Build & Deploy site + PDF
 
 on:
   push:
@@ -12,23 +12,57 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: false
+
+env:
+  PLAYWRIGHT_VERSION: "1.50.1"
+  PDF_NAME: viet-paper-astar.pdf
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
           cache: pip
-      - run: pip install -r requirements.txt
-      - name: Build (strict)
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install MkDocs
+        run: pip install -r requirements.txt
+
+      - name: Fetch Mermaid + MathJax (local, no CDN)
+        run: ./scripts/fetch_vendor.sh
+
+      - name: Build site (strict)
         run: mkdocs build --strict
+
+      - name: Install Playwright + Chromium + fonts tiếng Việt
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-noto-core fonts-noto-mono
+          npm install --no-save --no-package-lock playwright@${PLAYWRIGHT_VERSION}
+          npx playwright install --with-deps chromium
+
+      - name: Render PDF
+        run: node scripts/build_pdf.mjs site "site/pdf/${PDF_NAME}"
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdf
+          path: site/pdf/${{ env.PDF_NAME }}
+          if-no-files-found: error
+
       - if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v5
+
       - if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
         with:
