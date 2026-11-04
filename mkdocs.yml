@@ -1,5 +1,5 @@
 site_name: Viết Paper A* từ A đến Z
-site_description: Bài giảng chi tiết quy trình viết một paper hội nghị A* (CVPR, ICCV, ECCV, rồi NeurIPS, ICML, ICLR, ACL...) dành cho người viết lần đầu.
+site_description: Giáo trình về quy trình viết một bài báo khoa học cho các hội nghị A* trong Computer Vision (CVPR, ICCV, ECCV), Xử lý ngôn ngữ tự nhiên (ACL, EMNLP, NAACL) và Machine Learning (NeurIPS, ICML, ICLR).
 site_author: tuandung222
 site_url: https://tuandung222.github.io/How-to-write-Astar-Paper/
 repo_url: https://github.com/tuandung222/How-to-write-Astar-Paper
@@ -98,53 +98,65 @@ extra_css:
   - stylesheets/print.css
 
 nav:
-  - Trang chủ: index.md
+  - Lời nói đầu: index.md
   - "0. Tổng quan":
       - 00-tong-quan/index.md
-      - Hệ sinh thái CVPR/ICCV/ECCV: 00-tong-quan/he-sinh-thai-cv.md
+      - Bản đồ các hội nghị A*: 00-tong-quan/ban-do-hoi-nghi.md
+      - "Computer Vision: CVPR, ICCV, ECCV": 00-tong-quan/he-sinh-thai-cv.md
+      - "NLP: ACL, EMNLP, NAACL": 00-tong-quan/he-sinh-thai-nlp.md
+      - "ML/DL: NeurIPS, ICML, ICLR": 00-tong-quan/he-sinh-thai-ml.md
       - Paper được đánh giá thế nào: 00-tong-quan/review-process.md
-      - Lộ trình 6 tháng: 00-tong-quan/lo-trinh.md
+      - Lộ trình thực hiện một paper: 00-tong-quan/lo-trinh.md
   - "1. Trước khi viết":
       - 01-truoc-khi-viet/index.md
       - Tìm & thẩm định ý tưởng: 01-truoc-khi-viet/y-tuong.md
-      - Đọc & bản đồ literature: 01-truoc-khi-viet/literature.md
+      - Đọc & lập bản đồ tài liệu: 01-truoc-khi-viet/literature.md
       - Thiết kế thí nghiệm: 01-truoc-khi-viet/thi-nghiem.md
       - Xây "câu chuyện" của paper: 01-truoc-khi-viet/cau-chuyen.md
   - "2. Viết từng phần":
       - 02-viet-tung-phan/index.md
       - Title: 02-viet-tung-phan/title.md
       - Abstract: 02-viet-tung-phan/abstract.md
-      - Introduction & Teaser: 02-viet-tung-phan/introduction.md
+      - Introduction & Figure 1: 02-viet-tung-phan/introduction.md
       - Related Work: 02-viet-tung-phan/related-work.md
       - Method: 02-viet-tung-phan/method.md
       - Experiments: 02-viet-tung-phan/experiments.md
       - Figures & Tables: 02-viet-tung-phan/figures-tables.md
-      - Conclusion, Limitations, Supplementary: 02-viet-tung-phan/conclusion-supp.md
+      - Conclusion, Limitations, Appendix: 02-viet-tung-phan/conclusion-supp.md
   - "3. Kỹ thuật & văn phong":
       - 03-ky-thuat/index.md
-      - LaTeX & Overleaf cho CV: 03-ky-thuat/latex.md
+      - LaTeX & Overleaf: 03-ky-thuat/latex.md
       - Tiếng Anh học thuật: 03-ky-thuat/van-phong.md
       - Quy trình viết & tự review: 03-ky-thuat/quy-trinh-viet.md
       - Dùng AI hỗ trợ (đúng luật): 03-ky-thuat/ai-tools.md
   - "4. Nộp & sau khi nộp":
       - 04-nop-va-sau-nop/index.md
-      - Submission checklist: 04-nop-va-sau-nop/submission.md
-      - Rebuttal: 04-nop-va-sau-nop/rebuttal.md
+      - Chuẩn bị nộp bài: 04-nop-va-sau-nop/submission.md
+      - Rebuttal & thảo luận: 04-nop-va-sau-nop/rebuttal.md
       - Camera-ready, poster, code: 04-nop-va-sau-nop/camera-ready.md
       - Khi bị reject: 04-nop-va-sau-nop/reject.md
   - "5. Case studies":
       - 05-case-studies/index.md
-      - ResNet (CVPR 2016): 05-case-studies/resnet.md
-      - Mask R-CNN (ICCV 2017): 05-case-studies/mask-rcnn.md
-      - NeRF (ECCV 2020): 05-case-studies/nerf.md
-      - MAE & Latent Diffusion (CVPR 2022): 05-case-studies/mae-ldm.md
-      - Segment Anything & ControlNet (ICCV 2023): 05-case-studies/sam-controlnet.md
-      - "Thực hành: viết 1 paper từ con số 0": 05-case-studies/worked-example.md
-  - "6. Hội nghị khác":
-      - 06-hoi-nghi-khac/index.md
-      - NeurIPS / ICML / ICLR: 06-hoi-nghi-khac/ml.md
-      - ACL / EMNLP / NAACL: 06-hoi-nghi-khac/nlp.md
-      - AAAI / IJCAI / KDD / journals: 06-hoi-nghi-khac/khac.md
+      - Computer Vision:
+          - ResNet (CVPR 2016): 05-case-studies/resnet.md
+          - Mask R-CNN (ICCV 2017): 05-case-studies/mask-rcnn.md
+          - NeRF (ECCV 2020): 05-case-studies/nerf.md
+          - MAE & Latent Diffusion (CVPR 2022): 05-case-studies/mae-ldm.md
+          - Segment Anything & ControlNet (ICCV 2023): 05-case-studies/sam-controlnet.md
+      - NLP:
+          - BERT (NAACL 2019): 05-case-studies/bert.md
+          - CheckList (ACL 2020): 05-case-studies/checklist-acl2020.md
+      - ML/DL:
+          - Transformer (NeurIPS 2017): 05-case-studies/transformer.md
+          - Adam (ICLR 2015): 05-case-studies/adam.md
+          - DDPM (NeurIPS 2020): 05-case-studies/ddpm.md
+      - "Thực hành: một paper từ con số 0": 05-case-studies/worked-example.md
+  - "6. Đặc thù từng cộng đồng":
+      - 06-cong-dong/index.md
+      - Viết cho NeurIPS / ICML / ICLR: 06-cong-dong/ml.md
+      - Viết cho ACL / EMNLP / NAACL: 06-cong-dong/nlp.md
+      - Chuyển một paper giữa các cộng đồng: 06-cong-dong/chuyen-doi.md
+      - AAAI / IJCAI / KDD / Journal: 06-cong-dong/khac.md
   - Phụ lục:
       - phu-luc/index.md
       - Checklist tổng hợp: phu-luc/checklist.md

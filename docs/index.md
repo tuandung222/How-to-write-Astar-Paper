@@ -18,7 +18,7 @@ Sau khi đi hết khóa này, bạn có thể **một mình** đi từ một ý 
 | Đánh bóng | LaTeX, tiếng Anh học thuật, quy trình viết – sửa, dùng AI đúng luật | [3. Kỹ thuật](03-ky-thuat/index.md) |
 | Nộp | Checklist, anonymity, rebuttal, camera-ready, xử lý reject | [4. Nộp & sau nộp](04-nop-va-sau-nop/index.md) |
 | Học từ người giỏi | Mổ xẻ ResNet, Mask R-CNN, NeRF, MAE, LDM, SAM, ControlNet + 1 bài thực hành từ con số 0 | [5. Case studies](05-case-studies/index.md) |
-| Mở rộng | Khác biệt khi viết cho ML (NeurIPS/ICML/ICLR), NLP (ACL/EMNLP), AAAI, journal | [6. Hội nghị khác](06-hoi-nghi-khac/index.md) |
+| Mở rộng | Khác biệt khi viết cho ML (NeurIPS/ICML/ICLR), NLP (ACL/EMNLP), AAAI, journal | [6. Hội nghị khác](06-cong-dong/index.md) |
 
 ## Cách dùng tài liệu này
 
