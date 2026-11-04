@@ -54,7 +54,7 @@ Người đang chạy một deadline gần có thể đi theo lộ trình ngắn
 Mỗi bài học nội dung trong giáo trình đều theo cùng một cấu trúc: mở đầu bằng mục tiêu của bài, tiếp theo là phần giảng giải có ví dụ, rồi một đoạn tóm tắt và một vài bài tập. Các bài tập được thiết kế để áp dụng lên một dự án nghiên cứu thật của người học, không phải một dự án giả định. Viết paper là một kỹ năng thực hành; đọc mà không làm bài tập thì hiệu quả chỉ bằng một phần nhỏ.
 
 !!! tip "Đọc song song với paper thật"
-    Mỗi khi học một phần (ví dụ Introduction), nên mở hai hoặc ba paper gần đây ở hội nghị mục tiêu, trong đúng mảng nghiên cứu đang theo đuổi, và đối chiếu với nội dung bài học. Việc đối chiếu này biến những nguyên tắc trừu tượng thành các mẫu hình có thể nhận ra và bắt chước. Chương 5 đã làm sẵn công việc ấy cho mười paper kinh điển của cả ba cộng đồng.
+    Mỗi khi học một phần (ví dụ Introduction), nên mở hai hoặc ba paper gần đây ở hội nghị mục tiêu, trong đúng mảng nghiên cứu đang theo đuổi, và đối chiếu với nội dung bài học. Việc đối chiếu này biến những nguyên tắc trừu tượng thành các mẫu hình có thể nhận ra và bắt chước. Chương 5 đã làm sẵn công việc ấy cho hơn mười paper kinh điển của cả ba cộng đồng.
 
 !!! warning "Luật hội nghị thay đổi theo từng năm"
     Số trang, định dạng rebuttal, chính sách về công cụ AI, nghĩa vụ review của tác giả, các mục bắt buộc như Limitations hay checklist đều có thể thay đổi giữa các năm. Giáo trình dạy *nguyên lý* và đưa ra các con số *điển hình*. Trước mỗi lần nộp, người viết cần đọc Call for Papers và Author Guidelines của đúng hội nghị, đúng năm đó.

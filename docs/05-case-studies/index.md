@@ -57,18 +57,18 @@ Hai paper NLP đại diện cho hai kiểu đóng góp rất khác nhau: một m
 
 | Paper | Hội nghị, giải thưởng | Kiểu đóng góp | Bài học viết chính |
 |---|---|---|---|
-| [BERT](bert.md) | NAACL 2019, Best Long Paper | Phương pháp pre-training và mô hình | Định vị đóng góp sắc nét so với công trình trước; bằng chứng trên nhiều benchmark cùng lúc; ablation cho các lựa chọn pre-training |
-| [CheckList](checklist-acl2020.md) | ACL 2020, Best Paper | Phương pháp đánh giá | Thuyết phục khi đóng góp không phải mô hình: phát hiện lỗi ở các mô hình mạnh và hệ thống thương mại; nghiên cứu với người dùng thực tế |
+| [BERT](bert.md) | NAACL 2019, Best Long Paper | Phương pháp pre-training và mô hình | Định vị theo một trục duy nhất (một chiều hay hai chiều) so với đúng đối thủ; baseline có kiểm soát ngay từ khâu thiết kế; thừa nhận và xử lý tác dụng phụ của chính thiết kế |
+| [CheckList](checklist-acl2020.md) | ACL 2020, Best Paper | Phương pháp đánh giá | Thuyết phục khi đóng góp không phải mô hình: một ma trận năng lực và loại test làm xương sống cho cả paper; kiểm thử chính các mô hình mạnh nhất và hệ thống thương mại; nghiên cứu với người thực hành |
 
 ### Machine Learning / Deep Learning
 
-Ba paper ML/DL cho thấy những kỳ vọng đặc trưng của NeurIPS, ICML và ICLR: một kiến trúc được biện minh bằng phân tích độ phức tạp, một thuật toán đi kèm phân tích lý thuyết, và một mô hình sinh nối với các khung lý thuyết có sẵn.
+Ba paper ML/DL cho thấy những kỳ vọng đặc trưng của NeurIPS, ICML và ICLR: một kiến trúc được biện minh bằng các tiêu chí như độ phức tạp tính toán và khả năng song song hóa, một thuật toán đi kèm phân tích lý thuyết (cùng bài học cảnh báo khi phân tích ấy có lỗi), và một mô hình sinh được nối với các khung lý thuyết có sẵn.
 
 | Paper | Hội nghị | Kiểu đóng góp | Bài học viết chính |
 |---|---|---|---|
-| [Transformer](transformer.md) | NeurIPS 2017 | Kiến trúc mới | Title là một khẳng định; động lực từ giới hạn của tính toán tuần tự; bằng chứng trên cả chất lượng lẫn chi phí huấn luyện |
-| [Adam](adam.md) | ICLR 2015 | Thuật toán tối ưu | Thuật toán gói gọn trong một algorithm box tự đứng được; trực giác cho từng thành phần; kết hợp phân tích lý thuyết với thực nghiệm |
-| [DDPM](ddpm.md) | NeurIPS 2020 | Phương pháp mô hình sinh | Nối một hướng ít được chú ý với lý thuyết quen thuộc; đơn giản hóa objective; trung thực về điểm yếu bên cạnh chất lượng mẫu |
+| [Transformer](transformer.md) | NeurIPS 2017 (khi đó còn gọi là NIPS) | Kiến trúc mới | Title là một khẳng định; biện minh thiết kế bằng tiêu chí rõ ràng thay vì chỉ bằng kết quả; báo cáo chất lượng đi kèm chi phí huấn luyện; bảng biến thể có hệ thống |
+| [Adam](adam.md) | ICLR 2015 | Thuật toán tối ưu | Algorithm box tự đứng được là sản phẩm chính; mỗi tính chất được hứa có một thí nghiệm tương ứng; bài học cảnh báo về độ chặt chẽ của phân tích lý thuyết |
+| [DDPM](ddpm.md) | NeurIPS 2020 | Phương pháp mô hình sinh | Làm sống lại một ý tưởng cũ và ghi nhận sòng phẳng; kết nối với lý thuyết sẵn có để rút ra objective đơn giản; trung thực về điểm yếu (log-likelihood) và biến nó thành phân tích |
 
 ### Bài thực hành
 

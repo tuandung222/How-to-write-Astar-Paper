@@ -99,7 +99,7 @@ Reviewer ML kỳ vọng các kết quả được báo cáo kèm độ biến th
 
 ### Khả năng tái tạo
 
-Cuối cùng, cộng đồng ML đặc biệt coi trọng khả năng tái tạo (reproducibility): paper phải cung cấp đủ chi tiết để một nhóm khác có thể lặp lại kết quả, bao gồm siêu tham số, quy trình huấn luyện, tài nguyên tính toán, và tốt nhất là mã nguồn. Nhiều hội nghị ML khuyến khích nộp mã nguồn ẩn danh kèm submission, và reviewer thường đánh giá cao những paper làm được điều này. Paper [DDPM (NeurIPS 2020)](../05-case-studies/ddpm.md) và [Transformer (NeurIPS 2017)](../05-case-studies/transformer.md) được phân tích ở Chương 5 cho thấy việc công bố mã nguồn đã góp phần lớn vào tầm ảnh hưởng của chúng.
+Cuối cùng, cộng đồng ML đặc biệt coi trọng khả năng tái tạo (reproducibility): paper phải cung cấp đủ chi tiết để một nhóm khác có thể lặp lại kết quả, bao gồm siêu tham số, quy trình huấn luyện, tài nguyên tính toán, và tốt nhất là mã nguồn. Nhiều hội nghị ML khuyến khích nộp mã nguồn ẩn danh kèm submission, và reviewer thường đánh giá cao những paper làm được điều này. Paper [DDPM (NeurIPS 2020)](../05-case-studies/ddpm.md) và [Transformer (NeurIPS 2017)](../05-case-studies/transformer.md) được phân tích ở Chương 5 đều được công bố kèm mã nguồn, giúp cộng đồng nhanh chóng tái tạo và xây dựng tiếp trên kết quả của chúng.
 
 !!! tip "Câu hỏi tự kiểm tra trước khi nộp một paper ML"
     Có ba câu hỏi mà reviewer ML gần như chắc chắn sẽ đặt ra, và paper nên trả lời sẵn: *Why does it work?* (cơ chế hay lý do phương pháp hoạt động là gì), *When does it fail?* (giới hạn của phương pháp nằm ở đâu), và *Does it generalize?* (bằng chứng nào cho thấy kết quả không chỉ đúng trên một thiết lập cụ thể).
