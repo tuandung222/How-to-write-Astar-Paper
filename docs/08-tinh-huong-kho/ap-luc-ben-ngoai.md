@@ -78,7 +78,7 @@ Không được lờ đi một công trình đã biết, mô tả méo mó phư�
 
 ### Nhận diện
 
-Một nhóm NLP làm gần một năm về hỏi đáp trên văn bản dài (ví dụ giả định): chia tài liệu thành đoạn, truy xuất đoạn liên quan, rồi tổng hợp câu trả lời bằng một mô hình cỡ vừa, vượt ổn định các baseline đã công bố. Bốn tháng trước deadline, một mô hình nền mới ra đời với cửa sổ ngữ cảnh dài hơn hẳn và khả năng suy luận mạnh, và vượt phương pháp của nhóm mà không cần huấn luyện thêm. Computer Vision từng trải qua điều tương tự khi các mô hình phân đoạn điều khiển bằng prompt như Segment Anything xuất hiện (xem case study [Segment Anything và ControlNet](../05-case-studies/sam-controlnet.md)). Dấu hiệu chung là mọi người xung quanh bắt đầu hỏi "sao không dùng luôn mô hình X?", đúng câu reviewer sẽ hỏi.
+Một nhóm NLP làm gần một năm về hỏi đáp trên văn bản dài (ví dụ giả định): truy xuất các đoạn liên quan rồi tổng hợp câu trả lời bằng một mô hình cỡ vừa, vượt ổn định các baseline đã công bố. Bốn tháng trước deadline, một mô hình nền mới ra đời với cửa sổ ngữ cảnh dài hơn hẳn và khả năng suy luận mạnh, và vượt phương pháp của nhóm mà không cần huấn luyện thêm. Computer Vision từng trải qua điều tương tự khi các mô hình phân đoạn điều khiển bằng prompt như Segment Anything xuất hiện (xem case study [Segment Anything và ControlNet](../05-case-studies/sam-controlnet.md)). Dấu hiệu chung là mọi người xung quanh bắt đầu hỏi "sao không dùng luôn mô hình X?", đúng câu reviewer sẽ hỏi.
 
 ### Chẩn đoán
 
@@ -251,7 +251,7 @@ Một paper Machine Learning nghiên cứu cách chọn lọc dữ liệu pre-tr
 
 ### Chẩn đoán
 
-Một yêu cầu thí nghiệm hầu như luôn đại diện cho một nghi ngờ. "Chạy ở quy mô lớn hơn" nghĩa là "kết quả có còn đúng khi scale?"; "so sánh với hệ thống thương mại" nghĩa là "phương pháp đứng ở đâu so với thực tiễn tốt nhất?"; "đánh giá trên dữ liệu kia" nghĩa là "kết quả có đúng với dữ liệu thực tế?". Câu hỏi chẩn đoán quan trọng nhất vì vậy là có thí nghiệm khả thi nào kiểm tra cùng nghi ngờ đó không. Câu hỏi thứ hai là chính paper có mời gọi yêu cầu đó không: nếu abstract viết "scalable" mà thí nghiệm dừng ở mô hình nhỏ, lời giải nằm ở việc thu hẹp claim.
+Một yêu cầu thí nghiệm hầu như luôn đại diện cho một nghi ngờ: "chạy ở quy mô lớn hơn" nghĩa là "kết quả có còn đúng khi scale?", "so sánh với hệ thống thương mại" nghĩa là "phương pháp đứng ở đâu so với thực tiễn tốt nhất?". Câu hỏi chẩn đoán quan trọng nhất vì vậy là có thí nghiệm khả thi nào kiểm tra cùng nghi ngờ đó không. Câu hỏi thứ hai là chính paper có mời gọi yêu cầu đó không: nếu abstract viết "scalable" mà thí nghiệm dừng ở mô hình nhỏ, lời giải nằm ở việc thu hẹp claim.
 
 ### Các lối ra
 
@@ -276,7 +276,7 @@ Câu đầu nghe như lời biện hộ và không chạm tới nghi ngờ thậ
 </div>
 
 <div class="good" markdown>
-*"We agree that validating at larger scale is important. Training a model of the suggested size on our data budget would require roughly <N> times the compute of all experiments in the paper combined, which is beyond our means. To address whether the gains persist with scale, we added a fourth model size (Tab. R1): the improvement over random selection is stable across all four sizes. We will state in Sec. 1 and the Limitations that our conclusions are established up to <size>."*
+*"We agree that validating at larger scale is important. Training a model of the suggested size would require roughly <N> times the compute of all experiments in the paper combined, which is beyond our means. To address whether the gains persist with scale, we added a fourth model size (Tab. R1): the improvement over random selection is stable across all four sizes. We will state in Sec. 1 and the Limitations that our conclusions are established up to <size>."*
 
 Thừa nhận giá trị của yêu cầu, định lượng ràng buộc, trả lời đúng nghi ngờ bằng một thí nghiệm khả thi, và chỉ cam kết những gì làm được.
 </div>
@@ -291,7 +291,7 @@ Không được giả lập thí nghiệm được yêu cầu, hay trình bày m
 
 ### Nhận diện
 
-Một paper NLP đề xuất phương pháp tăng cường dữ liệu cho nhận dạng thực thể có tên (NER) ở ngôn ngữ ít tài nguyên (ví dụ giả định). Qua hai chu kỳ ARR và một hội nghị ML, reviewer khác nhau nhưng nhận xét đều có chung các cụm "limited novelty", "a combination of existing techniques", "incremental", và nhóm bắt đầu tin vấn đề nằm ở may rủi khi phân công reviewer. Dấu hiệu là sự lặp lại qua nhiều vòng, thường kèm một dấu hiệu phụ: phần tóm tắt paper mà reviewer viết khác với điều nhóm muốn nói.
+Một paper NLP đề xuất phương pháp tăng cường dữ liệu cho nhận dạng thực thể có tên (NER) ở ngôn ngữ ít tài nguyên (ví dụ giả định). Qua hai chu kỳ ARR và một hội nghị ML, reviewer khác nhau nhưng đều viết "limited novelty", "a combination of existing techniques", "incremental", và nhóm bắt đầu tin vấn đề nằm ở may rủi khi phân công reviewer. Dấu hiệu là sự lặp lại qua nhiều vòng, thường kèm việc phần tóm tắt paper của reviewer khác với điều nhóm muốn nói.
 
 ### Chẩn đoán
 
