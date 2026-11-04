@@ -144,7 +144,7 @@ Mặc dù mỗi paper bị từ chối vì những lý do riêng, các bản rev
 | Đánh giá hạn hẹp, thiếu phân tích lỗi (thường gặp ở NLP) | *"Evaluation is limited to a single English dataset and lacks error analysis."* | [Viết cho ACL / EMNLP / NAACL](../06-cong-dong/nlp.md) |
 | Desk reject | Không có review: sai định dạng, lộ danh tính, thiếu mục bắt buộc | [Chuẩn bị nộp bài](../04-nop-va-sau-nop/submission.md) |
 
-Có hai điều đáng chú ý khi đọc bảng này. Điều thứ nhất là phần lớn các lý do nằm ở giai đoạn *trước khi viết*: đóng góp không đủ mới, baseline yếu, thiếu ablation hay claim không được hỗ trợ đều là vấn đề của thiết kế nghiên cứu và câu chuyện, không phải của câu chữ. Đây là lý do Chương 1 được đặt trước Chương 2. Điều thứ hai là nhiều lý do thực chất là vấn đề *trình bày*: một paper có đóng góp mới nhưng không nói rõ điều gì là mới sẽ nhận nhận xét "limited novelty" không khác gì một paper thực sự thiếu tính mới. Kỹ năng viết, vì vậy, không chỉ làm paper dễ đọc hơn mà còn quyết định việc đóng góp có được nhìn thấy hay không.
+Có hai điều đáng chú ý khi đọc bảng này. Điều thứ nhất là phần lớn các lý do nằm ở giai đoạn *trước khi viết*: đóng góp không đủ mới, baseline yếu, thiếu ablation hay claim không được hỗ trợ đều là vấn đề của thiết kế nghiên cứu và câu chuyện, không phải của câu chữ. Đây là lý do Chương 1 được đặt trước Chương 2. Điều thứ hai là nhiều lý do thực chất là vấn đề *trình bày*: một paper có đóng góp mới nhưng không nói rõ điều gì là mới sẽ nhận về nhận xét "limited novelty" không khác gì một paper thực sự thiếu tính mới. Kỹ năng viết, vì vậy, không chỉ làm paper dễ đọc hơn mà còn quyết định việc đóng góp có được nhìn thấy hay không.
 
 ## Tính ngẫu nhiên của review
 

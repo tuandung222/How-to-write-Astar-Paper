@@ -59,7 +59,7 @@ Cấu hình cơ sở cũng được nêu rõ: 6 layer cho encoder và 6 cho deco
 
 ### Why Self-Attention: biện minh bằng tiêu chí
 
-Mục 4 của paper, "Why Self-Attention", là phần đáng học nhất về mặt viết. Hầu hết paper phương pháp biện minh cho thiết kế bằng kết quả: "chúng tôi chọn X vì X cho kết quả tốt hơn". Transformer làm thêm một bước: trước khi trình bày kết quả, nó nêu ba tiêu chí mà một layer mô hình hóa chuỗi nên được đánh giá theo, rồi so sánh self-attention với các lựa chọn thay thế trên từng tiêu chí. Ba tiêu chí là: tổng độ phức tạp tính toán mỗi layer; lượng tính toán có thể song song hóa, đo bằng số thao tác tuần tự tối thiểu; và độ dài đường đi giữa hai vị trí xa nhau trong mạng, vì đường đi càng ngắn thì phụ thuộc xa càng dễ học.
+Mục 4 của paper, "Why Self-Attention", là phần đáng học nhất về mặt viết. Hầu hết paper phương pháp biện minh cho thiết kế bằng kết quả: "we choose X because it performs better". Transformer làm thêm một bước: trước khi trình bày kết quả, nó nêu ba tiêu chí mà một layer mô hình hóa chuỗi nên được đánh giá theo, rồi so sánh self-attention với các lựa chọn thay thế trên từng tiêu chí. Ba tiêu chí là: tổng độ phức tạp tính toán mỗi layer; lượng tính toán có thể song song hóa, đo bằng số thao tác tuần tự tối thiểu; và độ dài đường đi giữa hai vị trí xa nhau trong mạng, vì đường đi càng ngắn thì phụ thuộc xa càng dễ học.
 
 Table 1 tóm tắt so sánh này. Bảng dưới đây trình bày lại nội dung của nó, với $n$ là độ dài chuỗi, $d$ là kích thước biểu diễn, $k$ là kích thước kernel convolution và $r$ là kích thước vùng lân cận trong self-attention có giới hạn.
 
@@ -104,7 +104,7 @@ Table 3 là một mẫu mực về ablation. Mỗi dòng là một biến thể 
 - Dropout: rất hữu ích để tránh overfitting.
 - Positional embedding học được thay cho sinusoid: kết quả gần như tương đương.
 
-Mỗi nhóm trả lời một câu hỏi "nếu thay đổi X thì sao?" mà reviewer có thể đặt ra. Dòng đầu là mô hình cơ sở làm mốc, các dòng sau chỉ ghi giá trị khác mốc, nên bảng rất dễ đọc dù chứa nhiều cấu hình. Người học có thể áp dụng khuôn này cho ablation của mình (xem [Experiments](../02-viet-tung-phan/experiments.md)).
+Mỗi nhóm trả lời một câu hỏi "nếu thay đổi X thì sao?" mà reviewer có thể đặt ra. Dòng đầu là mô hình cơ sở làm mốc, các dòng sau chỉ ghi giá trị khác mốc, nên bảng rất dễ đọc dù chứa nhiều cấu hình. Người học có thể áp dụng khuôn này cho ablation trong paper đang viết (xem [Experiments](../02-viet-tung-phan/experiments.md)).
 
 ## Thí nghiệm như một chuỗi lập luận
 
@@ -137,7 +137,7 @@ Tuy nhiên, người học cũng nên nhận ra rằng sự ngắn gọn có gi�
 
 ### Biện minh thiết kế bằng tiêu chí, không chỉ bằng kết quả
 
-Mục "Why Self-Attention" cho thấy một cách biện minh mạnh hơn "nó cho kết quả tốt": nêu tiêu chí, so sánh các lựa chọn trên từng tiêu chí, thừa nhận chỗ lựa chọn của mình kém. Khi đề xuất một module mới, người viết có thể làm tương tự: một bảng nhỏ so sánh module với các lựa chọn thay thế về độ phức tạp, phạm vi tiếp nhận thông tin, số tham số, hay bất kỳ tính chất nào liên quan tới vấn đề. Một bảng như vậy giúp reviewer hiểu thiết kế *trước khi* xem kết quả, và làm cho kết quả trở nên dễ tin hơn.
+Mục "Why Self-Attention" cho thấy một cách biện minh mạnh hơn "nó cho kết quả tốt": nêu tiêu chí, so sánh các lựa chọn trên từng tiêu chí, thừa nhận chỗ lựa chọn được đề xuất còn kém. Khi đề xuất một module mới, người viết có thể làm tương tự: một bảng nhỏ so sánh module với các lựa chọn thay thế về độ phức tạp, phạm vi tiếp nhận thông tin, số tham số, hay bất kỳ tính chất nào liên quan tới vấn đề. Một bảng như vậy giúp reviewer hiểu thiết kế *trước khi* xem kết quả, và làm cho kết quả trở nên dễ tin hơn.
 
 ### Báo cáo cái giá cùng với lợi ích
 

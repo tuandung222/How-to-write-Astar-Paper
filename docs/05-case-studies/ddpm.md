@@ -10,7 +10,7 @@
 
 Paper **"Denoising Diffusion Probabilistic Models"** của Jonathan Ho, Ajay Jain và Pieter Abbeel (UC Berkeley) được công bố tại NeurIPS 2020. Paper cho thấy diffusion model có thể sinh ảnh với chất lượng ngang hoặc vượt các họ mô hình sinh tốt nhất khi đó, và mở ra làn sóng diffusion trong mô hình sinh. Nhiều hệ thống sinh ảnh về sau, trong đó có Latent Diffusion (xem [case study MAE và Latent Diffusion](mae-ldm.md)), được xây dựng trực tiếp trên nền DDPM.
 
-Điều khiến DDPM đáng nghiên cứu dưới góc độ viết paper là loại đóng góp của nó. Paper không phát minh ra diffusion model; ý tưởng đã có từ năm 2015. Đóng góp của DDPM gồm ba phần khác bản chất: một *minh chứng thực nghiệm* rằng lớp mô hình này làm được điều chưa ai thấy; một *kết nối lý thuyết* với một hướng nghiên cứu khác; và một *mục tiêu huấn luyện đơn giản hóa* rút ra từ kết nối đó. Bên cạnh đó, paper xử lý điểm yếu của chính mình một cách mẫu mực. Chúng ta sẽ phân tích từng phần, và xem chúng được sắp xếp thế nào để tạo thành một câu chuyện thuyết phục.
+Điều khiến DDPM đáng nghiên cứu dưới góc độ viết paper là loại đóng góp của nó. Paper không phát minh ra diffusion model; ý tưởng đã có từ năm 2015. Đóng góp của DDPM gồm ba phần khác bản chất: một *minh chứng thực nghiệm* rằng lớp mô hình này làm được điều chưa ai thấy; một *kết nối lý thuyết* với một hướng nghiên cứu khác; và một *mục tiêu huấn luyện đơn giản hóa* rút ra từ kết nối đó. Bên cạnh đó, paper xử lý điểm yếu của chính nó một cách mẫu mực. Chúng ta sẽ phân tích từng phần, và xem chúng được sắp xếp thế nào để tạo thành một câu chuyện thuyết phục.
 
 ## Bối cảnh ra đời
 
@@ -68,7 +68,7 @@ $$
 
 trong đó $t$ được lấy đều từ $1$ tới $T$. Paper giải thích ý nghĩa của việc bỏ trọng số: $L_{\text{simple}}$ là một dạng chặn biến phân *có trọng số khác*, giảm nhấn mạnh các số hạng ứng với $t$ nhỏ, nơi nhiễu ít và việc khử nhiễu dễ, để mạng tập trung vào các bước khử nhiễu khó hơn ở $t$ lớn. Kết quả thực nghiệm cho thấy mục tiêu này cho chất lượng mẫu tốt hơn chặn biến phân thật.
 
-Điểm đáng học là paper không chỉ nói "chúng tôi bỏ trọng số và thấy tốt hơn". Nó giải thích việc bỏ trọng số *tương đương với gì* trong khung lý thuyết, và *vì sao* điều đó có thể có lợi cho chất lượng mẫu. Một thay đổi trông như mẹo kỹ thuật được đặt vào một khung diễn giải.
+Điểm đáng học là paper không chỉ nói "we drop the weighting and it works better". Nó giải thích việc bỏ trọng số *tương đương với gì* trong khung lý thuyết, và *vì sao* điều đó có thể có lợi cho chất lượng mẫu. Một thay đổi trông như mẹo kỹ thuật được đặt vào một khung diễn giải.
 
 ### Bố cục tổng thể
 
@@ -138,7 +138,7 @@ DDPM cho thấy một paper có thể đóng góp lớn mà không phát minh ra
 
 ### Kết nối với lý thuyết sẵn có là một đóng góp
 
-Cho thấy hai khung tưởng như khác nhau thực ra là một là loại đóng góp có giá trị lâu dài, vì nó thay đổi cách cộng đồng nghĩ về cả hai. Khi phát hiện phương pháp của mình tương đương hoặc gần với một khung đã biết, người viết không nên giấu đi vì sợ mất novelty, mà nên trình bày kết nối đó một cách tường minh. Kết nối giải thích vì sao phương pháp hoạt động, và thường mở ra những cải tiến tiếp theo.
+Cho thấy hai khung tưởng như khác nhau thực ra là một là loại đóng góp có giá trị lâu dài, vì nó thay đổi cách cộng đồng nghĩ về cả hai. Khi phát hiện phương pháp đang đề xuất tương đương hoặc gần với một khung đã biết, người viết không nên giấu đi vì sợ mất novelty, mà nên trình bày kết nối đó một cách tường minh. Kết nối giải thích vì sao phương pháp hoạt động, và thường mở ra những cải tiến tiếp theo.
 
 ### Ablation phải bao gồm lựa chọn tham số hóa và cả những cấu hình thất bại
 
@@ -150,7 +150,7 @@ Thay vì giấu log-likelihood kém, DDPM nêu nó ngay trong Introduction, đ�
 
 ### Áp dụng sang các cộng đồng khác
 
-Ở **Computer Vision**, Latent Diffusion tiếp nối trực tiếp lập luận rate–distortion của DDPM để biện minh cho việc chạy diffusion trong không gian ẩn; đây là ví dụ về cách một phân tích điểm yếu trong một paper ML trở thành động lực cho một paper CV (xem [case study MAE và Latent Diffusion](mae-ldm.md)). Với paper CV đề xuất một mô hình sinh hoặc một kiến trúc mới, bài học "báo cáo cả chỉ số mình kém" áp dụng trực tiếp, chẳng hạn khi phương pháp tốt về chất lượng nhưng chậm hơn. Ở **NLP**, khi đề xuất một mục tiêu huấn luyện hay một thuật toán giải mã, người viết nên tìm kết nối với các khung đã biết và trung thực về các đánh đổi giữa chỉ số, chẳng hạn giữa perplexity và đánh giá của con người (xem [Viết cho ACL / EMNLP / NAACL](../06-cong-dong/nlp.md)). Ở **Machine Learning**, kết nối lý thuyết là thứ reviewer đặc biệt trân trọng, và yêu cầu về Broader Impact hay các checklist tương tự những năm gần đây buộc người viết suy nghĩ về tác động xã hội của mô hình sinh (xem [Viết cho NeurIPS / ICML / ICLR](../06-cong-dong/ml.md)).
+Ở **Computer Vision**, Latent Diffusion tiếp nối trực tiếp lập luận rate–distortion của DDPM để biện minh cho việc chạy diffusion trong không gian ẩn; đây là ví dụ về cách một phân tích điểm yếu trong một paper ML trở thành động lực cho một paper CV (xem [case study MAE và Latent Diffusion](mae-ldm.md)). Với paper CV đề xuất một mô hình sinh hoặc một kiến trúc mới, bài học "báo cáo cả chỉ số mà phương pháp kém" áp dụng trực tiếp, chẳng hạn khi phương pháp tốt về chất lượng nhưng chậm hơn. Ở **NLP**, khi đề xuất một mục tiêu huấn luyện hay một thuật toán giải mã, người viết nên tìm kết nối với các khung đã biết và trung thực về các đánh đổi giữa chỉ số, chẳng hạn giữa perplexity và đánh giá của con người (xem [Viết cho ACL / EMNLP / NAACL](../06-cong-dong/nlp.md)). Ở **Machine Learning**, kết nối lý thuyết là thứ reviewer đặc biệt trân trọng, và yêu cầu về Broader Impact hay các checklist tương tự những năm gần đây buộc người viết suy nghĩ về tác động xã hội của mô hình sinh (xem [Viết cho NeurIPS / ICML / ICLR](../06-cong-dong/ml.md)).
 
 ## Tóm tắt
 

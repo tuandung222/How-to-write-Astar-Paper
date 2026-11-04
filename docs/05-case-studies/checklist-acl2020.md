@@ -86,7 +86,7 @@ Vì đóng góp là phương pháp luận, "thí nghiệm" của CheckList khôn
 
 **Câu hỏi thứ hai: khung có thật sự độc lập với tác vụ không?** Một claim "task-agnostic" không thể được chứng minh chỉ bằng một tác vụ. Paper áp dụng cùng ma trận cho hai tác vụ khác hẳn: phát hiện câu hỏi trùng lặp (duplicate question detection, trên Quora Question Pairs) và đọc hiểu máy (machine comprehension). Cùng các năng lực được cụ thể hóa lại cho từng tác vụ; ví dụ, với tác vụ câu hỏi trùng lặp, một test INV có thể kiểm tra rằng đổi tên người ở cả hai câu hỏi không làm thay đổi kết luận. Ở cả hai tác vụ, CheckList tiếp tục phát hiện nhiều lỗi nghiêm trọng.
 
-**Câu hỏi thứ ba: CheckList có giúp *con người* tìm lỗi tốt hơn không?** Đây là câu hỏi mà nhiều paper phương pháp luận bỏ qua, và cũng là chỗ CheckList vượt lên. Các phát hiện ở hai câu hỏi trên do chính nhóm tác giả thực hiện; mà nhóm tác giả là chuyên gia, hiểu khung của mình hơn ai hết, và có động cơ để tìm ra lỗi. Claim "khung giúp người thực hành" chỉ được chứng minh khi những người khác dùng nó. Paper cung cấp hai bằng chứng. Thứ nhất, một nhóm phát triển một mô hình sentiment thương mại, vốn đã được kiểm thử kỹ, dùng CheckList trong một buổi làm việc và vẫn tìm ra nhiều lỗi mới. Thứ hai, một user study có đối chứng cho thấy người dùng CheckList tạo được số test khoảng gấp đôi và tìm ra số lỗi khoảng gần gấp ba so với người không dùng.
+**Câu hỏi thứ ba: CheckList có giúp *con người* tìm lỗi tốt hơn không?** Đây là câu hỏi mà nhiều paper phương pháp luận bỏ qua, và cũng là chỗ CheckList vượt lên. Các phát hiện ở hai câu hỏi trên do chính nhóm tác giả thực hiện; mà nhóm tác giả là chuyên gia, hiểu khung do chính họ đề xuất hơn ai hết, và có động cơ để tìm ra lỗi. Claim "khung giúp người thực hành" chỉ được chứng minh khi những người khác dùng nó. Paper cung cấp hai bằng chứng. Thứ nhất, một nhóm phát triển một mô hình sentiment thương mại, vốn đã được kiểm thử kỹ, dùng CheckList trong một buổi làm việc và vẫn tìm ra nhiều lỗi mới. Thứ hai, một user study có đối chứng cho thấy người dùng CheckList tạo được số test khoảng gấp đôi và tìm ra số lỗi khoảng gần gấp ba so với người không dùng.
 
 ```mermaid
 flowchart LR
@@ -97,7 +97,7 @@ flowchart LR
 
 Bài học lớn ở đây là **loại bằng chứng phải khớp với loại claim**. Claim về mô hình được chứng minh bằng thí nghiệm trên mô hình. Claim về tính tổng quát được chứng minh bằng nhiều tác vụ. Claim về con người được chứng minh bằng nghiên cứu trên con người. Một paper phương pháp luận chỉ có hai loại bằng chứng đầu sẽ để hở một sườn mà reviewer có thể tấn công: "khung này hữu ích với tác giả, nhưng có hữu ích với người khác không?"
 
-Cũng cần ghi nhận một điểm về phương pháp luận nói chung, dù không phải là kết luận riêng của paper: như mọi bộ test phần mềm, một bộ test hành vi có thể chỉ ra *sự hiện diện* của lỗi, nhưng việc vượt qua các test không chứng minh mô hình không còn lỗi. Một paper đánh giá trung thực nên nói rõ phạm vi những gì bộ test của mình có thể và không thể kết luận.
+Cũng cần ghi nhận một điểm về phương pháp luận nói chung, dù không phải là kết luận riêng của paper: như mọi bộ test phần mềm, một bộ test hành vi có thể chỉ ra *sự hiện diện* của lỗi, nhưng việc vượt qua các test không chứng minh mô hình không còn lỗi. Một paper đánh giá trung thực nên nói rõ phạm vi những gì bộ test đó có thể và không thể kết luận.
 
 ## Văn phong
 
@@ -115,7 +115,7 @@ CheckList cho thấy một paper không có mô hình mới vẫn có thể là 
 
 ### Một cấu trúc trung tâm làm xương sống
 
-Ma trận năng lực × loại test xuất hiện từ hình đầu tới bảng cuối. Người viết nên tự hỏi: paper của mình có một cấu trúc trung tâm như vậy không? Đó có thể là một bảng phân loại, một ma trận, một sơ đồ quy trình, hay một hệ thống ký hiệu. Khi có, hãy dùng nó nhất quán ở mọi phần: khi giới thiệu phương pháp, khi tổ chức thí nghiệm, khi trình bày kết quả. Người đọc sẽ luôn biết mình đang ở đâu trong lập luận.
+Ma trận năng lực × loại test xuất hiện từ hình đầu tới bảng cuối. Người viết nên tự hỏi: paper đang viết có một cấu trúc trung tâm như vậy không? Đó có thể là một bảng phân loại, một ma trận, một sơ đồ quy trình, hay một hệ thống ký hiệu. Khi có, hãy dùng nó nhất quán ở mọi phần: khi giới thiệu phương pháp, khi tổ chức thí nghiệm, khi trình bày kết quả. Nhờ đó, người đọc luôn định vị được từng phần trong mạch lập luận.
 
 ### Kiểm thử đối thủ mạnh nhất
 

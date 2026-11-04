@@ -131,7 +131,7 @@ Văn phong của BERT có ba đặc điểm đáng học. Đặc điểm thứ n
 
 ### Định vị theo một trục, so với đúng đối thủ
 
-Bài học lớn nhất từ BERT là đóng góp được xác định *tương đối* so với một hoặc hai công trình gần nhất, theo một trục có ý nghĩa. Khi người viết cảm thấy công trình của mình "gần giống" một paper vừa công bố, phản xạ thường gặp là liệt kê thật nhiều điểm khác biệt nhỏ. BERT làm ngược lại: chọn một khác biệt duy nhất, đủ căn bản, rồi chứng minh rằng chính khác biệt ấy tạo ra kết quả. Cách làm này vừa giúp câu chuyện gọn, vừa biến các thí nghiệm ablation thành bằng chứng trực tiếp cho đóng góp.
+Bài học lớn nhất từ BERT là đóng góp được xác định *tương đối* so với một hoặc hai công trình gần nhất, theo một trục có ý nghĩa. Khi người viết cảm thấy công trình đang làm "gần giống" một paper vừa công bố, phản xạ thường gặp là liệt kê thật nhiều điểm khác biệt nhỏ. BERT làm ngược lại: chọn một khác biệt duy nhất, đủ căn bản, rồi chứng minh rằng chính khác biệt ấy tạo ra kết quả. Cách làm này vừa giúp câu chuyện gọn, vừa biến các thí nghiệm ablation thành bằng chứng trực tiếp cho đóng góp.
 
 ### Biến lập luận thành dự báo kiểm chứng được
 

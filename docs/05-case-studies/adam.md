@@ -138,7 +138,7 @@ Câu chuyện này dạy người viết ba điều.
 
 Điều thứ hai: **cộng đồng Machine Learning đọc chứng minh nghiêm túc.** Một phản ví dụ đơn giản, chỉ ra một khẳng định lý thuyết sai, đủ để trở thành một paper được đánh giá cao. Với người viết, điều này có nghĩa là không nên đưa vào paper một định lý chỉ để "trang trí"; nếu đưa vào, nó phải đúng. Các checklist của hội nghị ML những năm gần đây cũng yêu cầu tác giả nêu đầy đủ giả định và cung cấp chứng minh hoàn chỉnh cho các kết quả lý thuyết (xem [Viết cho NeurIPS / ICML / ICLR](../06-cong-dong/ml.md)).
 
-Điều thứ ba: **thử phản ví dụ trước khi người khác thử.** Kỹ thuật mà Reddi và cộng sự dùng, tìm một bài toán nhỏ nhất có thể làm khẳng định sai, cũng là kỹ thuật mà người viết có thể tự áp dụng cho định lý của mình. Nếu định lý nói thuật toán luôn hội tụ, hãy thử thiết kế bài toán một chiều mà thuật toán khó hội tụ nhất, và chạy thử. Vài giờ thử nghiệm như vậy rẻ hơn nhiều so với một paper đính chính.
+Điều thứ ba: **thử phản ví dụ trước khi người khác thử.** Kỹ thuật mà Reddi và cộng sự dùng, tìm một bài toán nhỏ nhất có thể làm khẳng định sai, cũng là kỹ thuật mà người viết có thể tự áp dụng cho định lý trong paper đang viết. Nếu định lý nói thuật toán luôn hội tụ, hãy thử thiết kế bài toán một chiều mà thuật toán khó hội tụ nhất, và chạy thử. Vài giờ thử nghiệm như vậy rẻ hơn nhiều so với một paper đính chính.
 
 Cũng cần nói cho công bằng: lỗi trong chứng minh không làm mất đi giá trị thực tiễn của Adam, vốn được khẳng định qua việc sử dụng rộng rãi. Nhưng người viết không nên trông cậy vào điều đó; hầu hết các paper không có may mắn được cộng đồng "tha thứ" nhờ một thành công thực tiễn lớn đến vậy.
 

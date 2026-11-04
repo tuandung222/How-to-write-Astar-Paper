@@ -33,7 +33,7 @@ Một định lý đơn giản nhưng giải thích đúng lựa chọn thiết 
 
 Phép thử đơn giản cho tính liên quan là hỏi: định lý này *dự đoán* điều gì mà thí nghiệm có thể kiểm chứng? Nếu định lý nói rằng sai số giảm theo một đại lượng nào đó, thí nghiệm nên đo đại lượng ấy và cho thấy xu hướng tương ứng. Khi lý thuyết và thực nghiệm khớp nhau, chúng củng cố lẫn nhau; khi chúng tách rời, reviewer sẽ coi phần lý thuyết là trang trí.
 
-Cũng cần thận trọng với tính đúng đắn. Một lỗi trong chứng minh có thể tồn tại rất lâu sau khi paper được công bố: phân tích hội tụ trong bài gốc của Adam, chẳng hạn, về sau được chỉ ra là có lỗi (Reddi và cộng sự, ICLR 2018). Bài [Adam](../05-case-studies/adam.md) trong Chương 5 phân tích kỹ hơn trường hợp này. Bài học cho người viết là: chỉ đưa vào những gì đã kiểm tra cẩn thận, và nhờ một người không tham gia viết đọc lại toàn bộ chứng minh trước khi nộp.
+Cũng cần thận trọng với tính đúng đắn. Một lỗi trong chứng minh có thể tồn tại rất lâu sau khi paper được công bố: phân tích hội tụ trong bài gốc của Adam, chẳng hạn, về sau được chỉ ra là có lỗi (Reddi và cộng sự, ICLR 2018). Bài case study về [Adam](../05-case-studies/adam.md) trong Chương 5 phân tích cách paper này được viết. Bài học cho người viết là: chỉ đưa vào những gì đã kiểm tra cẩn thận, và nhờ một người không tham gia viết đọc lại toàn bộ chứng minh trước khi nộp.
 
 ### Thí nghiệm có kiểm soát và error bars
 
