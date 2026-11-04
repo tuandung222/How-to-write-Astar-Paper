@@ -4,7 +4,7 @@
 
 Bốn chương trước đã lần lượt trình bày cách thẩm định ý tưởng, xây dựng câu chuyện, viết từng phần của paper, trau chuốt văn phong và đi qua quy trình nộp bài. Những nguyên tắc ấy, dù đúng, vẫn còn trừu tượng chừng nào người học chưa thấy chúng vận hành trong một văn bản cụ thể. Một lời khuyên như "Figure 1 phải mang thông điệp chính của paper" chỉ thực sự có nghĩa khi đặt cạnh biểu đồ training error của ResNet hay sơ đồ ba trụ của Segment Anything, nơi người đọc có thể tự hỏi: vì sao tác giả chọn hình này mà không chọn hình khác, và lựa chọn đó phục vụ lập luận như thế nào?
 
-Chương 5 vì vậy đóng vai trò cầu nối giữa nguyên tắc và thực hành. Chương phân tích mười paper có ảnh hưởng lớn thuộc ba cộng đồng Computer Vision, NLP và Machine Learning, rồi khép lại bằng một bài thực hành đi qua toàn bộ quy trình cho một paper giả định. Mỗi case study không nhằm tóm tắt nội dung kỹ thuật, vì việc đó các bài tổng quan và giáo trình chuyên ngành đã làm tốt, mà nhằm trả lời câu hỏi của người viết: paper được dựng lên như thế nào, câu chuyện được dẫn dắt ra sao, bằng chứng được sắp theo trật tự nào, và những lựa chọn ấy có thể chuyển sang paper của người học bằng cách nào.
+Chương 5 vì vậy đóng vai trò cầu nối giữa nguyên tắc và thực hành. Chương phân tích mười paper có ảnh hưởng lớn thuộc ba cộng đồng Computer Vision, NLP và Machine Learning, thêm ba paper gần đây (hai paper Interspeech của cộng đồng xử lý tiếng nói và một paper Findings of EMNLP), rồi khép lại bằng một bài thực hành đi qua toàn bộ quy trình cho một paper giả định. Mỗi case study không nhằm tóm tắt nội dung kỹ thuật, vì việc đó các bài tổng quan và giáo trình chuyên ngành đã làm tốt, mà nhằm trả lời câu hỏi của người viết: paper được dựng lên như thế nào, câu chuyện được dẫn dắt ra sao, bằng chứng được sắp theo trật tự nào, và những lựa chọn ấy có thể chuyển sang paper của người học bằng cách nào.
 
 Chương được đặt sau các chương kỹ năng vì người học cần có sẵn bộ từ vựng (câu chuyện một dòng, insight, claim, ablation, Figure 1) để nhận ra các lựa chọn của tác giả. Tuy vậy, chương cũng có thể đọc song song: khi đang viết Introduction, người học có thể mở một case study để xem Introduction của một paper kinh điển được tổ chức ra sao; khi đang thiết kế bảng ablation, có thể xem cách Mask R-CNN hay MAE gom ablation thành các bảng con.
 
@@ -53,12 +53,13 @@ Năm trang đầu phân tích bảy paper CV, từ một kiến trúc nền tả
 
 ### NLP
 
-Hai paper NLP đại diện cho hai kiểu đóng góp rất khác nhau: một mô hình pre-training làm thay đổi cả lĩnh vực, và một phương pháp đánh giá không đề xuất mô hình nào. Paper thứ hai đặc biệt hữu ích cho người viết đang lo rằng đóng góp không phải "một phương pháp mới" thì khó được nhận.
+Hai paper NLP kinh điển đại diện cho hai kiểu đóng góp rất khác nhau: một mô hình pre-training làm thay đổi cả lĩnh vực, và một phương pháp đánh giá không đề xuất mô hình nào. Paper thứ hai đặc biệt hữu ích cho người viết đang lo rằng đóng góp không phải "một phương pháp mới" thì khó được nhận. Paper thứ ba là một paper gần đây được nhận vào Findings: một phương pháp Mixture-of-Experts tổng quát đặt vào bài toán dịch máy, được phân tích cả điểm mạnh lẫn những câu hỏi mà reviewer ARR có thể đặt ra.
 
 | Paper | Hội nghị, giải thưởng | Kiểu đóng góp | Bài học viết chính |
 |---|---|---|---|
 | [BERT](bert.md) | NAACL 2019, Best Long Paper | Phương pháp pre-training và mô hình | Định vị theo một trục duy nhất (một chiều hay hai chiều) so với đúng đối thủ; baseline có kiểm soát ngay từ khâu thiết kế; thừa nhận và xử lý tác dụng phụ của chính thiết kế |
 | [CheckList](checklist-acl2020.md) | ACL 2020, Best Paper | Phương pháp đánh giá | Thuyết phục khi đóng góp không phải mô hình: một ma trận năng lực và loại test làm xương sống cho cả paper; kiểm thử chính các mô hình mạnh nhất và hệ thống thương mại; nghiên cứu với người thực hành |
+| [EDWARD-NMT](edward-nmt.md) | Findings of EMNLP 2026 | Kiến trúc MoE co giãn cho dịch máy | Một khẩu hiệu gói cả câu chuyện; ánh xạ một–một giữa hạn chế và thành phần; Related Work có câu định vị cuối mỗi đoạn; phụ lục cho tái lập; kiểm tra sự nhất quán của con số và đóng vai reviewer ARR |
 
 ### Machine Learning / Deep Learning
 
@@ -69,6 +70,15 @@ Ba paper ML/DL cho thấy những kỳ vọng đặc trưng của NeurIPS, ICML 
 | [Transformer](transformer.md) | NeurIPS 2017 (khi đó còn gọi là NIPS) | Kiến trúc mới | Title là một khẳng định; biện minh thiết kế bằng tiêu chí rõ ràng thay vì chỉ bằng kết quả; báo cáo chất lượng đi kèm chi phí huấn luyện; bảng biến thể có hệ thống |
 | [Adam](adam.md) | ICLR 2015 | Thuật toán tối ưu | Algorithm box tự đứng được là sản phẩm chính; mỗi tính chất được hứa có một thí nghiệm tương ứng; bài học cảnh báo về độ chặt chẽ của phân tích lý thuyết |
 | [DDPM](ddpm.md) | NeurIPS 2020 | Phương pháp mô hình sinh | Làm sống lại một ý tưởng cũ và ghi nhận sòng phẳng; kết nối với lý thuyết sẵn có để rút ra objective đơn giản; trung thực về điểm yếu (log-likelihood) và biến nó thành phân tích |
+
+### Speech
+
+Cộng đồng xử lý tiếng nói có hai hội nghị lớn là Interspeech và ICASSP, cả hai đều có giới hạn trang ngắn hơn nhiều so với các hội nghị ở trên. Hai case study trong nhóm này không phải paper kinh điển mà là hai paper Interspeech 2026 về tiếng Việt của cùng một nhóm tác giả, một regular paper bốn trang và một long paper tám trang. Chúng gần với hoàn cảnh của nhiều người học hơn: tài nguyên vừa phải, một ngôn ngữ ít tài nguyên, và giới hạn trang buộc mỗi dòng phải có giá trị. Đọc hai bài liền nhau cho thấy bốn trang bổ sung được dùng cho những loại bằng chứng nào. Vì là paper mới, phân tích chú ý cả những điểm có thể viết tốt hơn, không chỉ những điểm mạnh.
+
+| Paper | Hội nghị | Kiểu đóng góp | Bài học viết chính |
+|---|---|---|---|
+| [ViP-VL](vip-vl.md) | Interspeech 2026 | Mô hình tiền huấn luyện tự giám sát cho một ngôn ngữ ít tài nguyên | Viết gọn trong bốn trang; ba khoảng trống, ba câu trả lời; kiểm chứng có kiểm soát trên benchmark chung trước khi trình bày kết quả tiếng Việt; phê bình điều gì thì tự làm điều đó |
+| [Streaming ITN](streaming-itn.md) | Interspeech 2026, long track | Phương pháp và quy trình cho một bài toán ứng dụng | Mượn công cụ từ lĩnh vực lân cận rồi chỉ ra vì sao nó chưa vừa; nêu và bác bỏ cách sửa hiển nhiên; một bảng gánh cả so sánh lẫn ablation; khoảng tin cậy bootstrap và cách diễn giải đúng; độ trễ đuôi |
 
 ### Bài thực hành
 
