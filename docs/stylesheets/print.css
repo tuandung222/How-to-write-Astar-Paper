@@ -1,0 +1,66 @@
+/* ---------- Bìa PDF (chỉ xuất hiện trên trang print_page) ---------- */
+.pdf-cover { display: flex; flex-direction: column; justify-content: center; min-height: 240mm; padding: 0 8mm; }
+.pdf-cover__kicker { text-transform: uppercase; letter-spacing: .12em; font-size: .7rem; color: #3f51b5; font-weight: 700; }
+.md-typeset .pdf-cover__title { font-size: 2.6rem; line-height: 1.15; font-weight: 800; margin: .4em 0 .3em; color: #1a237e; border: 0; }
+.pdf-cover__subtitle { font-size: 1rem; color: #444; max-width: 32em; }
+.pdf-cover__rule { width: 4rem; height: 4px; background: #ff5722; margin: 2rem 0 1rem; }
+.pdf-cover__meta { font-size: .75rem; color: #666; }
+
+@page {
+  size: A4; margin: 18mm 16mm 20mm 16mm;
+  @top-left     { content: "Viết Paper A* từ A đến Z"; font: 7.5pt "Noto Sans", sans-serif; color: #888; }
+  @top-right    { content: ""; }
+  @bottom-left  { content: ""; }
+  @bottom-center{ content: ""; }
+  @bottom-right { content: counter(page) " / " counter(pages); font: 7.5pt "Noto Sans", sans-serif; color: #888; }
+}
+@page :first { @top-left { content: ""; } @bottom-right { content: ""; } }
+
+@media print {
+  html, body { background: #fff !important; }
+  body, .md-typeset {
+    font-family: "Noto Sans", "Roboto", "DejaVu Sans", "Segoe UI", Arial, sans-serif;
+    color: #111;
+  }
+  .md-typeset { font-size: 10pt; line-height: 1.55; }
+  .md-typeset code, .md-typeset pre, .md-typeset kbd {
+    font-family: "Noto Sans Mono", "DejaVu Sans Mono", "Roboto Mono", monospace;
+  }
+  .md-typeset pre > code { white-space: pre-wrap; word-break: break-word; font-size: 8pt; }
+
+  /* Ẩn các thành phần chỉ dành cho web */
+  .md-header, .md-tabs, .md-sidebar, .md-footer, .md-content__button,
+  .headerlink, .md-source, .md-top, .md-search, .md-dialog { display: none !important; }
+  .md-main__inner, .md-content__inner { margin: 0 !important; padding: 0 !important; max-width: none !important; }
+  .md-grid { max-width: none !important; }
+
+  /* Bìa + mục lục mỗi thứ một trang */
+  .pdf-cover { page-break-after: always; break-after: page; }
+  #print-site-cover-page, #print-site-toc, .print-site-toc { break-after: page; }
+
+  /* Mỗi chương (section) bắt đầu trang mới */
+  .md-typeset h1 { break-before: page; color: #1a237e; font-weight: 700; }
+  .md-typeset .pdf-cover__title { break-before: avoid; }
+  .md-typeset h2 { color: #283593; break-after: avoid; }
+  .md-typeset h3, .md-typeset h4 { break-after: avoid; }
+
+  /* Không cắt đôi các khối */
+  .md-typeset pre, .md-typeset table, .md-typeset .admonition, .md-typeset details,
+  .md-typeset .mermaid, .md-typeset blockquote, .md-typeset figure, .md-typeset img { break-inside: avoid; }
+  .md-typeset p, .md-typeset li { orphans: 3; widows: 3; }
+
+  /* Bảng gọn, có kẻ */
+  .md-typeset table:not([class]) { font-size: 8.5pt; display: table; width: 100%; border-collapse: collapse; }
+  .md-typeset table:not([class]) th { background: #e8eaf6 !important; }
+  .md-typeset table:not([class]) td, .md-typeset table:not([class]) th { border: 1px solid #ccc; padding: .35em .6em; }
+
+  /* details luôn mở khi in */
+  .md-typeset details { display: block; }
+  .md-typeset details > :not(summary) { display: block !important; }
+
+  /* Link: giữ màu, không gạch chân */
+  .md-typeset a { color: #303f9f; text-decoration: none; }
+
+  /* Mermaid vừa trang */
+  .md-typeset .mermaid svg { max-width: 100% !important; height: auto; }
+}

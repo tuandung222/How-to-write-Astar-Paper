@@ -19,14 +19,14 @@
 
 ```mermaid
 flowchart TD
-  A["1. Figure 1 + câu chuyện"] --> B["2. Introduction (v0)"]
-  B --> C["3. Method + Figure phương pháp"]
-  C --> D["4. Experiments (bảng trước, chữ sau)"]
-  D --> E["5. Related Work"]
-  E --> F["6. Viết lại Introduction"]
-  F --> G["7. Conclusion"]
-  G --> H["8. Abstract"]
-  H --> I["9. Title (chốt cuối)"]
+  A["Bước 1: Figure 1 + câu chuyện"] --> B["Bước 2: Introduction (v0)"]
+  B --> C["Bước 3: Method + Figure phương pháp"]
+  C --> D["Bước 4: Experiments (bảng trước, chữ sau)"]
+  D --> E["Bước 5: Related Work"]
+  E --> F["Bước 6: Viết lại Introduction"]
+  F --> G["Bước 7: Conclusion"]
+  G --> H["Bước 8: Abstract"]
+  H --> I["Bước 9: Title (chốt cuối)"]
 ```
 
 Lý do: Intro v0 ép bạn nghĩ rõ câu chuyện; Abstract và Title cần biết chính xác kết quả nên viết cuối; Intro luôn phải viết lại sau khi có kết quả thật.

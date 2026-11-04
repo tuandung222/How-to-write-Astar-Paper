@@ -2,6 +2,8 @@
 
 > Bài giảng dành cho người **chưa từng tự viết một paper hội nghị A\*** — trước đây có người viết hộ, giờ muốn tự làm chủ toàn bộ quy trình. Tập trung vào **Computer Vision (CVPR, ICCV, ECCV)** trước, sau đó mở rộng sang **NeurIPS, ICML, ICLR, ACL, EMNLP, AAAI…**
 
+[:material-file-pdf-box: Tải bản PDF](pdf/viet-paper-astar.pdf){ .md-button .md-button--primary } [:material-printer: Xem bản in](print_page/){ .md-button }
+
 ## Bạn sẽ học được gì?
 
 Sau khi đi hết khóa này, bạn có thể **một mình** đi từ một ý tưởng thô đến một bản submission đạt chuẩn CVPR, viết rebuttal, và hoàn thiện camera-ready. Cụ thể:
