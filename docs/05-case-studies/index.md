@@ -4,7 +4,7 @@
 
 Bốn chương trước đã lần lượt trình bày cách thẩm định ý tưởng, xây dựng câu chuyện, viết từng phần của paper, trau chuốt văn phong và đi qua quy trình nộp bài. Những nguyên tắc ấy, dù đúng, vẫn còn trừu tượng chừng nào người học chưa thấy chúng vận hành trong một văn bản cụ thể. Một lời khuyên như "Figure 1 phải mang thông điệp chính của paper" chỉ thực sự có nghĩa khi đặt cạnh biểu đồ training error của ResNet hay sơ đồ ba trụ của Segment Anything, nơi người đọc có thể tự hỏi: vì sao tác giả chọn hình này mà không chọn hình khác, và lựa chọn đó phục vụ lập luận như thế nào?
 
-Chương 5 vì vậy đóng vai trò cầu nối giữa nguyên tắc và thực hành. Chương phân tích mười paper có ảnh hưởng lớn thuộc ba cộng đồng Computer Vision, NLP và Machine Learning, rồi khép lại bằng một bài thực hành đi qua toàn bộ quy trình cho một paper giả định. Mỗi case study không nhằm tóm tắt nội dung kỹ thuật, vì việc đó các bài tổng quan và giáo trình chuyên ngành đã làm tốt, mà nhằm trả lời câu hỏi của người viết: paper được dựng lên như thế nào, câu chuyện được dẫn dắt ra sao, bằng chứng được sắp theo trật tự nào, và những lựa chọn ấy có thể chuyển sang paper của người học bằng cách nào.
+Chương 5 vì vậy đóng vai trò cầu nối giữa nguyên tắc và thực hành. Chương phân tích mười paper có ảnh hưởng lớn thuộc ba cộng đồng Computer Vision, NLP và Machine Learning, thêm một paper Interspeech gần đây của cộng đồng xử lý tiếng nói, rồi khép lại bằng một bài thực hành đi qua toàn bộ quy trình cho một paper giả định. Mỗi case study không nhằm tóm tắt nội dung kỹ thuật, vì việc đó các bài tổng quan và giáo trình chuyên ngành đã làm tốt, mà nhằm trả lời câu hỏi của người viết: paper được dựng lên như thế nào, câu chuyện được dẫn dắt ra sao, bằng chứng được sắp theo trật tự nào, và những lựa chọn ấy có thể chuyển sang paper của người học bằng cách nào.
 
 Chương được đặt sau các chương kỹ năng vì người học cần có sẵn bộ từ vựng (câu chuyện một dòng, insight, claim, ablation, Figure 1) để nhận ra các lựa chọn của tác giả. Tuy vậy, chương cũng có thể đọc song song: khi đang viết Introduction, người học có thể mở một case study để xem Introduction của một paper kinh điển được tổ chức ra sao; khi đang thiết kế bảng ablation, có thể xem cách Mask R-CNN hay MAE gom ablation thành các bảng con.
 
@@ -69,6 +69,14 @@ Ba paper ML/DL cho thấy những kỳ vọng đặc trưng của NeurIPS, ICML 
 | [Transformer](transformer.md) | NeurIPS 2017 (khi đó còn gọi là NIPS) | Kiến trúc mới | Title là một khẳng định; biện minh thiết kế bằng tiêu chí rõ ràng thay vì chỉ bằng kết quả; báo cáo chất lượng đi kèm chi phí huấn luyện; bảng biến thể có hệ thống |
 | [Adam](adam.md) | ICLR 2015 | Thuật toán tối ưu | Algorithm box tự đứng được là sản phẩm chính; mỗi tính chất được hứa có một thí nghiệm tương ứng; bài học cảnh báo về độ chặt chẽ của phân tích lý thuyết |
 | [DDPM](ddpm.md) | NeurIPS 2020 | Phương pháp mô hình sinh | Làm sống lại một ý tưởng cũ và ghi nhận sòng phẳng; kết nối với lý thuyết sẵn có để rút ra objective đơn giản; trung thực về điểm yếu (log-likelihood) và biến nó thành phân tích |
+
+### Speech
+
+Cộng đồng xử lý tiếng nói có hai hội nghị lớn là Interspeech và ICASSP, cả hai đều có giới hạn trang ngắn hơn nhiều so với các hội nghị ở trên. Case study trong nhóm này không phải một paper kinh điển mà là một paper gần đây về tiếng Việt. Nó gần với hoàn cảnh của nhiều người học hơn: tài nguyên vừa phải, một ngôn ngữ ít tài nguyên, và khuôn khổ bốn trang buộc mỗi dòng phải có giá trị. Vì là paper mới, phân tích chú ý cả những điểm có thể viết tốt hơn, không chỉ những điểm mạnh.
+
+| Paper | Hội nghị | Kiểu đóng góp | Bài học viết chính |
+|---|---|---|---|
+| [ViP-VL](vip-vl.md) | Interspeech 2026 | Mô hình tiền huấn luyện tự giám sát cho một ngôn ngữ ít tài nguyên | Viết gọn trong bốn trang; ba khoảng trống, ba câu trả lời; kiểm chứng có kiểm soát trên benchmark chung trước khi trình bày kết quả tiếng Việt; phê bình điều gì thì tự làm điều đó |
 
 ### Bài thực hành
 

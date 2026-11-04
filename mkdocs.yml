@@ -150,6 +150,8 @@ nav:
           - Transformer (NeurIPS 2017): 05-case-studies/transformer.md
           - Adam (ICLR 2015): 05-case-studies/adam.md
           - DDPM (NeurIPS 2020): 05-case-studies/ddpm.md
+      - Speech:
+          - ViP-VL (Interspeech 2026): 05-case-studies/vip-vl.md
       - "Thực hành: một paper từ con số 0": 05-case-studies/worked-example.md
   - "6. Đặc thù từng cộng đồng":
       - 06-cong-dong/index.md

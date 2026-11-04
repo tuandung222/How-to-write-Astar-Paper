@@ -75,6 +75,8 @@ AAAI và IJCAI là hai hội nghị trí tuệ nhân tạo tổng quát có lị
 
 Trong cộng đồng CV, WACV và BMVC là hai hội nghị được tôn trọng, thường được dùng làm nơi nộp cho những công trình vững chắc nhưng có phạm vi hẹp hơn, hoặc làm điểm dừng sau một lần bị từ chối ở hội nghị đỉnh; WACV có hai vòng nộp mỗi năm. Trong cộng đồng NLP, COLING là hội nghị lâu đời không thuộc hiệp hội ACL nhưng có vị trí quan trọng. Trong cộng đồng ML, AISTATS (giao thoa giữa thống kê và học máy), UAI (suy luận trong điều kiện bất định, mô hình xác suất) và COLT (lý thuyết học) là những hội nghị chuyên sâu được đánh giá rất cao trong các nhánh tương ứng.
 
+Cộng đồng xử lý tiếng nói (speech) có hai hội nghị lớn: Interspeech của ISCA, thường có deadline vào khoảng cuối tháng 2 hoặc tháng 3 và diễn ra vào khoảng tháng 8 đến tháng 10, và ICASSP của IEEE, thường có deadline vào khoảng tháng 9 và diễn ra vào khoảng tháng 4 năm sau. Cả hai đều có paper ngắn, điển hình bốn trang nội dung cộng thêm trang cho tài liệu tham khảo, nên đòi hỏi một lối viết rất cô đọng; riêng Interspeech 2026 có thêm track long paper tám trang. Hai hội nghị này không nằm trong nhóm A\* của CORE, nhưng là nơi công bố hàng đầu của cộng đồng speech. Case study [ViP-VL](../05-case-studies/vip-vl.md) phân tích cách một paper Interspeech bốn trang được dựng lên.
+
 | Hội nghị | Phạm vi | Khi nào nên cân nhắc |
 |---|---|---|
 | AAAI, IJCAI | AI tổng quát | Công trình có thể hấp dẫn người đọc ngoài một cộng đồng hẹp; lịch nộp phù hợp |
@@ -83,6 +85,7 @@ Trong cộng đồng CV, WACV và BMVC là hai hội nghị được tôn trọn
 | WACV, BMVC | Thị giác máy tính | Công trình CV vững nhưng phạm vi hẹp, hoặc cần một nơi nộp lại phù hợp lịch |
 | COLING | Ngôn ngữ học tính toán | Công trình NLP, đặc biệt các chủ đề ngôn ngữ học và đa ngôn ngữ |
 | AISTATS, UAI, COLT | Thống kê, mô hình xác suất, lý thuyết học | Đóng góp chủ yếu về phương pháp thống kê hoặc lý thuyết |
+| Interspeech, ICASSP | Xử lý tiếng nói (và tín hiệu, với ICASSP) | Công trình về nhận dạng, tổng hợp, hiểu tiếng nói; paper ngắn, thường bốn trang nội dung |
 
 Hạng CORE của các hội nghị lân cận khá khác nhau: có hội nghị ở hạng A\*, có hội nghị ở hạng A hoặc thấp hơn. Khi hạng A\* là một yêu cầu chính thức, người học cần tra cứu trước khi chọn nơi nộp. Bài [AAAI / IJCAI / KDD / Journal](../06-cong-dong/khac.md) ở Chương 6 bàn kỹ hơn về cách viết cho các hội nghị này.
 
