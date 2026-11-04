@@ -1,0 +1,4 @@
+.md-typeset .good { border-left: 4px solid #2e7d32; padding-left: .8em; }
+.md-typeset .bad  { border-left: 4px solid #c62828; padding-left: .8em; }
+.md-typeset table:not([class]) { font-size: .72rem; }
+.md-typeset h2 { border-bottom: 1px solid var(--md-default-fg-color--lightest); padding-bottom: .2em; }

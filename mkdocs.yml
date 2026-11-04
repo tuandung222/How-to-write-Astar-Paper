@@ -1,0 +1,136 @@
+site_name: Viết Paper A* từ A đến Z
+site_description: Bài giảng chi tiết quy trình viết một paper hội nghị A* (CVPR, ICCV, ECCV, rồi NeurIPS, ICML, ICLR, ACL...) dành cho người viết lần đầu.
+site_author: tuandung222
+site_url: https://tuandung222.github.io/How-to-write-Astar-Paper/
+repo_url: https://github.com/tuandung222/How-to-write-Astar-Paper
+repo_name: tuandung222/How-to-write-Astar-Paper
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: vi
+  icon:
+    logo: material/school
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: deep orange
+      toggle:
+        icon: material/weather-night
+        name: Chế độ tối
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: deep orange
+      toggle:
+        icon: material/weather-sunny
+        name: Chế độ sáng
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - navigation.tracking
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.action.edit
+    - content.tabs.link
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - def_list
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.mark
+  - pymdownx.keys
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Trang chủ: index.md
+  - "0. Tổng quan":
+      - 00-tong-quan/index.md
+      - Hệ sinh thái CVPR/ICCV/ECCV: 00-tong-quan/he-sinh-thai-cv.md
+      - Paper được đánh giá thế nào: 00-tong-quan/review-process.md
+      - Lộ trình 6 tháng: 00-tong-quan/lo-trinh.md
+  - "1. Trước khi viết":
+      - 01-truoc-khi-viet/index.md
+      - Tìm & thẩm định ý tưởng: 01-truoc-khi-viet/y-tuong.md
+      - Đọc & bản đồ literature: 01-truoc-khi-viet/literature.md
+      - Thiết kế thí nghiệm: 01-truoc-khi-viet/thi-nghiem.md
+      - Xây "câu chuyện" của paper: 01-truoc-khi-viet/cau-chuyen.md
+  - "2. Viết từng phần":
+      - 02-viet-tung-phan/index.md
+      - Title: 02-viet-tung-phan/title.md
+      - Abstract: 02-viet-tung-phan/abstract.md
+      - Introduction & Teaser: 02-viet-tung-phan/introduction.md
+      - Related Work: 02-viet-tung-phan/related-work.md
+      - Method: 02-viet-tung-phan/method.md
+      - Experiments: 02-viet-tung-phan/experiments.md
+      - Figures & Tables: 02-viet-tung-phan/figures-tables.md
+      - Conclusion, Limitations, Supplementary: 02-viet-tung-phan/conclusion-supp.md
+  - "3. Kỹ thuật & văn phong":
+      - 03-ky-thuat/index.md
+      - LaTeX & Overleaf cho CV: 03-ky-thuat/latex.md
+      - Tiếng Anh học thuật: 03-ky-thuat/van-phong.md
+      - Quy trình viết & tự review: 03-ky-thuat/quy-trinh-viet.md
+      - Dùng AI hỗ trợ (đúng luật): 03-ky-thuat/ai-tools.md
+  - "4. Nộp & sau khi nộp":
+      - 04-nop-va-sau-nop/index.md
+      - Submission checklist: 04-nop-va-sau-nop/submission.md
+      - Rebuttal: 04-nop-va-sau-nop/rebuttal.md
+      - Camera-ready, poster, code: 04-nop-va-sau-nop/camera-ready.md
+      - Khi bị reject: 04-nop-va-sau-nop/reject.md
+  - "5. Case studies":
+      - 05-case-studies/index.md
+      - ResNet (CVPR 2016): 05-case-studies/resnet.md
+      - Mask R-CNN (ICCV 2017): 05-case-studies/mask-rcnn.md
+      - NeRF (ECCV 2020): 05-case-studies/nerf.md
+      - MAE & Latent Diffusion (CVPR 2022): 05-case-studies/mae-ldm.md
+      - Segment Anything & ControlNet (ICCV 2023): 05-case-studies/sam-controlnet.md
+      - "Thực hành: viết 1 paper từ con số 0": 05-case-studies/worked-example.md
+  - "6. Hội nghị khác":
+      - 06-hoi-nghi-khac/index.md
+      - NeurIPS / ICML / ICLR: 06-hoi-nghi-khac/ml.md
+      - ACL / EMNLP / NAACL: 06-hoi-nghi-khac/nlp.md
+      - AAAI / IJCAI / KDD / journals: 06-hoi-nghi-khac/khac.md
+  - Phụ lục:
+      - phu-luc/index.md
+      - Checklist tổng hợp: phu-luc/checklist.md
+      - Template & mẫu câu: phu-luc/templates.md
+      - Thuật ngữ: phu-luc/thuat-ngu.md
+      - Tài nguyên: phu-luc/tai-nguyen.md
