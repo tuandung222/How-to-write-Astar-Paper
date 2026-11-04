@@ -14,6 +14,8 @@ Về cách đọc, mọi người học nên đọc kỹ bài bản đồ hội 
 - [Computer Vision: CVPR, ICCV, ECCV](he-sinh-thai-cv.md) — mô tả ba hội nghị đỉnh của thị giác máy tính, định dạng, quy mô, workshop, và văn hóa coi trọng benchmark, hình ảnh và ablation.
 - [NLP: ACL, EMNLP, NAACL](he-sinh-thai-nlp.md) — trình bày gia đình hội nghị của ACL, cơ chế ACL Rolling Review, khái niệm Findings, các mục bắt buộc và văn hóa đánh giá cẩn thận của NLP.
 - [ML/DL: NeurIPS, ICML, ICLR](he-sinh-thai-ml.md) — mô tả ba hội nghị trụ cột của Machine Learning, OpenReview và thảo luận nhiều vòng, các tạp chí JMLR và TMLR, cùng văn hóa coi trọng tính tổng quát và độ tin cậy thống kê.
+- [Speech: Interspeech, ICASSP](he-sinh-thai-speech.md) — giới thiệu hai hội nghị lớn của cộng đồng xử lý tiếng nói, khuôn khổ paper bốn trang, các hội nghị và tạp chí lân cận, và văn hóa coi trọng WER, EER, đánh giá nghe và khả năng triển khai.
+- [IR & Data Mining: SIGIR, KDD, TheWebConf](he-sinh-thai-ir.md) — trình bày các hội nghị hàng đầu về truy hồi thông tin và khai phá dữ liệu, các track, template ACM, metric xếp hạng, kiểm định thống kê và cách chọn giữa SIGIR với ACL/EMNLP cho các công trình RAG.
 - [Paper được đánh giá thế nào](review-process.md) — phân tích vai trò của reviewer và Area Chair, vòng đời một submission, cách reviewer thực sự đọc paper, các lý do reject phổ biến và tính ngẫu nhiên của review.
 - [Lộ trình thực hiện một paper](lo-trinh.md) — xây dựng kế hoạch tính ngược từ deadline với các mốc kiểm tra, quy tắc 48 giờ, và cách làm việc hiệu quả với đồng tác giả và người hướng dẫn.
 

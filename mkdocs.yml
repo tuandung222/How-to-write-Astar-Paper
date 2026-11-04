@@ -105,6 +105,8 @@ nav:
       - "Computer Vision: CVPR, ICCV, ECCV": 00-tong-quan/he-sinh-thai-cv.md
       - "NLP: ACL, EMNLP, NAACL": 00-tong-quan/he-sinh-thai-nlp.md
       - "ML/DL: NeurIPS, ICML, ICLR": 00-tong-quan/he-sinh-thai-ml.md
+      - "Speech: Interspeech, ICASSP": 00-tong-quan/he-sinh-thai-speech.md
+      - "IR & Data Mining: SIGIR, KDD, WWW": 00-tong-quan/he-sinh-thai-ir.md
       - Paper được đánh giá thế nào: 00-tong-quan/review-process.md
       - Lộ trình thực hiện một paper: 00-tong-quan/lo-trinh.md
   - "1. Trước khi viết":
@@ -143,14 +145,18 @@ nav:
           - NeRF (ECCV 2020): 05-case-studies/nerf.md
           - MAE & Latent Diffusion (CVPR 2022): 05-case-studies/mae-ldm.md
           - Segment Anything & ControlNet (ICCV 2023): 05-case-studies/sam-controlnet.md
+          - Anti-DreamBooth (ICCV 2023): 05-case-studies/anti-dreambooth.md
+          - SwiftBrush (CVPR 2024): 05-case-studies/swiftbrush.md
       - NLP:
           - BERT (NAACL 2019): 05-case-studies/bert.md
           - CheckList (ACL 2020): 05-case-studies/checklist-acl2020.md
+          - PhoBERT (Findings of EMNLP 2020): 05-case-studies/phobert.md
           - EDWARD-NMT (Findings of EMNLP 2026): 05-case-studies/edward-nmt.md
       - ML/DL:
           - Transformer (NeurIPS 2017): 05-case-studies/transformer.md
           - Adam (ICLR 2015): 05-case-studies/adam.md
           - DDPM (NeurIPS 2020): 05-case-studies/ddpm.md
+          - Top-K Sparse MoE (ICLR 2024): 05-case-studies/topk-moe.md
       - Speech:
           - ViP-VL (Interspeech 2026): 05-case-studies/vip-vl.md
           - Streaming ITN (Interspeech 2026): 05-case-studies/streaming-itn.md
@@ -161,6 +167,23 @@ nav:
       - Viết cho ACL / EMNLP / NAACL: 06-cong-dong/nlp.md
       - Chuyển một paper giữa các cộng đồng: 06-cong-dong/chuyen-doi.md
       - AAAI / IJCAI / KDD / Journal: 06-cong-dong/khac.md
+  - "7. Chuyên đề: AI Security":
+      - 07-ai-security/index.md
+      - Xu hướng đóng góp trong AI Security: 07-ai-security/xu-huong-dong-gop.md
+      - Tấn công qua ảnh:
+          - Visual Adversarial Jailbreak (AAAI 2024): 07-ai-security/visual-adv-jailbreak.md
+          - CrossInject (ACM MM 2025): 07-ai-security/crossinject.md
+      - Tấn công agent đa phương thức:
+          - Dissecting MM Agents (ICLR 2025): 07-ai-security/dissecting-mm-agents.md
+          - Pop-ups (ACL 2025): 07-ai-security/popups.md
+          - EIA (ICLR 2025): 07-ai-security/eia.md
+      - Hình thức hóa & benchmark:
+          - Formalizing Prompt Injection (USENIX Security 2024): 07-ai-security/formalizing-pi.md
+          - AgentDojo (NeurIPS 2024): 07-ai-security/agentdojo.md
+      - Phòng vệ:
+          - MELON (ICML 2025): 07-ai-security/melon.md
+          - StruQ (USENIX Security 2025): 07-ai-security/struq.md
+          - VLGuard (ICML 2024): 07-ai-security/vlguard.md
   - Phụ lục:
       - phu-luc/index.md
       - Checklist tổng hợp: phu-luc/checklist.md

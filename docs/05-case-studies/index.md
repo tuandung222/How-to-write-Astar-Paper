@@ -50,6 +50,8 @@ Năm trang đầu phân tích bảy paper CV, từ một kiến trúc nền tả
 | [Latent Diffusion](mae-ldm.md#ldm) | CVPR 2022 | Framework hiệu quả | Insight từ một phân tích rate–distortion; một framework cho nhiều tác vụ; hai trục giá trị chất lượng và chi phí |
 | [Segment Anything](sam-controlnet.md#sam) | ICCV 2023, Best Paper Honorable Mention | Task, model và dataset | Cấu trúc ba trụ phản chiếu trong Figure 1 và các section; đánh giá zero-shot diện rộng; Responsible AI |
 | [ControlNet](sam-controlnet.md#controlnet) | ICCV 2023, Marr Prize | Kiến trúc điều khiển cho mô hình có sẵn | Động lực hóa một chi tiết nhỏ (zero convolution); kết hợp nhiều loại bằng chứng cho bài toán khó đo |
+| [Anti-DreamBooth](anti-dreambooth.md) | ICCV 2023 (VinAI Research) | Phòng vệ cho người dùng trước mô hình cá nhân hóa | Đặt vấn đề an toàn và quyền riêng tư cho một mô hình sinh; đánh giá phòng vệ trong các thiết lập bất lợi |
+| [SwiftBrush](swiftbrush.md) | CVPR 2024 (VinAI Research) | Chưng cất mô hình sinh ảnh về một bước | Mượn một kỹ thuật từ bài toán lân cận và chỉ ra điểm tiếp xúc; so sánh công bằng theo số bước suy luận; sự nhất quán của claim tính mới |
 
 ### NLP
 
@@ -59,6 +61,7 @@ Hai paper NLP kinh điển đại diện cho hai kiểu đóng góp rất khác 
 |---|---|---|---|
 | [BERT](bert.md) | NAACL 2019, Best Long Paper | Phương pháp pre-training và mô hình | Định vị theo một trục duy nhất (một chiều hay hai chiều) so với đúng đối thủ; baseline có kiểm soát ngay từ khâu thiết kế; thừa nhận và xử lý tác dụng phụ của chính thiết kế |
 | [CheckList](checklist-acl2020.md) | ACL 2020, Best Paper | Phương pháp đánh giá | Thuyết phục khi đóng góp không phải mô hình: một ma trận năng lực và loại test làm xương sống cho cả paper; kiểm thử chính các mô hình mạnh nhất và hệ thống thương mại; nghiên cứu với người thực hành |
+| [PhoBERT](phobert.md) | Findings of EMNLP 2020 (VinAI Research) | Mô hình ngôn ngữ tiền huấn luyện cho tiếng Việt | Biện minh cho một mô hình đơn ngữ; xử lý đặc thù ngôn ngữ; tác động của việc công bố mô hình |
 | [EDWARD-NMT](edward-nmt.md) | Findings of EMNLP 2026 | Kiến trúc MoE co giãn cho dịch máy | Một khẩu hiệu gói cả câu chuyện; ánh xạ một–một giữa hạn chế và thành phần; Related Work có câu định vị cuối mỗi đoạn; phụ lục cho tái lập; kiểm tra sự nhất quán của con số và đóng vai reviewer ARR |
 
 ### Machine Learning / Deep Learning
@@ -70,6 +73,7 @@ Ba paper ML/DL cho thấy những kỳ vọng đặc trưng của NeurIPS, ICML 
 | [Transformer](transformer.md) | NeurIPS 2017 (khi đó còn gọi là NIPS) | Kiến trúc mới | Title là một khẳng định; biện minh thiết kế bằng tiêu chí rõ ràng thay vì chỉ bằng kết quả; báo cáo chất lượng đi kèm chi phí huấn luyện; bảng biến thể có hệ thống |
 | [Adam](adam.md) | ICLR 2015 | Thuật toán tối ưu | Algorithm box tự đứng được là sản phẩm chính; mỗi tính chất được hứa có một thí nghiệm tương ứng; bài học cảnh báo về độ chặt chẽ của phân tích lý thuyết |
 | [DDPM](ddpm.md) | NeurIPS 2020 | Phương pháp mô hình sinh | Làm sống lại một ý tưởng cũ và ghi nhận sòng phẳng; kết nối với lý thuyết sẵn có để rút ra objective đơn giản; trung thực về điểm yếu (log-likelihood) và biến nó thành phân tích |
+| [Top-K Sparse MoE](topk-moe.md) | ICLR 2024 (nhóm Nhat Ho, UT Austin) | Lý thuyết thống kê cho Mixture of Experts | Biện minh một câu hỏi lý thuyết cho cộng đồng deep learning; bảng tốc độ hội tụ như "Figure 1" của paper lý thuyết; khuôn trình bày từng định lý; khả năng tiếp cận của ký hiệu |
 
 ### Speech
 
@@ -79,6 +83,9 @@ Cộng đồng xử lý tiếng nói có hai hội nghị lớn là Interspeech 
 |---|---|---|---|
 | [ViP-VL](vip-vl.md) | Interspeech 2026 | Mô hình tiền huấn luyện tự giám sát cho một ngôn ngữ ít tài nguyên | Viết gọn trong bốn trang; ba khoảng trống, ba câu trả lời; kiểm chứng có kiểm soát trên benchmark chung trước khi trình bày kết quả tiếng Việt; phê bình điều gì thì tự làm điều đó |
 | [Streaming ITN](streaming-itn.md) | Interspeech 2026, long track | Phương pháp và quy trình cho một bài toán ứng dụng | Mượn công cụ từ lĩnh vực lân cận rồi chỉ ra vì sao nó chưa vừa; nêu và bác bỏ cách sửa hiển nhiên; một bảng gánh cả so sánh lẫn ablation; khoảng tin cậy bootstrap và cách diễn giải đúng; độ trễ đuôi |
+
+!!! info "Paper của các nhóm nghiên cứu Việt Nam"
+    Bên cạnh các paper kinh điển, chương có một loạt case study về paper top-tier của các nhóm có tác giả người Việt: Anti-DreamBooth và SwiftBrush (Computer Vision), PhoBERT và EDWARD-NMT (NLP), Top-K Sparse MoE (Machine Learning), ViP-VL và Streaming ITN (Speech). Những paper này gần với hoàn cảnh của nhiều người học hơn về tài nguyên, ngôn ngữ và quy mô nhóm, và được phân tích cả điểm mạnh lẫn những chỗ có thể viết tốt hơn. Các paper về an toàn và bảo mật AI được phân tích riêng ở [Chương 7](../07-ai-security/index.md).
 
 ### Bài thực hành
 
