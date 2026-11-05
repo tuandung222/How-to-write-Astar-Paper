@@ -172,7 +172,19 @@ Kế hoạch B (fallback plan)
 :   Phương án thu hẹp phạm vi hoặc chuyển hướng được chuẩn bị trước, dùng khi giả thuyết chính không đứng vững.
 
 HARKing
-:   Đặt giả thuyết sau khi đã biết kết quả rồi trình bày như thể giả thuyết có từ trước; là một vi phạm trung thực khoa học.
+:   Viết tắt của *hypothesizing after the results are known*: đặt giả thuyết sau khi đã biết kết quả rồi trình bày như thể giả thuyết có từ trước. Đổi khung câu chuyện sau khi có kết quả là bình thường, miễn là có khai báo phần nào là phân tích khám phá. Trình bày giả thuyết hậu nghiệm như thể nó đã có từ trước thì nằm ở vùng xám tới sai phạm. Xem [Ranh giới trung thực](../07-tinh-huong-kho/ranh-gioi-trung-thuc.md).
+
+Khu vườn rẽ nhánh (garden of forking paths)
+:   Hiện tượng do Gelman và Loken mô tả: người nghiên cứu có rất nhiều lựa chọn phân tích (seed, checkpoint, metric, tập con dữ liệu, tiền xử lý), và khi những lựa chọn này phụ thuộc vào dữ liệu đã thấy, kết quả công bố bị thiên lệch ngay cả khi không ai cố ý.
+
+Pre-registration (đăng ký trước)
+:   Ghi lại giả thuyết, thiết kế thí nghiệm và tiêu chí đánh giá *trước khi* chạy, để phân biệt kiểm định có xác nhận với phân tích khám phá. Trong ML, CV và NLP, hình thức chính thức chưa phổ biến, nhưng một bản ghi nội bộ có ngày tháng cũng mang lại phần lớn lợi ích.
+
+Salami slicing
+:   Cắt một kết quả nghiên cứu thành nhiều paper nhỏ, mỗi paper chỉ mang một phần đóng góp, để tăng số lượng công bố. Bị coi là thực hành xấu và có thể vi phạm quy định về nộp trùng hoặc nộp chồng lấn.
+
+Scooped (bị trùng ý tưởng)
+:   Tình huống một nhóm khác công bố công trình rất gần với ý tưởng đang làm, trước khi nhóm tác giả kịp nộp. Khác với concurrent work ở chỗ thường mang nghĩa đã bị vượt trước. Xem Tình huống 24 ở [Áp lực từ bên ngoài](../07-tinh-huong-kho/ap-luc-ben-ngoai.md).
 
 ## Thí nghiệm và đánh giá
 
@@ -227,6 +239,15 @@ Human evaluation
 Inter-annotator agreement (IAA)
 :   Mức độ đồng thuận giữa các người gán nhãn hoặc người chấm, đo bằng các chỉ số như Cohen's κ (hai người), Fleiss' κ (nhiều người, số lượng cố định mỗi mục) hay Krippendorff's α (linh hoạt, xử lý được dữ liệu thiếu và thang thứ bậc).
 
+Reality check (paper đánh giá lại)
+:   Thể loại paper đánh giá lại một dòng phương pháp trong điều kiện so sánh công bằng, thường cho thấy cải thiện được công bố thu hẹp đáng kể khi baseline được tune kỹ. Ví dụ: *A Metric Learning Reality Check* (ECCV 2020).
+
+Data leakage (rò rỉ dữ liệu)
+:   Thông tin từ tập test lọt vào quá trình huấn luyện, chọn mô hình hoặc tiền xử lý, khiến kết quả đẹp hơn thực tế. Dạng phổ biến gần đây là contamination của dữ liệu pre-training.
+
+Winner's curse
+:   Thiên lệch khi chọn kết quả tốt nhất trong rất nhiều lần thử: con số được chọn thường cao hơn hiệu năng thật. Tên được dùng trong bài *Winner's Curse? On Pace, Progress, and Empirical Rigor* (Sculley và cộng sự, 2018).
+
 ## Nộp bài và chính sách
 
 Abstract registration
@@ -246,6 +267,18 @@ Concurrent work
 
 AoE (Anywhere on Earth)
 :   Múi giờ UTC−12, thường dùng cho hạn nộp. Hạn 23:59 AoE tương ứng khoảng 19:00 ngày hôm sau theo giờ Việt Nam (UTC+7).
+
+General response
+:   Phản hồi chung gửi tới mọi reviewer trên OpenReview, dùng cho những điểm nhiều reviewer cùng nêu. Một số hội nghị ML những năm gần đây đã bỏ hoặc giới hạn hình thức này; kiểm tra hướng dẫn rebuttal của năm nộp.
+
+Anonymity period
+:   Quy định cũ của ACL cấm đăng hoặc cập nhật preprint trong một khoảng thời gian quanh deadline. ACL đã bãi bỏ quy định này từ đầu năm 2024; bản nộp vẫn phải ẩn danh.
+
+Summary reject
+:   Quyết định từ chối sớm, trước hoặc ngay sau vòng review đầu, thường do vi phạm định dạng, ẩn danh hoặc chất lượng quá thấp. Gần nghĩa với desk reject; tên gọi và tiêu chí khác nhau giữa các hội nghị.
+
+Evaluations & Datasets track
+:   Tên mới của Datasets & Benchmarks track ở NeurIPS từ năm 2026, dành cho các đóng góp về dataset, benchmark và phương pháp đánh giá.
 
 ## AI trong nghiên cứu
 
@@ -269,6 +302,40 @@ Khai báo sử dụng AI (AI disclosure)
 
 Bảo mật bài đang review
 :   Nghĩa vụ không chia sẻ nội dung bài được giao review ra ngoài; nhiều hội nghị cấm hoặc hạn chế việc đưa nội dung đó vào công cụ AI bên ngoài.
+
+## AI Security
+
+Các thuật ngữ dưới đây được dùng trong [Chương 9](../09-ai-security/index.md).
+
+Threat model
+:   Mô tả giả định về kẻ tấn công: biết những gì (white-box hay black-box), làm được gì, muốn đạt mục tiêu gì. Mọi claim trong paper bảo mật đều được đọc qua threat model.
+
+White-box / black-box
+:   Kẻ tấn công có (white-box) hoặc không có (black-box) quyền truy cập trọng số và gradient của mô hình.
+
+Prompt injection
+:   Chèn chỉ dẫn vào đầu vào của hệ thống dựa trên LLM để nó làm điều người dùng hoặc nhà phát triển không muốn. *Trực tiếp* khi kẻ tấn công là người nhập prompt. *Gián tiếp* khi chỉ dẫn nằm trong dữ liệu bên ngoài mà hệ thống đọc vào, như trang web, tài liệu hay hình ảnh.
+
+Jailbreak
+:   Làm cho mô hình đã được căn chỉnh an toàn (aligned) tạo ra nội dung mà nó được huấn luyện để từ chối.
+
+Attack surface
+:   Tập hợp các đường mà kẻ tấn công có thể tác động vào hệ thống. Ví dụ: văn bản, ảnh, giao diện web mà agent nhìn thấy.
+
+ASR (attack success rate)
+:   Tỉ lệ tấn công thành công. Luôn cần được báo cáo cùng định nghĩa thế nào là thành công.
+
+Utility under attack
+:   Độ hữu ích của hệ thống khi đang bị tấn công hoặc khi phòng vệ được bật. Đi cặp với ASR để tránh phòng vệ "an toàn" bằng cách làm hệ thống vô dụng.
+
+Adaptive attack
+:   Tấn công được thiết kế khi đã biết phòng vệ. Một phòng vệ thuyết phục phải được đánh giá với tấn công thích nghi, không chỉ tấn công cố định.
+
+Red teaming
+:   Chủ động thử tấn công hệ thống do chính nhóm xây dựng để tìm lỗ hổng trước khi công bố hoặc triển khai.
+
+Responsible disclosure
+:   Thông báo lỗ hổng cho bên bị ảnh hưởng và cho họ thời gian khắc phục trước khi công bố chi tiết.
 
 ## Ngôn ngữ phê bình thường gặp trong review
 

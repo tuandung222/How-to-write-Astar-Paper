@@ -366,3 +366,261 @@ Hình và bảng là nơi bằng chứng được trình bày, nên chúng cũng
 
 Một kỹ năng đơn giản nhưng hiệu quả là truy ngược mọi con số trong abstract và Introduction về đúng một ô trong bảng. Case study [EDWARD-NMT](../05-case-studies/edward-nmt.md) cho thấy một ví dụ thật: khoảng cải thiện nêu trong Introduction khác với khoảng nêu ở phần kết quả, và một trong các con số khó truy về một ô cụ thể nào trong các bảng chính. Một con số mà reviewer không tìm lại được làm giảm độ tin cậy của toàn bộ paper, dù bản thân sai lệch có thể nhỏ.
 
+## Những heuristic phản biện lười cần tránh
+
+Khi phải đánh giá nhiều paper trong thời gian ngắn, con người dựa vào những quy tắc kinh nghiệm đơn giản, và những quy tắc đó dễ dẫn tới đánh giá thiếu công bằng. Anna Rogers và Isabelle Augenstein phân tích hiện tượng này trong *What Can We Do to Improve Peer Review in NLP?* (Findings of EMNLP 2020), và cùng hai tác giả viết phiên bản đầu tiên của hướng dẫn reviewer cho ACL Rolling Review năm 2021, trong đó có một danh sách các heuristic "lười" (*lazy thinking*), mỗi heuristic kèm lời giải thích vì sao nó có vấn đề. Danh sách này được mở rộng qua các lần cập nhật; phiên bản hiện hành, cập nhật lần gần nhất vào tháng 10 năm 2025, có mười bảy mục (ARR Reviewer Guidelines). Hiện tượng này không hiếm: theo báo cáo của ACL 2023 được trích trong nghiên cứu LazyReview, việc dùng các heuristic này là một trong những nguyên nhân hàng đầu, khoảng 24,3%, của các vấn đề mà tác giả phản ánh về review (Purkayastha et al., *LazyReview*, ACL 2025).
+
+Bảng dưới đây chọn những heuristic thường gặp nhất, diễn giải lý do mà hướng dẫn ARR đưa ra, và gợi ý cách biến mỗi nhận xét lười thành một phê bình có căn cứ. Cột thứ ba quan trọng: hướng dẫn ARR không cấm những nhận xét này, mà nói rằng chúng *có thể* chỉ ra vấn đề thật nhưng không tự động là weakness. Ranh giới nằm ở căn cứ.
+
+| Heuristic lười | Vì sao lười (theo tinh thần hướng dẫn ARR) | Phiên bản có căn cứ |
+|---|---|---|
+| "Kết quả không bất ngờ" | Nhiều phát hiện trông hiển nhiên khi nhìn lại, nhưng điều đó không có nghĩa là cộng đồng đã biết và dùng được chúng | Nêu công trình đã chứng minh điều đó, hoặc giải thích vì sao bằng chứng mới không thêm thông tin |
+| "Kết quả trái với điều người đọc kỳ vọng" | Có thể là thiên kiến xác nhận | Chỉ ra lỗi cụ thể trong thiết kế khiến kết quả đáng ngờ |
+| "Không mới" | Một khẳng định rộng như vậy phải kèm tài liệu tham khảo | "Highly similar work X and Y was published before the deadline; the difference is …" |
+| "Không có tiền lệ trong tài liệu" | Paper càng mới càng khó được chấp nhận; reviewer dễ bảo thủ không cần thiết | Đánh giá cách đặt bài toán và bằng chứng, không đánh giá sự thiếu tiền lệ |
+| "Không vượt SOTA" | Theo ARR, kết quả SOTA không cần cũng không đủ cho một đóng góp khoa học | Chỉ ra vì sao, với kiểu đóng góp này, so sánh hiệu năng là tiêu chí chính và paper chưa đạt |
+| "Kết quả âm tính" | Thiên lệch chỉ công bố kết quả dương góp phần vào thổi phồng | Đánh giá độ chặt của bằng chứng cho kết quả âm tính |
+| "Phương pháp quá đơn giản" | Mục tiêu là giải bài toán, không phải giải nó theo cách phức tạp | Chỉ ra cải thiện không đáng kể, hoặc phương pháp đã là thực hành chuẩn, kèm nguồn |
+| "Không dùng phương pháp mà reviewer ưa thích" | Lĩnh vực có nhiều kiểu đóng góp hợp lệ | Chỉ ra vì sao lựa chọn của tác giả ngăn họ trả lời câu hỏi nghiên cứu |
+| "Chủ đề quá hẹp" | Một paper có thể đóng góp lớn cho một lĩnh vực con | Đánh giá tác động đối với cộng đồng con đó |
+| "Chỉ thử trên một ngôn ngữ không phải tiếng Anh" | Nghiên cứu chỉ trên tiếng Anh cũng có cùng giới hạn đó | Chỉ nêu khi claim của paper rõ ràng rộng hơn ngôn ngữ được thử |
+| "Lỗi ngôn ngữ" | Miễn văn bản đủ rõ, nội dung khoa học quan trọng hơn văn phong | Chỉ ra đoạn cụ thể mà lỗi làm cản trở việc hiểu |
+| "Thiếu so sánh với công trình X" | Chỉ là vấn đề khi X được công bố chính thức, không chỉ trên arXiv, đủ lâu trước deadline | Kiểm tra ngày công bố của X trước khi yêu cầu |
+| "Tác giả có thể làm thêm thí nghiệm X" | Paper chỉ cần đủ bằng chứng cho claim mà nó đưa ra | Chỉ xếp vào weakness khi claim phụ thuộc vào X; còn lại đưa vào phần gợi ý |
+| "Lẽ ra nên làm X thay vì Y" | Tức là "reviewer sẽ viết một paper khác" | Chỉ là weakness khi lựa chọn Y làm hỏng việc trả lời câu hỏi nghiên cứu |
+
+Nhìn tổng thể, mọi heuristic trong bảng có chung một cấu trúc: chúng thay một lập luận cụ thể về *paper này* bằng một quy tắc chung về *loại paper này*. Cách sửa cũng có chung cấu trúc: quay về câu hỏi paper khẳng định gì, bằng chứng nào đỡ nó, và nhận xét của reviewer chạm tới điều đó ở đâu. Hướng dẫn reviewer ở các cộng đồng khác cũng đi theo hướng tương tự. Hướng dẫn của CVPR qua nhiều năm nói rằng việc một phương pháp không vượt độ chính xác state-of-the-art trên một benchmark có sẵn tự nó không phải là lý do để reject, và yêu cầu reviewer khi cho rằng paper thiếu novelty thì phải nêu công trình cụ thể (CVPR Reviewer Guidelines, các năm 2015–2025). Hướng dẫn của ICLR năm 2022 khuyên không reject một paper chỉ vì reviewer thấy nó không thú vị.
+
+Với người viết, danh sách này có một công dụng ngược: nó là bản đồ những nhận xét mà paper sẽ nhận nếu không phòng ngừa. Paper có phương pháp đơn giản nên tự đặt câu hỏi "liệu cách đơn giản hơn có đủ không" và trả lời bằng thí nghiệm. Paper không vượt SOTA nên nói rõ đóng góp nằm ở chiều nào khác: hiệu quả, khả năng tổng quát, hiểu biết. Paper về một ngôn ngữ không phải tiếng Anh nên giải thích giá trị của ngôn ngữ đó và giữ claim đúng phạm vi. Paper có ý tưởng gần với công trình trước nên trích dẫn niềm tin hoặc thực hành mà nó thay đổi. Bài [Khi novelty và hiệu quả lệch pha](../07-tinh-huong-kho/novelty-va-hieu-qua.md) trình bày chi tiết cách viết các đoạn phòng ngừa này, và khi nhận một review lười, bài [Rebuttal & thảo luận](../04-nop-va-sau-nop/rebuttal.md) cho biết cách trả lời bằng dữ kiện, có thể dẫn lại đúng tên heuristic trong hướng dẫn của hội nghị.
+
+## Từ đọc tới viết review
+
+Những ghi chú từ năm bước đọc phản biện là nguyên liệu; bản review là sản phẩm gửi cho hai người đọc rất khác nhau. Người đọc thứ nhất là tác giả, những người cần biết cụ thể paper yếu ở đâu và sửa thế nào. Người đọc thứ hai là Area Chair, người phải ra khuyến nghị dựa trên nhiều review và cần thấy lập luận đằng sau con số. Một review tốt phục vụ cả hai.
+
+### Cấu trúc một bản review
+
+Form review thay đổi theo hội nghị và theo năm, nhưng phần lớn đều có bảy thành phần. **Summary** tóm tắt paper bằng lời của reviewer, trung lập, không đánh giá; nó cho tác giả và AC biết reviewer đã hiểu paper thế nào, và một summary sai là dấu hiệu sớm nhất của một review có vấn đề. **Strengths** nêu những gì paper làm tốt, cụ thể như weakness; một danh sách strength chung chung ("well written", "extensive experiments") không giúp AC bảo vệ paper. **Weaknesses** là phần quan trọng nhất, được đánh số để tác giả trả lời từng điểm, như hướng dẫn ARR khuyến khích, và xếp theo mức độ nghiêm trọng. **Questions** là những điểm mà câu trả lời của tác giả có thể làm thay đổi đánh giá. **Limitations** đánh giá việc paper thừa nhận giới hạn và tác động xã hội có đầy đủ không. **Rating** là điểm tổng thể, và **Confidence** là mức độ chắc chắn của reviewer về đánh giá của chính mình, dựa trên mức độ quen thuộc với chủ đề và mức độ kỹ khi đọc.
+
+Hướng dẫn reviewer của NeurIPS năm 2025 gợi ý một cách nghĩ về strengths và weaknesses: hãy coi chúng là những lý do có thể khiến reviewer chấp nhận hoặc từ chối paper. Cách nghĩ này giúp tách weakness thật khỏi những gợi ý cải thiện không ảnh hưởng tới quyết định. Hướng dẫn ARR cũng đi theo cùng tinh thần: một thí nghiệm "nice-to-have" thuộc về phần gợi ý, không thuộc về phần weakness.
+
+### Viết weakness cụ thể, có căn cứ, gợi ý được hướng sửa
+
+Một weakness tốt có bốn thành phần: *điều gì* (chỉ đúng chỗ trong paper, như bảng nào, mục nào, phương trình nào), *vì sao nó quan trọng* (gắn với claim nào của paper), *căn cứ* (một trích dẫn, một con số, một lập luận), và *điều gì sẽ giải quyết được nó* (một thí nghiệm, một phân tích, một cách sửa claim). Thành phần thứ tư thường bị bỏ quên, nhưng nó biến review từ một lời phán xét thành một lời góp ý, và giúp AC đánh giá vấn đề là chí mạng hay sửa được. Các hội nghị cũng ngày càng quan tâm tới tính cụ thể: trong một thử nghiệm ngẫu nhiên có đối chứng tại ICLR 2025, khoảng một nửa số review được một công cụ tự động gửi phản hồi, chẳng hạn gắn cờ những nhận xét mơ hồ, và khoảng 27% reviewer nhận phản hồi đã cập nhật review của mình (Thakkar et al., 2025; ICLR blog, 2025). Các cặp ví dụ dưới đây là ví dụ giả định.
+
+<div class="bad" markdown>
+*"The novelty is limited."*
+
+Không có căn cứ, không chỉ ra so với công trình nào, không gợi ý hướng sửa. Đây đúng là heuristic "không mới" mà hướng dẫn ARR nêu tên.
+</div>
+
+<div class="good" markdown>
+*"The core idea, clipping each layer's gradient relative to its parameter norm, closely follows [X], which proposed unit-wise clipping based on the same ratio and evaluated it on ImageNet with several architectures. The submission does not cite [X]. The remaining contribution appears to be the convergence bound in Sec. 4, but it follows directly from the fixed-threshold analysis in [Y]. Could the authors clarify what is new relative to [X] and [Y]?"*
+
+Chỉ ra công trình cụ thể, mô tả mức độ trùng lặp, đánh giá phần đóng góp còn lại, và để ngỏ cho tác giả giải thích.
+</div>
+
+<div class="bad" markdown>
+*"The experiments are not convincing. More baselines are needed."*
+</div>
+
+<div class="good" markdown>
+*"The main comparison (Table 2) uses baseline numbers reported in the original papers, which were trained with a 12-epoch schedule, whereas the proposed method uses 36 epochs. Since longer schedules are known to improve AP on COCO, the 1.8 AP gain may partly reflect training length. Re-running the two strongest baselines with the same 36-epoch schedule would resolve this."*
+</div>
+
+<div class="bad" markdown>
+*"Results are not significant."*
+</div>
+
+<div class="good" markdown>
+*"The ablation differences in Table 4 range from 0.2 to 0.4 points, but each entry is a single run. Given that the authors report a seed standard deviation of about 0.3 in the appendix, these differences may not be meaningful. Reporting means and standard deviations over at least three seeds, or a paired bootstrap test, would support the claim that each component is necessary."*
+</div>
+
+Ba cặp ví dụ cho thấy cùng một mẫu: mỗi câu "tốt" dài hơn, nhưng mỗi chữ thêm vào đều mang thông tin mà tác giả có thể hành động theo. Cũng cần chú ý giọng văn: câu "tốt" mô tả paper, không mô tả tác giả, và dùng câu hỏi khi reviewer không chắc chắn. Hướng dẫn ARR tóm tắt tinh thần này trong một lời khuyên ngắn: hãy viết bản review mà chính reviewer muốn nhận.
+
+### Một bản review mẫu đầy đủ
+
+Bản review dưới đây được viết cho paper NLP giả định trong ví dụ thứ hai của mục novelty, theo một cấu trúc gần với form của ARR. Các con số đều là ví dụ giả định.
+
+```markdown
+Paper Summary
+The paper proposes a pipeline for cross-lingual question answering in
+low-resource languages: questions are machine-translated into English,
+English documents are retrieved, an LLM generates an answer, and the final
+answer is selected by majority vote over several translations. To evaluate
+it, the authors build a new benchmark of questions written directly by native
+speakers in 12 low-resource languages. They report that the translate-then-
+answer pipeline outperforms multilingual models that process the questions
+directly in 9 of the 12 languages, in contrast to earlier evaluations that
+used questions translated from English.
+
+Summary of Strengths
+S1. The native-speaker benchmark is a valuable resource. Questions written by
+    native speakers avoid translation artifacts, and the annotation protocol
+    (Sec. 3) with double annotation and reported agreement is described clearly.
+S2. The finding that conclusions reverse between translated and natively
+    written questions is surprising and potentially important for how the
+    community evaluates multilingual models.
+S3. The evaluation covers 12 languages from several language families, and
+    per-language results are reported rather than only an average.
+
+Summary of Weaknesses
+W1. The methodological contribution is limited. Translate-test, retrieval-
+    augmented QA and majority voting over samples are each well established,
+    and the paper does not show that combining them requires anything beyond
+    chaining existing components. The ablation (Table 5) shows each component
+    helps, but not why the combination is non-trivial.
+W2. The most interesting result (S2) is under-analyzed. It is unclear whether
+    the reversal comes from translation artifacts in earlier benchmarks, from
+    differences in question difficulty or topic, or from the specific models
+    used. A controlled comparison, e.g. the same questions in a native and a
+    translated version, would make the finding much stronger.
+W3. Results are from single runs with one LLM. Since answers are sampled, the
+    variance across runs should be reported, and the main finding should be
+    checked with at least one other model family.
+W4. The claim in the abstract that the pipeline is "effective for low-resource
+    languages" is broader than the evidence: the pipeline underperforms in 3
+    of 12 languages, all with non-Latin scripts. This should be discussed and
+    the claim scoped accordingly.
+
+Comments, Suggestions and Typos
+- In our view, the paper would be stronger if framed around the benchmark and
+  the evaluation finding, with the pipeline presented as a strong baseline.
+- Please report the cost (number of LLM calls) of majority voting relative to
+  the direct multilingual baseline.
+- Table 3: please state which entries are re-run and which are copied.
+
+Questions for the Authors
+Q1. How were topics balanced between the native benchmark and the translated
+    benchmarks used in prior work?
+Q2. Does the reversal hold when the multilingual baselines are given the same
+    retrieval component?
+
+Confidence: 4 (I am familiar with multilingual QA and have checked the main
+experiments carefully; I did not verify the annotation statistics.)
+Soundness: 3. The benchmark construction is sound; the main finding needs the
+    controls in W2 and W3.
+Excitement: 3.5. The resource and the evaluation finding are exciting; the
+    method is not.
+Overall assessment: borderline for the main conference in its current form.
+    I would raise my score if W2 and W3 are addressed in the response.
+
+Limitations and Societal Impact
+The limitations section discusses translation quality but not the reliance on
+a commercial translation system, which may not be available or affordable for
+all communities that speak these languages.
+```
+
+Bản review này áp dụng hầu hết những gì đã trình bày. Summary trung lập và đủ cụ thể để tác giả thấy reviewer hiểu đúng paper. Strengths nêu đúng những gì đáng giá, kể cả những thứ paper không coi là đóng góp chính. Weakness W1 nói thẳng về novelty của phương pháp nhưng có lập luận; W2 biến phát hiện thú vị nhất thành một yêu cầu cụ thể; W3 và W4 là những câu hỏi về thống kê và phạm vi claim. Phần gợi ý chứa một đề xuất đóng khung lại, được tách khỏi weakness. Câu cuối của phần đánh giá tổng thể cho tác giả và AC biết chính xác điều gì có thể thay đổi điểm số.
+
+### Hiệu chỉnh điểm số
+
+Điểm số là phần của review mà AC nhìn đầu tiên, nhưng nó chỉ có ý nghĩa khi khớp với văn bản. Một review liệt kê hai weakness nhỏ rồi cho điểm reject, hoặc liệt kê một weakness chí mạng rồi cho điểm accept, buộc AC phải đoán reviewer thực sự nghĩ gì. Ba nguyên tắc giúp hiệu chỉnh điểm.
+
+Nguyên tắc thứ nhất là phân loại weakness trước khi chấm. Một weakness *chí mạng* làm claim cốt lõi không đứng được, như ablation cho thấy cải thiện không đến từ đóng góp được tuyên bố. Một weakness *lớn nhưng sửa được* có thể được giải quyết bằng một thí nghiệm hoặc một phân tích trong thời gian phản hồi hoặc ở bản camera-ready. Một weakness *nhỏ* không ảnh hưởng tới quyết định. Hướng dẫn của CVPR nói rằng những lỗi nhỏ, dễ sửa không nên là lý do để reject. Điểm số nên phản ánh weakness nghiêm trọng nhất, không phải số lượng weakness.
+
+Nguyên tắc thứ hai là bám vào định nghĩa của thang điểm. Mỗi hội nghị định nghĩa các mức điểm bằng lời, và định nghĩa đó thay đổi theo năm. Reviewer nên đọc định nghĩa của năm đang review thay vì dùng một cảm nhận chung về "điểm sáu là được". Cần tránh thói quen dồn mọi paper về điểm giữa để an toàn, vì điểm giữa không cho AC thông tin gì.
+
+Nguyên tắc thứ ba là trung thực về độ tự tin. Confidence thấp không phải là điểm yếu của reviewer; nó là thông tin giúp AC biết nên dựa vào review nào. Một reviewer chưa kiểm tra chứng minh nên nói rõ điều đó. Sau giai đoạn phản hồi, reviewer cần đọc câu trả lời của tác giả, cập nhật điểm nếu weakness đã được giải quyết, và ghi rõ lý do thay đổi hoặc không thay đổi; hướng dẫn ARR yêu cầu ít nhất một câu "Update:" thừa nhận phản hồi.
+
+### Bảo mật và đạo đức
+
+Paper đang được review là tài liệu mật, chứa những ý tưởng chưa công bố của người khác. Nguyên tắc cơ bản là **không đưa nội dung paper đang review vào các LLM hay dịch vụ trực tuyến bên ngoài**, không chia sẻ paper với người khác khi chưa được phép theo quy định của hội nghị, và không dùng ý tưởng trong paper cho nghiên cứu của mình trước khi paper được công bố. Lý do và các quy định cụ thể đã được trình bày ở bài [Dùng AI hỗ trợ (đúng luật)](../03-ky-thuat/ai-tools.md) và bài [Nguyên tắc, chính sách và rủi ro khi làm việc với AI](../08-ai-cong-su/nguyen-tac.md); chính sách thay đổi nhanh, nên reviewer cần đọc quy định của đúng hội nghị, đúng năm.
+
+Có thêm một lý do để không giao việc review cho LLM, ngoài vấn đề bảo mật: phần khó nhất của review chính là phần mà LLM làm kém nhất. Trong một nghiên cứu quy mô lớn so sánh nhận xét do GPT-4 sinh ra với nhận xét của reviewer thật trên các paper đã công khai, nhóm tác giả thấy LLM ít bình luận về novelty hơn con người rất nhiều và gặp khó khăn khi phê bình sâu thiết kế phương pháp, dù các điểm nó nêu có mức trùng lặp với reviewer thật tương đương mức trùng lặp giữa hai reviewer với nhau (Liang et al., NEJM AI, 2024). Nói cách khác, LLM có thể nêu những nhận xét bề mặt mà nhiều reviewer cũng nêu, nhưng không thay được phán đoán của một chuyên gia về việc paper mới tới đâu, và đó là lý do reviewer được mời. Các hội nghị cũng đã bắt đầu thực thi nghiêm: theo blog của ICML 2026, hội nghị phát hiện khoảng 795 review vi phạm chính sách không dùng LLM mà reviewer đã chọn, gỡ bỏ các review đó và desk reject các bài nộp liên quan của những reviewer có nghĩa vụ review đi kèm bài nộp.
+
+Ngoài bảo mật, đạo đức review còn gồm khai báo xung đột lợi ích, không chủ động tìm danh tính tác giả, và giữ giọng văn chuyên nghiệp. Một review có thể nghiêm khắc về nội dung mà vẫn tôn trọng con người; câu "the authors fail to understand" không làm review mạnh hơn câu "the paper does not address".
+
+## Luyện tập với review công khai trên OpenReview
+
+Người mới thường thiếu thứ quan trọng nhất để trở thành reviewer giỏi: phản hồi. Khi tự đánh giá một paper, người đọc không biết đánh giá của mình đúng hay sai. Chris Olah, khi viết về cách luyện "gu" nghiên cứu, nhận xét rằng việc kiểm tra một ý tưởng nghiên cứu có tốt hay không rất tốn kém, nên người làm nghiên cứu chỉ nhận được rất ít phản hồi mỗi năm; các bài tập ông đề xuất là cách lấy phản hồi rẻ hơn, nhiễu hơn, nhưng nhiều hơn (Olah, *Research Taste Exercises*, 2021). Review công khai trên OpenReview cho phép làm đúng điều đó với kỹ năng phản biện.
+
+Quy trình gồm bốn bước. Thứ nhất, chọn một paper đã có review công khai, chẳng hạn một bài nộp ICLR của năm gần đây ở lĩnh vực gần với dự án, lý tưởng là một paper ở vùng ranh giới. Thứ hai, *không đọc review*, đọc paper theo năm bước và viết một bản review đầy đủ với điểm số và độ tự tin, trong giới hạn thời gian của một reviewer thật. Thứ ba, đọc các review thật, phản hồi của tác giả, và meta-review. Thứ tư, ghi lại phần so sánh theo mẫu dưới đây.
+
+```markdown
+NHẬT KÝ HIỆU CHỈNH PHẢN BIỆN
+
+Paper: <...>      Quyết định thật: <accept / reject>      Điểm của người học: <...>
+
+- Weakness mà người học nêu và reviewer thật cũng nêu:
+- Weakness mà reviewer thật nêu nhưng người học bỏ sót (vì sao bỏ sót?):
+- Weakness mà người học nêu nhưng không reviewer nào nêu (đúng hay quá khắt khe?):
+- Đánh giá novelty của người học so với meta-review:
+- Phản hồi của tác giả có làm thay đổi kết luận không? Vì sao?
+- Bài học cho lần đọc sau:
+```
+
+Sau năm đến mười paper, nhật ký này cho thấy những mẫu lặp lại: người học có hay bỏ sót các vấn đề thống kê không, có quá dễ dãi với novelty không, hay ngược lại hay chê "thiếu mới" khi reviewer có kinh nghiệm lại không thấy vậy. Cần nhớ hai điều khi diễn giải. Review thật cũng có nhiễu, như thí nghiệm của NeurIPS được nhắc trong bài [Paper được đánh giá thế nào](../00-tong-quan/review-process.md) đã cho thấy, nên meta-review không phải là đáp án tuyệt đối; điều đáng so sánh là *lập luận* chứ không chỉ điểm số. Và tầm ảnh hưởng về sau của paper, như việc nó có được dùng và trích dẫn nhiều không, là một nguồn phản hồi chậm hơn nhưng khách quan hơn cho đánh giá về significance. Vì các paper này đã công khai, việc luyện tập không vi phạm bảo mật. Case study [EDWARD-NMT](../05-case-studies/edward-nmt.md) có một mục đóng vai reviewer ARR cho một paper thật, có thể dùng làm bài tập khởi động trước khi làm với OpenReview.
+
+## Khác biệt giữa các cộng đồng
+
+Quy trình đọc phản biện giống nhau ở cả ba cộng đồng, nhưng form review và điều được nhấn mạnh thì khác. Các mô tả dưới đây phản ánh hướng dẫn của những năm gần đây và cần được đối chiếu với phiên bản của đúng hội nghị, đúng năm.
+
+### Computer Vision
+
+Hướng dẫn reviewer của CVPR nhiều năm nhấn mạnh rằng không vượt SOTA tự nó không phải lý do reject, rằng nhận xét thiếu novelty phải nêu công trình cụ thể, và rằng việc không trích dẫn hoặc không vượt những công trình chỉ đăng trên arXiv không phải lý do reject. Trên thực tế, reviewer CV đặc biệt chú ý tới so sánh với các phương pháp mạnh nhất trên benchmark chuẩn và tới chất lượng của kết quả định tính, nên kỹ năng đọc hình và bảng ở mục trước có vai trò lớn. Vì rebuttal thường chỉ có một trang PDF và một lần, các câu hỏi trong review CV nên được chọn sao cho tác giả có thể trả lời gọn trong không gian đó.
+
+### NLP
+
+Form của ACL Rolling Review tách **Soundness**, được yêu cầu phải dựa trên chính văn bản review, khỏi **Excitement**, được nói rõ là chủ quan, và một **Overall assessment** tổng hợp; với Findings, tiêu chí chính là soundness và khả năng tái lập. Hướng dẫn ARR có danh sách heuristic lười và các mã cho những vấn đề thường gặp trong paper NLP, rất tiện để dùng làm checklist khi đọc. ARR cũng khuyên đọc ít nhất hai lần, lần đầu lướt để nắm câu hỏi nghiên cứu mà chưa nhìn kết quả, nhằm tránh thiên kiến nhìn lại và thiên kiến xác nhận, và chỉ kiểm tra related work sau khi đã có bản nháp review (ARR Reviewer Guidelines, 2025). Mục Limitations là bắt buộc, nên việc đọc nó một cách phản biện thuộc về công việc thường ngày của reviewer NLP.
+
+### Machine Learning
+
+NeurIPS yêu cầu reviewer xem xét bốn chiều Quality, Clarity, Significance và Originality, cùng các trường Questions, Limitations, Overall và Confidence. ICLR đặt trọng tâm vào bốn câu hỏi: paper giải quyết câu hỏi cụ thể nào, cách tiếp cận có được định vị tốt trong tài liệu không, paper có đỡ được các claim không, và ý nghĩa của đóng góp là gì. Reviewer ML thường dừng lâu ở giả định của các định lý, ở error bar và ở bằng chứng về tính tổng quát. Ở ICLR, review được công khai, nên một review hời hợt cũng lưu lại trước mắt cộng đồng như một paper yếu.
+
+| | Computer Vision | NLP (ARR) | Machine Learning |
+|---|---|---|---|
+| Trục điểm chính | Điểm tổng thể kèm lý giải | Soundness, Excitement, Overall | Các chiều chất lượng, ý nghĩa, rõ ràng, tính mới; Overall |
+| Điều hay được nhấn mạnh | So sánh SOTA, kết quả định tính | Thiết lập đánh giá, phạm vi claim, Limitations | Giả định, tính tổng quát, thống kê |
+| Công cụ hướng dẫn đặc thù | Quy định về công trình chỉ trên arXiv | Danh sách heuristic lười, mã vấn đề | Paper checklist (NeurIPS), bốn câu hỏi (ICLR) |
+| Phản hồi của tác giả | Rebuttal một trang, một lần | Author response, có thể nộp lại chu kỳ sau | Thảo luận nhiều vòng; ICLR công khai |
+
+## Tóm tắt
+
+Đọc như một reviewer là đọc để đánh giá: tạm treo niềm tin vào paper và hỏi cộng đồng học được gì, bằng chứng có đủ để tin không. Quy trình năm bước, gồm dự đoán trước khi đọc, bóc claim, kiểm toán bằng chứng, định vị so với công trình gần nhất và kết luận, biến ấn tượng thành một lập luận viết ra được. Bảng claim, bằng chứng, mức độ thuyết phục là công cụ trung tâm, và claim cốt lõi là claim cần được chứng minh mạnh nhất. Novelty là lượng hiểu biết mới đánh giá tại thời điểm trước khi paper xuất hiện, không phải độ phức tạp; nó được đo bằng phân tích delta với các công trình gần nhất, bằng việc xác định novelty nằm ở bài toán, phương pháp, phát hiện, đánh giá, tài nguyên hay lý thuyết, và bằng ba câu hỏi về khả năng dự đoán, người sẽ thay đổi cách làm, và vị trí thật của novelty. Kiểm toán bằng chứng là loại trừ các giải thích thay thế: baseline yếu, ablation lẫn yếu tố, metric không đo đúng claim, thống kê thiếu, ngân sách không cân bằng, chọn lọc, rò rỉ và claim vượt phạm vi. Một review tốt tránh các heuristic lười, có weakness cụ thể, có căn cứ và có hướng sửa, có điểm số khớp với văn bản, và tuyệt đối giữ bảo mật cho paper.
+
+Những điểm yếu, giả định ngầm và claim chưa được chứng minh mà người học tìm ra khi đọc phản biện không chỉ là nguyên liệu cho review. Chúng là nguồn ý tưởng phong phú nhất cho chính nghiên cứu của người học. Bài tiếp theo, [Tìm khoảng trống và nguồn ý tưởng](tim-khoang-trong.md), biến những phát hiện đó thành các phương pháp tìm khoảng trống có hệ thống.
+
+## Bài tập
+
+1. Chọn một paper gần đây, gần với dự án hiện tại. Trước khi đọc, điền phần dự đoán của phiếu đọc phản biện chỉ từ title và abstract. Sau khi đọc, điền toàn bộ phiếu và ghi lại dự đoán nào đúng, dự đoán nào sai.
+2. Với cùng paper đó, lập bảng claim, bằng chứng, mức độ thuyết phục. Xác định claim cốt lõi và viết một đoạn văn giải thích bằng chứng cho claim đó mạnh tới đâu.
+3. Thực hiện phân tích delta cho paper với ba công trình gần nhất, trong đó ít nhất một công trình người học tự tìm ra chứ không lấy từ Related Work của paper. Kết luận novelty thuộc trường hợp nào trong sơ đồ quyết định của bài, và novelty có nằm đúng chỗ paper tự nhận không.
+4. Áp dụng bảng cờ đỏ cho bản thảo hoặc kế hoạch thí nghiệm của chính dự án. Với mỗi cờ đỏ tìm thấy, ghi lại câu hỏi mà một reviewer sẽ đặt và cách nhóm sẽ trả lời trước trong paper.
+5. Chọn một bài nộp ICLR có review công khai. Viết một bản review đầy đủ theo cấu trúc trong bài trước khi đọc review thật, rồi so sánh và điền nhật ký hiệu chỉnh phản biện. Lặp lại với ít nhất ba paper và tổng kết những mẫu lặp lại trong cách đánh giá của bản thân.
+
+## Tài liệu tham khảo của bài
+
+**Đọc và viết review**
+
+- S. Keshav. *How to Read a Paper*. ACM SIGCOMM Computer Communication Review 37(3), 2007. Bài viết ngắn.
+- Jason Eisner. *How to Read a Technical Paper*. 2009. Bài viết trên web. https://www.cs.jhu.edu/~jason/advice/how-to-read-a-paper.html
+- Andrej Karpathy. *A Survival Guide to a PhD*. 2016. Blog. https://karpathy.github.io/2016/09/07/phd/
+- Michael J. Black. *Novelty in Science: A guide for reviewers*. 2022. Blog. https://medium.com/@black_51980/novelty-in-science-8f1fd1a0a143
+- Michael Bernstein. Stanford CS197 *Computer Science Research*. Khóa học. https://web.stanford.edu/class/cs197/
+- Chris Olah. *Research Taste Exercises*. 2021. Ghi chú trên blog. https://colah.github.io/notes/taste/
+- Richard S. Sutton. *The Bitter Lesson*. 2019. Tiểu luận. http://www.incompleteideas.net/IncIdeas/BitterLesson.html
+
+**Hướng dẫn reviewer của hội nghị** (thay đổi hằng năm; cần kiểm tra phiên bản mới nhất)
+
+- NeurIPS Reviewer Guidelines, các phiên bản 2023–2026. https://neurips.cc/Conferences/2026/ReviewerGuidelines
+- ICLR Reviewer Guide, các phiên bản 2020–2027. https://iclr.cc/Conferences/2026/ReviewerGuide
+- ACL Rolling Review. Reviewer Guidelines (bản cập nhật tháng 10/2025) và Review Form. https://aclrollingreview.org/reviewerguidelines ; https://aclrollingreview.org/reviewform
+- CVPR Reviewer Guidelines, các phiên bản 2015–2025. https://cvpr.thecvf.com/Conferences/2025/ReviewerGuidelines
+- Anna Rogers, Isabelle Augenstein. *What Can We Do to Improve Peer Review in NLP?* Findings of EMNLP 2020. https://aclanthology.org/2020.findings-emnlp.112/
+- Sukannya Purkayastha, Zhuang Li, Anne Lauscher, Lizhen Qu, Iryna Gurevych. *LazyReview: A Dataset for Uncovering Lazy Thinking in NLP Peer Reviews*. ACL 2025. arXiv:2504.11042.
+
+**Kiểm toán bằng chứng**
+
+- Zachary C. Lipton, Jacob Steinhardt. *Troubling Trends in Machine Learning Scholarship*. 2018. Position paper. https://arxiv.org/abs/1807.03341
+- Varun Godbole, George E. Dahl, Justin Gilmer, Christopher J. Shallue, Zachary Nado. *Deep Learning Tuning Playbook*. 2023. Tài liệu trên GitHub. https://github.com/google-research/tuning_playbook
+- Peter Henderson et al. *Deep Reinforcement Learning that Matters*. AAAI 2018. arXiv:1709.06560.
+- Rishabh Agarwal et al. *Deep Reinforcement Learning at the Edge of the Statistical Precipice*. NeurIPS 2021. arXiv:2108.13264.
+- Jesse Dodge, Suchin Gururangan, Dallas Card, Roy Schwartz, Noah A. Smith. *Show Your Work: Improved Reporting of Experimental Results*. EMNLP 2019. arXiv:1909.03004.
+- Sayash Kapoor, Arvind Narayanan. *Leakage and the Reproducibility Crisis in ML-based Science*. arXiv:2207.07048, 2022.
+- Suchin Gururangan et al. *Annotation Artifacts in Natural Language Inference Data*. NAACL 2018.
+
+**AI và review**
+
+- Weixin Liang et al. *Can Large Language Models Provide Useful Feedback on Research Papers? A Large-Scale Empirical Analysis*. NEJM AI, 2024. arXiv:2310.01783.
+- Nitya Thakkar et al. *Can LLM feedback enhance review quality? A randomized study of 20K reviews at ICLR 2025*. arXiv:2504.09737, 2025. ICLR blog: https://blog.iclr.cc/2025/04/15/leveraging-llm-feedback-to-enhance-review-quality/
+- ICML 2026. *On Violations of LLM Review Policies*. ICML blog, 2026. https://blog.icml.cc/2026/03/18/on-violations-of-llm-review-policies/

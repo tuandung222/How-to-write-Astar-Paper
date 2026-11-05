@@ -112,7 +112,7 @@ NeurIPS (tháng 5 đến tháng 12), ICML (cuối tháng 1 đến tháng 7) và 
 
 ## Bài tập
 
-1. Đọc NeurIPS Paper Checklist của năm gần nhất và thử điền cho dự án hiện tại. Đánh dấu những câu mà câu trả lời trung thực sẽ là "No" hoặc "Partial", và lập kế hoạch khắc phục trước deadline.
+1. Đọc NeurIPS Paper Checklist của năm gần nhất và thử điền cho dự án hiện tại. Đánh dấu những câu mà câu trả lời trung thực sẽ là "No" (hoặc phải kèm giải thích dài ở phần justification), và lập kế hoạch khắc phục trước deadline.
 2. Chọn một paper ICLR gần đây trong mảng nghiên cứu đang theo đuổi, đọc toàn bộ review và thảo luận công khai trên OpenReview. Ghi lại ba câu hỏi của reviewer khiến tác giả phải bổ sung thí nghiệm, và cách tác giả đã trả lời.
 3. Với phương pháp chính của dự án, viết một đoạn trả lời câu hỏi "Why does it work?". Sau đó thiết kế một thí nghiệm có kiểm soát trên dữ liệu tổng hợp hoặc thiết lập đơn giản để kiểm chứng câu trả lời đó.
 4. Kiểm tra bảng kết quả chính hiện có: những kết quả nào chưa có error bars, và những cải thiện nào nhỏ hơn độ biến thiên giữa các seed? Ước lượng tài nguyên tính toán cần thiết để chạy thêm seed cho các kết quả đó.
