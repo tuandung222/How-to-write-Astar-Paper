@@ -89,19 +89,19 @@ Tám câu hỏi của Heilmeier được viết cho các chương trình nghiên
 
 Hai dòng trong bảng cần thêm lời giải thích. Ở câu thứ hai, một hướng dẫn gắn với DARPA thêm một câu hỏi phụ rất đáng dùng: người đề xuất có thật sự biết state of the art, hay đang tấn công một hình nộm (*strawman*)? Với nghiên cứu AI, câu hỏi này gần như đồng nghĩa với việc nhóm đã tái lập được baseline mạnh nhất hay chưa. Một proposal ghi "baseline X đạt 45,2 theo paper gốc; nhóm tái lập được 44,9 bằng code chính thức" mạnh hơn nhiều so với một proposal chỉ ghi tên X. Ở câu cuối cùng, "đạt SOTA" là một câu trả lời yếu không phải vì SOTA không quan trọng, mà vì nó chỉ là bài kiểm tra cuối kỳ. Một dự án cần cả bài kiểm tra giữa kỳ, tức những dấu hiệu sớm cho biết hướng đi đúng hay sai từ rất lâu trước khi có bảng kết quả cuối cùng. Phần lớn giá trị của câu hỏi thứ tám nằm ở chữ "giữa kỳ".
 
-### Proposal khác pitch ở đâu
+### Ba template tóm tắt dự án: proposal, pitch và Tầng 0
 
-Proposal và pitch chia sẻ phần lõi: vấn đề, khoảng trống, insight và claim. Chúng khác nhau ở mọi chỗ còn lại, như bảng dưới đây tổng hợp.
+Giáo trình có ba template cùng tóm tắt một dự án trên một hai trang, nên người học dễ hỏi vì sao cần tới ba. Ngoài research proposal (đề cương nghiên cứu) của bài này, còn có bản pitch một trang ở bài [Xây câu chuyện của paper](cau-chuyen.md) và bản pitch rút gọn ở Tầng 0 trong bài [Quy trình viết & tự review](../03-ky-thuat/quy-trinh-viet.md). Cả ba chia sẻ một phần lõi gồm vấn đề, khoảng trống, insight và claim. Chúng khác nhau ở câu hỏi mà mỗi template giúp trả lời, và vì thế khác nhau ở thời điểm viết và ở những mục riêng mà chỉ template đó có.
 
-| | Bản pitch một trang | Research proposal hai trang |
-|---|---|---|
-| Mục đích | Kiểm tra và thuyết phục rằng câu chuyện đứng được | Thực thi: biết làm gì, theo thứ tự nào, với nguồn lực nào |
-| Người đọc chính | Người hướng dẫn, đồng tác giả, người đọc ngoài nhóm | Chính nhóm thực hiện, đọc lại hằng tuần |
-| Thời điểm | Khi đã có tín hiệu và cần chốt câu chuyện (khoảng D − 3,5 tháng theo lộ trình) | Ngay sau khi ý tưởng qua thẩm định, trước khi cam kết nguồn lực lớn |
-| Phần riêng | Câu tóm tắt một dòng, phác thảo Figure 1, câu hỏi đáng ngại nhất từ reviewer | Rủi ro, ngân sách, mốc, tiêu chí dừng, phân vai, kết quả tối thiểu đáng công bố |
-| Thước đo thành công | Người đọc nhắc lại được câu chuyện trong một câu | Mỗi tuần, nhóm biết việc tiếp theo và biết khi nào phải đổi hướng |
+| | Research proposal hai trang (bài này) | Bản pitch một trang ([cau-chuyen.md](cau-chuyen.md)) | Tầng 0 ([quy-trinh-viet.md](../03-ky-thuat/quy-trinh-viet.md)) |
+|---|---|---|---|
+| Câu hỏi chính | Làm gì, theo thứ tự nào, với nguồn lực nào, và khi nào phải đổi hướng? | Câu chuyện có đứng được không, có thuyết phục được người đọc không? | Câu chuyện đã đủ chín để bắt đầu viết bản thảo chưa? |
+| Chức năng | Thực thi | Thuyết phục và định hình câu chuyện | Mở đầu quy trình viết theo tầng |
+| Thời điểm | Ngay sau khi ý tưởng qua thẩm định, trước khi cam kết nguồn lực lớn | Khi kết quả bắt đầu về và cần chốt câu chuyện (khoảng D − 3,5 tháng theo [lộ trình](../00-tong-quan/lo-trinh.md)) | Ngay trước khi viết outline và bản nháp đầu tiên |
+| Mục riêng | Rủi ro, ngân sách, mốc và cổng, kết quả tối thiểu đáng công bố, phân vai | Câu tóm tắt một dòng, phác thảo Figure 1, câu hỏi đáng ngại nhất từ reviewer | Bằng chứng chính nằm ở bảng hay hình nào; venue và track |
+| Người đọc chính | Chính nhóm thực hiện, đọc lại hằng tuần | Người hướng dẫn, đồng tác giả, người đọc ngoài nhóm | Người hướng dẫn |
 
-Vì hai tài liệu có chung phần lõi, cách làm hợp lý là viết proposal trước. Khi kết quả đã định hình, nhóm rút phần lõi ra và viết lại thành pitch theo hướng dẫn ở bài Xây câu chuyện của paper. Nếu nhóm đã có pitch từ trước, proposal là phần mở rộng của pitch về phía thực thi. Điều cần tránh là để hai tài liệu kể hai câu chuyện khác nhau. Mỗi khi claim thay đổi, cả hai phải được cập nhật, và thay đổi đó được ghi vào nhật ký quyết định (xem mục "Kế hoạch là tài liệu sống" ở cuối bài).
+Đọc bảng theo chiều thời gian, ba template nối tiếp nhau trong vòng đời dự án. Proposal ra đời đầu tiên. Khi bằng chứng đã định hình, nhóm rút phần lõi của proposal ra và viết lại thành pitch, lúc này trọng tâm chuyển từ kế hoạch sang lập luận; các mục claim, thí nghiệm và rủi ro của pitch kế thừa trực tiếp từ proposal và ma trận bằng chứng. Khi bắt đầu viết paper, pitch được nén lại thành Tầng 0 để mở quy trình viết. Vì vậy không cần viết ba tài liệu từ đầu; cần giữ cho chúng không kể ba câu chuyện khác nhau. Mỗi khi claim thay đổi, proposal được tăng số phiên bản, pitch được cập nhật theo, và thay đổi được ghi vào nhật ký quyết định (xem mục "Kế hoạch là tài liệu sống" ở cuối bài).
 
 ### Template proposal
 
@@ -183,7 +183,9 @@ Claim nói điều gì đúng; giả thuyết nói vì sao nó đúng. Giả thu
 
 Một giả thuyết hữu ích phải **có thể bác bỏ**: phải tồn tại một kết quả quan sát được mà nếu xảy ra thì giả thuyết sai. "Phương pháp hoạt động nhờ học được biểu diễn tốt hơn" không bác bỏ được, vì gần như mọi kết quả đều có thể được giải thích là "biểu diễn tốt hơn". "Phương pháp hoạt động nhờ khôi phục chi tiết tần số cao ở vùng tối" bác bỏ được: nếu cải thiện không tập trung ở vùng tối, hoặc nếu một bộ lọc thông thấp đặt trước mạng không làm mất cải thiện, giả thuyết sai.
 
-Bước dễ bị bỏ qua nhất ở mắt xích này là liệt kê **giải thích thay thế** (*alternative explanations*), tức những lý do khác có thể tạo ra cùng kết quả. Với nghiên cứu AI, danh sách giải thích thay thế khá ổn định giữa các dự án: phương pháp mới có nhiều tham số hoặc tính toán hơn; được tune kỹ hơn baseline; dùng thêm dữ liệu; lợi dụng một đặc điểm của benchmark thay vì giải quyết bài toán; dữ liệu test bị lộ vào dữ liệu huấn luyện; chênh lệch nằm trong dao động giữa các seed; hoặc chỉ một thành phần đơn giản trong phương pháp tạo ra toàn bộ hiệu quả. Mỗi giải thích thay thế quan trọng cần một thí nghiệm đối chứng để loại nó. Danh sách này cũng chính là liều thuốc cho triệu chứng "gần deadline mới thấy thiếu baseline": phần lớn những baseline bị phát hiện muộn là đối chứng cho một giải thích thay thế mà không ai viết ra từ đầu.
+Bước dễ bị bỏ qua nhất ở mắt xích này là liệt kê **giải thích thay thế** (*alternative explanations*), tức những lý do khác có thể tạo ra cùng kết quả. Lipton và Steinhardt, trong bài *Troubling Trends in Machine Learning Scholarship* (2018), coi việc xem xét và loại trừ các giả thuyết thay thế là một trong những phẩm chất cốt lõi của một nghiên cứu thực nghiệm tốt, và chỉ ra một xu hướng đáng lo ngại là không xác định được nguồn gốc thật của mức cải thiện, chẳng hạn gán công cho thay đổi kiến trúc trong khi cải thiện thực ra đến từ việc tune hyperparameter. Với nghiên cứu AI, danh sách giải thích thay thế khá ổn định giữa các dự án: phương pháp mới có nhiều tham số hoặc tính toán hơn; được tune kỹ hơn baseline; dùng thêm dữ liệu; lợi dụng một đặc điểm của benchmark thay vì giải quyết bài toán; dữ liệu test bị lộ vào dữ liệu huấn luyện; chênh lệch nằm trong dao động giữa các seed; hoặc chỉ một thành phần đơn giản trong phương pháp tạo ra toàn bộ hiệu quả. Mỗi giải thích thay thế quan trọng cần một thí nghiệm đối chứng để loại nó.
+
+Danh sách này cũng chính là liều thuốc cho triệu chứng "gần deadline mới thấy thiếu baseline": phần lớn những baseline bị phát hiện muộn là đối chứng cho một giải thích thay thế mà không ai viết ra từ đầu. Với một bài toán hoàn toàn mới, nơi chưa có phương pháp nào để so sánh, danh sách giải thích thay thế vẫn sinh ra baseline: một lời giải tầm thường cho biết con số có cao hơn mức đoán mò không, một thí nghiệm oracle (biết trước một phần thông tin đúng) cho biết trần của bài toán, và kết quả của con người cho biết bài toán khó tới đâu. Tình huống 30 trong bài [Bài toán, dữ liệu và phạm vi](../07-tinh-huong-kho/bai-toan-va-pham-vi.md) phân tích kỹ trường hợp này; điều cần làm ở giai đoạn lập kế hoạch là đưa ngay những baseline đó vào ma trận, thay vì để reviewer đòi.
 
 ### Từ giả thuyết tới dự đoán định lượng
 
@@ -202,6 +204,8 @@ Dự đoán này nêu chiều, độ lớn, nơi xuất hiện, đối tượng 
 </div>
 
 Ngưỡng trong dự đoán đến từ ba nguồn. Nguồn thứ nhất là pilot: kích thước hiệu ứng quan sát được ở pilot, trừ đi một khoản cho sự lạc quan của thiết lập nhỏ. Nguồn thứ hai là mức nhiễu: một hiệu ứng nhỏ hơn hai ba lần độ lệch chuẩn giữa các seed khó thuyết phục được ai. Nguồn thứ ba là cộng đồng: mức cải thiện nào đủ để reviewer coi là có ý nghĩa thực tế trên benchmark này. Nên phân biệt **ngưỡng đi tiếp**, tức mức đủ để tin rằng hướng đi đúng, với **ngưỡng đáng công bố**, tức mức đủ để thành claim trong paper; ngưỡng thứ nhất thường thấp hơn ngưỡng thứ hai.
+
+Ngưỡng đáng công bố còn phụ thuộc vào kiểu claim. Tài liệu hướng dẫn reviewer do ban chương trình CVPR và ICCV soạn (năm 2019, được dùng lại ở các năm sau) phân biệt nhiều mức bằng chứng: một ý tưởng có tiềm năng thay đổi lĩnh vực chỉ cần một bằng chứng khái niệm (*proof of concept*), một ý tưởng hợp lý cho một bài toán đã quen thuộc cần kết quả trên benchmark, còn một ý tưởng *"weird, overly complex, implausible, and/or seemingly incremental"* (kỳ lạ, quá phức tạp, khó tin, hoặc trông có vẻ chỉ cải tiến nhỏ) thì cần kết quả xuất sắc. Người lập kế hoạch nên tự xếp claim trung tâm của dự án vào một trong các mức đó, vì mức càng cao thì ngưỡng trong dự đoán càng phải chặt và ngân sách cho bằng chứng càng lớn. Ngược lại, không cần chuẩn bị bằng chứng vượt quá claim: hướng dẫn phản biện của ACL Rolling Review nhắc reviewer rằng *"a paper only needs to present sufficient evidence for the claim that the authors are making"* (paper chỉ cần trình bày đủ bằng chứng cho claim mà tác giả đưa ra). Claim được phát biểu hẹp và rõ là cách rẻ nhất để giữ ngân sách trong tầm tay.
 
 Điều kiện quan trọng nhất là dự đoán phải được **viết ra trước khi chạy**. Một dự đoán viết sau khi đã thấy kết quả không còn là dự đoán, và trí nhớ con người sắp xếp lại thứ tự sự kiện theo hướng có lợi cho câu chuyện hiện tại nhanh hơn người ta tưởng. Bài [Thực hành: ba dự án đi qua ngõ cụt](../07-tinh-huong-kho/thuc-hanh.md) ở Chương 7 phân tích kỹ cơ chế này và đưa ra mẫu nhật ký quyết định, trong đó ô "dự đoán và điều kiện đảo ngược" đóng vai trò một hình thức đăng ký trước (*pre-registration*) gọn nhẹ. Ma trận bằng chứng của bài này là nơi các dự đoán đó được viết lần đầu, từ trước khi thí nghiệm đầu tiên bắt đầu.
 
@@ -244,7 +248,11 @@ Giải thích thay thế cần loại:
   R2: ___ -> thí nghiệm đối chứng E__
 Dự đoán (viết ngày ____, TRƯỚC khi chạy):
   Thí nghiệm E__: chiều ___, độ lớn tối thiểu ___, nơi ___, so với ___, mức nhiễu ___
-Vai hyperparameter: khoa học ___ / phiền nhiễu ___ (tune bao nhiêu lần) / cố định ___
+Thiết lập của thí nghiệm quyết định:
+  Dữ liệu và split: ___      Metric: ___      Số seed: ___
+  Baseline (kể cả baseline đơn giản, oracle, con người nếu cần): ___
+  Ablation cần có cho claim này: ___
+Vai hyperparameter: khoa học ___ / phiền nhiễu ___ (tune bao nhiêu lần, CHO CẢ baseline) / cố định ___
 Bảng diễn giải:
   Nếu như dự đoán:            kết luận ___ -> hành động ___
   Nếu không có hiệu ứng:      kết luận ___ -> hành động ___
@@ -254,7 +262,7 @@ Mốc cần có kết quả: M__        Người chịu trách nhiệm: ____
 
 Khi ma trận đã điền xong, nhóm đọc nó theo năm quy tắc. Mỗi quy tắc bắt một kiểu lỗi kế hoạch khác nhau.
 
-- [ ] Mỗi claim trung tâm có ít nhất một ô **Q**. Claim không có thí nghiệm quyết định là claim chỉ được minh họa chứ chưa được kiểm chứng.
+- [ ] Mỗi claim trung tâm có ít nhất một ô **Q**, và thẻ claim của nó ghi đủ dữ liệu, metric, baseline và ablation của thí nghiệm quyết định. Claim không có thí nghiệm quyết định là claim chỉ được minh họa chứ chưa được kiểm chứng.
 - [ ] Mỗi cột phục vụ ít nhất một claim. Cột không có ô nào là thí nghiệm khám phá, cần được gắn nhãn và có ngân sách riêng, hoặc được bỏ.
 - [ ] Mỗi giải thích thay thế quan trọng trong các thẻ claim có một cột **Đ** tương ứng.
 - [ ] Các cột **N** được xếp lên đầu thứ tự làm việc, vì mọi thứ khác phụ thuộc vào chúng.
@@ -325,6 +333,12 @@ Dự đoán (viết TRƯỚC khi chạy E3, E4, E5):
   E4: vùng tối +3 mIoU trở lên (3 seed; độ lệch chuẩn pilot ~0,5); vùng sáng trong ±0,5
   E5: khối cùng số tham số tăng dưới 1 điểm ở vùng tối
   E3: khử nhiễu có sẵn + phân đoạn kém NoctDN ít nhất 1,5 điểm ở vùng tối
+Thiết lập của E4:
+  Dữ liệu: huấn luyện trên tập ban ngày cộng phần ảnh ban đêm có nhãn; đánh giá trên
+           split validation của hai benchmark ban đêm, chia theo độ sáng ảnh
+  Metric: mIoU trên 20% ảnh tối nhất, 50% ảnh sáng nhất, và toàn bộ   Seed: 3
+  Baseline: cùng backbone không có NoctDN; hai bộ khử nhiễu có sẵn đặt trước mạng (E3)
+  Ablation: khối cùng số tham số; bỏ tín hiệu độ sáng; huấn luyện tách rời (E5)
 Vai hyperparameter (E4): khoa học = có/không NoctDN; phiền nhiễu = learning rate,
   weight decay (4 lần thử cho MỖI cấu hình); cố định = độ phân giải, lịch huấn luyện
   -> claim chỉ nói về đúng độ phân giải và lịch này
