@@ -1,4 +1,4 @@
-# 1. Trước khi viết
+# 1. Nghiên cứu trước khi viết
 
 > Một paper tốt được quyết định phần lớn trước khi chữ đầu tiên được viết ra.
 

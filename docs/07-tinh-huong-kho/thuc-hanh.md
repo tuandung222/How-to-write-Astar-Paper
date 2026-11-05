@@ -467,7 +467,7 @@ Một mục nhật ký nên được viết mỗi khi có một trong các sự 
 - Phát hiện:
 - Claim chính:
 - Danh sách contribution:
-- Tình huống đang gặp (số TH trong Chương 8):
+- Tình huống đang gặp (số TH trong Chương 7):
 
 ### Lý do
 - Vì sao bằng chứng mới buộc đổi khung:

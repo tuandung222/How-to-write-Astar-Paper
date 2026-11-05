@@ -294,7 +294,7 @@ Lipton và Steinhardt xếp *lạm dụng ngôn ngữ* (*misuse of language*) v�
 **Lối ra thứ tư: làm thêm bằng chứng để xứng với từ.** Muốn giữ từ mạnh thì tạo ra bằng chứng nó đòi hỏi: kiểm định thống kê cho "significantly" (bài Experiments có mã paired bootstrap), tìm kiếm mở rộng cho "first", danh sách so sánh cập nhật cho "state-of-the-art". Nếu phản ví dụ xuất hiện sát deadline dưới dạng một công trình trùng ý tưởng, xem Tình huống 24 trong bài [Áp lực từ bên ngoài](ap-luc-ben-ngoai.md).
 
 !!! info "Một bài tập đọc soát có sẵn"
-    Case study [CrossInject](../07-ai-security/crossinject.md) phân tích cả claim "đầu tiên" lẫn chữ "significantly" của một paper thật: claim "first" chỉ đứng vững khi gói đủ hai điều kiện làm nên khác biệt (phối hợp nhiều phương thức và black-box), còn chữ "significantly" được dùng cho một thí nghiệm mười lần thử mà kiểm định chính xác Fisher cho thấy chưa đạt ngưỡng ý nghĩa thông thường.
+    Case study [CrossInject](../09-ai-security/crossinject.md) phân tích cả claim "đầu tiên" lẫn chữ "significantly" của một paper thật: claim "first" chỉ đứng vững khi gói đủ hai điều kiện làm nên khác biệt (phối hợp nhiều phương thức và black-box), còn chữ "significantly" được dùng cho một thí nghiệm mười lần thử mà kiểm định chính xác Fisher cho thấy chưa đạt ngưỡng ý nghĩa thông thường.
 
 ### Viết thế nào
 

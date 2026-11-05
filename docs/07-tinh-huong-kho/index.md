@@ -1,4 +1,4 @@
-# 8. Những tình huống trớ trêu trong nghiên cứu
+# 7. Những tình huống trớ trêu trong nghiên cứu
 
 Các chương trước mô tả con đường suôn sẻ của một paper: ý tưởng được thẩm định, pilot cho tín hiệu tốt, thí nghiệm xác nhận giả thuyết, và câu chuyện được xây trên những bằng chứng đó. Thực tế nghiên cứu hiếm khi đi thẳng như vậy. Người mới thường mất phương hướng không phải vì thiếu nhiệt huyết, mà vì gặp những tình huống mà các tiêu chí của một paper tốt kéo về những hướng khác nhau. Ý tưởng mới và hấp dẫn nhưng số liệu thua baseline. Một mẹo đơn giản đến bất ngờ lại cho kết quả rất tốt, nhưng nghe như chẳng có gì mới. Ghép nhiều thứ lại thì đạt SOTA, nhưng không ai giải thích được cái gì tạo ra kết quả. Phần đóng góp chính có vẻ "thiếu thiếu", nên nảy ra ý thêm một pipeline dữ liệu hay một benchmark vào danh sách contribution cho đủ.
 

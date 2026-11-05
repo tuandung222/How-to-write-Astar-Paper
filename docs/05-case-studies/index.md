@@ -85,7 +85,7 @@ Cộng đồng xử lý tiếng nói có hai hội nghị lớn là Interspeech 
 | [Streaming ITN](streaming-itn.md) | Interspeech 2026, long track | Phương pháp và quy trình cho một bài toán ứng dụng | Mượn công cụ từ lĩnh vực lân cận rồi chỉ ra vì sao nó chưa vừa; nêu và bác bỏ cách sửa hiển nhiên; một bảng gánh cả so sánh lẫn ablation; khoảng tin cậy bootstrap và cách diễn giải đúng; độ trễ đuôi |
 
 !!! info "Paper của các nhóm nghiên cứu Việt Nam"
-    Bên cạnh các paper kinh điển, chương có một loạt case study về paper top-tier của các nhóm có tác giả người Việt: Anti-DreamBooth và SwiftBrush (Computer Vision), PhoBERT và EDWARD-NMT (NLP), Top-K Sparse MoE (Machine Learning), ViP-VL và Streaming ITN (Speech). Những paper này gần với hoàn cảnh của nhiều người học hơn về tài nguyên, ngôn ngữ và quy mô nhóm, và được phân tích cả điểm mạnh lẫn những chỗ có thể viết tốt hơn. Các paper về an toàn và bảo mật AI được phân tích riêng ở [Chương 7](../07-ai-security/index.md).
+    Bên cạnh các paper kinh điển, chương có một loạt case study về paper top-tier của các nhóm có tác giả người Việt: Anti-DreamBooth và SwiftBrush (Computer Vision), PhoBERT và EDWARD-NMT (NLP), Top-K Sparse MoE (Machine Learning), ViP-VL và Streaming ITN (Speech). Những paper này gần với hoàn cảnh của nhiều người học hơn về tài nguyên, ngôn ngữ và quy mô nhóm, và được phân tích cả điểm mạnh lẫn những chỗ có thể viết tốt hơn. Các paper về an toàn và bảo mật AI được phân tích riêng ở [Chương 9](../09-ai-security/index.md).
 
 ### Bài thực hành
 

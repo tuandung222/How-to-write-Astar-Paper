@@ -1,4 +1,4 @@
-# 7. Chuyên đề: Viết paper AI Security
+# 9. Chuyên đề: Viết paper AI Security
 
 Sáu chương đầu của giáo trình trình bày những kỹ năng dùng được cho mọi paper: thẩm định ý tưởng, xây câu chuyện, viết từng phần, trau chuốt văn phong, nộp bài và phản hồi reviewer. Chương này áp dụng các kỹ năng đó vào một chủ đề có văn hóa viết rất riêng và đang phát triển nhanh: **an toàn và bảo mật của các hệ thống AI**, đặc biệt là prompt injection và jailbreak trên mô hình ngôn ngữ, mô hình thị giác–ngôn ngữ và các agent đa phương thức.
 
