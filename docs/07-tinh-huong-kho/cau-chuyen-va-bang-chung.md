@@ -140,7 +140,7 @@ Cuộc tranh luận này dạy nhiều bài học cho người viết paper âm 
 !!! info "Workshop có proceedings và cơ hội nộp lại"
     Bài đã xuất hiện trong proceedings của workshop có thể bị coi là đã công bố, ảnh hưởng tới việc nộp phiên bản mở rộng sau này; một số workshop có track không lưu trữ (*non-archival*). Quy định khác nhau theo workshop và theo năm, nên cần đọc Call for Papers; xem mục *Dual submission và workshop có proceedings* trong bài [Chuẩn bị nộp bài](../04-nop-va-sau-nop/submission.md).
 
-**Lối ra thứ tư: dừng lại, ghi chép, và chuyển hướng.** Khi niềm tin bị bác bỏ chỉ là niềm tin của nhóm, hoặc khi chi phí để làm kết quả âm tính đủ chặt chẽ vượt quá giá trị của nó, quyết định tốt nhất là dừng. Dừng không có nghĩa là lãng phí: hạ tầng thí nghiệm, baseline đã tune và hiểu biết về bài toán đều được chuyển sang dự án tiếp theo. Tiêu chí để ra quyết định này được bàn ở mục *Pilot experiment và tiêu chí dừng* trong bài [Tìm và thẩm định ý tưởng](../01-truoc-khi-viet/y-tuong.md).
+**Lối ra thứ tư: dừng lại, ghi chép, và chuyển hướng.** Khi niềm tin bị bác bỏ chỉ là niềm tin của nhóm, hoặc khi chi phí để làm kết quả âm tính đủ chặt chẽ vượt quá giá trị của nó, quyết định tốt nhất là dừng. Dừng không có nghĩa là lãng phí: hạ tầng thí nghiệm, baseline đã tune và hiểu biết về bài toán đều được chuyển sang dự án tiếp theo. Tiêu chí để ra quyết định này được bàn ở mục *Pilot experiment và tiêu chí dừng* trong bài [Thẩm định ý tưởng](../01-truoc-khi-viet/y-tuong.md).
 
 ### Viết thế nào
 
