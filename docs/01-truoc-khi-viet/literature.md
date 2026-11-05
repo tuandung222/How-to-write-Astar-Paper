@@ -23,7 +23,7 @@ Với tốc độ công bố hiện nay, không ai có thể đọc kỹ mọi p
 
 **Lượt thứ hai** có thể mất tới khoảng một giờ. Người đọc đi qua toàn bộ paper một cách cẩn thận nhưng bỏ qua những chi tiết như chứng minh. Trọng tâm của lượt này là các hình và bảng: trục có được ghi chú rõ không, có error bar không, so sánh có công bằng không, kết luận rút ra có thực sự được hình và bảng ủng hộ không. Người đọc cũng đánh dấu những tài liệu tham khảo chưa đọc mà có vẻ quan trọng, vì đó là nguồn để mở rộng tìm kiếm. Sau lượt này, người đọc phải tóm tắt được ý chính và bằng chứng của paper cho người khác.
 
-**Lượt thứ ba** dành cho số ít paper cốt lõi nhất, thường chỉ năm đến mười paper gần nhất với dự án. Keshav mô tả lượt này như việc "tái hiện" paper trong đầu: với cùng giả định như tác giả, người đọc tự hỏi nếu ở vị trí tác giả thì sẽ trình bày và chứng minh thế nào, từ đó nhận ra những giả định ngầm, những thí nghiệm còn thiếu và những điểm yếu có thể khai thác. Với người mới, lượt này có thể mất nhiều giờ. Trong bối cảnh CV, NLP và ML, lượt thứ ba thường bao gồm cả việc đọc code chính thức, tự suy lại các phương trình và có thể chạy thử code. Những paper đi tới lượt thứ ba thường chính là baseline chính hoặc nền tảng trực tiếp của dự án.
+**Lượt thứ ba** dành cho số ít paper cốt lõi nhất, thường chỉ năm đến mười paper gần nhất với dự án. Keshav mô tả lượt này như việc "tái hiện" paper trong đầu: với cùng giả định như tác giả, người đọc tự hỏi nếu ở vị trí tác giả thì sẽ trình bày và chứng minh thế nào, từ đó nhận ra những giả định ngầm, những thí nghiệm còn thiếu và những điểm yếu có thể khai thác. Với người mới, lượt này có thể mất nhiều giờ. Trong bối cảnh CV, NLP và ML, lượt thứ ba thường bao gồm cả việc đọc code chính thức, tự suy lại các phương trình và có thể chạy thử code. Những paper đi tới lượt thứ ba thường chính là baseline chính hoặc nền tảng trực tiếp của dự án. Khi mục đích đọc là *đánh giá* một paper chứ không chỉ hiểu nó, như khi làm reviewer hay khi cần biết công trình gần nhất mạnh yếu ở đâu, lượt thứ hai và thứ ba được bổ sung bằng một quy trình phản biện riêng: bóc claim, đối chiếu claim với bằng chứng, phân tích novelty so với công trình trước. Quy trình đó là nội dung của bài [Đọc paper như một reviewer](doc-nhu-reviewer.md).
 
 | Lượt | Thời gian | Đọc gì | Kết quả cần có |
 |---|---|---|---|
@@ -40,7 +40,7 @@ ResNet là một ví dụ đáng phân tích theo cách này. Introduction của
 Những quan sát kiểu này nên được ghi lại thành một sổ tay riêng, gồm các cấu trúc đoạn văn, cách chuyển ý và các mẫu câu hay. Mục đích là học *cấu trúc*, không phải sao chép câu chữ. Sau vài chục paper, người học sẽ có một kho mẫu đủ phong phú để viết tự tin hơn nhiều. Phụ lục [Template & mẫu câu](../phu-luc/templates.md) có thể là điểm khởi đầu cho kho này.
 
 !!! tip "Đọc cả review, không chỉ đọc paper"
-    Trên OpenReview, review, rebuttal và thảo luận của các paper ICLR, và trong những năm gần đây của nhiều paper NeurIPS, được công khai. Đọc review của các paper gần với dự án, kể cả paper bị reject, là cách nhanh nhất để biết reviewer trong lĩnh vực đó hay hỏi gì, nghi ngờ điều gì và đánh giá cao điều gì. Những câu hỏi lặp lại trong review chính là những thí nghiệm mà paper của nhóm nên chuẩn bị sẵn.
+    Trên OpenReview, review, rebuttal và thảo luận của các paper ICLR, và trong những năm gần đây của nhiều paper NeurIPS, được công khai. Đọc review của các paper gần với dự án, kể cả paper bị reject, là cách nhanh nhất để biết reviewer trong lĩnh vực đó hay hỏi gì; những câu hỏi lặp lại chính là những thí nghiệm mà paper của nhóm nên chuẩn bị sẵn. Bài [Đọc paper như một reviewer](doc-nhu-reviewer.md) biến việc này thành một bài tập có cấu trúc: tự viết review trước, rồi mới so với review thật và meta-review.
 
 ## Tìm tài liệu: lan tỏa từ các paper hạt giống
 
@@ -48,7 +48,7 @@ Trước khi đi vào từng công cụ, cần có một quy trình tìm kiếm 
 
 Quy trình bắt đầu bằng việc chọn ba đến năm paper hạt giống: những paper mới nhất và gần nhất với bài toán, cộng thêm một hoặc hai bài survey nếu có. Từ mỗi hạt giống, người đọc đi lùi qua danh sách tài liệu tham khảo của nó để tìm các công trình nền tảng (*backward snowballing*), và đi tiến qua danh sách các paper đã trích dẫn nó để tìm các công trình mới hơn (*forward snowballing*). Mỗi paper liên quan mới tìm được lại trở thành hạt giống cho vòng tiếp theo. Quy trình dừng lại khi các vòng mới chủ yếu chỉ trả về những paper đã biết, tức là khi tìm kiếm đã bão hòa. Ở mỗi vòng, phương pháp ba lượt được áp dụng: đa số paper chỉ qua lượt thứ nhất, một phần đi tới lượt thứ hai, và rất ít đi tới lượt thứ ba.
 
-Quy trình này bổ sung cho tìm kiếm bằng từ khóa đã trình bày trong bài [Tìm và thẩm định ý tưởng](y-tuong.md#tim-kiem-novelty-ba-tang). Từ khóa giúp tìm những paper dùng cùng thuật ngữ; trích dẫn giúp tìm những paper dùng thuật ngữ khác nhưng cùng dòng nghiên cứu.
+Quy trình này bổ sung cho tìm kiếm bằng từ khóa trong mục tìm kiếm novelty ba tầng của bài [Thẩm định ý tưởng](y-tuong.md). Từ khóa giúp tìm những paper dùng cùng thuật ngữ; trích dẫn giúp tìm những paper dùng thuật ngữ khác nhưng cùng dòng nghiên cứu.
 
 ## Công cụ tìm kiếm, theo dõi và quản lý
 
@@ -131,7 +131,7 @@ Hai lưu ý giúp bản đồ có giá trị thực. Thứ nhất, một góc tr
 
 ## Bao nhiêu trích dẫn là đủ?
 
-Không có con số cố định, nhưng có những khoảng điển hình. Một paper main conference ở CVPR, ICCV hay ECCV thường có khoảng 40 đến 80 tài liệu tham khảo. Paper dài ở NLP và ML nhìn chung nằm trong khoảng tương tự, dù dao động khá rộng theo kiểu paper: short paper ở các hội nghị thuộc hệ ACL thường có ít hơn, còn paper phân tích hoặc paper mở ra một hướng mới thường có nhiều hơn. Ở hầu hết hội nghị A\* trong những năm gần đây, phần tài liệu tham khảo không bị tính vào giới hạn số trang, nên không có lý do gì để cắt bớt trích dẫn cần thiết; tuy vậy, quy định cụ thể vẫn cần được kiểm tra trong Author Guidelines của năm nộp. Một paper dài với ít hơn khoảng 30 tài liệu tham khảo dễ bị reviewer cho là "chưa khảo sát đủ".
+Không có con số cố định, nhưng có những khoảng điển hình. Một paper main conference ở CVPR, ICCV hay ECCV thường có khoảng 40 đến 80 tài liệu tham khảo. Paper dài ở NLP và ML nhìn chung nằm trong khoảng tương tự, dù dao động khá rộng theo kiểu paper: short paper ở các hội nghị thuộc hệ ACL thường có ít hơn, còn paper phân tích hoặc paper mở ra một hướng mới thường có nhiều hơn. Ở hầu hết hội nghị A\* trong những năm gần đây, phần tài liệu tham khảo không bị tính vào giới hạn số trang, nên không có lý do gì để cắt bớt trích dẫn cần thiết; tuy vậy, quy định cụ thể vẫn cần được kiểm tra trong Author Guidelines của năm nộp. Một paper dài với danh sách tài liệu tham khảo quá ngắn, chẳng hạn dưới khoảng 30 mục, có nguy cơ bị reviewer cho là "chưa khảo sát đủ".
 
 Quan trọng hơn số lượng là việc trích dẫn đúng những gì cần trích dẫn. Một danh sách tài liệu tham khảo tốt cần có các công trình tốt nhất trong khoảng mười hai tháng gần nhất cho đúng bài toán của paper; các paper gốc (*seminal*) của mọi kỹ thuật được sử dụng; các công trình ở mảng lân cận có ý tưởng tương tự; và các nguồn của mọi dataset, metric, mô hình pre-trained và công cụ phần mềm được dùng. Khi một paper đã được công bố tại hội nghị hoặc tạp chí, nên trích dẫn phiên bản đó thay vì bản arXiv. Ngược lại, cần tránh hai thói quen làm giảm uy tín: trích dẫn tràn lan những paper không liên quan để làm dày danh sách, và tự trích dẫn quá mức các công trình của chính nhóm.
 
@@ -156,11 +156,13 @@ Câu này hạ thấp công trình trước mà không nêu được khác biệ
 Câu này ghi nhận đóng góp, nêu rõ giả định của công trình trước, chỉ ra khác biệt kiểm chứng được và trỏ tới thí nghiệm chứng minh.
 </div>
 
-Cuối cùng, tài liệu không đứng yên trong lúc nhóm làm thí nghiệm. Khoảng một đến hai tuần trước deadline, cần lặp lại tìm kiếm trên arXiv, OpenReview và các kho của hội nghị, dựa trên nhật ký tìm kiếm đã ghi, để cập nhật những công trình mới xuất hiện và xử lý chúng theo nguyên tắc về concurrent work (xem [Tìm và thẩm định ý tưởng](y-tuong.md#concurrent-work)).
+Cuối cùng, tài liệu không đứng yên trong lúc nhóm làm thí nghiệm. Khoảng một đến hai tuần trước deadline, cần lặp lại tìm kiếm trên arXiv, OpenReview và các kho của hội nghị, dựa trên nhật ký tìm kiếm đã ghi, để cập nhật những công trình mới xuất hiện và xử lý chúng theo nguyên tắc về concurrent work (xem mục Concurrent work trong bài [Thẩm định ý tưởng](y-tuong.md)).
 
 ## Tóm tắt
 
 Đọc tài liệu khi chuẩn bị paper nhằm định vị chính xác công trình trong lĩnh vực, vì hiểu biết đó được kiểm tra ở Introduction, Related Work và Experiments, thường bởi chính những reviewer có công trình gần nhất. Phương pháp đọc ba lượt giúp phân bổ thời gian hợp lý: đa số paper chỉ cần lượt thứ nhất, và chỉ vài paper cốt lõi cần lượt thứ ba. Đọc như người viết biến mỗi paper tốt thành một bài học về cấu trúc và lập luận. Tìm kiếm nên lan tỏa có hệ thống từ các paper hạt giống, kết hợp các công cụ như Google Scholar, Semantic Scholar, arXiv, ACL Anthology, OpenReview và Zotero. Bảng literature và bản đồ định vị là hai công cụ biến những gì đã đọc thành nguyên liệu cho paper, còn danh sách tài liệu tham khảo tốt được đánh giá qua việc trích dẫn đúng và đủ, đặc biệt là không bỏ sót công trình gần nhất.
+
+Bài này chủ yếu dạy đọc để hiểu và để định vị. Bước tiếp theo là đọc để *đánh giá*: xác định một paper thực sự đóng góp gì, mới tới đâu so với công trình gần nhất, và bằng chứng có đỡ được claim không. Đó là nội dung của bài [Đọc paper như một reviewer](doc-nhu-reviewer.md).
 
 ## Bài tập
 
@@ -168,3 +170,8 @@ Cuối cùng, tài liệu không đứng yên trong lúc nhóm làm thí nghiệ
 2. Xây dựng bảng literature cho dự án với ít nhất hai mươi paper theo cấu trúc cột trong bài. Từ bảng đó, đề xuất cách gom nhóm cho phần Related Work và danh sách baseline cho phần Experiments.
 3. Vẽ bản đồ định vị cho dự án với hai trục phù hợp nhất. Viết một đoạn văn ngắn giải thích vì sao vị trí của công trình là một vị trí trống có ý nghĩa.
 4. Chọn một paper đoạt giải hoặc có ảnh hưởng lớn trong lĩnh vực và đọc nó như người viết. Ghi lại ít nhất năm kỹ thuật trình bày (cách mở bài, cách nêu khoảng trống, vai trò của Figure 1, cách liệt kê đóng góp, cách phòng thủ điểm yếu) có thể áp dụng cho paper của nhóm.
+
+## Tài liệu tham khảo của bài
+
+- S. Keshav. *How to Read a Paper*. ACM SIGCOMM Computer Communication Review 37(3), 2007. Bài viết ngắn.
+- Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun. *Deep Residual Learning for Image Recognition*. CVPR 2016.

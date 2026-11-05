@@ -1,17 +1,19 @@
-# Tìm và thẩm định ý tưởng
+# Thẩm định ý tưởng
 
 !!! abstract "Mục tiêu của bài"
     Sau bài này, người học có thể:
 
     - Nhận diện các kiểu đóng góp được chấp nhận ở hội nghị A\* trong Computer Vision, NLP và Machine Learning, cùng loại bằng chứng mà mỗi kiểu đòi hỏi.
     - Nhận ra bẫy "A + B" và biết cách biến một sự kết hợp thành một đóng góp có insight.
-    - Tìm ý tưởng một cách có hệ thống từ những nguồn đáng tin cậy, thay vì chờ cảm hứng.
+    - Gắn mỗi ý tưởng ứng viên trong sổ ý tưởng với kiểu đóng góp và loại bằng chứng mà nó sẽ cần, trước khi đầu tư vào nó.
     - Thẩm định một ý tưởng bằng bộ câu hỏi chuẩn và quy trình tìm kiếm novelty ba tầng, đồng thời xử lý đúng các trường hợp concurrent work.
     - Thiết kế một pilot experiment với tiêu chí dừng được đặt ra từ trước.
 
 Câu hỏi đầu tiên mà reviewer đặt ra khi đọc một paper không phải là "văn viết có hay không" mà là "paper này đóng góp điều gì mà cộng đồng chưa có". Trong form review của hầu hết hội nghị A\*, tiêu chí về tính mới (*novelty*, hay *originality*) và tầm quan trọng của đóng góp (*significance*) luôn giữ vị trí trung tâm, và nhận xét *"limited novelty"* là một trong những lý do reject phổ biến nhất (xem [Paper được đánh giá thế nào](../00-tong-quan/review-process.md)). Vì vậy, thời gian dành cho việc chọn và thẩm định ý tưởng là khoản đầu tư có lợi nhất trong cả dự án: vài tuần cân nhắc kỹ có thể giúp tránh nhiều tháng theo đuổi một hướng đã có người đi trước, hoặc một hướng đúng nhưng không đủ "nặng" cho một hội nghị A\*.
 
-Bài này đi theo trình tự tự nhiên của quá trình hình thành một dự án. Trước hết, chúng ta xem xét các kiểu đóng góp mà cộng đồng chấp nhận, vì hiểu rõ đích đến sẽ giúp định hướng việc tìm ý tưởng. Tiếp theo là cái bẫy phổ biến nhất của paper đầu tay, tức việc ghép hai thành phần có sẵn, cùng cách thoát khỏi nó. Sau đó bài trình bày các nguồn ý tưởng, bộ câu hỏi thẩm định, quy trình kiểm tra novelty, cách xử lý concurrent work, và cuối cùng là pilot experiment để kiểm tra tín hiệu trước khi dồn toàn bộ nguồn lực vào một hướng.
+Bài trước, [Tìm khoảng trống và nguồn ý tưởng](tim-khoang-trong.md), trình bày cách sinh ra các ứng viên khoảng trống bằng những phương pháp có hệ thống, cách giữ sổ ý tưởng, và một phễu năm tầng để loại sớm phần lớn ứng viên. Bài này là bước sàng lọc tiếp theo: nó cung cấp các công cụ để thẩm định nghiêm túc một ý tưởng ứng viên trước khi ý tưởng ấy trở thành một dự án. Ý tưởng vượt qua được bước này sẽ chuyển sang bài [Lập kế hoạch nghiên cứu](ke-hoach.md), nơi nó được biến thành claim, giả thuyết và một kế hoạch thí nghiệm đầy đủ.
+
+Bài đi theo trình tự của việc thẩm định. Trước hết, chúng ta xem xét các kiểu đóng góp mà cộng đồng chấp nhận, vì hiểu rõ đích đến giúp biết một ý tưởng cần loại bằng chứng nào. Tiếp theo là cái bẫy phổ biến nhất của paper đầu tay, tức việc ghép hai thành phần có sẵn, cùng cách thoát khỏi nó. Sau một mục ngắn nối lại với các nguồn ý tưởng của bài trước, bài trình bày bộ câu hỏi thẩm định, quy trình kiểm tra novelty, cách xử lý concurrent work, và cuối cùng là pilot experiment để kiểm tra tín hiệu trước khi dồn toàn bộ nguồn lực vào một hướng.
 
 ## Các kiểu đóng góp được chấp nhận
 
@@ -120,27 +122,13 @@ Những biến thể khó hơn của bẫy này, như khi đã lỡ ghép nhiề
 
 ## Ý tưởng đến từ đâu?
 
-Câu hỏi tự nhiên tiếp theo là làm sao có được những ý tưởng vượt qua bẫy "A + B". Kinh nghiệm của những nhà nghiên cứu thành công cho thấy ý tưởng tốt hiếm khi đến từ cảm hứng bất chợt; chúng thường là sản phẩm của những thói quen làm việc có hệ thống. Dưới đây là các nguồn ý tưởng đáng tin cậy nhất, mỗi nguồn kèm ví dụ minh họa.
+Câu hỏi tự nhiên tiếp theo là làm sao có được những ý tưởng vượt qua bẫy "A + B". Câu trả lời, được trình bày đầy đủ ở bài [Tìm khoảng trống và nguồn ý tưởng](tim-khoang-trong.md), là ý tưởng tốt hiếm khi đến từ cảm hứng bất chợt mà từ những thói quen có hệ thống: lật các giả định mà cả một dòng nghiên cứu ngầm chấp nhận, phân tích có hệ thống các failure case của phương pháp mạnh nhất, đọc phê phán phần Limitations và các review công khai, đẩy phương pháp tới cực trị về dữ liệu hay quy mô, chuyển giao ý tưởng giữa các lĩnh vực kèm câu hỏi "vì sao chưa ai làm", khai thác các năng lực mới, đơn giản hóa, tái lập, đo khoảng cách giữa benchmark và thực tế, tìm mâu thuẫn trong tài liệu, và hợp nhất các hiện tượng rời rạc. Điểm chung của các phương pháp này là chúng bắt đầu từ một *khoảng trống*, tức một nhu cầu có thật chưa được đáp ứng kèm lý do vì sao nó còn mở, chứ không bắt đầu từ một thành phần kỹ thuật có sẵn. Đó cũng chính là cách thoát thứ nhất khỏi bẫy "A + B" ở mục trên.
 
-**Thất bại có hệ thống của phương pháp hiện có.** Cách trực tiếp nhất là chạy phương pháp SOTA trên dữ liệu thực và nhìn kỹ vào các trường hợp thất bại (*failure cases*). Một lỗi xuất hiện ngẫu nhiên chỉ là nhiễu, nhưng một lỗi lặp lại có quy luật là một bài toán. Một detector liên tục bỏ sót vật thể nhỏ, một mô hình ngôn ngữ liên tục hiểu sai câu phủ định (đúng loại lỗi mà CheckList đã làm lộ ra), hay một thuật toán tối ưu liên tục mất ổn định khi tăng batch size, đều là điểm khởi đầu tốt. Ưu điểm của nguồn này là bài toán đến kèm bằng chứng về tầm quan trọng của nó.
-
-**Giả định ngầm bị vi phạm.** Mọi phương pháp đều dựa trên những giả định mà đôi khi chính tác giả không nói ra. Ở Computer Vision, đó có thể là cảnh tĩnh, camera đã được hiệu chỉnh, hay ảnh có chất lượng tốt. Ở NLP, đó có thể là ngôn ngữ test giống ngôn ngữ train, văn bản chuẩn mực, hay mặc định tiếng Anh. Ở ML, đó có thể là dữ liệu độc lập và cùng phân phối (*i.i.d.*), phân phối không đổi theo thời gian, hay nhãn sạch. Tìm một thiết lập thực tế nơi giả định đó sai, rồi cho thấy phương pháp hiện có sụp đổ ở đó, là một con đường kinh điển dẫn tới bài toán mới.
-
-**Chuyển giao ý tưởng giữa các mảng.** Rất nhiều bước tiến lớn đến từ việc mang một ý tưởng thành công ở mảng này sang mảng khác: Transformer từ NLP sang thị giác, masked modeling từ BERT sang MAE, mô hình khuếch tán từ những nghiên cứu ML về mô hình sinh sang các ứng dụng sinh ảnh. Câu hỏi đáng đặt ra là: "Ý tưởng X đã thành công ở mảng A, vì sao chưa ai làm ở mảng B?" Nếu câu trả lời là "vì có một rào cản kỹ thuật", thì cách vượt qua chính rào cản đó là đóng góp. Nếu câu trả lời là "chưa ai nghĩ tới", người viết nên tìm kiếm kỹ hơn, vì khả năng cao là đã có người làm.
-
-**Đơn giản hóa.** Khi một phương pháp có năm thành phần, rất có thể chỉ một hoặc hai thành phần thực sự quan trọng. Những paper cho thấy một phương pháp đơn giản, nếu được thiết kế và tune cẩn thận, đạt kết quả ngang hoặc hơn các phương pháp phức tạp thường được cộng đồng đánh giá rất cao, vì chúng giúp mọi người hiểu điều gì thực sự tạo ra tiến bộ. ConvNeXt ở CV và những nghiên cứu cho thấy một baseline LSTM được điều chuẩn (*regularize*) tốt vẫn vượt nhiều kiến trúc mới hơn ở bài toán language modeling là những ví dụ tiêu biểu.
-
-**Quy mô và chế độ dữ liệu.** Hành vi của phương pháp thường thay đổi về chất khi dữ liệu hoặc mô hình tăng hay giảm một vài bậc độ lớn. Hướng tăng quy mô đòi hỏi tài nguyên lớn, nhưng hướng ngược lại, tức nghiên cứu chế độ ít dữ liệu, ít tính toán hoặc ngôn ngữ ít tài nguyên, lại phù hợp với các nhóm có nguồn lực hạn chế và thường bị bỏ ngỏ.
-
-**Phần Limitations và Future Work của paper khác.** Các paper mới nhất thường tự liệt kê những hạn chế và hướng mở của chúng. Ở các hội nghị thuộc hệ ACL, phần Limitations đã trở thành bắt buộc trong những năm gần đây, nên đây là một nguồn đặc biệt phong phú. Tuy nhiên, những hướng mở được nêu công khai cũng là những hướng mà nhiều nhóm khác đọc được, nên tốc độ và chiều sâu là yếu tố quyết định.
-
-**Năng lực mới đặt ra câu hỏi mới.** Mỗi khi một thế hệ mô hình mới xuất hiện, như các mô hình ngôn ngữ lớn hay các mô hình nền tảng đa phương thức, nó kéo theo hàng loạt câu hỏi chưa có lời đáp: đánh giá chúng thế nào cho đúng, dữ liệu test có bị lộ vào dữ liệu huấn luyện hay không, chúng thất bại ở đâu, có thể làm chúng rẻ hơn ra sao. Nhiều câu hỏi trong số này có thể được theo đuổi mà không cần tài nguyên khổng lồ.
-
-**Tái lập kết quả.** Cố gắng tái lập (*reproduce*) một paper quan trọng là cách học sâu nhất về một lĩnh vực. Khi kết quả tái lập không khớp với công bố, nguyên nhân thường nằm ở một chi tiết ẩn mà chính nó có thể trở thành một phát hiện có giá trị.
+Bài học đó kết thúc bằng một phễu năm tầng để sàng lọc ý tưởng: lọc nhanh, kiểm tra tài liệu, giải thích trong hai câu, pilot, và cam kết. Các mục còn lại của bài này đi sâu vào công cụ cho những tầng giữa của phễu. Bộ câu hỏi thẩm định ở mục tiếp theo là phiên bản đầy đủ, viết thành văn bản, của tầng lọc nhanh; quy trình tìm kiếm novelty ba tầng là nội dung của tầng kiểm tra tài liệu; và mục pilot experiment cho biết cách thiết kế tầng thứ tư.
 
 ## Bộ câu hỏi thẩm định
 
-Khi đã có một ý tưởng ứng viên, bước tiếp theo là thẩm định nó trước khi đầu tư vài tháng công sức. Một công cụ hữu ích cho việc này là bộ câu hỏi lấy cảm hứng từ *Heilmeier Catechism*, bộ câu hỏi nổi tiếng từng được dùng để đánh giá các đề xuất nghiên cứu: đang cố gắng làm gì (nói không dùng biệt ngữ), hiện nay người ta làm thế nào và giới hạn ở đâu, cái mới là gì và vì sao nó sẽ thành công, ai quan tâm, rủi ro là gì, và làm sao biết đã thành công. Phiên bản dưới đây được điều chỉnh cho bối cảnh paper hội nghị.
+Khi đã có một ý tưởng ứng viên, bước tiếp theo là thẩm định nó trước khi đầu tư vài tháng công sức. Một công cụ hữu ích cho việc này là bộ câu hỏi lấy cảm hứng từ *Heilmeier Catechism*, bộ câu hỏi mà George Heilmeier đặt ra khi làm giám đốc DARPA (1975–1977) để đánh giá các đề xuất chương trình nghiên cứu: đang cố gắng làm gì (nói không dùng biệt ngữ), hiện nay người ta làm thế nào và giới hạn ở đâu, cái mới là gì và vì sao nó sẽ thành công, ai quan tâm, rủi ro là gì, tốn bao nhiêu và mất bao lâu, và làm sao biết đã thành công. Phiên bản dưới đây được điều chỉnh cho bối cảnh paper hội nghị; các câu hỏi về chi phí và thời gian được bàn ở bài [Lập kế hoạch nghiên cứu](ke-hoach.md).
 
 Điều quan trọng là trả lời các câu hỏi này **bằng văn bản**, không chỉ trong đầu. Việc phải viết ra buộc người nghiên cứu đối diện với những chỗ mơ hồ mà suy nghĩ thoáng qua dễ dàng bỏ qua. Hơn nữa, những câu trả lời này chính là bản nháp đầu tiên của phần Introduction (xem [Introduction & Figure 1](../02-viet-tung-phan/introduction.md)) và của bản pitch một trang ở bài [Xây "câu chuyện" của paper](cau-chuyen.md).
 
@@ -171,7 +159,7 @@ Từ khóa có giới hạn tự nhiên: một paper dùng thuật ngữ hoàn t
 
 Tầng cuối cùng là hỏi những người hiểu lĩnh vực: người hướng dẫn, đồng nghiệp ở các nhóm khác, những người gặp tại hội nghị và workshop. Một câu hỏi đơn giản như "Đã có ai làm X chưa?" có thể chỉ mất mười phút nhưng tiết kiệm được ba tháng. Người trong ngành thường biết về những công trình đang được thực hiện hoặc vừa được nộp mà chưa xuất hiện công khai. Nỗi lo bị "lấy mất ý tưởng" khi hỏi là có thể hiểu được, nhưng trong đa số trường hợp, lợi ích của việc biết sớm lớn hơn nhiều so với rủi ro đó.
 
-Các trợ lý dựa trên mô hình ngôn ngữ lớn có thể hỗ trợ ở tầng thứ nhất, chẳng hạn gợi ý thêm các cách diễn đạt hoặc thuật ngữ tương đương. Tuy vậy, chúng có thể "bịa" ra những paper không tồn tại hoặc gán sai tác giả, năm và hội nghị, nên mọi tài liệu do chúng gợi ý đều phải được kiểm chứng trực tiếp từ nguồn gốc (xem [Dùng AI hỗ trợ (đúng luật)](../03-ky-thuat/ai-tools.md)).
+Các trợ lý dựa trên mô hình ngôn ngữ lớn có thể hỗ trợ ở tầng thứ nhất, chẳng hạn gợi ý thêm các cách diễn đạt hoặc thuật ngữ tương đương. Tuy vậy, chúng có thể "bịa" ra những paper không tồn tại hoặc gán sai tác giả, năm và hội nghị, nên mọi tài liệu do chúng gợi ý đều phải được kiểm chứng trực tiếp từ nguồn gốc (xem [Dùng AI hỗ trợ (đúng luật)](../03-ky-thuat/ai-tools.md) và bài [AI trong đọc tài liệu và tìm ý tưởng](../08-ai-cong-su/doc-va-y-tuong.md) của Chương 8).
 
 !!! tip "Giữ một nhật ký tìm kiếm"
     Ghi lại mỗi truy vấn đã dùng, ngày tìm, công cụ, và các paper liên quan tìm được. Nhật ký này có ba công dụng: nó là nguyên liệu cho phần Related Work, nó giúp lặp lại tìm kiếm một cách nhanh chóng trước deadline, và nó cho phép trả lời tự tin trong rebuttal (giai đoạn tác giả phản hồi reviewer) khi bị hỏi về một công trình liên quan.
@@ -218,11 +206,13 @@ Dừng nếu: không có cải thiện vượt mức dao động giữa các see
 
 ## Tóm tắt
 
-Hội nghị A\* chấp nhận nhiều kiểu đóng góp, từ phương pháp, cách đặt bài toán, dataset, phương pháp luận đánh giá, phân tích, paradigm cho tới hiệu quả tính toán và ứng dụng có insight; xác định sớm kiểu đóng góp chủ đạo giúp chọn đúng bằng chứng và giọng điệu. Bẫy "A + B" xuất hiện khi paper chỉ mô tả một sự kết hợp và một con số; cách thoát là bắt đầu từ vấn đề, chỉ ra vì sao kết hợp ngây thơ thất bại và rút ra insight có thể chuyển giao. Ý tưởng tốt thường đến từ những thói quen có hệ thống như phân tích thất bại, tìm giả định bị vi phạm, chuyển giao giữa các mảng và đơn giản hóa. Trước khi đầu tư lớn, ý tưởng cần được thẩm định bằng văn bản, kiểm tra novelty qua ba tầng từ khóa, trích dẫn và con người, xử lý đúng các trường hợp concurrent work theo quy định của từng hội nghị, và kiểm chứng bằng một pilot experiment có tiêu chí dừng được viết ra từ trước.
+Hội nghị A\* chấp nhận nhiều kiểu đóng góp, từ phương pháp, cách đặt bài toán, dataset, phương pháp luận đánh giá, phân tích, paradigm cho tới hiệu quả tính toán và ứng dụng có insight; xác định sớm kiểu đóng góp chủ đạo giúp chọn đúng bằng chứng và giọng điệu. Bẫy "A + B" xuất hiện khi paper chỉ mô tả một sự kết hợp và một con số; cách thoát là bắt đầu từ vấn đề, chỉ ra vì sao kết hợp ngây thơ thất bại và rút ra insight có thể chuyển giao. Ý tưởng ứng viên đến từ các phương pháp tìm khoảng trống có hệ thống của bài [Tìm khoảng trống và nguồn ý tưởng](tim-khoang-trong.md). Trước khi đầu tư lớn, mỗi ứng viên cần được thẩm định bằng văn bản, kiểm tra novelty qua ba tầng từ khóa, trích dẫn và con người, xử lý đúng các trường hợp concurrent work theo quy định của từng hội nghị, và kiểm chứng bằng một pilot experiment có tiêu chí dừng được viết ra từ trước.
+
+Một ý tưởng đã qua thẩm định và có tín hiệu ở pilot vẫn mới chỉ là một giả thuyết đáng tin hơn, chưa phải một dự án. Bài tiếp theo, [Lập kế hoạch nghiên cứu](ke-hoach.md), biến nó thành một kế hoạch thực thi: đi từ các đóng góp dự kiến tới claim, giả thuyết và ma trận thí nghiệm, sắp các việc theo thứ tự giảm rủi ro, đặt mốc và cổng quyết định, dự trù ngân sách tính toán và dữ liệu, và chuẩn bị sẵn một kế hoạch B.
 
 ## Bài tập
 
 1. Chọn năm paper được chấp nhận gần đây tại một hội nghị A\* trong lĩnh vực của dự án. Với mỗi paper, xác định kiểu đóng góp chủ đạo và liệt kê những bằng chứng chính mà tác giả đưa ra. Sau đó đối chiếu với bảng tổng hợp trong bài để xem paper có đáp ứng đủ kỳ vọng của reviewer hay không.
-2. Viết câu trả lời cho tám câu hỏi thẩm định cho ý tưởng hiện tại, không quá một trang. Đánh dấu những câu trả lời còn mơ hồ và lập kế hoạch để làm rõ chúng.
+2. Viết câu trả lời cho tám câu hỏi thẩm định cho ý tưởng hiện tại, hoặc cho ý tưởng đi xa nhất trong phễu ở bài [Tìm khoảng trống và nguồn ý tưởng](tim-khoang-trong.md), không quá một trang. Đánh dấu những câu trả lời còn mơ hồ và lập kế hoạch để làm rõ chúng.
 3. Thực hiện quy trình tìm kiếm ba tầng cho ý tưởng đó: dùng ít nhất mười truy vấn từ khóa trên ít nhất ba công cụ, đi theo trích dẫn từ ba paper gần nhất, và hỏi ít nhất một người trong lĩnh vực. Kết quả là danh sách năm công trình gần nhất, mỗi công trình kèm một câu nêu rõ khác biệt.
 4. Thiết kế một pilot experiment cho giả thuyết cốt lõi của dự án, bao gồm baseline cần tái lập, thiết lập nhỏ nhất, phép đo cơ chế và tiêu chí dừng theo mẫu trong bài.

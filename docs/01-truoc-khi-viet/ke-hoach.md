@@ -351,3 +351,450 @@ Mốc cần có kết quả: E3 và E4 rút gọn ở M2; đầy đủ ở M3   
 ```
 
 Từ một đóng góp dự kiến chỉ dài một dòng, nhóm đã có tám thí nghiệm có tên, vai trò rõ ràng, và một thứ tự gợi ý. Đó chính là cây cầu giữa "paper sẽ đóng góp gì" và "thứ Hai tuần sau làm gì". Thiết kế chi tiết của từng thí nghiệm, như chọn benchmark ban đêm nào, metric nào, cách bảo đảm so sánh công bằng và cách dựng bảng ablation, thuộc về bài Thiết kế thí nghiệm.
+
+## Cây rủi ro và thứ tự làm việc
+
+Ma trận bằng chứng cho biết cần làm những thí nghiệm nào, nhưng chưa cho biết làm cái nào trước. Khi không có nguyên tắc sắp xếp, người mới thường bắt đầu bằng những việc dễ chịu nhất: dựng codebase "cho đàng hoàng", viết data loader, cấu hình hệ thống logging, đọc thêm vài paper. Những việc này đều cần, và làm chúng tạo cảm giác tiến bộ. Vấn đề là chúng gần như không bao giờ thất bại, nên làm chúng trước không cho biết thêm điều gì về số phận của dự án. Sau sáu tuần, nhóm có một codebase đẹp và vẫn chưa biết giả thuyết cốt lõi có đúng hay không.
+
+### Làm trước việc dễ thất bại và cho nhiều thông tin nhất
+
+Jacob Steinhardt, trong bài *Research as a Stochastic Decision Process* (2018), đề xuất nhìn một dự án nghiên cứu như một chuỗi các việc con bất định, trong đó việc nào cũng có thể thất bại và kéo cả dự án đổ theo. Mục tiêu khi đó không chỉ là tối đa hóa xác suất thành công cuối cùng, mà còn là tối thiểu hóa thời gian kỳ vọng phải bỏ ra, đặc biệt là thời gian bỏ ra *trước khi phát hiện* một thất bại. Từ cách nhìn đó, quy tắc cốt lõi của ông là làm các việc theo thứ tự từ việc cho nhiều thông tin nhất trên mỗi đơn vị thời gian tới việc cho ít thông tin nhất. Trên thực tế, điều này có nghĩa là không bắt đầu từ phần dễ hoặc quen thuộc nhất, mà bắt đầu từ phần có khả năng giết chết dự án cao nhất so với chi phí để kiểm tra nó. Steinhardt còn hình thức hóa ý này bằng vài cách tính; bài này chỉ dùng tinh thần chung, người học muốn đi sâu nên đọc bài gốc.
+
+Một phép tính minh họa (ví dụ giả định) cho thấy vì sao thứ tự quan trọng. Giả sử dự án có hai việc. Việc A là dựng đầy đủ hạ tầng và tái lập toàn bộ baseline, mất ba tuần và hiếm khi thất bại. Việc B là một thí nghiệm oracle kiểm tra xem giả thuyết cốt lõi có cơ sở không, mất một tuần và có khả năng thất bại khoảng một nửa. Nếu làm A trước, nhóm luôn tiêu ba tuần rồi mới biết kết quả của B; khi B thất bại, bốn tuần đã trôi qua. Nếu làm B trước, khi B thất bại nhóm biết ngay sau một tuần và tiết kiệm được ba tuần còn lại. Tính trung bình trên hai kịch bản thành công và thất bại của B, làm B trước tiết kiệm khoảng một tuần rưỡi; quan trọng hơn, trong kịch bản xấu, tin xấu đến sớm hơn ba tuần. Trong thực tế, B thường cần một phần của A, chẳng hạn cần một baseline chạy được. Lời giải không phải là quay về làm A trước, mà là **tách A ra**, làm phần tối thiểu của A mà B cần, rồi chạy B ngay.
+
+Kỹ thuật tách việc để kiểm tra rủi ro sớm là nơi lời khuyên của Jia-Bin Huang trong bộ ghi chú *awesome-tips* trở nên rất thực dụng. Ở mục về cách tiến bộ đều đặn trong nghiên cứu, ông gợi ý một loạt chiến thuật. **Làm ngược từ cuối** (*work backward*): với một pipeline gồm nhiều bước, trước hết giả định bước phía trước cho đầu ra hoàn hảo để xây bước phía sau, nhờ đó thấy sớm kết quả cuối và đo được cận trên. **Ví dụ đồ chơi** (*toy examples*) nắm được bản chất của bài toán, tốt nhất là dữ liệu tổng hợp để biết đáp án đúng ở mọi bước. **Baseline trước**: thử baseline để thấy giới hạn của state of the art; nếu baseline đã hoạt động tốt, câu hỏi là vì sao còn làm bài toán này. **Trường hợp đơn giản trước**, và **tìm một proxy**, tức những thí nghiệm nhỏ, nhanh thay cho những lần chạy đầy đủ kéo dài hàng tuần. Mỗi chiến thuật là một cách biến một rủi ro đắt thành một phép kiểm tra rẻ.
+
+### Liệt kê rủi ro bằng cây rủi ro
+
+Để sắp xếp được theo rủi ro, trước hết cần liệt kê rủi ro một cách có hệ thống. Một **cây rủi ro** đặt ở gốc câu "dự án không thành một paper đúng hạn", rồi chia nhánh theo các nhóm nguyên nhân, và chia tiếp cho tới những rủi ro đủ cụ thể để có thể kiểm tra bằng một thí nghiệm hay một việc làm. Với dự án AI, năm nhánh dưới đây phủ được phần lớn trường hợp: insight sai, không thắng được baseline mạnh, bằng chứng không thuyết phục, thiếu tài nguyên, và biến cố bên ngoài.
+
+```mermaid
+flowchart TD
+  R["Dự án không thành paper đúng hạn"] --> A["Insight sai"]
+  R --> B["Không thắng baseline mạnh"]
+  R --> C["Bằng chứng không thuyết phục"]
+  R --> D["Thiếu tài nguyên"]
+  R --> E["Biến cố bên ngoài"]
+  A --> A1["Cơ chế giả định không tồn tại"]
+  A --> A2["Hiệu ứng có nhưng nằm ở chỗ khác"]
+  B --> B1["Không tái lập được baseline"]
+  B --> B2["Baseline đơn giản đã đủ tốt"]
+  C --> C1["Hiệu ứng nhỏ hơn nhiễu giữa seed"]
+  C --> C2["Benchmark không đo được cơ chế"]
+  D --> D1["Thiếu GPU hoặc tiền API"]
+  D --> D2["Không có dữ liệu hoặc giấy phép"]
+  E --> E1["Công trình trùng xuất hiện"]
+  E --> E2["Mô hình nền mới xóa bài toán"]
+```
+
+Mỗi lá của cây cần được gắn với hai thông tin: nó là rủi ro **chí mạng** (xảy ra thì dự án sụp) hay rủi ro **thu hẹp** (xảy ra thì paper hẹp lại), và phép kiểm tra rẻ nhất cho nó là gì. Bảng dưới đây đưa ra những phép kiểm tra điển hình.
+
+| Rủi ro | Loại | Phép kiểm tra rẻ nhất | Thời điểm |
+|---|---|---|---|
+| Cơ chế giả định không tồn tại | Chí mạng | Thí nghiệm đồ chơi, hoặc can thiệp có kiểm soát trên dữ liệu và checkpoint sẵn có | M1–M2 |
+| Hiệu ứng có nhưng nằm ở chỗ khác | Thu hẹp | Phân tầng lỗi của baseline theo tập con trước khi xây phương pháp | M1 |
+| Không tái lập được baseline | Chí mạng cho mọi so sánh | Chạy code chính thức trên một cấu hình, so với số công bố | M1 |
+| Baseline đơn giản đã đủ tốt | Chí mạng | Chạy baseline đơn giản được tune cẩn thận; thí nghiệm oracle cho thấy trần | M1–M2 |
+| Hiệu ứng nhỏ hơn nhiễu giữa seed | Chí mạng | Đo độ lệch chuẩn giữa seed của baseline ngay từ đầu | M1 |
+| Benchmark không đo được cơ chế | Thu hẹp | Kiểm tra benchmark có đủ mẫu ở tập con liên quan không | M0–M1 |
+| Thiếu GPU hoặc tiền API | Thu hẹp | Lập ngân sách; chạy thử một run ngắn để đo thời gian thật | M0 |
+| Không có dữ liệu hoặc giấy phép | Chí mạng hoặc thu hẹp | Đọc giấy phép, hỏi chủ dữ liệu, gán nhãn thử vài chục mẫu | M0–M1 |
+| Công trình trùng xuất hiện | Thu hẹp, đôi khi chí mạng | Theo dõi arXiv hằng tuần; viết sẵn phần đóng góp còn lại nếu bị trùng | Suốt dự án |
+| Mô hình nền mới xóa bài toán | Chí mạng | Thử bài toán trên mô hình tổng quát mạnh nhất hiện có ngay khi chọn hướng | M0 |
+
+Hai nhánh cuối của cây là những rủi ro mà nhóm không kiểm soát được, nhưng vẫn có thể chuẩn bị. Tình huống 24 (bị trùng ý tưởng) và Tình huống 25 (mô hình nền mới khiến bài toán lỗi thời) trong bài [Áp lực từ bên ngoài](../07-tinh-huong-kho/ap-luc-ben-ngoai.md) phân tích cách xử lý khi chúng xảy ra, và bảng phòng ngừa ở cuối bài đó chính là danh sách việc nên đưa vào kế hoạch từ M0.
+
+### Rủi ro chí mạng trước, rủi ro thu hẹp sau
+
+Cách nhìn của Steinhardt coi mỗi thất bại là một lần dự án đổ. Trong dự án paper thật, nhiều thất bại chỉ làm paper hẹp lại: phần lý thuyết không chứng minh được thì paper vẫn còn phần thực nghiệm; kết quả không giữ được trên benchmark thứ ba thì claim về tính tổng quát hẹp lại. Vì vậy, thứ tự làm việc nên đi theo hai bậc. Bậc thứ nhất gồm các rủi ro chí mạng, xếp theo lượng thông tin trên thời gian, và được kiểm tra càng sớm càng tốt. Bậc thứ hai gồm các rủi ro thu hẹp, làm sau khi bậc thứ nhất đã qua. Hạ tầng được dựng dần, mỗi lần chỉ vừa đủ cho việc tiếp theo. Trong cùng một bậc, nên ưu tiên những thí nghiệm có giá trị trong nhiều kịch bản, tức những thí nghiệm mà kết quả của chúng vẫn dùng được cho paper ngay cả khi giả thuyết chính sai; mục về kế hoạch B sẽ quay lại ý này.
+
+### Ví dụ: một dự án Machine Learning
+
+Xét một dự án giả định về ước lượng độ bất định cho mạng sâu. Ý tưởng là dùng thống kê kích hoạt ở các lớp giữa để ước lượng độ bất định chỉ với một lần truyền xuôi, rồi dùng nó phát hiện dữ liệu ngoài phân phối (*out-of-distribution*, OOD). Claim trung tâm là phương pháp đạt chất lượng phát hiện OOD gần với deep ensemble, trong khi chi phí suy luận chỉ bằng một mô hình. Nhóm liệt kê bảy việc, kèm ước lượng chủ quan về khả năng thất bại. Các con số phần trăm là ước lượng của nhóm, chỉ dùng để so sánh tương đối giữa các việc.
+
+| Việc | Câu hỏi được trả lời | Chí mạng? | Khả năng thất bại | Thời gian | Phụ thuộc |
+|---|---|---|---|---|---|
+| V1: thí nghiệm đồ chơi hai chiều | Thống kê kích hoạt có tách được vùng OOD trên dữ liệu tổng hợp không? | Có | Cao (khoảng 40%) | 0,5 tuần | |
+| V2: ensemble tối thiểu trên CIFAR-10 | Có một thước đo độ bất định đáng tin để đối chiếu không? | Có (nền) | Thấp (khoảng 10%) | 0,5 tuần | |
+| V3: thí nghiệm oracle | Trên dữ liệu thật, thống kê kích hoạt có tương quan với độ bất định của ensemble không? | Có | Cao (khoảng 50%) | 1 tuần | V2 |
+| V4: tái lập đầy đủ baseline | Ensemble, MC dropout và phương pháp một lần truyền gần nhất có được chạy công bằng không? | Có | Thấp đến vừa (khoảng 20%) | 2 tuần | V2 |
+| V5: hạ tầng đầy đủ | Config, logging, script đánh giá OOD cho quy mô lớn | Không | Rất thấp | 1,5 tuần | |
+| V6: mở rộng lên ImageNet | Kết quả còn đúng ở quy mô lớn không? | Thu hẹp | Vừa (khoảng 30%) | 3 tuần | V4, V5 |
+| V7: phân tích lý thuyết | Có bound nào liên hệ thống kê kích hoạt với độ bất định không? | Thu hẹp | Cao (khoảng 60%) | 4 tuần | V3 |
+
+Thứ tự mà một nhóm mới thường làm là V5, rồi V4, rồi mới tới V3: dựng hạ tầng cho chắc, tái lập baseline cho đủ, rồi mới thử ý tưởng. Theo thứ tự đó, câu trả lời cho V3, việc có khả năng giết dự án cao nhất trên dữ liệu thật, chỉ có sau khoảng bốn tuần rưỡi. Thứ tự theo tinh thần giảm rủi ro thì khác. V1 rẻ và dễ thất bại nên làm ngay. V2 hiếm khi thất bại, nhưng nó là phần tối thiểu mà V3 cần, nên được tách khỏi V4 và làm sớm. V3 chạy ngay sau V2. Nhờ vậy, sau khoảng hai tuần nhóm đã biết hai rủi ro chí mạng lớn nhất có xảy ra hay không. Chỉ khi chúng đã qua, nhóm mới đầu tư vào V4 và phiên bản đầy đủ của V5. V7 có khả năng thất bại cao nhưng không chí mạng, nên được giao cho một đồng tác giả thiên về lý thuyết và chạy song song sau V3. V6 đắt nhất và đứng cuối.
+
+```mermaid
+flowchart LR
+  V1["V1: Thí nghiệm đồ chơi"] --> G2{"Cổng M2: cơ chế"}
+  V2["V2: Ensemble tối thiểu"] --> V3["V3: Oracle tương quan"]
+  V3 --> G2
+  G2 --> V4["V4: Tái lập đầy đủ baseline"]
+  G2 --> V7["V7: Phân tích lý thuyết"]
+  V5["V5: Hạ tầng đầy đủ"] --> V6["V6: ImageNet"]
+  V4 --> V6
+  V6 --> G3{"Cổng M3: kết quả chính"}
+  V7 -.->|"không chặn cổng"| G3
+```
+
+Đồ thị phụ thuộc còn cho thấy một điều mà danh sách việc không cho thấy: **đường găng** (*critical path*), tức chuỗi việc phụ thuộc nhau có tổng thời gian dài nhất. Ở đây, chuỗi V2, V4, V6 kéo dài khoảng năm tuần rưỡi, và nó quyết định ngày sớm nhất có thể đạt cổng M3. Muốn đạt M3 sớm hơn, nhóm phải rút ngắn một việc trên đường găng, chẳng hạn chạy V6 trên một tập con của ImageNet trước. Rút ngắn một việc nằm ngoài đường găng, như V5, không làm M3 đến sớm hơn chút nào. Đường găng cũng là đầu vào của mục ghép kế hoạch tiến với kế hoạch lùi ở phần sau.
+
+### Nhịp tuần: vectoring và velocity
+
+Thứ tự giảm rủi ro không chỉ được quyết định một lần ở M0. Môn *CS197: Computer Science Research* do Michael Bernstein dạy ở Stanford gói ý này vào hai khái niệm dùng hằng tuần. *Vectoring* là xác định chiều rủi ro hay bất định lớn nhất của dự án ở thời điểm hiện tại. *Velocity* là giảm nhanh rủi ro theo chiều đã chọn. Hai việc vận hành thành một vòng lặp chặt: mỗi tuần chọn câu hỏi lớn nhất còn chưa có lời đáp, và dành một chặng nước rút ngắn cho nó. Bernstein nhấn mạnh rằng velocity không đồng nghĩa với tiến độ: một chuỗi ý tưởng sáng tạo nối nhau thất bại là tiến độ thấp nhưng velocity cao, vì mỗi thất bại loại bỏ một phần bất định. Câu hỏi đầu tuần của nhóm vì vậy nên là "điều chưa biết lớn nhất của dự án tuần này là gì, và thí nghiệm rẻ nhất để thu hẹp nó là gì?", chứ không phải "tuần này làm tiếp phần nào". Cách tổ chức vòng lặp thực thi hằng tuần được bàn chi tiết ở bài [Vận hành thực nghiệm](thuc-thi.md).
+
+## Mốc và cổng quyết định
+
+Thứ tự làm việc là một dòng chảy liên tục; mốc chia dòng chảy đó thành từng chặng. Điều làm một mốc có giá trị không phải là ngày tháng, mà là **cổng quyết định** đặt ở cuối chặng: tại đó, nhóm xem bằng chứng đã có và chọn một trong ba hành động đã viết sẵn, gồm đi tiếp, đổi hướng, hoặc dừng. Bài [Thẩm định ý tưởng](y-tuong.md) đã giới thiệu ý này ở quy mô một pilot, với tiêu chí dừng viết ra trước khi chạy. Bài [Lộ trình thực hiện một paper](../00-tong-quan/lo-trinh.md) có một bảng mốc kiểm tra tính theo lịch, mỗi mốc kèm việc cần làm nếu chưa đạt. Các cổng ở đây là phiên bản tính theo *nội dung* của những mốc đó: chúng được định nghĩa bằng câu hỏi khoa học cần trả lời, rồi mới được đặt lên lịch.
+
+### Sáu mốc từ M0 tới M5
+
+Sáu mốc dưới đây là một khung chung, đủ dùng cho phần lớn dự án paper hội nghị. Mỗi mốc trả lời một câu hỏi, đòi một loại bằng chứng, và có ba nhánh quyết định.
+
+| Mốc | Câu hỏi được trả lời | Bằng chứng cần có | Đi tiếp nếu | Đổi hướng nếu | Dừng nếu |
+|---|---|---|---|---|---|
+| M0: kế hoạch được duyệt | Dự án có đáng cam kết nguồn lực không? | Proposal, ma trận bằng chứng, ngân sách, kết quả pilot từ giai đoạn thẩm định | Người hướng dẫn duyệt; độ trễ cho phép không âm | Độ trễ âm: thu hẹp phạm vi hoặc chọn deadline sau | Không trả lời được câu Heilmeier về cái mới |
+| M1: nền móng | Có nền so sánh đáng tin không? | Baseline tái lập trong codebase của nhóm; hạ tầng và sanity check đã qua; pilot chạy lại trên hạ tầng mới | Sai lệch tái lập nhỏ hoặc giải thích được; pilot giữ tín hiệu | Không tái lập được: đổi baseline hoặc benchmark | Tín hiệu pilot biến mất khi baseline được chạy đúng |
+| M2: cơ chế | Giả thuyết cốt lõi có đúng không? | Các ô "quyết định" của claim cơ chế, ở quy mô proxy, đủ seed | Dự đoán đạt ngưỡng đi tiếp | Hiệu ứng có nhưng ở chỗ khác: viết lại giả thuyết, cập nhật ma trận | Không có hiệu ứng vượt nhiễu: kích hoạt kế hoạch B hoặc dừng |
+| M3: kết quả chính | Claim trung tâm có đứng ở quy mô đầy đủ, trước baseline mạnh nhất? | Bảng chính đầy đủ, baseline cùng recipe, các đối chứng quan trọng | Claim trung tâm đạt ngưỡng đáng công bố | Chỉ đứng trong một chế độ: thu hẹp claim | Thua baseline đơn giản: chuyển sang kết quả tối thiểu đáng công bố |
+| M4: bộ bằng chứng hoàn chỉnh | Mọi ô quyết định và đối chứng của claim được giữ lại đã có kết quả chưa? | Ablation, độ nhạy, phân tích lỗi; ma trận không còn ô trống | Đóng băng thí nghiệm, hoàn thiện bản thảo | Còn ô trống: phân loại mức bằng chứng và cắt claim | |
+| M5: bản nộp | Paper đã sẵn sàng chưa? | Bản thảo qua review nội bộ, checklist, bản nộp an toàn | Nộp | Chưa sẵn sàng: chuyển deadline hoặc đổi hình thức | |
+
+Đặt lên lịch tính ngược của bài Lộ trình thực hiện một paper, các mốc này rơi vào những vị trí khá tự nhiên: M0 vào khoảng D − 6 tháng; M1 vào khoảng D − 5 tháng, đúng lúc lộ trình yêu cầu baseline mạnh nhất đã được tái tạo; M2 vào khoảng D − 4 tháng tới D − 3,5 tháng, khi lộ trình chờ một pilot có tín hiệu và một bản pitch; M3 vào khoảng D − 6 tuần, khi kết quả chính phải xong; M4 trải từ bản thảo v1 ở D − 4 tuần tới ngày đóng băng thí nghiệm ở D − 1 tuần; và M5 là bản nộp an toàn ở D − 2 ngày. Một dự án có pilot đã chạy kỹ trong giai đoạn thẩm định sẽ qua M1 nhanh, vì việc còn lại chỉ là chạy lại pilot trên hạ tầng và baseline chính thức của nhóm. Ở M4, khi còn những ô trống trong ma trận, cách phân loại claim theo bốn mức bằng chứng A, B, C, D ở Tình huống 26 trong bài [Áp lực từ bên ngoài](../07-tinh-huong-kho/ap-luc-ben-ngoai.md) là công cụ chuẩn để quyết định cắt claim nào.
+
+### Cổng M1 và checklist trước thí nghiệm chính
+
+Trong sáu cổng, M1 có vị trí đặc biệt: đó là cổng cuối cùng trước khi phần lớn ngân sách compute được tiêu. Sai sót lọt qua M1 sẽ nhân lên trong mọi lần chạy sau. Vì vậy Phụ lục có hẳn một nhóm mục "Trước khi bắt đầu thí nghiệm chính" trong trang [Checklist](../phu-luc/checklist.md). Phần lớn các mục trong nhóm đó là sản phẩm của chính bài này: claim kiểm chứng được kèm kết quả bác bỏ, ma trận thí nghiệm có dữ liệu, metric, baseline và ablation cho mỗi claim, thứ tự giảm rủi ro, premortem, cổng quyết định và kế hoạch B, ngân sách compute và dữ liệu, thỏa thuận vai trò và tác giả. Những mục còn lại thuộc về nền kỹ thuật, và cần được hiểu lý do trước khi đánh dấu.
+
+**Baseline mạnh nhất phải được tái tạo trong codebase của nhóm**, khớp với số công bố hoặc có giải thích cho chênh lệch. Lý do là mọi con số của phương pháp đề xuất sau này sẽ được đặt cạnh baseline đó; nếu baseline chạy trong một môi trường khác, chênh lệch đo được có thể đến từ môi trường chứ không từ phương pháp. Đây cũng là câu trả lời cụ thể cho câu Heilmeier thứ hai: biết state of the art nghĩa là chạy được nó.
+
+**Hạ tầng phải sẵn sàng**: config tách khỏi code, seed được ghi lại, mỗi lần chạy lưu commit hash, config và log. Bài [Thiết kế thí nghiệm](thi-nghiem.md) đã giải thích vì sao mỗi con số trong paper phải truy được về đúng lần chạy tạo ra nó; bài [Vận hành thực nghiệm](thuc-thi.md) trình bày cách dựng hạ tầng đó. Ở cổng M1, câu hỏi chỉ là: nếu ngày mai một kết quả bất ngờ xuất hiện, nhóm có tái tạo được nó trong một giờ hay không. Cùng tinh thần đó, **bảng và hình nên được sinh tự động từ log**, không chép số bằng tay, vì con số sẽ thay đổi nhiều lần trước deadline và mỗi lần chép tay là một cơ hội sai.
+
+**Sanity check phải qua**: mô hình overfit được một tập rất nhỏ, pipeline dữ liệu và metric được kiểm tra trên những ví dụ biết trước đáp án. Andrej Karpathy, trong *A Recipe for Training Neural Networks* (2019), giải thích vì sao bước này không thể bỏ: huấn luyện mạng nơ-ron thất bại một cách lặng lẽ. Ông viết rằng một cấu hình sai *"Most of the time it will train but silently work a bit worse"* (phần lớn thời gian nó vẫn huấn luyện được, chỉ âm thầm hoạt động kém đi một chút). Một bug làm baseline yếu đi một điểm hoặc làm phương pháp đề xuất mạnh lên một điểm có thể tạo ra toàn bộ "đóng góp" của paper. Khuyến nghị overfit một batch nhỏ của Karpathy là phép thử rẻ nhất cho loại lỗi này.
+
+**Hyperparameter được phân vai** khoa học, phiền nhiễu và cố định, và **baseline được tune với ngân sách ngang phương pháp đề xuất**. Mục về chuỗi đóng góp và thí nghiệm ở trên đã giải thích phân vai; điều cần thêm ở đây là ngân sách tune của baseline phải được ghi thành con số trong kế hoạch, vì một ngân sách không được ghi ra thường âm thầm co lại khi GPU khan hiếm.
+
+Cuối cùng, **nếu dùng coding agent hay trợ lý AI để viết code, nhóm thống nhất cách kiểm tra và ghi lại phần code do AI sinh**. Lý do có bằng chứng cụ thể: nhóm tác giả của hệ thống *The AI Scientist* (Lu và cộng sự, 2024) ghi nhận rằng hệ thống của họ có thể cài đặt ý tưởng sai theo những cách khó phát hiện, và khuyên phải kiểm tra thủ công phần cài đặt trước khi tin vào kết quả. Cách tổ chức việc kiểm tra này được trình bày ở bài [AI trong lập trình và thực nghiệm](../08-ai-cong-su/thuc-nghiem.md) của Chương 8.
+
+### Thiết kế một cổng quyết định
+
+Một cổng quyết định tốt có năm thuộc tính. Thứ nhất, nó nêu **bằng chứng cần có**, trỏ thẳng vào các ô của ma trận. Thứ hai, **quy tắc quyết định được viết trước** khi có kết quả, với ngưỡng định lượng cho từng nhánh. Thứ ba, cổng có **ngày xét cố định**: đến ngày đó, cổng được xét dù thí nghiệm đã xong hay chưa, vì "chưa xong đúng hạn" cũng là một kết quả cần ra quyết định. Thứ tư, cổng nêu **ai quyết định**, thường là tác giả chính đề xuất và người hướng dẫn duyệt. Thứ năm, các **phương án đổi hướng được chọn sẵn**, để khi phải đổi hướng nhóm không mất thêm hai tuần tranh luận đổi sang đâu. Một quy tắc phụ hữu ích là chỉ cho phép gia hạn một cổng **tối đa một lần**, với thời hạn cố định; một cổng được gia hạn lần thứ hai thường là dấu hiệu của chi phí chìm chứ không phải của bằng chứng sắp tới.
+
+```text
+CỔNG M__: <tên mốc>
+Ngày xét: ____ (cổng được xét vào ngày này, dù thí nghiệm đã xong hay chưa)
+Bằng chứng cần có: <các ô Q và Đ trong ma trận, ví dụ C1/E1, C3/E3>
+Người đề xuất: Tác giả A          Người duyệt: Người hướng dẫn
+Đi tiếp nếu:   <ngưỡng định lượng, viết trước>
+Đổi hướng nếu: <điều kiện>  -> phương án đổi hướng đã chọn sẵn: ___
+Dừng nếu:      <điều kiện>  -> kích hoạt kế hoạch B: ___ / dừng dự án
+Gia hạn: tối đa một lần, ___ ngày, chỉ khi ___
+---- điền sau khi xét ----
+Kết quả thực tế: ___   Quyết định: ___   Mục nhật ký quyết định số: ___
+```
+
+Sơ đồ dưới đây cho thấy dòng chảy của các cổng. Mũi tên liền là đi tiếp; mũi tên nét đứt là những nhánh đổi hướng hoặc dừng đã được viết sẵn.
+
+```mermaid
+flowchart LR
+  M0["M0: Kế hoạch được duyệt"] --> M1["M1: Nền móng"]
+  M1 --> M2["M2: Cơ chế"]
+  M2 --> M3["M3: Kết quả chính"]
+  M3 --> M4["M4: Bằng chứng hoàn chỉnh"]
+  M4 --> M5["M5: Bản nộp"]
+  M1 -.->|"đổi baseline hoặc benchmark"| M0
+  M2 -.->|"viết lại giả thuyết"| M0
+  M3 -.->|"thu hẹp claim"| M2
+  M2 -.->|"dừng"| B["Kế hoạch B"]
+  M3 -.->|"dừng"| B
+```
+
+Giá trị của cổng nằm ở chỗ quyết định được đưa ra khi nhóm còn bình tĩnh. Tình huống "dừng lại theo tiêu chí đã đặt trước" trong bài [Khi novelty và hiệu quả lệch pha](../07-tinh-huong-kho/novelty-va-hieu-qua.md) cho thấy cổng phát huy tác dụng thế nào khi một hướng đi không còn tín hiệu: thay vì "thử thêm một chút nữa", nhóm có sẵn một câu trả lời đã được viết khi chưa bị kết quả ảnh hưởng.
+
+### Ghép kế hoạch tiến với kế hoạch lùi
+
+Kế hoạch trong bài này được lập *tiến*: từ ý tưởng, qua đồ thị phụ thuộc và ước lượng thời gian, tới ngày **sớm nhất** có thể đạt mỗi mốc. Bài Lộ trình thực hiện một paper lập kế hoạch *lùi*: từ deadline D, tới ngày **muộn nhất** được phép đạt mỗi mốc để các việc sau còn kịp. Mỗi cách đều có điểm mù. Kế hoạch tiến không biết deadline, nên dễ trôi. Kế hoạch lùi không biết dự án cần bao lâu, nên dễ đặt ra những ngày bất khả thi. Ghép hai cách lại cho ra một con số mà cả hai cách riêng lẻ đều không có: **độ trễ cho phép** của mỗi mốc, tức ngày muộn nhất trừ ngày sớm nhất.
+
+Bảng dưới đây (ví dụ giả định) cho thấy cách đọc. Ngày sớm nhất được tính từ đường găng, sau khi đã cộng biên dự phòng cho từng việc; ngày muộn nhất lấy từ bảng mốc của bài Lộ trình.
+
+| Mốc | Sớm nhất (lập tiến) | Muộn nhất (lập lùi từ D) | Độ trễ cho phép |
+|---|---|---|---|
+| M1 | D − 22 tuần | D − 20 tuần | +2 tuần |
+| M2 | D − 17 tuần | D − 15 tuần | +2 tuần |
+| M3 | D − 5 tuần | D − 6 tuần | −1 tuần |
+| M4 | D − 3 tuần | D − 4 tuần | −1 tuần |
+
+Độ trễ âm ở M3 và M4 nói rằng, ngay cả khi mọi việc suôn sẻ, nhóm vẫn đạt kết quả chính muộn một tuần so với mức lộ trình cho phép. Điều quan trọng là con số này xuất hiện **ở M0**, khi việc xử lý còn rẻ. Nhóm có ba lựa chọn: rút ngắn một việc trên đường găng (chẳng hạn chạy ablation trên thiết lập nhỏ hơn, như mẹo ở bài Thiết kế thí nghiệm); cắt một claim phụ (bớt một backbone trong claim về tính tổng quát); hoặc nhắm deadline sau. Phát hiện cùng con số ấy ở D − 2 tuần thì lựa chọn duy nhất còn lại thường là cắt claim trong hoảng loạn, đúng như Tình huống 26 mô tả. Độ trễ cho phép nên được tính lại ở mỗi lần rà soát hằng tuần, vì nó là chỉ số sớm nhất cho biết kế hoạch đang trượt.
+
+## Ngân sách
+
+Câu hỏi Heilmeier thứ sáu, "tốn bao nhiêu", thường được trả lời bằng cảm giác: "chắc đủ GPU", "API cũng không đắt lắm". Cảm giác này sai theo một hướng có hệ thống, vì người lập kế hoạch thường chỉ hình dung lần chạy cuối cùng của phương pháp đề xuất, và quên mọi thứ xung quanh nó: các lần tune, các seed, các baseline, các lần chạy hỏng, và các thí nghiệm phát sinh khi câu chuyện thay đổi. Mục này lập ngân sách cho bốn loại tài nguyên: compute, dữ liệu, thời gian và chi phí API.
+
+### Compute
+
+Công thức cơ bản cho một thí nghiệm rất đơn giản: GPU-giờ bằng số cấu hình nhân số seed nhân số dataset nhân số GPU-giờ của mỗi lần chạy. Công thức này cần thêm một số hạng mà người mới hay quên, đó là các lần thử để tune hyperparameter phiền nhiễu. Theo Deep Learning Tuning Playbook, hyperparameter phiền nhiễu phải được tối ưu riêng cho từng giá trị của hyperparameter khoa học, rồi cấu hình tốt nhất mới được chạy lại với nhiều seed để đo phương sai. Như vậy, với mỗi cấu hình khoa học, số lần chạy là số lần thử tune cộng số seed. Ngân sách của toàn dự án là tổng của các thí nghiệm, cộng một hệ số cho các lần chạy hỏng và chạy lại, cộng một khoản cho khám phá, và cộng một khoản dự trữ cho giai đoạn rebuttal.
+
+```text
+GPU-giờ của một thí nghiệm = số cấu hình x (số lần thử tune + số seed) x số dataset x GPU-giờ mỗi run
+
+Tổng ngân sách = (tổng các thí nghiệm) x (1 + hệ số chạy lại)
+               + ngân sách khám phá
+               + dự trữ cho thí nghiệm bổ sung khi rebuttal
+```
+
+Số GPU-giờ mỗi run nên được **đo**, không đoán: chạy thử một hai phần trăm lịch huấn luyện, đo thời gian, nhân lên, rồi cộng thời gian đánh giá. Playbook của Google cũng nhắc rằng ngân sách cho một vòng thí nghiệm là sự đánh đổi giữa ba thứ: số giá trị khoa học muốn so sánh, độ rộng của không gian tìm kiếm cho hyperparameter phiền nhiễu, và độ dày của việc lấy mẫu trong không gian đó. Khi ngân sách không đủ, phải chọn hy sinh thứ nào một cách có ý thức, thay vì để việc tune baseline tự co lại.
+
+Quay lại dự án phân đoạn ban đêm ở mục trước. Bảng dưới đây (mọi con số là ví dụ giả định) tính ngân sách cho sáu thí nghiệm đầu tiên, với GPU-giờ mỗi run được đo từ một lần chạy thử.
+
+| Thí nghiệm | Cấu hình | Thử tune | Seed | Dataset | GPU-giờ/run | GPU-giờ |
+|---|---|---|---|---|---|---|
+| E0: tái lập baseline | 2 backbone | 0 | 3 | 1 | 16 | 2 × 3 × 1 × 16 = 96 |
+| E1: làm tối có kiểm soát (chỉ suy luận) | 6 | 0 | 3 checkpoint | 1 | 0,5 | 6 × 3 × 1 × 0,5 = 9 |
+| E3: khử nhiễu có sẵn + phân đoạn | 2 | 4 | 3 | 2 | 16 | 2 × 7 × 2 × 16 = 448 |
+| E4: NoctDN và baseline cùng recipe | 2 | 4 | 3 | 2 | 20 | 2 × 7 × 2 × 20 = 560 |
+| E5: ablation | 3 | 2 | 3 | 1 | 20 | 3 × 5 × 1 × 20 = 300 |
+| E6: thêm hai backbone, mỗi backbone hai phương pháp | 4 | 2 | 3 | 2 | 20 | 4 × 5 × 2 × 20 = 800 |
+| Cộng | | | | | | 2.213 |
+
+Cộng thêm hệ số chạy lại 0,4 (bug, lỗi node, chạy lại khi phát hiện sai sót), 15% cho khám phá, và 10% dự trữ cho rebuttal, ngân sách vào khoảng 3.650 GPU-giờ. Nếu nhóm dùng được trung bình bốn GPU, với mức sử dụng thực tế khoảng 60% vì hàng đợi và thời gian chết, năng lực là khoảng 400 GPU-giờ mỗi tuần, tức khoảng chín tuần GPU chạy liên tục. Con số này cần được đặt cạnh đường găng: nếu khoảng thời gian từ M1 tới M3 chỉ có mười tuần, kế hoạch gần như không còn chỗ thở, và nên quyết định ngay từ M0 chạy E5 trên thiết lập nhỏ hơn.
+
+Bảng ngân sách còn làm lộ ra hai điều mà người mới hiếm khi thấy trước. Thứ nhất, các lần thử tune chiếm gần một nửa tổng số GPU-giờ. Thứ hai, hơn một nửa phần tune đó dành cho baseline và đối chứng, không phải cho phương pháp đề xuất. Một kế hoạch cắt phần tune của baseline để tiết kiệm sẽ tiết kiệm được nhiều GPU nhất, và cũng tạo ra đúng loại so sánh không cân sức mà hướng dẫn phản biện của ACL Rolling Review liệt kê trong nhóm lỗi phân tích (baseline không được tune đủ). Khi chi phí của chính phương pháp là một phần của claim, chẳng hạn phương pháp tốt hơn nhưng chậm hơn nhiều, ngân sách còn phải bao gồm các thí nghiệm so sánh ở cùng thời gian hoặc cùng FLOPs; Tình huống 32 trong bài [Bài toán, dữ liệu và phạm vi](../07-tinh-huong-kho/bai-toan-va-pham-vi.md) phân tích vì sao. Tương tự, câu hỏi claim nào cần quy mô lớn nên được trả lời ngay lúc lập ngân sách, như bài [Khi con số không đẹp](../07-tinh-huong-kho/con-so-khong-dep.md) khuyến nghị.
+
+### Dữ liệu
+
+Ngân sách dữ liệu có hai phần: thu thập và gán nhãn. Phần thu thập ít tốn tiền nhưng nhiều rủi ro. Mỗi nguồn dữ liệu cần được kiểm tra về giấy phép, điều khoản sử dụng, dữ liệu cá nhân, và quyền phát hành lại nếu nhóm định công bố dữ liệu. Hướng dẫn phản biện của ACL Rolling Review trong những năm gần đây có hẳn những mã riêng để reviewer đánh dấu vấn đề đạo đức khi thu thập dữ liệu và giấy phép không rõ ràng. Một dataset không phát hành được vì vướng giấy phép có thể làm mất đi một đóng góp, và điều đó nên được biết ở M0 chứ không phải lúc chuẩn bị camera-ready.
+
+Phần gán nhãn có thể ước lượng bằng một công thức tương tự compute:
+
+```text
+Giờ người gán nhãn = số mẫu x số người gán nhãn mỗi mẫu x phút mỗi mẫu / 60
+                     x (1 + hệ số cho vòng pilot, đào tạo và phân xử)
+Chi phí = giờ người x đơn giá theo giờ (theo mức trả công công bằng và quy định của cơ sở)
+Thời gian lịch = thời gian tuyển người + số vòng pilot hướng dẫn + giờ người / (số người x giờ mỗi tuần)
+```
+
+Dòng cuối thường quan trọng hơn dòng thứ hai. Tuyển người gán nhãn có chuyên môn hoặc người bản ngữ của một ngôn ngữ ít phổ biến có thể mất nhiều tuần, và hướng dẫn gán nhãn hầu như luôn phải sửa sau vòng pilot đầu tiên. Vì vậy, với dự án cần dữ liệu mới, việc tuyển người và vòng pilot gán nhãn thường nằm trên đường găng, và nên được bắt đầu ngay ở M0. Nếu dự án cần phê duyệt đạo đức từ cơ sở nghiên cứu cho việc làm với con người, thời gian chờ phê duyệt cũng thuộc đường găng.
+
+### Thời gian
+
+Ngân sách thời gian bắt đầu từ năng lực thực tế mỗi tuần, không phải từ số giờ lý tưởng. Một nghiên cứu sinh có bốn mươi lăm giờ làm việc trong tuần không có bốn mươi lăm giờ cho dự án: học phần, trợ giảng, họp, hành chính và review cho hội nghị lấy đi một phần đáng kể, và trong số giờ còn lại, chỉ một phần là giờ tập trung sâu. Template dưới đây (số liệu giả định) giúp tính con số đó một cách trung thực.
+
+```text
+NĂNG LỰC THỰC TẾ MỖI TUẦN — Tác giả A                  (ví dụ giả định)
+Tổng giờ làm việc trong tuần:                              45
+  Trừ học phần và bài tập:                                 -8
+  Trừ trợ giảng hoặc công việc được giao:                  -6
+  Trừ họp nhóm, họp lab, seminar:                          -4
+  Trừ hành chính, email, review cho hội nghị:              -3
+= Giờ dành cho dự án:                                      24
+  Trong đó giờ tập trung sâu (code, phân tích, viết):     ~15
+Năng lực dùng để lập kế hoạch (x 0,8 cho ốm, việc phát sinh): ~19 giờ/tuần
+```
+
+Có một lý do tâm lý khiến con số năng lực cần được tính thận trọng như vậy. Hiện tượng *planning fallacy* (ngụy biện lập kế hoạch) mô tả xu hướng đánh giá thấp thời gian cần để hoàn thành một việc, ngay cả khi người ước lượng biết rằng những việc tương tự trước đây đã kéo dài hơn dự kiến. Trong nghiên cứu kinh điển của Buehler, Griffin và Ross (1994), sinh viên được hỏi khi nào sẽ hoàn thành luận văn tốt nghiệp; thời gian thực tế trung bình dài hơn đáng kể so với dự đoán, thậm chí dài hơn cả ước lượng của chính họ cho kịch bản xấu nhất. Ba biện pháp đối phó đơn giản là: ước lượng dựa trên lịch sử của chính mình với những việc tương tự, thay vì dựa trên hình dung về việc mới; chia nhỏ việc thành những đơn vị không quá một tuần; và ghi lại tỉ lệ giữa thời gian thực tế và thời gian ước lượng sau mỗi tuần, rồi dùng tỉ lệ đó hiệu chỉnh phần còn lại của kế hoạch.
+
+Một vài số liệu bên ngoài có thể giúp định cỡ. Trong nghiên cứu *The Ideation–Execution Gap* đã nhắc ở đầu bài, các chuyên gia NLP thực hiện một ý tưởng dựa trên prompting thành một paper ngắn (tối thiểu bốn trang theo định dạng ACL), trong khung ba tháng, đã bỏ ra trung bình khoảng 103 giờ cho mỗi dự án. Đó là những dự án không cần huấn luyện mô hình lớn, nên con số này là một mức sàn hữu ích để đối chiếu, không phải ước lượng cho một dự án paper hội nghị đầy đủ. Riêng phần viết, bài Lộ trình thực hiện một paper ước lượng khoảng 120 đến 200 giờ cho người viết lần đầu. Uri Alon, trong bài *How To Choose a Good Scientific Problem* (2009), khuyên ghép độ khó của bài toán với giai đoạn sự nghiệp: dự án đầu tiên của một nghiên cứu sinh nên ngắn và khả thi. Khi năng lực thực tế không đủ cho kế hoạch, thu hẹp phạm vi dự án ở M0 là một quyết định nghiên cứu đúng đắn chứ không phải một sự thất bại.
+
+Cũng cần thận trọng với việc tính trước một mức tăng tốc nhờ công cụ AI vào ngân sách thời gian. Trong một thử nghiệm ngẫu nhiên có đối chứng của METR (Becker và cộng sự, 2025), với mười sáu lập trình viên giàu kinh nghiệm làm việc trên chính những kho mã nguồn mở lớn mà họ quen thuộc, việc cho phép dùng các công cụ AI của đầu năm 2025 làm thời gian hoàn thành tăng khoảng 19%, trong khi sau khi làm xong, chính các lập trình viên vẫn tin rằng AI đã giúp họ nhanh hơn khoảng 20%. Đầu năm 2026, METR cho biết kết quả này đã lỗi thời với công cụ mới, nên con số không nên được áp vào dự án của người học. Bài học còn lại là về khoảng cách giữa cảm nhận và đo lường: nếu kế hoạch dựa vào giả định "có AI sẽ nhanh gấp đôi", giả định đó cần được đo trên chính dự án sau vài tuần, như mọi ước lượng khác. Cách dùng AI cho lập trình và thực nghiệm được bàn ở Chương 8, [AI làm cộng sự nghiên cứu](../08-ai-cong-su/index.md).
+
+### Chi phí API
+
+Với dự án dùng mô hình ngôn ngữ lớn qua API, chi phí tiền thường thay thế một phần chi phí GPU, và cũng có thể ước lượng bằng công thức:
+
+```text
+Số lời gọi = số mẫu x số cấu hình prompt x số lần lấy mẫu mỗi lời gọi x số mô hình
+Chi phí    = số lời gọi x (token vào trung bình x giá mỗi token vào
+                          + token ra trung bình x giá mỗi token ra)
+Tổng       = chi phí lần chạy cuối x (1 + hệ số phát triển prompt) + chi phí mô hình giám khảo (nếu có)
+```
+
+Ba khoản thường bị quên là chi phí phát triển prompt (thử nhiều phiên bản prompt trên tập phát triển, thường ngang hoặc hơn chi phí của lần chạy cuối), chi phí của mô hình dùng làm giám khảo (*LLM-as-a-judge*) khi đánh giá tự động, và chi phí chạy lại khi mô hình phía sau API thay đổi. Ngoài tiền, API còn có giới hạn tốc độ gọi, nên một thí nghiệm hai mươi nghìn lời gọi có thể cần vài ngày lịch dù chi phí không lớn. Ví dụ tính đầy đủ có trong kế hoạch hoàn chỉnh ở cuối bài.
+
+!!! info "Giá API và phiên bản mô hình thay đổi thường xuyên"
+    Mọi giá API trong bài là giả định để minh họa cách tính. Trước khi lập ngân sách, cần tra giá hiện hành của nhà cung cấp, ghi lại ngày tra, tên và phiên bản chính xác của mô hình. Kết quả trên mô hình qua API cũng nên được lưu cache ngay từ lần gọi đầu tiên; Tình huống 27 trong bài [Áp lực từ bên ngoài](../07-tinh-huong-kho/ap-luc-ben-ngoai.md) giải thích vì sao một kết quả không có phiên bản và cache gần như không thể kiểm chứng lại sau vài tháng.
+
+### Biên dự phòng và template ngân sách
+
+Mọi ước lượng ở trên đều lạc quan, vì chúng mô tả kịch bản mọi việc diễn ra như dự định. Biên dự phòng là cách thừa nhận điều đó bằng con số. Bảng dưới đây đưa ra các mức mà giáo trình khuyến nghị như một quy tắc thận trọng; chúng không phải kết quả nghiên cứu, và nên được điều chỉnh theo lịch sử của chính nhóm.
+
+| Khoản | Biên dự phòng khuyến nghị | Lý do |
+|---|---|---|
+| Compute | Thêm 30% đến 50%, cộng khoảng 10% dự trữ cho rebuttal | Bug, chạy lại, hàng đợi, thí nghiệm phát sinh khi câu chuyện đổi, yêu cầu của reviewer |
+| Thời gian | Thêm 25% đến 50% cho mỗi việc lớn; một tuần đệm trước các cổng M3 và M4 | Planning fallacy; việc phát sinh ngoài dự án |
+| Chi phí API | Ngân sách phát triển prompt ít nhất bằng chi phí lần chạy cuối | Thử prompt, đổi mô hình, chạy lại khi API thay đổi |
+| Gán nhãn | Thêm khoảng 20% giờ người, cộng ít nhất một vòng pilot | Hướng dẫn thay đổi, phân xử bất đồng, gán nhãn lại |
+
+Khoản dự trữ cho rebuttal đáng được nói riêng. Ở nhiều hội nghị, giai đoạn rebuttal hoặc thảo luận với reviewer chỉ kéo dài một vài tuần, và yêu cầu thí nghiệm bổ sung thường đến đúng lúc nhóm đã chuyển sang dự án khác. Một kế hoạch tốt giữ sẵn cả GPU-giờ lẫn thời gian của người chạy thí nghiệm cho giai đoạn này; bài Lộ trình thực hiện một paper nhắc điều đó cho chu kỳ NeurIPS, và nó đúng với mọi hội nghị có rebuttal. Toàn bộ ngân sách được gom vào một template.
+
+```text
+NGÂN SÁCH DỰ ÁN ____   Phiên bản: __   Ngày: ____
+1. Compute
+   | Thí nghiệm | Cấu hình | Thử tune | Seed | Dataset | GPU-giờ/run (đã đo) | GPU-giờ |
+   Cộng: ___   x (1 + hệ số chạy lại ___) + khám phá ___ + dự trữ rebuttal ___ = ___
+   Năng lực: ___ GPU x 24 x 7 x mức sử dụng ___ = ___ GPU-giờ/tuần -> ___ tuần
+2. Dữ liệu
+   Nguồn và giấy phép đã kiểm tra: ___   Quyền phát hành: có / không / chưa rõ
+   Gán nhãn: ___ mẫu x ___ người x ___ phút = ___ giờ người (+___%)   Đơn giá: ___
+   Thời gian tuyển người: ___ tuần   Phê duyệt đạo đức: cần / không cần, dự kiến ___
+3. Thời gian
+   | Người | Giờ/tuần cho dự án (thực tế) | Số tuần | Tổng giờ | Việc được giao (giờ ước lượng) |
+   Tỉ lệ thực tế / ước lượng (cập nhật hằng tuần): ___
+4. API
+   | Mô hình (phiên bản) | Ngày tra giá | Số lời gọi | Token vào/ra | Chi phí |
+   Phát triển prompt: ___   Giám khảo: ___   Dự phòng: ___
+5. Kết luận ngân sách: đủ / thiếu -> thu hẹp gì, ở mốc nào
+
+## Premortem và kế hoạch B
+
+Mọi phần trước của kế hoạch được viết từ góc nhìn thành công: claim nào cần bằng chứng gì, làm theo thứ tự nào, tốn bao nhiêu. Premortem nhìn từ góc ngược lại, và chính vì thế nó tìm ra những lỗ hổng mà góc nhìn thành công bỏ qua.
+
+### Premortem
+
+Premortem là kỹ thuật do Gary Klein mô tả trong bài *Performing a Project Premortem* (Harvard Business Review, 2007). Nó là hình ảnh đảo ngược của postmortem: thay vì phân tích vì sao dự án đã thất bại sau khi mọi chuyện đã rồi, nhóm làm việc đó *trước khi* dự án bắt đầu. Sau khi cả nhóm đã nghe trình bày kế hoạch, người điều phối tuyên bố rằng dự án đã thất bại thảm hại. Mỗi thành viên viết độc lập mọi lý do có thể dẫn tới thất bại đó. Các lý do được chia sẻ lần lượt, rồi dùng để củng cố kế hoạch. Theo Klein, kỹ thuật này dựa trên hiện tượng *prospective hindsight* (nhìn lại từ tương lai), tức hình dung một sự kiện như thể nó đã xảy ra, vốn được nghiên cứu trước đó bởi Mitchell, Russo và Pennington (1989): khi coi thất bại là chuyện đã rồi, người ta nêu lý do cụ thể và đầy đủ hơn so với khi chỉ được hỏi "điều gì có thể sai". Premortem còn có một tác dụng xã hội: nó biến việc nêu nghi ngờ thành nhiệm vụ của cả nhóm, nên những thành viên hiểu chuyện nhưng ngại lên tiếng có một dịp an toàn để nói, và sự tự tin thái quá của nhóm bị kéo về mức thực tế.
+
+Áp dụng cho nghiên cứu AI, có hai phiên bản hữu ích. **Premortem kỹ thuật** làm ở M0, với câu mở đầu "đã tới M3, và phương pháp không hơn baseline". **Premortem phản biện** làm trước M3 hoặc M4, với câu mở đầu "paper đã bị reject; hãy viết ba điểm yếu mà ba reviewer đã nêu", và dùng kỹ năng của bài [Đọc paper như một reviewer](doc-nhu-reviewer.md) để viết chúng. Bảng phòng ngừa ở cuối bài [Áp lực từ bên ngoài](../07-tinh-huong-kho/ap-luc-ben-ngoai.md) là nguồn gợi ý tốt cho cả hai phiên bản: hình dung dự án đã thất bại vì bị trùng ý tưởng, vì một mô hình nền mới, hay vì deadline tới khi thí nghiệm chưa xong, rồi hỏi biện pháp nào lẽ ra đã ngăn được điều đó.
+
+```text
+PREMORTEM — dự án ____   Ngày: ____   Người điều phối: ____   Thời lượng: khoảng 45 phút
+Bước 1 (5 phút): nhắc lại proposal và các mốc. Rồi tuyên bố:
+  "Hôm nay là ngày ___. Dự án đã thất bại: <đến M3 phương pháp không hơn baseline /
+   paper bị reject với điểm thấp>."
+Bước 2 (10 phút): mỗi người viết độc lập, không trao đổi, mọi lý do dẫn tới thất bại.
+Bước 3 (15 phút): lần lượt từng người nêu một lý do chưa ai nêu, cho tới khi hết.
+                  Người điều phối ghi lại, không tranh luận, không bác bỏ.
+Bước 4 (15 phút): gom nhóm; với mỗi lý do quan trọng, chọn đúng một hành động:
+  KIỂM TRA SỚM (thêm thí nghiệm rẻ vào M1–M2) / GIẢM THIỂU (đổi kế hoạch) /
+  CHẤP NHẬN (ghi vào Limitations dự kiến) / KẾ HOẠCH B (chuẩn bị đường lui)
+| Lý do thất bại | Khả năng | Dấu hiệu sớm | Hành động | Gắn vào mốc / thí nghiệm | Người theo dõi |
+```
+
+Điều quyết định giá trị của premortem là bước 4. Một danh sách lý do thất bại không đi kèm hành động chỉ làm nhóm lo lắng hơn. Mỗi dòng của bảng phải dẫn tới một thay đổi cụ thể trong ma trận bằng chứng, cây rủi ro, ngân sách hoặc kế hoạch B; nếu không, dòng đó được ghi rõ là "chấp nhận" và trở thành một câu trong mục Limitations dự kiến.
+
+### Kết quả tối thiểu đáng công bố
+
+Câu hỏi trung tâm của kế hoạch B là: nếu đóng góp chính thất bại, còn paper nào không? Để trả lời, cần một khái niệm mà giáo trình gọi là **kết quả tối thiểu đáng công bố**: tập kết quả nhỏ nhất mà, nếu chỉ có chúng, vẫn tạo ra một paper trung thực, có người đọc cần, và có ít nhất một venue phù hợp. Một kết quả tối thiểu tốt có hai thuộc tính. Nó **không phụ thuộc vào claim rủi ro nhất**, vì nếu phụ thuộc thì nó sụp cùng claim đó. Và nó **được tạo ra sớm** trong kế hoạch, vì một đường lui chỉ sẵn sàng sau M4 thì không còn là đường lui. Bậc thang dưới đây giúp viết ra các kịch bản ngay từ M0.
+
+| Kịch bản | Claim còn đứng | Dạng paper | Venue phù hợp |
+|---|---|---|---|
+| Mục tiêu | Mọi claim trung tâm và phụ | Paper đầy đủ như proposal | Main conference mục tiêu |
+| Giữa | Claim trung tâm đứng trong phạm vi hẹp hơn | Paper với claim thu hẹp, nêu rõ phạm vi | Main conference; Findings hoặc short paper ở NLP |
+| Tối thiểu đáng công bố | Phân tích, tài nguyên hoặc kết quả âm tính chặt chẽ | Paper phân tích, benchmark, hoặc negative result | Track phù hợp, workshop, TMLR |
+| Dưới ngưỡng | Không claim nào đủ bằng chứng | Không nộp; báo cáo nội bộ và nhật ký quyết định | |
+
+Trong dự án phân đoạn ban đêm, kết quả tối thiểu đáng công bố là phân tích nguồn lỗi (C1, C2) cộng với baseline đơn giản từ E3: nếu NoctDN không vượt được bộ khử nhiễu có sẵn, paper vẫn có thể nói một điều có giá trị về nguồn gốc lỗi ban đêm và về một baseline mạnh mà cộng đồng đang bỏ qua. Đó cũng là lý do E1, E2 và E3 được xếp lên đầu: chúng là những thí nghiệm có giá trị trong mọi kịch bản. Các venue cho những dạng paper này, cùng tiêu chí của chúng, được bàn ở bài [Xây câu chuyện của paper](cau-chuyen.md) và bài [Khi bị reject](../04-nop-va-sau-nop/reject.md).
+
+### Thiết kế kế hoạch B vào kế hoạch A
+
+Kế hoạch B tốt nhất không phải là một dự án khác chờ sẵn, mà là một cách sắp xếp kế hoạch A sao cho các sản phẩm trung gian có giá trị độc lập. Có ba cách làm cụ thể. Thứ nhất, ưu tiên những thí nghiệm có giá trị trong nhiều kịch bản, như phân tích lỗi, thí nghiệm chẩn đoán và baseline đơn giản mạnh. Thứ hai, làm những sản phẩm phụ có thể đứng riêng, như một tập đánh giá được gán nhãn cẩn thận, một bản tái lập kỹ lưỡng, hoặc một thước đo mới cho đúng cơ chế đang nghiên cứu. Thứ ba, viết kế hoạch B vào proposal ở mục (8) và vào nhật ký quyết định ngay từ M0, kèm điều kiện kích hoạt cụ thể ở các cổng M2 và M3.
+
+!!! warning "Kế hoạch B không phải là giấy phép để đổi câu chuyện tùy ý"
+    Chuyển sang kế hoạch B là đổi claim theo bằng chứng, không phải tìm một câu chuyện mới vừa với con số. Vì kế hoạch B được viết từ M0 và điều kiện kích hoạt được ghi trước, việc chuyển hướng có dấu vết rõ ràng và được báo cáo trung thực trong paper. Điều ngược lại, như chọn một tập con hay một metric sau khi đã thấy kết quả rồi trình bày như thể đã định từ đầu, hay thêm đóng góp phụ để bù cho đóng góp chính đã sụp, là những lối tắt được phân tích ở các bài [Khi con số không đẹp](../07-tinh-huong-kho/con-so-khong-dep.md), [Ghép ý tưởng và "độn" đóng góp](../07-tinh-huong-kho/ghep-va-don.md) và [Ranh giới trung thực](../07-tinh-huong-kho/ranh-gioi-trung-thuc.md) của Chương 7.
+
+## Vai trò nhóm, thỏa thuận tác giả và nhịp làm việc
+
+Một kế hoạch chỉ chạy được khi mỗi phần của nó có người chịu trách nhiệm, và khi nhóm có một nhịp trao đổi đều đặn. Bài Lộ trình thực hiện một paper đã trình bày vai trò điều phối của tác giả chính, nguyên tắc thống nhất sớm vai trò và thứ tự tác giả bằng văn bản, nguyên tắc một nguồn sự thật duy nhất, và cách xin góp ý đúng lúc, đúng loại. Mục này không nhắc lại những điều đó mà bổ sung những công cụ còn thiếu: phân vai theo luồng việc của kế hoạch, một mẫu thỏa thuận tác giả chi tiết hơn, và các template cho họp và cập nhật.
+
+### Phân vai theo luồng việc
+
+Cách phân vai có ích nhất là đi theo các luồng việc của ma trận và cây rủi ro, chứ không theo chức danh. Nguyên tắc duy nhất là **mỗi luồng việc có đúng một người chịu trách nhiệm chính**, dù nhiều người cùng giúp. Một luồng việc có hai người cùng "phụ trách" thường là luồng việc không ai phụ trách.
+
+| Luồng việc | Người chịu trách nhiệm | Người hỗ trợ | Sản phẩm bàn giao | Mốc |
+|---|---|---|---|---|
+| Baseline và đánh giá | Tác giả B | Tác giả A | Baseline tái lập, script đánh giá, độ lệch chuẩn giữa seed | M1 |
+| Phương pháp | Tác giả A | | Code phương pháp, kết quả E4–E6 | M2–M3 |
+| Dữ liệu và gán nhãn | Tác giả C | Tác giả B | Hướng dẫn gán nhãn, dữ liệu, IAA | M1–M3 |
+| Phân tích và hình | Tác giả B | Tác giả A | Phân tích lỗi, hình sinh tự động từ log | M4 |
+| Viết và điều phối kế hoạch | Tác giả A | Tất cả | Proposal, ma trận, bản thảo | M0–M5 |
+| Định hướng và duyệt cổng | Người hướng dẫn | | Quyết định ở M0, M2, M3 | |
+
+### Bổ sung cho thỏa thuận tác giả
+
+Ngoài thứ tự tác giả và phạm vi đóng góp mà bài Lộ trình đã khuyên thống nhất sớm, một thỏa thuận tốt nên trả lời thêm bốn câu hỏi mà nhóm thường chỉ nghĩ tới khi đã có bất đồng: tiêu chí nào để trở thành tác giả, và điều gì chỉ được ghi trong phần cảm ơn; khi nào thứ tự tác giả được xem lại; chuyện gì xảy ra nếu một người rời dự án giữa chừng; và ai được dùng dữ liệu, code, ý tưởng của dự án cho các hướng tiếp theo.
+
+Để mô tả đóng góp một cách cụ thể thay vì chung chung, có thể dùng **CRediT** (*Contributor Roles Taxonomy*), một bộ từ vựng gồm 14 vai trò đóng góp đã được chuẩn hóa thành tiêu chuẩn ANSI/NISO Z39.104-2022. Mười bốn vai trò là: Conceptualization, Data curation, Formal analysis, Funding acquisition, Investigation, Methodology, Project administration, Resources, Software, Supervision, Validation, Visualization, Writing – original draft, và Writing – review & editing. Mỗi vai trò có thể kèm mức độ *lead*, *equal* hoặc *supporting*. CRediT mô tả ai đã làm gì; nó không tự quyết định ai đủ tư cách làm tác giả hay thứ tự tác giả. Phần lớn hội nghị AI không yêu cầu khai báo CRediT, trong khi nhiều tạp chí có yêu cầu, nhưng dùng nó trong nội bộ giúp cuộc trao đổi về tác giả dựa trên những đóng góp cụ thể thay vì cảm giác.
+
+```text
+THỎA THUẬN TÁC GIẢ — dự án ____   Phiên bản: __   Ngày: ____   (bổ sung cho mục vai trò trong proposal)
+1. Thứ tự dự kiến: Tác giả A, Tác giả B, Tác giả C, Người hướng dẫn. Đóng góp ngang nhau: không / giữa ___
+2. Vai trò theo CRediT (lead / equal / supporting):
+   Tác giả A: Conceptualization (lead), Methodology (lead), Software (lead), Writing – original draft (lead)
+   Tác giả B: Validation (lead), Formal analysis (lead), Visualization (lead), Software (supporting)
+   Tác giả C: Data curation (lead), Investigation (supporting)
+   Người hướng dẫn: Supervision (lead), Conceptualization (supporting), Writing – review & editing (lead)
+3. Tiêu chí tác giả: ___   Ghi trong phần cảm ơn: ___
+4. Xem lại thứ tự khi: một người nhận thêm hoặc bỏ một luồng việc lớn; tại M2 và M4
+5. Nếu một người rời dự án: phần việc đã làm được ghi nhận thế nào; bàn giao cho ai
+6. Dữ liệu, code và hướng phát triển tiếp sau dự án: ai được dùng, cần báo trước cho ai
+7. Xác nhận của từng người (chữ ký hoặc email, có ngày)
+```
+
+### Họp hằng tuần và cập nhật bất đồng bộ
+
+Buổi họp hằng tuần có giá trị nhất khi nó dành cho **quyết định**, không phải cho việc đọc lại tiến độ. Vì vậy tài liệu họp nên được gửi trước, với phần quyết định đặt lên đầu. Jia-Bin Huang, trong ghi chú về cách làm nghiên cứu hiệu quả với người hướng dẫn (*awesome-tips*), gợi ý gửi kết quả và chương trình họp trước buổi họp, gửi tóm tắt cùng kế hoạch hành động sau buổi họp, và giữ một bộ slide duy nhất cho mọi kết quả của dự án. Template dưới đây đi theo tinh thần đó.
+
+```markdown
+# Họp tuần __ — dự án ____        Ngày: ____   Người ghi: ____
+(gửi trước họp ít nhất một ngày; link tới bộ slide kết quả chung)
+
+## 1. Quyết định cần đưa ra hôm nay
+- Quyết định: ___   Lựa chọn: (a) ___ (b) ___   Đề xuất: (a), vì ___
+
+## 2. Tiến độ so với kế hoạch
+| Thí nghiệm | Claim | Trạng thái | Kết quả so với dự đoán | Link run |
+
+## 3. Vướng mắc
+- Hiện tượng: ___   Đã khoanh vùng tới: ___   Đã loại trừ: ___   Cần giúp: ___
+
+## 4. Rủi ro, ngân sách, độ trễ cho phép
+- Rủi ro thay đổi: ___   GPU-giờ đã dùng / dự kiến: ___   Độ trễ cho phép tới mốc gần nhất: ___
+
+## 5. Kế hoạch tuần tới
+| Việc | Người chịu trách nhiệm | Tiêu chí xong | Hạn |
+
+## 6. Ghi sau họp: quyết định đã chốt; mục nhật ký quyết định số ___
+```
+
+Mục "vướng mắc" có cấu trúc riêng vì một lý do. Trong cùng ghi chú, Huang dẫn lời khuyên từ bản thảo *How To Do Research* của Bill Freeman: đừng bao giờ chỉ nói "nó không chạy", mà hãy khoanh vùng lỗi, theo kiểu *"I've narrowed down the problem to step B."* và *"I've ruled out W and Z as the cause."* (đã khoanh vùng vấn đề tới bước B; đã loại trừ W và Z khỏi danh sách nguyên nhân). Một vướng mắc được khoanh vùng như vậy cho người hướng dẫn chỗ để giúp; một câu "nó không chạy" thì không. Huang còn khuyên không hủy buổi họp khi đang bế tắc, vì đó chính là lúc buổi họp có ích nhất, và nên hỏi giúp đỡ sau khoảng mười lăm phút tìm kiếm không kết quả, thay vì tự vật lộn nhiều ngày.
+
+Giữa các buổi họp, cập nhật bất đồng bộ giữ cho nhóm không lệch nhau. Một cập nhật tốt ngắn, có link tới lần chạy, đối chiếu kết quả với dự đoán, và nêu rõ câu hỏi cần ai trả lời trước khi nào.
+
+```text
+[Cập nhật thứ Ba] Tác giả B
+Đã xong: E3 với bộ khử nhiễu thứ nhất, 3 seed (link tới các run)
+Kết quả: vùng tối +1,1 ± 0,3 mIoU so với baseline; dự đoán là kém NoctDN ít nhất 1,5 -> chưa bác bỏ
+Tiếp theo: bộ khử nhiễu thứ hai, xong thứ Sáu
+Cần quyết định: hàng đợi GPU dài; ưu tiên E3 trước E5? (cần Tác giả A trả lời trước thứ Năm)
+```
+
+Với người hướng dẫn, thời gian quý nhất nên dành cho các cổng quyết định và cho câu chuyện, không phải cho chi tiết thí nghiệm. Hai thói quen giúp điều đó. Thói quen thứ nhất là luôn mang tới buổi họp một quyết định đã được chuẩn bị, gồm các lựa chọn và một đề xuất, để người hướng dẫn có thể đồng ý, phản đối hoặc chỉnh sửa trong vài phút. Thói quen thứ hai là đặt một deadline nội bộ sớm hơn deadline thật. Karpathy, trong *A Survival Guide to a PhD*, kể về thông lệ ở phòng thí nghiệm của Fei-Fei Li: một deadline nội bộ khoảng hai tuần trước hạn nộp, khi đã có bản thảo ít nhất năm trang để được đọc và chấm theo đúng mẫu review của hội nghị. Trong khung của bài này, deadline nội bộ đó là một phần của cổng M4.
+
+## Kế hoạch là tài liệu sống
+
+Kế hoạch được viết ở M0 chắc chắn sẽ sai ở nhiều chỗ, và điều đó không sao, miễn là nó được sửa có phương pháp. Ba công cụ giúp kế hoạch sống: một buổi rà soát hằng tuần, nhật ký quyết định, và một danh sách tín hiệu buộc phải lập lại kế hoạch.
+
+John Schulman, trong *An Opinionated Guide to ML Research* (2020), khuyên giữ một sổ ghi chép nghiên cứu hằng ngày và đọc lại nó mỗi một hai tuần để tóm tắt kết quả, những điều đã học, và các bước tiếp theo. Richard Hamming, trong bài nói *You and Your Research* (1986), kể rằng ông dành các buổi chiều thứ Sáu cho "Great Thoughts Time", thời gian chỉ để nghĩ về những câu hỏi lớn. Buổi rà soát hằng tuần dưới đây kết hợp hai ý đó: phần lớn thời gian dành cho việc cập nhật kế hoạch bằng bằng chứng mới, và câu hỏi cuối dành cho bức tranh lớn.
+
+```text
+RÀ SOÁT KẾ HOẠCH CUỐI TUẦN (khoảng 30 phút)
+[ ] Cập nhật trạng thái ma trận bằng chứng; ô nào vừa đổi?
+[ ] Kết quả nào trái dự đoán? Đã viết mục nhật ký quyết định chưa?
+[ ] Ước lượng khả năng thất bại của các rủi ro chí mạng thay đổi thế nào?
+[ ] Tỉ lệ thời gian và GPU-giờ thực tế so với ước lượng; độ trễ cho phép tới mốc gần nhất
+[ ] Có tín hiệu nào trong danh sách "buộc lập lại kế hoạch" không?
+[ ] Câu hỏi lớn: việc quan trọng nhất của dự án lúc này có đang được làm không?
+[ ] Nếu claim đổi: tăng số phiên bản proposal, cập nhật pitch, commit cùng code
+```
+
+Mỗi thay đổi đáng kể của kế hoạch được ghi vào **nhật ký quyết định**, theo mẫu ở bài [Thực hành: ba dự án đi qua ngõ cụt](../07-tinh-huong-kho/thuc-hanh.md). Nhật ký này và ma trận bằng chứng bổ sung cho nhau: ma trận ghi dự đoán trước khi chạy, nhật ký ghi quyết định sau khi có kết quả, và cả hai được commit cùng code để có dấu thời gian.
+
+Kế hoạch cũng không nên bị sửa theo tâm trạng. Schulman nhận xét rằng, theo kinh nghiệm của ông, đổi bài toán quá thường xuyên và bỏ dở những ý tưởng có triển vọng là lỗi phổ biến hơn việc không chịu đổi, vì kết quả ban đầu của một ý tưởng mới thường gây thất vọng. Vì vậy, việc lập lại kế hoạch nên được kích hoạt bởi những tín hiệu đã định nghĩa trước, như trong bảng dưới đây, chứ không phải bởi một tuần không như ý.
+
+| Tín hiệu | Ví dụ | Phản ứng |
+|---|---|---|
+| Thí nghiệm quyết định trái dự đoán | E1 cho thấy màu quan trọng hơn nhiễu | Xét cổng sớm; viết lại giả thuyết; cập nhật ma trận |
+| Baseline mạnh hơn dự kiến hoặc không tái lập được | Bộ khử nhiễu có sẵn gần bằng phương pháp | Xem lại claim trung tâm; cân nhắc kế hoạch B |
+| Công trình trùng hoặc mô hình nền mới | Một preprint gần giống xuất hiện | Xử lý theo Tình huống 24, 25 ở Chương 7 |
+| Vượt ngân sách | GPU-giờ hoặc thời gian thực tế vượt khoảng 1,5 lần ước lượng tại một mốc | Ước lượng lại toàn bộ phần còn lại; thu hẹp phạm vi |
+| Độ trễ cho phép thành âm | M3 sớm nhất muộn hơn M3 muộn nhất | Cắt phạm vi hoặc đổi deadline ngay, không chờ |
+| Thay đổi về người hoặc venue | Một đồng tác giả rời nhóm; đổi sang hội nghị khác | Cập nhật phân vai, thỏa thuận tác giả, mốc |
+| Ma trận trôi | Hai tuần liền phần lớn GPU dùng cho thí nghiệm không có trong ma trận | Đưa vào ma trận kèm lý do, hoặc dừng lại |
