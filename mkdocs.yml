@@ -106,7 +106,7 @@ nav:
       - "NLP: ACL, EMNLP, NAACL": 00-tong-quan/he-sinh-thai-nlp.md
       - "ML/DL: NeurIPS, ICML, ICLR": 00-tong-quan/he-sinh-thai-ml.md
       - "Speech: Interspeech, ICASSP": 00-tong-quan/he-sinh-thai-speech.md
-      - "IR & Data Mining: SIGIR, KDD, WWW": 00-tong-quan/he-sinh-thai-ir.md
+      - "IR & Data Mining: SIGIR, KDD, TheWebConf": 00-tong-quan/he-sinh-thai-ir.md
       - Paper được đánh giá thế nào: 00-tong-quan/review-process.md
       - Lộ trình thực hiện một paper: 00-tong-quan/lo-trinh.md
   - "1. Nghiên cứu trước khi viết":

@@ -158,3 +158,146 @@ Dưới đây là một bảng đã điền cho một paper Computer Vision gi�
 
 Đọc bảng này, người đọc thấy ngay câu hỏi quyết định của review: C2 là claim cốt lõi, vì nếu cải thiện đến từ teacher mạnh hơn chứ không phải từ loss mới, paper không còn đóng góp gì. Một ablation thay đổi đúng một yếu tố, giữ nguyên teacher, sẽ giải quyết dứt điểm câu hỏi đó. Đây chính là loại weakness cụ thể, có căn cứ và có hướng sửa mà phần cuối bài sẽ dạy cách viết.
 
+## Đánh giá novelty
+
+Trong mọi tiêu chí của form review, novelty là tiêu chí khó đánh giá nhất và cũng là nơi review dễ sai nhất. Lý do thứ nhất là novelty không phải một thuộc tính nhìn thấy được trong paper như một con số trong bảng; nó là một *quan hệ* giữa paper và toàn bộ những gì cộng đồng đã biết, nên đánh giá nó đòi hỏi kiến thức về lĩnh vực mà người mới chưa có nhiều. Lý do thứ hai là có những thiên kiến tâm lý mạnh khiến cả người có kinh nghiệm cũng đánh giá sai. Nhận xét *"limited novelty"* là một trong những lý do reject phổ biến nhất, nhưng cũng là một trong những nhận xét bị tác giả phàn nàn nhiều nhất là thiếu căn cứ. Mục này vì vậy được viết dài nhất trong bài: trước hết làm rõ novelty là gì và không phải là gì, rồi trình bày một quy trình phân tích delta, sáu vị trí mà novelty có thể nằm, ba câu hỏi kiểm tra, cách tìm prior art nhanh, và cuối cùng là ba ví dụ phân tích có ba kết luận khác nhau.
+
+### Novelty là gì, và không phải là gì
+
+Một định nghĩa làm việc hữu ích là: **novelty là lượng hiểu biết mới mà cộng đồng nhận được từ paper, đánh giá tại thời điểm trước khi paper xuất hiện.** Định nghĩa này có hai vế, và mỗi vế loại bỏ một kiểu nhầm lẫn phổ biến.
+
+Vế thứ nhất, "hiểu biết mới mà cộng đồng nhận được", loại bỏ sự nhầm lẫn giữa novelty và độ phức tạp. Trong bài blog *Novelty in Science: A guide for reviewers* (2022), Michael J. Black, nhà nghiên cứu Computer Vision ở Viện Max Planck về Hệ thống Thông minh, cho rằng reviewer thường lẫn lộn novelty với độ phức tạp, độ khó và tính kỹ thuật của một ý tưởng. Theo Black, một kiểu review tồi điển hình là chê một ý tưởng "rất đơn giản, chỉ thay đổi một số hạng trong hàm loss", trong khi việc thay đổi đúng một thứ trong một mạng có sẵn thường là khoa học tốt hơn việc dựng lên một mạng mới phức tạp hơn. Black cũng không đi tới cực đoan ngược lại. Ông viết rằng "a simple idea can be important. But it can also be trivial": một ý tưởng đơn giản có thể quan trọng, nhưng cũng có thể tầm thường. Sự đơn giản không phải bằng chứng của novelty, nó chỉ không phải bằng chứng của việc *thiếu* novelty. Câu hỏi vẫn là cộng đồng học được gì.
+
+Vế thứ hai, "tại thời điểm trước khi paper xuất hiện", nhắm vào **thiên kiến nhìn lại** (*hindsight bias*): khi đã biết một ý tưởng, con người có xu hướng đánh giá quá cao khả năng bản thân đã có thể nghĩ ra nó. Black diễn đạt điểm này bằng một câu ngắn: novelty "must be evaluated before the idea existed", tức phải được đánh giá như thể ý tưởng chưa tồn tại. Một ý tưởng dễ giải thích và trông hiển nhiên sau khi đã đọc không vì thế mà kém sáng tạo. Thiên kiến này đặc biệt nguy hiểm khi reviewer đọc một paper được viết tốt, vì paper viết tốt chính là paper làm cho ý tưởng trông hiển nhiên. Bước dự đoán trước khi đọc trong quy trình ở trên là công cụ chống thiên kiến này: nếu dự đoán ghi lại cho thấy người đọc đã không nghĩ tới hướng đi của paper, thì câu "điều này hiển nhiên" trong review sẽ khó đứng vững.
+
+Black còn nhấn mạnh rằng novelty không chỉ là novelty kỹ thuật. Một dataset làm được điều mà chưa dataset nào làm được là mới; một cách dùng mới cho một phương pháp cũ là mới nếu chưa ai nghĩ tới việc dùng nó như vậy; việc thay một thuật toán phức tạp bằng một thuật toán đơn giản mà vẫn đạt kết quả tương đương mang lại hiểu biết về điều gì thực sự quan trọng. Trước khi chê một paper thiếu novelty kỹ thuật, reviewer nên hỏi novelty thật có nằm ở chỗ khác không (Black, *Novelty in Science*, 2022). Bài [Khi novelty và hiệu quả lệch pha](../07-tinh-huong-kho/novelty-va-hieu-qua.md) ở Chương 7 phân tích kỹ cùng vấn đề này từ phía tác giả, với các ví dụ ResNet, ViT, ConvNeXt và *Understanding deep learning requires rethinking generalization*; ở đây chúng ta đứng ở phía reviewer.
+
+Hướng dẫn reviewer chính thức của các hội nghị lớn cũng đi theo cùng tinh thần, dù diễn đạt khác nhau và thay đổi theo từng năm. Hướng dẫn reviewer của NeurIPS 2026 nói rằng originality không nhất thiết đòi hỏi một phương pháp hoàn toàn mới và có thể mang nhiều hình thức tùy theo mục tiêu của paper. Hướng dẫn này hỏi reviewer liệu paper có đưa ra một sự kết hợp mới các kỹ thuật có sẵn với lý lẽ được trình bày rõ ràng hay không, và lưu ý rằng những ý tưởng mới mà dễ áp dụng trong thực tế có thể đặc biệt có giá trị. Hướng dẫn reviewer của ICLR 2025, khi hỏi về ý nghĩa của đóng góp, ghi chú rằng điều đó không nhất thiết đòi hỏi kết quả state-of-the-art. Hướng dẫn của ACL Rolling Review từ năm 2021 có hẳn một danh sách các heuristic phản biện lười, trong đó "kết quả không mới" mà không kèm trích dẫn và "phương pháp quá đơn giản" đều được nêu tên; danh sách này được phân tích kỹ ở mục về heuristic lười bên dưới. Ở Computer Vision, hướng dẫn reviewer của CVPR qua nhiều năm nhắc rằng quyết định chấp nhận không nên chỉ dựa vào hiệu năng thô của phương pháp. Vì các văn bản này được viết lại hằng năm, người đọc cần mở đúng phiên bản của hội nghị và năm đang review trước khi trích dẫn chúng.
+
+!!! info "Novelty không phải là độ phức tạp, cũng không phải là sự bất ngờ đơn thuần"
+    Ba thứ thường bị nhầm với novelty là độ phức tạp ("phương pháp có nhiều thành phần"), độ khó ("chứng minh dài", "cài đặt khó") và sự bất ngờ đơn thuần ("kết quả lạ"). Một kết quả bất ngờ nhưng không được giải thích có thể chỉ là một lỗi chưa được phát hiện. Câu hỏi đúng luôn quay về một điểm: sau khi đọc paper, cộng đồng biết thêm điều gì đáng tin cậy mà trước đó chưa biết?
+
+### Phân tích delta với ba công trình gần nhất
+
+Novelty là một quan hệ, nên cách đánh giá nó một cách có kỷ luật là đặt paper cạnh những công trình gần nhất và đo khoảng cách. Gọi khoảng cách đó là **delta**. Quy trình dưới đây đủ gọn để làm trong khoảng nửa giờ cho mỗi paper.
+
+Bước đầu tiên là chọn ba công trình gần nhất. Nguồn thứ nhất là chính paper: phần Related Work và bảng so sánh thường cho biết tác giả coi công trình nào là gần nhất. Nguồn thứ hai là kiến thức và cuộc tìm kiếm của người đọc, vì công trình gần nhất thật sự đôi khi không được trích dẫn, hoặc được trích dẫn ở một dòng khiêm tốn trong Related Work thay vì ở bảng so sánh chính. Con số ba không có gì thiêng liêng; nó đủ nhỏ để làm kỹ và đủ lớn để thấy paper từ nhiều phía. Thường thì ba công trình ấy đến từ ba hướng khác nhau: một công trình cùng bài toán với phương pháp khác, một công trình cùng ý tưởng kỹ thuật nhưng ở bài toán khác, và một công trình mới nhất trên cùng benchmark.
+
+Bước thứ hai là điền một bảng delta cho từng công trình. Mỗi dòng trả lời năm câu hỏi: hai công trình *giống nhau* ở đâu, paper nói chúng *khác nhau* ở đâu, khác biệt đó *có thật* không (đọc kỹ công trình kia, không chỉ đọc cách paper mô tả nó), khác biệt đó *có được chứng minh bằng thí nghiệm* không, và khác biệt đó *có quan trọng* không, tức có làm thay đổi kết quả, phạm vi áp dụng hoặc hiểu biết không.
+
+```markdown
+PHÂN TÍCH DELTA
+
+Paper đang đánh giá: <...>
+Câu đóng góp cốt lõi: <...>
+
+| Công trình gần | Giống ở đâu | Khác ở đâu (theo paper) | Khác biệt có thật? | Có thí nghiệm đối chứng? | Khác biệt có quan trọng? |
+|---|---|---|---|---|---|
+| W1 (cùng bài toán) | ... | ... | ... | ... | ... |
+| W2 (cùng kỹ thuật, bài toán khác) | ... | ... | ... | ... | ... |
+| W3 (mới nhất cùng benchmark) | ... | ... | ... | ... | ... |
+
+Delta tổng hợp: <một câu: paper làm được gì mà W1–W3 gộp lại chưa làm được>
+Delta thuộc loại nào: thiết lập / phương pháp / bằng chứng / hiểu biết
+```
+
+Dòng "delta tổng hợp" là chỗ mà nhiều paper lộ ra vấn đề. Một paper có thể khác W1 ở một điểm, khác W2 ở một điểm khác, nhưng nếu ghép W1 và W2 lại thì ra gần đúng paper, delta tổng hợp chỉ còn là việc ghép. Đó là dạng "A + B" mà bài [Thẩm định ý tưởng](y-tuong.md) đã cảnh báo người viết. Với reviewer, phát hiện này chưa phải là kết luận: như hướng dẫn NeurIPS nói, một sự kết hợp có thể có giá trị nếu lý do của nó được trình bày rõ, chẳng hạn khi paper chỉ ra vì sao kết hợp ngây thơ thất bại và làm thế nào để nó thành công. Nhưng phát hiện này chuyển gánh nặng chứng minh: paper phải cho thấy sự kết hợp mang lại điều gì mà từng thành phần riêng lẻ không mang lại.
+
+Các loại delta cũng có trọng lượng khác nhau. **Delta về thiết lập** (cùng phương pháp, bài toán hoặc dữ liệu mới) có giá trị khi thiết lập mới đặt ra một thách thức thật mà phương pháp cũ không tự giải được. **Delta về phương pháp** có giá trị khi thay đổi được chứng minh là nguyên nhân của cải thiện. **Delta về bằng chứng** (cùng claim, nhưng bằng chứng chặt hơn hẳn, chẳng hạn một đánh giá công bằng lật lại kết luận cũ) thường bị đánh giá thấp nhưng có thể rất có giá trị. **Delta về hiểu biết** (giải thích vì sao một điều đã biết lại xảy ra) là loại khó đạt nhất và thường được nhớ lâu nhất.
+
+### Novelty nằm ở đâu: sáu vị trí
+
+Sau khi có delta, câu hỏi tiếp theo là novelty của paper nằm ở vị trí nào. Có thể phân biệt sáu vị trí, mỗi vị trí có một câu hỏi kiểm tra riêng.
+
+**Novelty ở bài toán.** Paper đặt ra một câu hỏi mà trước đó chưa ai đặt, hoặc định nghĩa lại một bài toán cũ theo cách mở ra hướng mới. Panoptic Segmentation hợp nhất hai bài toán phân đoạn thành một, kèm metric riêng; NeRF đặt việc tổng hợp góc nhìn thành bài toán học một hàm liên tục của cảnh. Câu hỏi kiểm tra: cách đặt bài toán mới có *đúng đắn và có ích* không, tức có cho phép làm điều mà cách cũ không làm được không, hay chỉ là đổi tên?
+
+**Novelty ở phương pháp.** Paper đề xuất một cách làm mới cho một bài toán đã rõ. Câu hỏi kiểm tra: thay đổi nào là mới, và ablation có cho thấy chính thay đổi đó tạo ra cải thiện không?
+
+**Novelty ở phát hiện.** Paper cho thấy một điều trước đó chưa được biết về hành vi của mô hình, dữ liệu hay phương pháp. *Understanding deep learning requires rethinking generalization* (ICLR 2017) không có phương pháp mới; novelty nằm ở phát hiện rằng mạng sâu khớp được cả nhãn ngẫu nhiên. Câu hỏi kiểm tra: phát hiện có được kiểm soát chặt, có loại trừ được các giải thích khác, và có đúng ngoài một thiết lập không?
+
+**Novelty ở đánh giá.** Paper đề xuất một cách đo mới, hoặc một đánh giá công bằng làm thay đổi bức tranh. CheckList (ACL 2020) đưa kiểm thử hành vi vào NLP; *A Metric Learning Reality Check* (ECCV 2020) cho thấy nhiều cải tiến được báo cáo trong metric learning nhỏ hơn nhiều khi được so sánh trong cùng thiết lập. Câu hỏi kiểm tra: cách đánh giá mới có phát hiện được điều mà cách cũ bỏ sót không, và có đủ đơn giản để người khác dùng lại không?
+
+**Novelty ở tài nguyên.** Paper đóng góp một dataset, benchmark, mô hình hay công cụ mà cộng đồng chưa có. Câu hỏi kiểm tra: tài nguyên này làm được gì mà các tài nguyên hiện có không làm được, và chất lượng của nó có được kiểm chứng không?
+
+**Novelty ở lý thuyết.** Paper chứng minh một kết quả mới: một đảm bảo hội tụ dưới giả định yếu hơn, một cận chặt hơn, một sự tương đương giữa hai phương pháp. Câu hỏi kiểm tra: giả định có hợp lý với thực tế không, kết quả có thông tin (*informative*) không hay chỉ đúng một cách trống rỗng, và kỹ thuật chứng minh có mới không hay chỉ áp dụng trực tiếp một kỹ thuật đã biết?
+
+Một paper có thể có novelty ở nhiều vị trí, nhưng việc gọi đúng vị trí chính quan trọng vì nó quyết định thước đo. Bảng dưới đây tóm tắt sáu vị trí cùng câu hỏi kiểm tra và dấu hiệu cho thấy novelty ở vị trí đó còn mỏng.
+
+| Vị trí | Câu hỏi kiểm tra | Dấu hiệu novelty mỏng |
+|---|---|---|
+| Bài toán | Cách đặt mới có cho phép làm điều cách cũ không làm được không? | Bài toán mới chỉ là bài toán cũ đổi tên hoặc thêm một ràng buộc không ai cần |
+| Phương pháp | Chính thay đổi mới có tạo ra cải thiện không? | Ablation không cô lập được thay đổi; cải thiện biến mất khi tune baseline |
+| Phát hiện | Phát hiện có kiểm soát chặt, tổng quát, và trước đó chưa biết? | Chỉ khẳng định lại điều cộng đồng đã ngầm biết, hoặc chỉ đúng ở một thiết lập |
+| Đánh giá | Cách đo mới có làm lộ điều cách cũ bỏ sót? | Metric mới tương quan gần như hoàn toàn với metric cũ |
+| Tài nguyên | Tài nguyên làm được gì mà tài nguyên hiện có không làm được? | Quy mô lớn hơn nhưng không mở ra câu hỏi mới; chất lượng nhãn không được kiểm chứng |
+| Lý thuyết | Giả định có hợp lý, kết quả có thông tin, kỹ thuật có mới? | Giả định không bao giờ thỏa trong thực tế; chứng minh là áp dụng trực tiếp kết quả đã biết |
+
+### Ba câu hỏi kiểm tra
+
+Phân tích delta và sáu vị trí cho một bức tranh có cấu trúc. Ba câu hỏi dưới đây giúp chuyển bức tranh đó thành một phán đoán.
+
+**Câu hỏi thứ nhất: một chuyên gia có đoán trước được kết quả không?** Nếu một người am hiểu lĩnh vực, khi chỉ được nghe mô tả thí nghiệm, sẽ đoán đúng kết quả với độ chắc chắn cao, thì paper mang lại ít thông tin mới, dù thí nghiệm có được làm cẩn thận đến đâu. Ngược lại, nếu các chuyên gia sẽ đoán sai, hoặc chia rẽ trong dự đoán, thì kết quả có giá trị thông tin cao. Câu hỏi này cần được dùng thận trọng vì hai lý do. Thứ nhất, nó chỉ trả lời được trung thực *trước khi* biết kết quả, nên bước dự đoán trong quy trình là điều kiện tiên quyết. Thứ hai, "đoán được" không đồng nghĩa với "đã được biết". Hướng dẫn của ACL Rolling Review nêu đúng điểm này khi giải thích vì sao nhận xét "kết quả không bất ngờ" là một heuristic lười: nhiều phát hiện trông hiển nhiên khi nhìn lại, nhưng điều đó không có nghĩa là cộng đồng đã biết chúng và có thể dùng chúng làm nền móng cho các công trình sau (Rogers & Augenstein, *How to review for ACL Rolling Review*, 2021). Một kết quả mà mọi người đều đoán nhưng chưa ai kiểm chứng một cách nghiêm túc vẫn có giá trị, chỉ là giá trị đó nằm ở bằng chứng chứ không ở ý tưởng, và paper cần được đánh giá theo đúng tiêu chí đó.
+
+**Câu hỏi thứ hai: ai sẽ thay đổi cách làm sau khi đọc paper?** Đây là cách cụ thể hóa tiêu chí significance. Thay vì hỏi chung chung "paper có quan trọng không", người đọc hình dung một người cụ thể: một kỹ sư huấn luyện detector, một nhà nghiên cứu xây benchmark đa ngôn ngữ, một người viết thư viện tối ưu. Sau khi đọc paper, người đó có làm khác đi không? Họ có thêm một bước vào pipeline, bỏ một thành phần không cần thiết, đổi cách đánh giá, hay tránh một sai lầm? Nếu không hình dung được ai, paper có thể đúng và mới nhưng không quan trọng. Nếu hình dung được một nhóm người cụ thể và một thay đổi cụ thể, đó là lý lẽ mạnh nhất để bảo vệ paper trước AC. Câu hỏi này cũng giúp tránh một lỗi ngược: chê một paper vì "chủ đề hẹp" trong khi với một cộng đồng con, paper có thể làm thay đổi hoàn toàn cách làm việc.
+
+**Câu hỏi thứ ba: novelty có nằm đúng chỗ paper tự nhận không?** Đây là câu hỏi mà người mới ít khi đặt ra, nhưng thường dẫn tới những nhận xét có giá trị nhất. Có ba trường hợp. Trong trường hợp thứ nhất, novelty nằm đúng chỗ paper nhận, và đánh giá đi theo hướng bình thường. Trong trường hợp thứ hai, paper nhận novelty ở phương pháp nhưng phương pháp gần như trùng với một công trình đã có, trong khi một phát hiện, một dataset hoặc một phân tích trong paper mới là phần thực sự mới. Reviewer lúc này có thể giúp tác giả rất nhiều bằng cách chỉ ra điều đó, thay vì chỉ kết luận "thiếu novelty". Trong trường hợp thứ ba, paper nhận novelty ở một chỗ mà bằng chứng không đỡ được, chẳng hạn nhận là hiểu biết về cơ chế nhưng không có thí nghiệm nào đo trực tiếp cơ chế. Ba trường hợp này dẫn tới ba loại review rất khác nhau, như các ví dụ ở cuối mục sẽ cho thấy.
+
+```mermaid
+flowchart TD
+  A["Delta tổng hợp với<br/>công trình gần nhất"] --> B{"Có hiểu biết mới<br/>sau khi đọc không?"}
+  B -->|"Không"| X["Novelty thiếu:<br/>nêu rõ công trình đã có"]
+  B -->|"Có"| C{"Novelty nằm đúng chỗ<br/>paper tự nhận?"}
+  C -->|"Đúng"| D{"Bằng chứng có đỡ<br/>được novelty đó?"}
+  C -->|"Sai chỗ"| Y["Novelty có nhưng lệch:<br/>gợi ý đóng khung lại"]
+  D -->|"Có"| Z["Novelty đủ:<br/>đánh giá tiếp significance"]
+  D -->|"Chưa"| W["Novelty tiềm năng:<br/>nêu thí nghiệm cần bổ sung"]
+```
+
+### Tìm prior art nhanh khi review
+
+Câu hỏi "đã có ai làm điều này chưa" đòi hỏi tìm kiếm, nhưng reviewer không có vài tuần như người đang thẩm định ý tưởng của chính mình. Quy trình tìm kiếm ba tầng trong bài [Thẩm định ý tưởng](y-tuong.md), gồm từ khóa, trích dẫn và con người, vẫn là khung đúng; phiên bản dành cho reviewer chỉ cần gọn hơn và có giới hạn thời gian, chẳng hạn hai mươi đến ba mươi phút.
+
+Điểm xuất phát hiệu quả nhất là chính danh sách tài liệu tham khảo của paper. Công trình gần nhất mà paper trích dẫn là hạt giống tốt: đi tiến theo "Cited by" của nó trong khoảng một hai năm gần nhất thường làm lộ ra những công trình làm cùng hướng. Tiếp theo là tìm theo từ khóa với vài cách diễn đạt khác nhau của ý tưởng, kể cả thuật ngữ mà cộng đồng lân cận có thể dùng, vì cùng một ý tưởng thường mang những tên rất khác nhau ở Computer Vision, NLP, thống kê hay xử lý tín hiệu. OpenReview đáng được tra riêng, vì ở đó còn lưu những bài nộp ICLR đã bị reject hoặc rút, vốn không xuất hiện trong các proceedings. Cuối cùng, kiến thức của chính reviewer về những công trình cũ hơn, nhất là trước thời kỳ học sâu, thường là thứ mà công cụ tìm kiếm khó thay thế.
+
+Hai giới hạn cần được tôn trọng trong lúc tìm kiếm. Thứ nhất là bảo mật: tìm kiếm bằng từ khóa do reviewer tự đặt là bình thường, nhưng dán nội dung paper đang review vào một công cụ trực tuyến, kể cả công cụ tìm kiếm dựa trên LLM, là vi phạm nghĩa vụ bảo mật (xem mục về bảo mật ở phần sau). Thứ hai là ẩn danh: nhiều hội nghị yêu cầu reviewer không chủ động tìm cách xác định danh tính tác giả, nên việc tìm kiếm nên nhắm vào ý tưởng chứ không nhắm vào việc tìm bản preprint của chính paper. Chi tiết của quy định này khác nhau giữa các hội nghị và cần được đọc trong hướng dẫn reviewer của năm đó.
+
+### "Đã có người làm" và "đã có người nghĩ tới"
+
+Khi tìm thấy một công trình có vẻ giống paper, reviewer cần xác định chính xác mức độ trùng lặp trước khi viết bất cứ điều gì. Có một khoảng cách lớn giữa việc một ý tưởng *đã được ai đó nghĩ tới* và việc nó *đã được ai đó làm*. Một câu trong phần Future Work của một paper khác, một đoạn trong bài blog, một gợi ý trong slide bài giảng đều cho thấy ý tưởng đã được nghĩ tới; chúng không lấy đi novelty của việc biến ý tưởng thành hiện thực, chứng minh nó hoạt động và giải thích vì sao. Ngược lại, một paper đã cài đặt cùng ý tưởng, trong cùng thiết lập, với bằng chứng tương đương, thì đúng là đã làm, và novelty của paper mới về ý tưởng đó gần như không còn.
+
+Giữa hai cực là nhiều mức trung gian, và kết luận của reviewer phụ thuộc vào mức nào. Bảng dưới đây gợi ý cách phân biệt.
+
+| Mức độ trùng lặp | Ví dụ | Hệ quả cho đánh giá novelty |
+|---|---|---|
+| Được nhắc tới như một khả năng | Một câu trong Future Work, một đoạn blog | Novelty của việc thực hiện và chứng minh vẫn còn nguyên; paper nên trích dẫn |
+| Được đề xuất nhưng không kiểm chứng | Một ý tưởng trong position paper, không có thí nghiệm | Novelty nằm ở bằng chứng và ở các điều chỉnh cần thiết để ý tưởng hoạt động |
+| Được làm trong thiết lập khác | Cùng kỹ thuật ở lĩnh vực khác hoặc quy mô khác | Novelty phụ thuộc vào việc chuyển sang thiết lập mới có đòi hỏi gì không tầm thường |
+| Được làm trong cùng thiết lập, bằng chứng yếu hơn | Cùng ý tưởng, ít dataset, không ablation | Novelty nằm ở bằng chứng chặt hơn; paper phải tự định vị như vậy |
+| Được làm trong cùng thiết lập, bằng chứng tương đương | Gần như trùng khớp | Novelty về ý tưởng không còn; chỉ còn những phần khác biệt thật |
+
+Dù ở mức nào, có một nguyên tắc không có ngoại lệ: **nhận xét "đã có người làm" phải kèm trích dẫn cụ thể.** Hướng dẫn ARR nêu điều này một cách thẳng thắn khi xếp "kết quả không mới" vào danh sách heuristic lười, với lời giải thích rằng những khẳng định rộng như vậy cần được chứng minh bằng tài liệu tham khảo (Rogers & Augenstein, 2021). Một reviewer viết "this idea is well known" mà không dẫn được nguồn đang đòi tác giả chứng minh một điều phủ định, điều mà tác giả không thể làm. Nếu reviewer tin rằng ý tưởng đã có nhưng không nhớ nguồn, cách viết trung thực là nói rõ mức độ chắc chắn của mình và hỏi tác giả, thay vì khẳng định.
+
+### Concurrent work
+
+Một trường hợp đặc biệt của "đã có người làm" là khi công trình trùng lặp xuất hiện rất gần thời điểm nộp bài. Hai nhóm độc lập đi tới cùng một ý tưởng gần như cùng lúc là chuyện thường gặp trong một lĩnh vực phát triển nhanh, và các hội nghị đều có quy định để bảo vệ tác giả trong tình huống này. Hướng dẫn ARR những năm 2021–2022, chẳng hạn, nêu rằng theo chính sách của ACL, tác giả không bắt buộc so sánh với công trình đồng thời, được hiểu là công trình công bố trong vòng ba tháng trước thời điểm nộp hoặc nộp lại, và xếp yêu cầu so sánh với những công trình như vậy vào danh sách heuristic lười (Rogers & Augenstein, 2021). Các hội nghị CV và ML có quy định riêng, với khoảng thời gian và cách định nghĩa "công bố" khác nhau, và các quy định này thay đổi theo năm; reviewer cần đọc đúng phiên bản trong hướng dẫn của hội nghị mình đang review.
+
+Với reviewer, quy định này có hai hệ quả thực tế. Thứ nhất, không được hạ điểm novelty chỉ vì một preprint xuất hiện vài tuần trước deadline có ý tưởng tương tự. Thứ hai, reviewer vẫn có thể, và nên, đề nghị tác giả *thảo luận* công trình đó trong bản sửa, vì điều đó giúp người đọc. Cách xử lý từ phía tác giả, gồm cách viết câu "Concurrent with our work…", đã được trình bày trong bài [Thẩm định ý tưởng](y-tuong.md).
+
+### Ví dụ: phân tích novelty cho ba paper giả định
+
+Ba ví dụ dưới đây (đều là ví dụ giả định) áp dụng toàn bộ quy trình trên cho ba paper ở ba cộng đồng, và đi tới ba kết luận khác nhau. Mục đích là cho thấy cùng một bộ công cụ có thể dẫn tới "novelty đủ", "novelty có nhưng lệch chỗ" và "novelty không đủ", tùy vào điều mà phân tích tìm ra.
+
+**Ví dụ thứ nhất, Computer Vision: phương pháp đơn giản, novelty nằm ở chẩn đoán.** Paper khảo sát các mô hình ước lượng độ sâu từ một ảnh (*monocular depth estimation*) và tập trung vào một kiểu thất bại quen thuộc: độ sâu dự đoán sai nghiêm trọng trên gương, kính và bề mặt phản chiếu. Paper chẩn đoán rằng nguyên nhân không nằm ở kiến trúc mà ở nhãn huấn luyện: cảm biến độ sâu dùng để tạo nhãn trả về giá trị sai có hệ thống trên các bề mặt này, nên mô hình học đúng cái sai của nhãn. Lời giải là một bộ phát hiện vùng phản chiếu nhẹ để loại các vùng đó khỏi loss khi huấn luyện, cộng với một tập đánh giá mới gồm vài nghìn ảnh có nhãn độ sâu được đo lại thủ công trên vùng phản chiếu. Kết quả: lỗi trên vùng phản chiếu giảm rất mạnh ở ba kiến trúc khác nhau, lỗi trên phần còn lại của ảnh gần như không đổi.
+
+Ba công trình gần nhất là một kiến trúc chuyên biệt cho vật thể trong suốt, một họ phương pháp loss bền vững với nhãn nhiễu dùng cho độ sâu, và một dataset phân đoạn gương. Delta với W1: W1 thêm một nhánh mạng chuyên biệt và giả định vấn đề nằm ở năng lực biểu diễn; paper cho thấy chỉ sửa nhãn đã vượt W1, nên giả định của W1 sai. Delta với W2: loss bền vững xử lý nhiễu ngẫu nhiên, còn lỗi ở đây là lỗi có hệ thống, và paper có thí nghiệm cho thấy loss bền vững không xóa được nó. Delta với W3: W3 chỉ phân đoạn, không đề cập tới nhãn độ sâu. Novelty nằm ở *phát hiện* (nguyên nhân là nhãn chứ không phải kiến trúc) và ở *tài nguyên* (tập đánh giá), trong khi phương pháp thì đơn giản. Ba câu hỏi kiểm tra cho kết quả rõ: một chuyên gia có lẽ sẽ đoán cần kiến trúc chuyên biệt, như W1 đã làm; những người xây dataset độ sâu và huấn luyện mô hình độ sâu sẽ thay đổi cách làm; và paper tự nhận novelty ở chẩn đoán và tập đánh giá, đúng chỗ. **Kết luận: novelty đủ.** Một reviewer chê "phương pháp chỉ là che loss" đang mắc đúng lỗi mà Black mô tả. Điểm yếu thật cần nêu nằm ở chỗ khác: bộ phát hiện vùng phản chiếu được huấn luyện trên dataset nào, và lỗi của nó ảnh hưởng thế nào tới kết quả cuối.
+
+**Ví dụ thứ hai, NLP: novelty có thật nhưng nằm sai chỗ.** Paper đề xuất một phương pháp hỏi đáp xuyên ngôn ngữ cho các ngôn ngữ ít tài nguyên: dịch câu hỏi sang tiếng Anh, truy xuất tài liệu tiếng Anh, sinh câu trả lời bằng một mô hình ngôn ngữ lớn, rồi lấy câu trả lời phổ biến nhất qua nhiều lần dịch khác nhau. Paper trình bày pipeline này như đóng góp chính. Đồng thời, để đánh giá, nhóm tác giả xây một bộ câu hỏi gồm mười hai ngôn ngữ ít tài nguyên, do người bản ngữ viết trực tiếp chứ không dịch từ tiếng Anh, và phát hiện rằng trên bộ dữ liệu này, cách tiếp cận "dịch rồi xử lý bằng tiếng Anh" vượt các mô hình đa ngôn ngữ xử lý trực tiếp ở chín trên mười hai ngôn ngữ, ngược với kết luận của nhiều đánh giá trước đó dùng câu hỏi dịch từ tiếng Anh.
+
+Phân tích delta cho thấy phương pháp gần như là ghép ba thành phần đã biết: kiểu tiếp cận dịch câu hỏi sang tiếng Anh trước khi xử lý (*translate-test*) đã có từ lâu, truy xuất cho hỏi đáp mở cũng vậy, và việc lấy câu trả lời phổ biến nhất qua nhiều lần sinh là một kỹ thuật quen thuộc. Delta tổng hợp về phương pháp rất nhỏ. Nhưng delta về *đánh giá* và *phát hiện* thì lớn: một bộ câu hỏi bản ngữ cho mười hai ngôn ngữ là tài nguyên chưa có, và việc kết luận đảo ngược khi câu hỏi được viết bởi người bản ngữ là một phát hiện mà một chuyên gia khó đoán trước, với hệ quả trực tiếp cho cách cộng đồng đánh giá mô hình đa ngôn ngữ. Câu hỏi thứ ba trả lời "không": novelty có thật, nhưng không nằm ở chỗ paper tự nhận. **Kết luận: novelty có nhưng lệch chỗ.** Review nên nói thẳng rằng đóng góp phương pháp là hạn chế, đồng thời chỉ ra rằng tài nguyên và phát hiện về hiệu ứng của câu hỏi dịch là phần có giá trị nhất, đề nghị tác giả đóng khung lại paper quanh phần đó, và nêu những phân tích cần thêm để phát hiện đứng vững: phân tích vì sao câu hỏi dịch làm lệch kết quả, kiểm soát độ khó giữa hai loại câu hỏi, và kiểm tra trên nhiều mô hình. Đây là loại review có thể giúp một paper borderline trở thành một paper tốt ở lần nộp sau. Bản review mẫu đầy đủ ở phần cuối bài được viết cho chính paper này.
+
+**Ví dụ thứ ba, Machine Learning: novelty không đủ vì đã có người làm.** Paper đề xuất một quy tắc cắt gradient (*gradient clipping*) thích nghi, trong đó ngưỡng cắt cho mỗi lớp được đặt tỉ lệ với chuẩn của trọng số lớp đó, kèm thí nghiệm cho thấy quy tắc này giúp huấn luyện ổn định hơn với batch lớn trên một số tác vụ, và một cận hội tụ trong thiết lập lồi trơn. Paper khẳng định đây là quy tắc cắt gradient đầu tiên dựa trên tỉ lệ giữa gradient và trọng số.
+
+Tìm kiếm theo trích dẫn từ các paper về huấn luyện với batch lớn mà chính paper trích dẫn dẫn tới một công trình ở cộng đồng thị giác, công bố hai năm trước, đề xuất cắt gradient theo từng đơn vị dựa trên đúng tỉ lệ giữa chuẩn gradient và chuẩn trọng số, được kiểm chứng trên ImageNet với nhiều kiến trúc và kèm ablation chi tiết. Công trình này dùng một tên gọi khác và không xuất hiện trong Related Work của paper. Đây không phải trường hợp "đã có người nghĩ tới" mà là "đã có người làm", trong cùng loại thiết lập và với bằng chứng ít nhất là tương đương. Phần còn lại là cận hội tụ, nhưng cận này được suy ra trực tiếp từ một kết quả đã biết cho cắt gradient với ngưỡng cố định, và giả định lồi trơn khiến nó ít nói lên điều gì về các thí nghiệm học sâu trong paper. **Kết luận: novelty không đủ cho claim chính.** Review cần trích dẫn chính xác công trình đã có, mô tả cụ thể mức độ trùng lặp, và tránh giọng buộc tội: rất có thể nhóm tác giả không biết công trình kia vì khác tên gọi và khác cộng đồng. Review cũng có thể gợi ý một hướng có ích: nếu paper chuyển thành một phân tích về *vì sao* quy tắc này hoạt động, với các thí nghiệm có kiểm soát trên nhiều loại tác vụ mà công trình cũ chưa thử, đó có thể là một đóng góp khác, cần được đánh giá lại từ đầu.
+
+Ba ví dụ có chung một điểm đáng chú ý: trong cả ba, kết luận về novelty không đến từ cảm giác "mới" hay "cũ" khi đọc, mà từ một phân tích có thể viết ra, kiểm tra và tranh luận được. Đó là điều phân biệt một nhận xét về novelty có giá trị với một heuristic lười.
+

@@ -30,6 +30,8 @@ Câu chuyện này dài hơn những câu chuyện một dòng khác trong chư�
 
 ### Phân tích câu chuyện và cấu trúc
 
+**Title hai chữ, abstract ba trụ.** Title *"Segment Anything"* là một lời tuyên bố tham vọng, gần như một khẩu hiệu, và không nói phương pháp là gì. Kiểu title này chỉ đứng được khi quy mô bằng chứng tương xứng, như bài [Title](../02-viet-tung-phan/title.md) lưu ý. Abstract thì rất cụ thể: câu đầu gói cả bộ khung (một task, một model và một dataset mới cho phân đoạn ảnh), câu tiếp theo nêu con số ấn tượng nhất (hơn một tỷ mask trên 11 triệu ảnh có giấy phép và tôn trọng quyền riêng tư), và claim về kết quả được hiệu chỉnh cẩn thận: hiệu năng zero-shot "thường" cạnh tranh, thậm chí vượt các kết quả có giám sát trước đó, chứ không phải lúc nào cũng vượt. Sự tương phản giữa một title táo bạo và một abstract chừng mực là điều đáng học.
+
 **Ba câu hỏi làm khung cho toàn bộ paper.** Introduction của SAM được tổ chức quanh ba câu hỏi: task nào cho phép chuyển giao zero-shot? Kiến trúc mô hình tương ứng là gì? Dữ liệu nào có thể nuôi task và mô hình đó? Mỗi câu hỏi được trả lời trong một phần riêng của paper. Cấu trúc này giống cách MAE dẫn dắt bằng câu hỏi (xem [MAE](mae-ldm.md#mae)), nhưng ở quy mô lớn hơn: thay vì một câu hỏi với ba góc nhìn, đây là ba câu hỏi với ba phần trả lời. Người đọc luôn biết đang ở câu hỏi nào và còn bao nhiêu câu hỏi phía trước.
 
 **Ba trụ biện minh cho nhau.** Điểm tinh tế nhất trong cách viết của SAM là cho thấy sự phụ thuộc giữa ba trụ. Task đòi hỏi mô hình trả về một mask hợp lệ cho bất kỳ prompt nào (điểm, hộp, mask thô hay văn bản). Data engine cần mô hình phản hồi gần như tức thời để người chú thích có thể dùng tương tác. Từ đó, kiến trúc được thiết kế với một image encoder nặng (một ViT được pre-train bằng [MAE](mae-ldm.md#mae)) chỉ chạy một lần cho mỗi ảnh, cùng với prompt encoder và mask decoder rất nhẹ, có thể chạy trong trình duyệt với độ trễ chỉ vài chục mili giây cho mỗi prompt. Như vậy, một quyết định kiến trúc được biện minh bằng nhu cầu của data engine, chứ không chỉ bằng độ chính xác. Khi người đọc thấy các lựa chọn được giải thích bằng sự phụ thuộc lẫn nhau như vậy, họ hiểu rằng đây là một hệ thống được thiết kế có chủ đích chứ không phải một tập hợp đóng góp được gom lại cho đủ.
@@ -80,6 +82,8 @@ Khó khăn nằm ở dữ liệu và ở bản thân mô hình lớn. Dữ liệ
 Câu chuyện này đóng khung bài toán như một bài toán bảo toàn: thành công được định nghĩa bằng hai tiêu chí, tuân theo điều kiện và giữ nguyên chất lượng của mô hình gốc. Cách đóng khung ấy quyết định cả thiết kế lẫn cách đánh giá ở phần sau.
 
 ### Phân tích câu chuyện và cấu trúc
+
+**Title mô tả, abstract nêu cơ chế.** Title *"Adding Conditional Control to Text-to-Image Diffusion Models"* mở bằng một động từ và nói đúng việc paper làm; tên ControlNet không xuất hiện trong title mà được giới thiệu ngay ở câu đầu abstract. Abstract đi thẳng vào cơ chế: khóa mô hình lớn đã sẵn sàng cho sản phẩm, tái sử dụng các lớp encoding của nó làm backbone, và nối hai bên bằng zero convolution để không có nhiễu có hại nào ảnh hưởng tới quá trình fine-tune. Abstract cũng báo trước hai trục bằng chứng chính: nhiều loại điều kiện (cạnh, độ sâu, phân đoạn, tư thế người…), dùng riêng lẻ hay kết hợp, có hoặc không có prompt; và việc huấn luyện bền vững với cả dataset nhỏ (dưới 50 nghìn ảnh) lẫn lớn (trên một triệu ảnh).
 
 **Mỗi thành phần trả lời một vấn đề con.** Thiết kế của ControlNet có thể đọc như lời giải cho ba vấn đề con, và paper trình bày chúng theo đúng logic đó.
 
