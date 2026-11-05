@@ -35,9 +35,9 @@ Hệ quả của cơ chế này là **mỗi dòng đều đắt giá**. Vì khô
 
 ### Machine Learning: phản hồi từng reviewer và thảo luận nhiều vòng
 
-Ở NeurIPS, ICML và ICLR, toàn bộ quá trình diễn ra trên OpenReview. Tác giả đăng phản hồi dưới dạng bình luận cho **từng review**, mỗi phản hồi thường có giới hạn số ký tự, cộng thêm một **general response** (hay global response) gửi tới tất cả reviewer để trình bày các điểm chung và kết quả bổ sung. Một số năm cho phép đính kèm một trang PDF chứa hình và bảng vào general response; một số năm chỉ cho phép văn bản. OpenReview hiển thị được Markdown và công thức toán dạng LaTeX, nên bảng kết quả nhỏ có thể trình bày trực tiếp trong bình luận.
+Ở NeurIPS, ICML và ICLR, toàn bộ quá trình diễn ra trên OpenReview. Tác giả đăng phản hồi dưới dạng bình luận cho **từng review**, mỗi phản hồi thường có giới hạn số ký tự, và ở nhiều hội nghị, nhiều năm còn có thêm một **general response** (hay global response) gửi tới tất cả reviewer để trình bày các điểm chung và kết quả bổ sung. Hình thức này không cố định: một số năm NeurIPS cho phép đính kèm một trang PDF chứa hình và bảng vào global response, nhưng NeurIPS 2025 đã bỏ hẳn global response, nâng giới hạn của mỗi phản hồi riêng lên 10.000 ký tự và cấm mọi đường link trong phản hồi. OpenReview hiển thị được Markdown và công thức toán dạng LaTeX, nên bảng kết quả nhỏ có thể trình bày trực tiếp trong bình luận.
 
-Sau phản hồi ban đầu là giai đoạn **thảo luận** giữa tác giả và reviewer, kéo dài từ một tới vài tuần tùy hội nghị: reviewer có thể hỏi thêm, tác giả trả lời, và reviewer có thể điều chỉnh điểm. ICML trong những năm gần đây giới hạn số vòng trao đổi chặt hơn. ICLR có giai đoạn thảo luận dài nhất và **cho phép tải lên bản PDF đã sửa** trong lúc thảo luận; hơn nữa, review và thảo luận ở ICLR được công khai, nên bất kỳ ai cũng có thể đọc và đôi khi bình luận.
+Sau phản hồi ban đầu là giai đoạn **thảo luận** giữa tác giả và reviewer, kéo dài từ một tới vài tuần tùy hội nghị: reviewer có thể hỏi thêm, tác giả trả lời, và reviewer có thể điều chỉnh điểm. ICML trong những năm gần đây giới hạn chặt hơn: ở ICML 2025, mỗi phản hồi là văn bản thuần với giới hạn khoảng 5.000 ký tự, giai đoạn thảo luận chỉ cho thêm một lượt trao đổi, và không được tải lên bản paper đã sửa. ICLR có giai đoạn thảo luận dài nhất và **cho phép tải lên bản PDF đã sửa** trong lúc thảo luận; hơn nữa, review và thảo luận ở ICLR được công khai, nên bất kỳ ai cũng có thể đọc và đôi khi bình luận.
 
 Hệ quả là chiến lược ở ML giống một cuộc đối thoại hơn là một bản tuyên bố. Tác giả cần trả lời đúng trọng tâm từng reviewer, theo dõi thảo luận hằng ngày, và phản hồi kịp thời khi có câu hỏi mới. Mặt khác, cũng cần tránh "nhấn chìm" reviewer bằng những phản hồi dài nhiều nghìn chữ: một reviewer bận rộn sẽ không đọc hết, và AC có thể coi đó là dấu hiệu paper cần sửa quá nhiều. Gần cuối giai đoạn thảo luận, nhiều nhóm tác giả đăng thêm một bình luận tóm tắt cho AC, liệt kê mối lo nào đã được giải quyết và reviewer nào đã xác nhận.
 
@@ -51,9 +51,9 @@ Bảng dưới đây tổng hợp ba cơ chế để tiện đối chiếu. Các
 
 | Khía cạnh | Computer Vision | Machine Learning | NLP (ARR) |
 |---|---|---|---|
-| Hình thức | Một trang PDF theo template | Bình luận văn bản cho từng review + general response | Bình luận văn bản cho từng review |
+| Hình thức | Một trang PDF theo template | Bình luận văn bản cho từng review, có năm kèm general response | Bình luận văn bản cho từng review |
 | Giới hạn | Một trang | Giới hạn ký tự mỗi phản hồi | Theo hướng dẫn của chu kỳ |
-| Số vòng | Một lần | Nhiều vòng trong giai đoạn thảo luận | Thường một lượt phản hồi chính |
+| Số vòng | Một lần | Từ một lượt bổ sung (ICML) tới nhiều vòng (ICLR) | Một giai đoạn phản hồi ngắn; mức trao đổi tiếp với reviewer tùy chu kỳ |
 | Sửa paper trong lúc review | Không | ICLR cho phép tải PDF đã sửa | Không; sửa ở chu kỳ sau |
 | Người quyết định | AC, sau thảo luận nội bộ | AC, sau thảo luận | Tác giả chọn commit; PC hội nghị quyết định |
 | Công khai | Không | ICLR công khai review và thảo luận | Không |
@@ -88,7 +88,7 @@ Cột "Loại" là phần cần giảng kỹ nhất, vì mỗi loại ý kiến 
 
 **Hiểu lầm.** Reviewer hiểu sai một điểm mà paper thực ra đã trình bày. Phản ứng tự nhiên là bực bội, nhưng cách tiếp cận hiệu quả là nhận trách nhiệm về cách viết: nếu một reviewer chuyên môn hiểu sai, nhiều người đọc khác cũng có thể hiểu sai. Câu trả lời nên làm rõ, chỉ tới vị trí cụ thể, và cam kết sửa cách trình bày: *"As stated in L215–220, the uncertainty is estimated per object, not per pixel. We apologize for the confusion and will clarify this in Sec. 3.2."*
 
-**Thí nghiệm thiếu.** Nếu chạy được trong thời gian rebuttal và quy định cho phép, hãy đưa kết quả: đây là loại câu trả lời có sức thuyết phục nhất. Nếu không chạy được, hãy giải thích lý do cụ thể (ví dụ code của phương pháp so sánh không công khai, hoặc yêu cầu tài nguyên vượt quá khả năng) và đưa ra bằng chứng gián tiếp, chẳng hạn một thí nghiệm nhỏ hơn có cùng mục đích.
+**Thí nghiệm thiếu.** Nếu chạy được trong thời gian rebuttal và quy định cho phép, hãy đưa kết quả: đây là loại câu trả lời có sức thuyết phục nhất. Nếu không chạy được, hãy giải thích lý do cụ thể (ví dụ code của phương pháp so sánh không công khai, hoặc yêu cầu tài nguyên vượt quá khả năng) và đưa ra bằng chứng gián tiếp, chẳng hạn một thí nghiệm nhỏ hơn có cùng mục đích. Trường hợp reviewer đòi một thí nghiệm vượt hẳn khả năng của nhóm, với cách tìm ra nghi ngờ đằng sau yêu cầu và đoạn trả lời mẫu, được phân tích ở Tình huống 28 trong bài [Áp lực từ bên ngoài](../07-tinh-huong-kho/ap-luc-ben-ngoai.md).
 
 **Novelty và quan điểm.** Đây là loại khó nhất vì nó không có câu trả lời đúng sai tuyệt đối. Cách tiếp cận tốt là chuyển cuộc tranh luận từ mức cảm nhận sang mức cụ thể: khác biệt về giả định, về cơ chế, về kết quả trong những điều kiện mà phương pháp cũ thất bại. Một câu như *"Y models uncertainty per pixel for depth estimation, whereas we model it per object and refine it with geometric priors; Tab. A shows that this difference matters most for distant objects"* có sức nặng hơn nhiều so với *"Our method is fundamentally different from Y."*
 
@@ -202,7 +202,7 @@ We hope these answers address your concerns. If any point remains unclear,
 we would be happy to discuss further during the discussion period.
 ```
 
-Hai mẫu trên chia sẻ một số nguyên tắc chung. General response chỉ chứa những gì liên quan tới nhiều reviewer, để tránh lặp lại cùng một bảng trong ba phản hồi riêng. Mỗi phản hồi riêng trích lại ngắn gọn ý kiến của reviewer (W cho weakness, Q cho question), giúp reviewer không phải tìm lại review đã viết. Câu trả lời bắt đầu bằng sự đồng ý ở những điểm reviewer có lý, rồi mới giải thích phạm vi; cách này làm giảm tính đối đầu và tăng sức thuyết phục. Câu kết mời thảo luận tiếp, phù hợp với cơ chế nhiều vòng của ML.
+Hai mẫu trên chia sẻ một số nguyên tắc chung. General response chỉ chứa những gì liên quan tới nhiều reviewer, để tránh lặp lại cùng một bảng trong ba phản hồi riêng. Mỗi phản hồi riêng trích lại ngắn gọn ý kiến của reviewer (W cho weakness, Q cho question), giúp reviewer không phải tìm lại review đã viết. Câu trả lời bắt đầu bằng sự đồng ý ở những điểm reviewer có lý, rồi mới giải thích phạm vi; cách này làm giảm tính đối đầu và tăng sức thuyết phục. Câu kết mời thảo luận tiếp, phù hợp với cơ chế nhiều vòng của ML. Khi hội nghị không có general response, như NeurIPS 2025, những điểm chung được rút gọn và nhắc lại trong phản hồi riêng của từng reviewer liên quan, và mỗi phản hồi phải tự đầy đủ trong giới hạn ký tự của nó.
 
 Trong giai đoạn thảo luận, nếu reviewer chưa phản hồi khi thời hạn sắp hết, có thể gửi một lời nhắc ngắn và lịch sự, chẳng hạn: *"We would be grateful if you could let us know whether our response has addressed your concerns, or if there is anything else we can clarify before the discussion period ends."* Một lời nhắc là đủ; nhắc nhiều lần dễ tạo cảm giác gây áp lực. Với ARR, mẫu phản hồi riêng cho từng reviewer vẫn áp dụng được, nhưng nên viết với ý thức rằng meta-reviewer và sau đó là chair của hội nghị sẽ đọc toàn bộ, nên mỗi phản hồi cần tự đứng vững mà không phụ thuộc vào một vòng hỏi đáp tiếp theo.
 

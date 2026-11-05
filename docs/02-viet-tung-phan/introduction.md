@@ -62,7 +62,7 @@ Ba câu tốt, lần lượt từ CV, NLP và ML, đều nêu ngay bài toán c�
 
 Đây là đoạn quan trọng nhất của introduction, và cũng là đoạn bị viết yếu nhiều nhất. Nhiệm vụ của nó là mô tả các hướng tiếp cận chính hiện nay, rồi chỉ ra *chính xác* chúng thất bại ở đâu và *vì sao*. Khi đọc xong đoạn này, reviewer cần gật đầu: "Đúng, đây là một vấn đề có thật". Nếu đoạn này không thuyết phục, toàn bộ phần còn lại của paper sẽ trông như lời giải cho một vấn đề không ai cần giải.
 
-Có ba kỹ thuật giúp đoạn này đạt mục tiêu. Kỹ thuật đầu tiên là **phân nhóm** các công trình hiện có theo hướng tiếp cận thay vì liệt kê từng paper, chẳng hạn "Existing approaches fall into two categories: (i) … and (ii) …". Liệt kê chi tiết là việc của Related Work; ở introduction, người đọc chỉ cần bức tranh lớn. Kỹ thuật thứ hai là nêu hạn chế một cách **cụ thể, có bằng chứng**: một con số, một hình, một ví dụ thất bại. Câu "As shown in Fig. 1(a), state-of-the-art methods lose over 40% accuracy when …" thuyết phục hơn nhiều so với "existing methods are not robust". Kỹ thuật thứ ba là **phê bình mà không chê bai**: dùng cấu trúc "While effective for X, these methods assume Y, which does not hold when Z." Cấu trúc này ghi nhận giá trị của công trình trước, rồi khoanh vùng chính xác điều kiện mà chúng không còn đúng. Cần nhớ rằng reviewer rất có thể là tác giả của chính các công trình đang được bàn tới.
+Có ba kỹ thuật giúp đoạn này đạt mục tiêu. Kỹ thuật đầu tiên là **phân nhóm** các công trình hiện có theo hướng tiếp cận thay vì liệt kê từng paper, chẳng hạn "Existing approaches fall into two categories: (i) … and (ii) …". Liệt kê chi tiết là việc của [Related Work](related-work.md); ở introduction, người đọc chỉ cần bức tranh lớn. Kỹ thuật thứ hai là nêu hạn chế một cách **cụ thể, có bằng chứng**: một con số, một hình, một ví dụ thất bại. Câu "As shown in Fig. 1(a), state-of-the-art methods lose more than 40% of their accuracy when …" thuyết phục hơn nhiều so với "existing methods are not robust". Kỹ thuật thứ ba là **phê bình mà không chê bai**: dùng cấu trúc "While effective for X, these methods assume Y, which does not hold when Z." Cấu trúc này ghi nhận giá trị của công trình trước, rồi khoanh vùng chính xác điều kiện mà chúng không còn đúng. Cần nhớ rằng reviewer rất có thể là tác giả của chính các công trình đang được bàn tới.
 
 Ví dụ sau, lấy từ một bài toán ML (học liên tục, continual learning), cho thấy sự khác biệt giữa một đoạn khoảng trống yếu và một đoạn tốt. Các con số trong bản tốt là hư cấu.
 
@@ -84,7 +84,7 @@ Bản yếu gom hai mươi trích dẫn vào một chỗ, nêu một hạn chế
 
 Đoạn thứ ba trình bày quan sát hoặc ý tưởng then chốt của paper, thường được mở bằng các cấu trúc như "In this work, we observe that …", "Our key insight is that …" hay "We argue that …". Đây là câu trả lời cho câu hỏi ngầm của reviewer: vì sao phương pháp sắp được giới thiệu không phải là một tổ hợp ngẫu nhiên các thành phần, mà có cơ sở để hoạt động.
 
-Insight của ResNet là một ví dụ kinh điển: mạng sâu hơn có *training error* cao hơn mạng nông, nên vấn đề nằm ở tối ưu hóa chứ không phải overfitting. Insight của MAE là ảnh có độ dư thừa không gian cao hơn ngôn ngữ rất nhiều, nên phải che một tỉ lệ rất lớn các patch thì bài toán tái tạo mới đủ khó. Cả hai đều là phát biểu về *bản chất của vấn đề*, và phương pháp được suy ra từ đó. Đoạn insight thường tham chiếu tới Figure 1, vì một hình minh họa hiện tượng là bằng chứng mạnh nhất cho một quan sát.
+Insight của ResNet là một ví dụ kinh điển: mạng sâu hơn có *training error* cao hơn mạng nông, nên vấn đề nằm ở tối ưu hóa chứ không phải overfitting. Insight của MAE là ảnh có độ dư thừa không gian cao hơn ngôn ngữ rất nhiều, nên phải che một tỉ lệ rất lớn các patch thì bài toán tái tạo mới đủ khó. Cả hai đều là phát biểu về *bản chất của vấn đề*, và phương pháp được suy ra từ đó (bài [Xây "câu chuyện" của paper](../01-truoc-khi-viet/cau-chuyen.md) phân tích kỹ hai insight này cùng với insight của BERT và Adam; ở đây, mối quan tâm là cách *viết* đoạn insight). Đoạn insight thường tham chiếu tới Figure 1, vì một hình minh họa hiện tượng là bằng chứng mạnh nhất cho một quan sát.
 
 Lỗi phổ biến ở đoạn này là nhầm lẫn giữa insight và phương pháp:
 
@@ -118,7 +118,7 @@ Một dấu hiệu cho thấy đoạn này đang đi sai hướng là sự xuấ
 
 ### Đoạn 6: Contributions
 
-Introduction thường kết thúc bằng một danh sách 3–4 contributions. Danh sách này là thứ reviewer đọc lại khi viết phần tóm tắt và phần điểm mạnh trong review, và là thứ họ đối chiếu với phần thí nghiệm để kiểm tra xem paper có làm được những gì đã hứa hay không. Vì vậy, mỗi contribution phải là **một claim kiểm chứng được**, và tốt nhất là chỉ rõ nơi trong paper chứa bằng chứng cho claim đó.
+Introduction thường kết thúc bằng một danh sách 3–4 contributions. Danh sách này là thứ reviewer đọc lại khi viết phần tóm tắt và phần điểm mạnh trong review, và là thứ họ đối chiếu với phần thí nghiệm để kiểm tra xem paper có làm được những gì đã hứa hay không. Vì vậy, mỗi contribution phải là **một claim kiểm chứng được**, cụ thể về thước đo, phạm vi và đối tượng so sánh như đã bàn ở mục về claim trong bài [Xây "câu chuyện" của paper](../01-truoc-khi-viet/cau-chuyen.md), và tốt nhất là chỉ rõ nơi trong paper chứa bằng chứng cho claim đó. Bài [Experiments](experiments.md) bắt đầu chính từ danh sách này.
 
 ```latex
 In summary, our contributions are as follows:
@@ -155,16 +155,16 @@ Kiểu thứ tư là **sơ đồ ý tưởng hoặc tổng quan pipeline**. Figu
 
 Kiểu thứ năm là **ví dụ đầu vào–đầu ra hoặc bảng ví dụ**, rất phổ biến ở NLP. Figure 1 của CheckList trình bày một ma trận gồm các năng lực ngôn ngữ cần kiểm tra và các loại test, kèm những ví dụ cụ thể mà một mô hình phân tích cảm xúc thương mại xử lý sai. Chỉ cần nhìn hình, người đọc hiểu được cả phương pháp đánh giá lẫn lý do vì sao nó cần thiết.
 
-Kiểu thứ sáu là **trình diễn kết quả** (showcase): một lưới kết quả đa dạng và ấn tượng, như các mặt nạ phân đoạn của Segment Anything hay các mẫu ảnh được sinh ra trong Figure 1 của DDPM. Kiểu này phù hợp khi chất lượng kết quả tự nó là thông điệp chính.
+Kiểu thứ sáu là **trình diễn kết quả** (showcase): một lưới kết quả đa dạng và ấn tượng, như các mẫu ảnh được sinh ra trong Figure 1 của DDPM, hay lưới điều kiện đầu vào (bản đồ cạnh, khung xương tư thế) cùng ảnh sinh ra tương ứng trong Figure 1 của ControlNet. Kiểu này phù hợp khi chất lượng kết quả tự nó là thông điệp chính. Cần phân biệt với Segment Anything: lưới ảnh kèm mặt nạ phân đoạn của paper này nằm ở Figure 2, còn Figure 1 là sơ đồ ba thành phần task, model và data engine, tức kiểu thứ tư ở trên (xem case study [SAM & ControlNet](../05-case-studies/sam-controlnet.md)).
 
 | Kiểu | Thông điệp | Ví dụ | Phổ biến ở |
 |---|---|---|---|
 | Minh họa vấn đề, hiện tượng | "Đây là vấn đề có thật" | ResNet | CV, ML |
 | So sánh trực quan | "Phương pháp xử lý được ca khó" | paper segmentation, generation | CV |
 | Trade-off, kết quả chính | "Phương pháp tốt hơn trên trục quan trọng" | paper về hiệu năng, scaling | CV, ML |
-| Sơ đồ ý tưởng, pipeline | "Ý tưởng hoạt động như thế này" | NeRF, BERT | cả ba |
+| Sơ đồ ý tưởng, pipeline | "Ý tưởng hoạt động như thế này" | NeRF, BERT, Segment Anything | cả ba |
 | Ví dụ đầu vào–đầu ra, bảng ví dụ | "Hiện tượng trông như thế này" | CheckList | NLP |
-| Trình diễn kết quả | "Hãy nhìn chất lượng" | Segment Anything, DDPM | CV, ML (mô hình sinh) |
+| Trình diễn kết quả | "Hãy nhìn chất lượng" | DDPM, ControlNet | CV, ML (mô hình sinh) |
 
 ### Nguyên tắc thiết kế Figure 1
 
@@ -186,7 +186,7 @@ Nguyên tắc thứ hai là **caption phải tự đứng được**, với câu
 
 Caption thứ nhất chỉ gọi tên nội dung hình; caption thứ hai nói cho người đọc biết cần nhìn vào đâu và rút ra điều gì.
 
-Nguyên tắc thứ ba là **thông điệp của Figure 1 phải trùng với thông điệp của abstract**. Nếu abstract nói về khả năng xử lý vật thể xa mà Figure 1 lại khoe kết quả trên vật thể gần, người đọc nhận được hai thông điệp khác nhau. Nguyên tắc thứ tư là **làm sớm và sửa nhiều vòng**: như đã nêu ở trang giới thiệu chương, Figure 1 nên được phác tay từ những ngày đầu viết paper, vì việc thiết kế nó buộc người viết làm rõ câu chuyện.
+Nguyên tắc thứ ba là **thông điệp của Figure 1 phải trùng với thông điệp của abstract**. Nếu abstract nói về khả năng xử lý vật thể xa mà Figure 1 lại khoe kết quả trên vật thể gần, người đọc nhận được hai thông điệp khác nhau. Nguyên tắc thứ tư là **làm sớm và sửa nhiều vòng**: như đã nêu ở [trang giới thiệu chương](index.md), Figure 1 nên được phác tay từ những ngày đầu viết paper, vì việc thiết kế nó buộc người viết làm rõ câu chuyện.
 
 !!! tip "Khi paper xuất phát từ một quan sát"
     Nếu paper bắt đầu từ một hiện tượng bất ngờ, hãy cân nhắc dùng Figure 1 để *chứng minh hiện tượng đó* thay vì khoe kết quả cuối cùng, theo cách ResNet đã làm. Một hiện tượng đáng ngạc nhiên thường thu hút reviewer hơn một bảng số, và nó khiến phương pháp của paper trông như câu trả lời tự nhiên.
@@ -219,7 +219,7 @@ Introduction CV thường ngắn gọn, dài khoảng 1–1,5 trang, và đi r�
 
 ### NLP
 
-Introduction NLP thường bắt đầu bằng bài toán và rất hay dùng một **ví dụ ngôn ngữ cụ thể** (một câu, một cặp câu hỏi–trả lời, một lỗi của mô hình) để minh họa hiện tượng, đôi khi ngay trong văn bản thay vì trong hình. Với paper phân tích và đánh giá, introduction có thể nêu tường minh các câu hỏi nghiên cứu (research questions) mà paper sẽ trả lời. Contributions về tài nguyên (dataset, benchmark, công cụ) được đánh giá cao. Vì mục Limitations là bắt buộc, introduction phải nhất quán với nó: một claim rộng ở introduction mà bị thu hẹp ở Limitations sẽ khiến reviewer thấy mâu thuẫn. Ngôn ngữ được nghiên cứu nên được nêu rõ ngay ở introduction.
+Introduction NLP thường bắt đầu bằng bài toán và rất hay dùng một **ví dụ ngôn ngữ cụ thể** (một câu, một cặp câu hỏi–trả lời, một lỗi của mô hình) để minh họa hiện tượng, đôi khi ngay trong văn bản thay vì trong hình. Với paper phân tích và đánh giá, introduction có thể nêu tường minh các câu hỏi nghiên cứu (research questions) mà paper sẽ trả lời. Contributions về tài nguyên (dataset, benchmark, công cụ) được đánh giá cao. Vì mục Limitations là bắt buộc (xem [Conclusion, Limitations, Appendix](conclusion-supp.md)), introduction phải nhất quán với nó: một claim rộng ở introduction mà bị thu hẹp ở Limitations sẽ khiến reviewer thấy mâu thuẫn. Ngôn ngữ được nghiên cứu nên được nêu rõ ngay ở introduction.
 
 ### Machine Learning
 

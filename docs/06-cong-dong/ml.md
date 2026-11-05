@@ -8,6 +8,7 @@
     - Thiết kế toy experiment để cô lập cơ chế và báo cáo kết quả kèm error bars đúng nghĩa.
     - Chuẩn bị NeurIPS Paper Checklist ngay từ khi viết draft và tổ chức một appendix dài dễ tra cứu.
     - Viết phản hồi cho thảo luận nhiều vòng trên OpenReview, kể cả khi review và thảo luận được công khai.
+    - Nhận diện kỳ vọng riêng của track dành cho dataset, benchmark và đánh giá ở NeurIPS.
 
 NeurIPS, ICML và ICLR là ba hội nghị trung tâm của cộng đồng Machine Learning. Điểm đặc biệt của chúng không nằm ở định dạng mà ở thành phần người đọc: một paper nộp vào đây có thể được giao cho một reviewer làm về tối ưu hóa, một người làm học tăng cường, một người làm lý thuyết học và một người làm mô hình ngôn ngữ lớn. Những người này không chia sẻ cùng một bộ benchmark, nhưng họ chia sẻ một câu hỏi chung khi đọc: *điều gì trong paper này vẫn đúng khi rời khỏi bài toán cụ thể mà tác giả đã chọn để minh họa?*
 
@@ -176,7 +177,7 @@ Lời khuyên quan trọng nhất là **điền checklist ngay từ draft đầu
 
 ### ICML và ICLR
 
-ICML và ICLR không dùng một checklist dài như NeurIPS, nhưng có các yêu cầu cùng tinh thần. ICML những năm gần đây yêu cầu một đoạn **impact statement** ở cuối bài, không tính vào giới hạn trang. ICLR khuyến khích **ethics statement** và **reproducibility statement**, cũng không tính vào giới hạn trang. Cả hai hội nghị đều có chính sách về việc sử dụng LLM. Vì các yêu cầu này đổi theo năm, người viết nên đọc Author Guide của năm nộp và dành thời gian viết chúng một cách nghiêm túc: một đoạn reproducibility statement trỏ chính xác tới vị trí của code, siêu tham số và chi tiết dữ liệu giúp reviewer tin tưởng vào kết quả.
+ICML và ICLR không dùng một checklist dài như NeurIPS, nhưng có các yêu cầu cùng tinh thần. ICML những năm gần đây yêu cầu một đoạn **impact statement** ở cuối bài, không tính vào giới hạn trang. ICLR khuyến khích **ethics statement** và **reproducibility statement**, cũng không tính vào giới hạn trang. Cả hai hội nghị đều có chính sách về việc sử dụng LLM; riêng ICLR, từ năm 2026, việc khai báo dùng LLM là bắt buộc, và việc dùng đáng kể cho ý tưởng hay viết cần được mô tả trong một mục riêng (xem bài [Dùng AI hỗ trợ](../03-ky-thuat/ai-tools.md)). Vì các yêu cầu này đổi theo năm, người viết nên đọc Author Guide của năm nộp và dành thời gian viết chúng một cách nghiêm túc: một đoạn reproducibility statement trỏ chính xác tới vị trí của code, siêu tham số và chi tiết dữ liệu giúp reviewer tin tưởng vào kết quả.
 
 ## Viết cho thảo luận nhiều vòng trên OpenReview
 
@@ -188,7 +189,7 @@ ICLR công khai bài nộp, review và thảo luận ngay trong quá trình revi
 
 ### Cấu trúc một luồng phản hồi
 
-Cấu trúc phổ biến gồm một **general response** (phản hồi chung) đăng ở cấp bài, và các phản hồi riêng dưới từng review. General response tóm tắt những mối lo được nhiều reviewer chia sẻ và những thay đổi chính, để AC nắm bức tranh tổng thể mà không phải đọc hết mọi luồng. Phản hồi riêng đi vào chi tiết của từng reviewer, thường có giới hạn ký tự cho mỗi phản hồi. Một số năm, NeurIPS còn cho phép đính kèm một trang PDF chung chứa hình và bảng mới; một số hội nghị cho phép gửi bình luận chỉ AC đọc được để báo cáo vấn đề với một review. Các chi tiết này thay đổi theo năm.
+Cấu trúc phổ biến gồm một **general response** (phản hồi chung) đăng ở cấp bài, và các phản hồi riêng dưới từng review. General response tóm tắt những mối lo được nhiều reviewer chia sẻ và những thay đổi chính, để AC nắm bức tranh tổng thể mà không phải đọc hết mọi luồng. Phản hồi riêng đi vào chi tiết của từng reviewer, thường có giới hạn ký tự cho mỗi phản hồi. Cấu trúc này không phải năm nào cũng áp dụng được: một số năm NeurIPS cho phép đính kèm một trang PDF chung chứa hình và bảng mới, nhưng NeurIPS 2025 đã bỏ hẳn global response và chỉ giữ phản hồi riêng với giới hạn 10.000 ký tự mỗi phản hồi; khi đó, những điểm chung phải được tóm gọn trong từng luồng. Một số hội nghị còn cho phép gửi bình luận chỉ AC đọc được để báo cáo vấn đề với một review. Các chi tiết này thay đổi theo năm.
 
 ```text
 General Response
@@ -222,7 +223,7 @@ Sec. 5.3.
 
 ### Sửa PDF trong lúc thảo luận
 
-ICLR cho phép tác giả tải lên bản PDF đã sửa trong giai đoạn thảo luận, và đây là một cơ hội lớn: thay vì hứa "we will add this to the final version", tác giả có thể cho reviewer thấy thay đổi ngay. Khi sửa, nên đánh dấu mọi thay đổi bằng màu (thường là xanh), liệt kê các thay đổi trong general response, giữ đúng giới hạn trang của bản nộp, và không biến bản sửa thành một paper khác: thêm thí nghiệm, làm rõ lập luận và sửa lỗi là hợp lệ, nhưng thay đổi phương pháp chính có thể khiến reviewer và AC coi đó là một bài nộp mới chưa được review. Với các hội nghị không cho sửa PDF trong thảo luận, cam kết thay đổi cần cụ thể (nêu rõ section, nội dung sẽ thêm) để AC có thể đánh giá.
+ICLR cho phép tác giả tải lên bản PDF đã sửa trong giai đoạn thảo luận, và đây là một cơ hội lớn: thay vì hứa "we will add this to the final version", tác giả có thể cho reviewer thấy thay đổi ngay. Khi sửa, nên đánh dấu mọi thay đổi bằng màu (thường là xanh), liệt kê các thay đổi trong general response, giữ đúng giới hạn trang áp dụng cho giai đoạn này (ICLR 2026, chẳng hạn, nâng giới hạn phần chính từ 9 lên 10 trang ở giai đoạn rebuttal), và không biến bản sửa thành một paper khác: thêm thí nghiệm, làm rõ lập luận và sửa lỗi là hợp lệ, nhưng thay đổi phương pháp chính có thể khiến reviewer và AC coi đó là một bài nộp mới chưa được review. Với các hội nghị không cho sửa PDF trong thảo luận, cam kết thay đổi cần cụ thể (nêu rõ section, nội dung sẽ thêm) để AC có thể đánh giá.
 
 ### Giữ nhịp thảo luận
 
@@ -234,7 +235,7 @@ Khi reviewer đúng, hãy thừa nhận rõ ràng và cảm ơn; khi reviewer hi
 
 ## Datasets & Benchmarks track
 
-NeurIPS có một track riêng cho dataset và benchmark, ra đời từ năm 2021, dành cho những đóng góp mà giá trị chính nằm ở dữ liệu, môi trường đánh giá hay công cụ đo lường thay vì phương pháp. Track này tồn tại vì những đóng góp như vậy thường bị đánh giá thấp ở main track với lý do "thiếu novelty về phương pháp", trong khi chúng có thể có ảnh hưởng rất lớn tới cả lĩnh vực. Tên gọi, chính sách ẩn danh và yêu cầu cụ thể của track đã thay đổi qua các năm (ví dụ có năm cho phép single-blind), nên cần đọc Call for Papers của đúng năm. ICML và ICLR thường nhận bài về dataset và benchmark trong main track như một chủ đề.
+NeurIPS có một track riêng cho dataset và benchmark, ra đời từ năm 2021, dành cho những đóng góp mà giá trị chính nằm ở dữ liệu, môi trường đánh giá hay công cụ đo lường thay vì phương pháp. Track này tồn tại vì những đóng góp như vậy thường bị đánh giá thấp ở main track với lý do "thiếu novelty về phương pháp", trong khi chúng có thể có ảnh hưởng rất lớn tới cả lĩnh vực. Tên gọi, chính sách ẩn danh và yêu cầu cụ thể của track đã thay đổi qua các năm (ví dụ có năm cho phép single-blind), nên cần đọc Call for Papers của đúng năm. Thay đổi lớn nhất là từ NeurIPS 2026, track được đổi tên thành **Evaluations & Datasets**, mở rộng phạm vi sang các công trình coi chính việc đánh giá là đối tượng nghiên cứu, như phân tích phê phán cách đo hiện có hay kết quả âm tính, trong khi dataset và benchmark vẫn là trọng tâm. ICML và ICLR thường nhận bài về dataset và benchmark trong main track như một chủ đề.
 
 Một paper dataset hay benchmark tốt phải trả lời thuyết phục bốn câu hỏi. Câu hỏi đầu tiên là *khoảng trống*: vì sao các benchmark hiện có chưa đủ, với bằng chứng cụ thể như benchmark cũ đã bão hòa, bị nhiễm vào dữ liệu huấn luyện, hay không đo được khả năng mà cộng đồng quan tâm. Câu hỏi thứ hai là *chất lượng*: dữ liệu được thu thập và gán nhãn ra sao, độ đồng thuận giữa người gán nhãn bao nhiêu, những loại nhiễu nào còn tồn tại. Câu hỏi thứ ba là *giá trị phân biệt*: benchmark có tách được các mô hình mạnh yếu không, có cho thấy điều gì mới về các mô hình hiện tại không. Câu hỏi cuối cùng là *tính bền vững*: dữ liệu được lưu trữ ở đâu, license thế nào, ai bảo trì, và có cơ chế nào (ví dụ test set giữ kín) để tránh bị khai thác quá mức.
 

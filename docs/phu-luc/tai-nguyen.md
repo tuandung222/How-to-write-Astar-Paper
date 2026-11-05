@@ -2,6 +2,8 @@
 
 Trang này tập hợp các nguồn đọc thêm và công cụ hữu ích cho người viết paper ở cả ba cộng đồng. Danh sách được chọn lọc theo hướng ít mà chất: mỗi mục kèm một câu mô tả vì sao nó đáng đọc và nên đọc khi nào. Phần lớn các bài viết và bài giảng dưới đây có thể tìm thấy dễ dàng bằng cách tìm theo tên bài và tên tác giả; đường dẫn cụ thể có thể thay đổi theo thời gian, nên trang này chỉ ghi tên miền ổn định của các trang chính thức. Với các hướng dẫn chính thức của hội nghị, cần đọc lại phiên bản của đúng năm nộp, vì quy định thay đổi hằng năm.
 
+Trang này có một trang anh em là [Lời khuyên từ các nhà nghiên cứu hàng đầu](loi-khuyen.md), và hai trang được chia vai rõ ràng. Trang Tài nguyên nghiêng về *viết paper và công cụ*: bài viết về cách viết, sách về văn phong, hướng dẫn chính thức của hội nghị và phần mềm hỗ trợ. Trang Lời khuyên nghiêng về *nghề nghiên cứu*: chọn bài toán, rèn gu nghiên cứu, cách làm việc hằng ngày để có kết quả đáng viết, với phần giảng giải và nguồn gốc của từng lời khuyên. Một vài bài viết, như hướng dẫn nghiên cứu sinh của Karpathy hay bài của Steinhardt về thứ tự giảm rủi ro, chạm tới cả hai mảng; ở trang này chúng chỉ được giới thiệu ngắn, còn phần phân tích sâu hơn nằm ở các bài tương ứng của Chương 1 và, khi phù hợp, ở trang Lời khuyên.
+
 ## Bài viết và bài giảng kinh điển về viết paper
 
 ### Viết paper nói chung
@@ -18,7 +20,7 @@ Trang này tập hợp các nguồn đọc thêm và công cụ hữu ích cho n
 ### Machine Learning
 
 - **Zachary C. Lipton và Jacob Steinhardt**, *Troubling Trends in Machine Learning Scholarship* (2018). Phân tích bốn xu hướng đáng lo trong các paper ML: không phân biệt giải thích với suy đoán, không xác định đúng nguồn gốc của cải thiện thực nghiệm, mathiness, và dùng ngôn ngữ thiếu chính xác. Nên đọc trước khi viết phần phân tích và trước khi tự review bản thảo, để tránh overclaim.
-- **Jacob Steinhardt**, *Research as a Stochastic Decision Process* (bài blog). Bàn về cách sắp xếp thứ tự các bước trong một dự án nghiên cứu để phát hiện thất bại sớm và giảm rủi ro. Hữu ích ở giai đoạn thẩm định ý tưởng và lập kế hoạch thí nghiệm.
+- **Jacob Steinhardt**, *Research as a Stochastic Decision Process* (bài blog). Bàn về cách sắp xếp thứ tự các bước trong một dự án nghiên cứu để phát hiện thất bại sớm và giảm rủi ro. Hữu ích ở giai đoạn thẩm định ý tưởng và lập kế hoạch; bài [Lập kế hoạch nghiên cứu](../01-truoc-khi-viet/ke-hoach.md) áp dụng ý tưởng này vào việc xếp thứ tự thí nghiệm.
 - **Peter Henderson và cộng sự**, *Deep Reinforcement Learning that Matters* (AAAI 2018). Cho thấy kết quả học tăng cường có thể thay đổi đáng kể theo random seed và chi tiết cài đặt. Là một lập luận thuyết phục cho việc chạy nhiều seed và báo cáo error bars ở mọi lĩnh vực.
 - **Joelle Pineau và cộng sự**, *Improving Reproducibility in Machine Learning Research (A Report from the NeurIPS 2019 Reproducibility Program)* (JMLR 2021). Báo cáo về chương trình tái lập của NeurIPS, giúp hiểu nguồn gốc và tinh thần của các checklist tái lập ngày nay.
 
@@ -36,12 +38,14 @@ Trang này tập hợp các nguồn đọc thêm và công cụ hữu ích cho n
 
 ### Đọc paper và đời sống nghiên cứu
 
+Hai mục dưới đây là điểm khởi đầu. Kỹ năng đọc được giảng đầy đủ ở hai bài [Đọc và lập bản đồ tài liệu](../01-truoc-khi-viet/literature.md) và [Đọc paper như một reviewer](../01-truoc-khi-viet/doc-nhu-reviewer.md); các bài viết về đời sống và nghề nghiên cứu được tập hợp ở trang [Lời khuyên từ các nhà nghiên cứu hàng đầu](loi-khuyen.md).
+
 - **S. Keshav**, *How to Read a Paper* (ACM SIGCOMM Computer Communication Review, 2007). Phương pháp đọc paper ba lượt, từ lướt nhanh để nắm cấu trúc đến đọc sâu để tái hiện lập luận. Rất hữu ích khi lập bản đồ tài liệu ở Chương 1.
 - **Andrej Karpathy**, *A Survival Guide to a PhD* (bài blog, 2016). Chia sẻ kinh nghiệm về chọn đề tài, viết paper, trình bày và đời sống nghiên cứu sinh. Phù hợp với nghiên cứu sinh năm đầu.
 
 ## Sách
 
-- *The Craft of Research*, Wayne C. Booth, Gregory G. Colomb, Joseph M. Williams (các ấn bản sau có thêm đồng tác giả). Cuốn sách nền tảng về cách xây dựng một lập luận nghiên cứu: từ câu hỏi, claim, bằng chứng đến việc lường trước phản biện. Đặc biệt hữu ích cho Chương 1 về câu chuyện của paper.
+- *The Craft of Research*, Wayne C. Booth, Gregory G. Colomb, Joseph M. Williams (các ấn bản sau có thêm đồng tác giả). Cuốn sách nền tảng về cách xây dựng một lập luận nghiên cứu: từ câu hỏi, claim, bằng chứng đến việc lường trước phản biện. Đặc biệt hữu ích cho bài [Xây "câu chuyện" của paper](../01-truoc-khi-viet/cau-chuyen.md) ở Chương 1.
 - *Style: Lessons in Clarity and Grace*, Joseph M. Williams (các ấn bản sau có Joseph Bizup). Dạy cách viết câu rõ ràng: đặt nhân vật làm chủ ngữ, hành động làm động từ, thông tin cũ trước thông tin mới. Là cuốn nên đọc nhất để cải thiện văn phong tiếng Anh học thuật.
 - *Writing Science*, Joshua Schimel. Tiếp cận việc viết khoa học như kể chuyện, với cấu trúc mở đầu, xung đột và giải quyết. Hữu ích khi viết Abstract và Introduction.
 - *The Elements of Style*, William Strunk Jr. và E. B. White. Cuốn sách ngắn, cổ điển về các quy tắc viết tiếng Anh súc tích. Nên đọc như một tài liệu nhập môn, kết hợp với cuốn của Williams.
@@ -75,13 +79,14 @@ Trang này tập hợp các nguồn đọc thêm và công cụ hữu ích cho n
 | BibTeX chuẩn | DBLP, ACL Anthology (cho NLP), Google Scholar (cần kiểm tra lại) |
 | Tìm paper | Google Scholar, Semantic Scholar, arXiv, ACL Anthology, Connected Papers, Hugging Face Papers |
 | Đọc review công khai | OpenReview |
-| Theo dõi thí nghiệm | Weights & Biases, MLflow, TensorBoard |
+| Theo dõi thí nghiệm | Weights & Biases, MLflow, TensorBoard (cách tổ chức xem bài [Vận hành thực nghiệm](../01-truoc-khi-viet/thuc-thi.md)) |
 | Vẽ sơ đồ | PowerPoint hoặc Keynote, Figma, draw.io, Inkscape, TikZ |
 | Biểu đồ | matplotlib, seaborn, pgfplots |
 | Ngữ pháp | Grammarly, LanguageTool, LLM (xem [chính sách](../03-ky-thuat/ai-tools.md)) |
+| Trợ lý AI cho đọc tài liệu, lập trình, thực nghiệm | Xem [Chương 8. AI làm cộng sự nghiên cứu](../08-ai-cong-su/index.md) về cách dùng, giới hạn và rủi ro |
 | So sánh phiên bản bản thảo | latexdiff |
 | Ẩn danh code | anonymous.4open.science |
-| Hạn nộp | aideadlin.es (AI Conference Deadlines) |
+| Hạn nộp | aideadlin.es (AI Conference Deadlines) và phiên bản trên Hugging Face Spaces (`huggingface/ai-deadlines`); luôn đối chiếu với trang chính thức |
 | Thống kê tỉ lệ accept | Các repo tổng hợp trên GitHub (ví dụ "Conference-Acceptance-Rate") |
 
 ## Đóng góp cho tài liệu này

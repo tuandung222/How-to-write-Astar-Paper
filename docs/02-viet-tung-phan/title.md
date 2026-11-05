@@ -107,7 +107,7 @@ Mẫu này phổ biến ở NLP, đặc biệt với paper đánh giá và phân
 
 ## Quy tắc đặt title
 
-Các mẫu ở trên cho biết title có thể có *hình dạng* nào. Phần này bàn về những quy tắc mà title thuộc mẫu nào cũng nên tuân theo, kèm lý do của từng quy tắc.
+Các mẫu ở trên cho biết title có thể có *hình dạng* nào. Phần này bàn về những quy tắc mà title thuộc mẫu nào cũng nên tuân theo, kèm lý do của từng quy tắc. Nguyên liệu tốt nhất để bắt đầu là câu tóm tắt một dòng trong bản pitch ở bài [Xây "câu chuyện" của paper](../01-truoc-khi-viet/cau-chuyen.md): một title tốt thường là phiên bản nén của câu đó, giữ lại bài toán và insight hoặc kỹ thuật chính.
 
 Quy tắc đầu tiên là **title phải chứa từ khóa của bài toán** mà người khác sẽ dùng để tìm kiếm, chẳng hạn "Monocular 3D Object Detection", "Video Instance Segmentation", "Low-Resource Machine Translation" hay "Offline Reinforcement Learning". Lý do đã nêu ở trên: đây là cách duy nhất để paper xuất hiện trước đúng người đọc và đúng reviewer.
 
@@ -170,7 +170,7 @@ Title ML thường tổng quát hơn, ít khi gắn với một ứng dụng c�
 
 ## Title sau khi nộp
 
-Ở nhiều hội nghị, title được phép chỉnh sửa ở bản camera-ready trong phạm vi hợp lý, đôi khi cần sự đồng ý của chương trình hội nghị (program committee). Tuy nhiên, title đăng ký ở thời điểm đăng ký abstract chính là title mà reviewer nhìn thấy khi bid. Vì vậy, title phải được đặt nghiêm túc ngay từ đầu, không nên coi là một thứ tạm thời để sửa sau. Ở ICLR, nơi bài nộp hiển thị công khai trên OpenReview trong suốt quá trình review, title ban đầu còn được cả cộng đồng nhìn thấy chứ không chỉ reviewer.
+Ở nhiều hội nghị, title được phép chỉnh sửa ở bản camera-ready trong phạm vi hợp lý, đôi khi cần sự đồng ý của chương trình hội nghị (program committee). Tuy nhiên, title đăng ký ở thời điểm đăng ký abstract (xem bài [Chuẩn bị nộp bài](../04-nop-va-sau-nop/submission.md)) chính là title mà reviewer nhìn thấy khi bid. Vì vậy, title phải được đặt nghiêm túc ngay từ đầu, không nên coi là một thứ tạm thời để sửa sau. Ở ICLR, nơi bài nộp hiển thị công khai trên OpenReview trong suốt quá trình review, title ban đầu còn được cả cộng đồng nhìn thấy chứ không chỉ reviewer.
 
 ## Tóm tắt
 

@@ -2,6 +2,8 @@
 
 Trang này cung cấp ba loại tài liệu để bắt đầu nhanh: khung `main.tex` cho ba hội nghị đại diện của ba cộng đồng (CVPR, ACL, NeurIPS), khung Introduction dạng điền chỗ trống, và tập mẫu câu tiếng Anh theo chức năng, bao gồm cả mẫu câu cho rebuttal và author response. Cần lưu ý hai điều khi sử dụng. Thứ nhất, các khung LaTeX ở đây chỉ minh họa *cấu trúc*; tên gói, tùy chọn và quy định định dạng thay đổi theo năm, nên luôn bắt đầu từ author kit chính thức của năm nộp và chỉ dùng khung này để đối chiếu cách tổ chức. Thứ hai, mẫu câu là điểm tựa chứ không phải công thức: một paper ghép từ các câu mẫu sẽ đọc rất máy móc. Cách dùng tốt là đọc mẫu câu để nhận ra *chức năng* của từng câu trong một đoạn văn, rồi viết câu của riêng nhóm tác giả cho chức năng đó. Bài [Tiếng Anh học thuật](../03-ky-thuat/van-phong.md) và [LaTeX & Overleaf](../03-ky-thuat/latex.md) giải thích chi tiết hơn.
 
+Một số khung mẫu khác của giáo trình không nằm ở trang này mà được đặt cạnh bài giảng tương ứng, vì chúng chỉ dùng được khi đã hiểu lý do của từng phần. Khung đề xuất nghiên cứu (research proposal) và ma trận thí nghiệm nằm trong bài [Lập kế hoạch nghiên cứu](../01-truoc-khi-viet/ke-hoach.md); khung một bản review nằm trong bài [Đọc paper như một reviewer](../01-truoc-khi-viet/doc-nhu-reviewer.md); bản pitch một trang nằm trong bài [Xây "câu chuyện" của paper](../01-truoc-khi-viet/cau-chuyen.md); còn các prompt mẫu cho trợ lý AI nằm trong bài [Quy trình mẫu và thư viện prompt](../08-ai-cong-su/quy-trinh-mau.md) của Chương 8.
+
 ## Tổ chức dự án LaTeX
 
 Dù nộp ở hội nghị nào, nên tách nội dung khỏi định dạng: mỗi section là một file trong thư mục `sec/`, ký hiệu và tên phương pháp được định nghĩa bằng macro trong `macros.tex`, và file `main` chỉ chứa phần khai báo của template. Cách tổ chức này giúp nhiều người cùng sửa mà ít xung đột, và giúp việc chuyển template giữa các hội nghị (xem [Chuyển một paper giữa các cộng đồng](../06-cong-dong/chuyen-doi.md)) chỉ mất vài giờ cho phần kỹ thuật. Ghi chú nội bộ giữa các tác giả nên dùng macro có thể tắt bằng một dòng, để không vô tình lọt vào bản nộp.
@@ -347,4 +349,4 @@ Giọng văn của phản hồi với reviewer nên lịch sự, cụ thể và 
 - *"Meta-review point 1: [concern]. Change: [what was done] (Sec. X, Table Y)."*
 - *"This point was not addressed because [reason]; we discuss it explicitly in the Limitations section."*
 
-Mẫu response letter cho journal, với cấu trúc trích nhận xét, trả lời và chỉ vị trí thay đổi, được trình bày ở bài [AAAI, IJCAI, KDD và journal](../06-cong-dong/khac.md).
+Mẫu response letter cho journal, với cấu trúc trích nhận xét, trả lời và chỉ vị trí thay đổi, được trình bày ở bài [AAAI / IJCAI / KDD / Journal](../06-cong-dong/khac.md).

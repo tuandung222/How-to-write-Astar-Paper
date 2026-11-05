@@ -71,7 +71,7 @@ Câu cuối, nếu có, nói về ý nghĩa rộng hơn hoặc thông báo việ
 
 ## Phân tích abstract của ResNet
 
-Abstract của *Deep Residual Learning for Image Recognition* (CVPR 2016) là một ví dụ mẫu mực về việc mọi câu đều mang thông tin. Dưới đây là diễn giải trình tự lập luận của nó, đối chiếu với khuôn ở trên.
+Abstract của *Deep Residual Learning for Image Recognition* (CVPR 2016) là một ví dụ mẫu mực về việc mọi câu đều mang thông tin. Dưới đây là diễn giải trình tự lập luận của nó, đối chiếu với khuôn ở trên; cách cả paper được viết được phân tích ở case study [ResNet](../05-case-studies/resnet.md).
 
 Abstract mở đầu bằng một câu rất ngắn, phát biểu rằng mạng nơ-ron càng sâu thì càng khó huấn luyện. Câu này làm cùng lúc hai việc của câu 1 và câu 2 trong khuôn: nó nêu bối cảnh (độ sâu của mạng) và khoảng trống (khó huấn luyện) trong chưa đầy mười từ. Câu tiếp theo giới thiệu giải pháp ở mức cao nhất: một framework residual learning giúp huấn luyện các mạng sâu hơn đáng kể so với trước đó. Ngay sau đó, abstract nêu ý tưởng cụ thể: thay vì để mỗi nhóm layer học một hàm bất kỳ, các layer được định nghĩa lại để học *hàm dư* (residual function) so với đầu vào của chúng. Đây là insight và phương pháp gộp làm một.
 
@@ -81,7 +81,7 @@ Từ ví dụ này có ba bài học. Thứ nhất, câu mở đầu có thể r
 
 ## Phân tích abstract của BERT
 
-Abstract của *BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding* (NAACL 2019) đi theo một trình tự khác, và sự khác biệt đó đáng để phân tích.
+Abstract của *BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding* (NAACL 2019) đi theo một trình tự khác, và sự khác biệt đó đáng để phân tích (xem thêm case study [BERT](../05-case-studies/bert.md)).
 
 Thay vì mở bằng vấn đề, abstract của BERT mở bằng chính đóng góp: giới thiệu một mô hình biểu diễn ngôn ngữ mới tên là BERT, kèm giải nghĩa tên viết tắt. Câu thứ hai lập tức định vị BERT so với các mô hình biểu diễn ngôn ngữ ra đời ngay trước đó (ELMo và OpenAI GPT): khác với chúng, BERT được thiết kế để học trước (pre-train) các biểu diễn hai chiều sâu từ văn bản không gán nhãn, bằng cách đồng thời dựa vào ngữ cảnh bên trái và bên phải ở mọi layer. Như vậy, khoảng trống không được phát biểu như một vấn đề riêng mà được lồng vào câu so sánh: người đọc tự suy ra rằng các mô hình trước chỉ khai thác ngữ cảnh một chiều, hoặc chỉ ghép nối hai chiều một cách nông.
 
@@ -95,7 +95,7 @@ So sánh hai abstract cho thấy khuôn 5–6 câu có thể được hiện th�
 
 ## Thực hành: viết lại một abstract yếu
 
-Để thấy khuôn 5–6 câu vận hành thế nào, hãy xem xét một abstract yếu và quá trình viết lại nó. Phương pháp DepthX và mọi con số dưới đây đều là **hư cấu**, chỉ dùng để minh họa.
+Để thấy khuôn 5–6 câu vận hành thế nào, hãy xem xét một abstract yếu và quá trình viết lại nó. Phương pháp DepthX và mọi con số dưới đây đều là **hư cấu**, chỉ dùng để minh họa. Đây cũng là dự án giả định về phát hiện vật thể 3D từ ảnh đơn đã xuất hiện ở bài [Xây "câu chuyện" của paper](../01-truoc-khi-viet/cau-chuyen.md), và sẽ được dùng tiếp ở các bài Method, Experiments và Conclusion của chương này.
 
 <div class="bad" markdown>
 
@@ -105,11 +105,11 @@ So sánh hai abstract cho thấy khuôn 5–6 câu có thể được hiện th�
 
 Chẩn đoán từng câu cho thấy vấn đề. Câu đầu tiên có thể mở đầu cho bất kỳ paper CV nào trong mười năm qua, nên nó không mang thông tin. Câu thứ hai và thứ ba nói rằng bài toán quan trọng và khó, nhưng không nói vì sao khó, khó trong điều kiện nào. Câu thứ tư và thứ năm dùng chữ "novel" hai lần mà không cho biết cái mới nằm ở đâu, và "several modules" khiến người đọc nghi rằng phương pháp là một tập hợp thành phần rời rạc. Câu cuối không có tên dataset, không có con số, không có mức cải thiện. Toàn bộ abstract không có insight nào.
 
-Để viết lại, người viết cần trả lời bốn câu hỏi ở đầu bài. Vấn đề cụ thể là gì? Giả sử phân tích lỗi cho thấy phát hiện vật thể 3D từ ảnh đơn kém nhất ở các vật thể xa. Vì sao cách làm hiện có thất bại? Giả sử phần lớn lỗi ở khoảng cách xa đến từ ước lượng độ sâu. Ý tưởng then chốt là gì? Coi độ sâu là một phân phối thay vì một giá trị, và dùng ràng buộc hình học để tinh chỉnh. Bằng chứng là gì? Kết quả trên hai benchmark, kèm kết quả riêng cho nhóm vật thể xa.
+Để viết lại, người viết cần trả lời bốn câu hỏi ở đầu bài; nếu nhóm đã viết bản pitch một trang, phần lớn câu trả lời đã nằm sẵn trong đó. Vấn đề cụ thể là gì? Giả sử phân tích lỗi cho thấy phát hiện vật thể 3D từ ảnh đơn kém nhất ở các vật thể xa. Vì sao cách làm hiện có thất bại? Giả sử phần lớn lỗi ở khoảng cách xa đến từ ước lượng độ sâu. Ý tưởng then chốt là gì? Coi độ sâu là một phân phối thay vì một giá trị, và dùng ràng buộc hình học để tinh chỉnh. Bằng chứng là gì? Kết quả trên hai benchmark, kèm kết quả riêng cho nhóm vật thể xa.
 
 <div class="good" markdown>
 
-**Bản viết lại (hư cấu):** *"Monocular 3D object detection is attractive for low-cost autonomous driving, but its accuracy degrades sharply for distant objects. Through a systematic error analysis, we find that over 60% of errors for objects beyond 40m stem from depth estimation rather than classification or localization in the image plane. Motivated by this, we propose DepthX, which treats depth as a per-object distribution and refines it with geometric constraints from object height priors. DepthX is plug-and-play and adds less than 3% latency. On KITTI and nuScenes, it improves the strongest monocular baselines by +2.0 and +1.6 AP overall, and by +6.1 AP for objects beyond 40m."*
+**Bản viết lại (hư cấu):** *"Monocular 3D object detection is attractive for low-cost autonomous driving, but its accuracy degrades sharply for distant objects. Through a systematic error analysis, we find that over 60% of errors for objects beyond 40 m stem from depth estimation rather than from classification or localization in the image plane. Motivated by this, we propose DepthX, which treats depth as a per-object distribution and refines it with geometric constraints from object height priors. DepthX is plug-and-play and increases latency by less than 3%. On KITTI and nuScenes, it improves the strongest monocular baselines by 2.0 and 1.6 AP, respectively, with gains of up to 6.1 AP for objects beyond 40 m."*
 
 </div>
 

@@ -106,7 +106,7 @@ Một cách viết lại khả thi là một mệnh đề có giả định rõ 
 
 ### Thiết lập: mỗi loại trừ đều có một câu lý do
 
-AgentDojo được chọn vì là benchmark mới nhất có nhiều ca tấn công đa dạng (629 ca trên bốn agent). VisualWebArena-Adv bị loại vì tấn công chuyển hướng mục tiêu thuần bằng ảnh chỉ đạt ASR 1% trên GPT-4o (Appendix D). Claude-3.5-Sonnet bị bỏ vì ngân sách, DeepSeek vì khả năng gọi tool chưa ổn định, known-answer detection vì chỉ phát hiện sau khi tấn công đã xảy ra, tấn công white-box như GCG vì agent thường dùng mô hình thương mại black-box. Mỗi câu "we do not…" là một câu trả lời trước cho một câu "why not X?" trong review, đúng lời khuyên ở bài [Thiết kế thí nghiệm](../01-truoc-khi-viet/thi-nghiem.md).
+AgentDojo được chọn vì, theo paper, đây là benchmark mới nhất ở thời điểm viết có nhiều ca tấn công đa dạng (629 ca trên bốn agent). VisualWebArena-Adv bị loại vì tấn công chuyển hướng mục tiêu thuần bằng ảnh chỉ đạt ASR 1% trên GPT-4o (Appendix D). Claude-3.5-Sonnet bị bỏ vì ngân sách, DeepSeek vì khả năng gọi tool chưa ổn định, known-answer detection vì chỉ phát hiện sau khi tấn công đã xảy ra, tấn công white-box như GCG vì agent thường dùng mô hình thương mại black-box. Mỗi câu "we do not…" là một câu trả lời trước cho một câu "why not X?" trong review, đúng lời khuyên ở bài [Thiết kế thí nghiệm](../01-truoc-khi-viet/thi-nghiem.md).
 
 ### Table 1: giải thích UA của detector, và ba chỗ lời bình vượt quá ô số
 
@@ -137,13 +137,21 @@ Section 4.5 là phần trung thực nhất: 66 ca lọt lưới được chia th
 
 ## Giải phẫu theo góc nhìn bảo mật
 
-**Threat model.** Threat model gọn trong một đoạn ở Section 3.1: kẻ tấn công không truy cập được đầu vào và đầu ra của LLM trong agent, chỉ thao túng được thông tin bên ngoài mà agent lấy qua tool (trang web, email, file), với mục tiêu chuyển agent sang một nhiệm vụ độc hại; người phòng vệ có toàn quyền truy cập trạng thái của agent nhưng không có tài nguyên huấn luyện và không truy cập biểu diễn bên trong. Điểm mạnh là năng lực của *người phòng vệ* được nói rõ. Điểm thiếu quan trọng nhất là *hiểu biết của kẻ tấn công về phòng vệ*: theo nguyên tắc Kerckhoffs, threat model nên giả định kẻ tấn công biết cơ chế, kể cả prompt che và ngưỡng. Ngoài ra, threat model bao gồm mọi nhiệm vụ độc hại trong khi bộ phát hiện chỉ nhìn tool call; một câu khoanh phạm vi ("we focus on injected tasks whose goal requires tool calls") sẽ làm claim khớp với thiết kế.
+### Threat model
 
-**Định nghĩa thành công và metric.** Paper dùng lại ba metric của AgentDojo (UA, ASR, BU) và đo thêm FPR. Vì ASR chỉ tính khi agent thực hiện *đầy đủ* mọi bước của nhiệm vụ độc hại, hành động độc hại một phần không được đếm, điều nên nhắc khi diễn giải các ASR dưới 1%.
+Threat model gọn trong một đoạn ở Section 3.1: kẻ tấn công không truy cập được đầu vào và đầu ra của LLM trong agent, chỉ thao túng được thông tin bên ngoài mà agent lấy qua tool (trang web, email, file), với mục tiêu chuyển agent sang một nhiệm vụ độc hại; người phòng vệ có toàn quyền truy cập trạng thái của agent nhưng không có tài nguyên huấn luyện và không truy cập biểu diễn bên trong. Điểm mạnh là năng lực của *người phòng vệ* được nói rõ. Điểm thiếu quan trọng nhất là *hiểu biết của kẻ tấn công về phòng vệ*: theo nguyên tắc Kerckhoffs, threat model nên giả định kẻ tấn công biết cơ chế, kể cả prompt che và ngưỡng. Ngoài ra, threat model bao gồm mọi nhiệm vụ độc hại trong khi bộ phát hiện chỉ nhìn tool call; một câu khoanh phạm vi ("we focus on injected tasks whose goal requires tool calls") sẽ làm claim khớp với thiết kế.
 
-**Đánh giá chống lại phản biện.** Đây là điểm yếu lớn nhất. Không có tấn công thích nghi nào nhắm vào MELON; bốn tấn công đều là mẫu có sẵn của benchmark, và phép gộp "Max" mà AgentDojo định nghĩa để mô phỏng kẻ tấn công chọn tấn công tốt nhất cho từng ca cũng không được báo cáo. Đáng chú ý, data card của AgentDojo liệt kê đúng việc chỉ dùng các tấn công mặc định, không có tấn công thích nghi, là một cách dùng *không phù hợp* của benchmark (xem [AgentDojo](agentdojo.md)). Paper thử hai mô hình thương mại và một mô hình mở; câu hỏi chuyển giao không đặt ra vì phòng vệ không có tham số học; không có thí nghiệm trên hệ thống thật. Một đánh giá thích nghi tối thiểu, ở mức mô tả, có thể gồm lời chèn khiến hành động độc hại phụ thuộc vào nội dung nhiệm vụ người dùng, lời chèn nhắm mục tiêu qua văn bản trả lời, và lời chèn làm lệch thời điểm thực hiện giữa hai lần chạy.
+### Định nghĩa thành công và metric
 
-**Đạo đức và công bố có trách nhiệm.** Impact Statement ngắn, thừa nhận chi phí tính toán và rằng "no security measure is perfect". Vì đây là phòng vệ và không có tấn công mới, rủi ro lưỡng dụng thấp và không cần responsible disclosure; mã nguồn được công khai. Impact Statement sẽ hữu ích hơn nếu nêu giới hạn quan trọng nhất cho người triển khai: tấn công qua văn bản trả lời không bị phát hiện.
+Paper dùng lại ba metric của AgentDojo (UA, ASR, BU) và đo thêm FPR. Vì ASR chỉ tính khi agent thực hiện *đầy đủ* mọi bước của nhiệm vụ độc hại, hành động độc hại một phần không được đếm, điều nên nhắc khi diễn giải các ASR dưới 1%.
+
+### Đánh giá chống lại phản biện
+
+Đây là điểm yếu lớn nhất. Không có tấn công thích nghi nào nhắm vào MELON; bốn tấn công đều là mẫu có sẵn của benchmark, và phép gộp "Max" mà AgentDojo định nghĩa để mô phỏng kẻ tấn công chọn tấn công tốt nhất cho từng ca cũng không được báo cáo. Đáng chú ý, data card của AgentDojo liệt kê đúng việc chỉ dùng các tấn công mặc định, không có tấn công thích nghi, là một cách dùng *không phù hợp* của benchmark (xem [AgentDojo](agentdojo.md)). Paper thử hai mô hình thương mại và một mô hình mở; câu hỏi chuyển giao không đặt ra vì phòng vệ không có tham số học; không có thí nghiệm trên hệ thống thật. Một đánh giá thích nghi tối thiểu nên nhắm thẳng vào các giả định mà phương pháp dựa vào, chẳng hạn giả định rằng mọi tấn công thành công đều biểu hiện qua tool call (chính phân tích thất bại ở Section 4.5 cho thấy giả định này không luôn đúng), và nên báo cáo kết quả bằng phép gộp "Max" của benchmark.
+
+### Đạo đức và công bố có trách nhiệm
+
+Impact Statement ngắn, thừa nhận chi phí tính toán và rằng "no security measure is perfect". Vì đây là phòng vệ và không có tấn công mới, rủi ro lưỡng dụng thấp và không cần responsible disclosure; mã nguồn được công khai. Impact Statement sẽ hữu ích hơn nếu nêu giới hạn quan trọng nhất cho người triển khai: tấn công qua văn bản trả lời không bị phát hiện.
 
 ## Limitations, kết luận và văn phong
 
@@ -155,13 +163,13 @@ Paper không có mục Limitations riêng; hạn chế nằm rải rác ở phâ
 
 **Dựng phương pháp theo khuôn cách làm hiển nhiên, thách thức, thiết kế, và để mỗi dòng ablation bỏ đúng một thiết kế.**
 
-**Từ mạnh trong title phải có đối ứng ở abstract, ở định lý và ở thí nghiệm.** "Provable" chỉ được hiện thực hóa khi giả định được nêu, đại lượng được đo, và đối tượng được chứng minh trùng với đối tượng được đánh giá.
+**Từ mạnh trong title phải có đối ứng ở abstract, ở định lý và ở thí nghiệm.** "Provable" chỉ được hiện thực hóa khi giả định được nêu, đại lượng được đo, và đối tượng được chứng minh trùng với đối tượng được đánh giá. Mục về ngôn từ thổi phồng ở bài [Ranh giới trung thực](../07-tinh-huong-kho/ranh-gioi-trung-thuc.md) bàn chung cho mọi lĩnh vực ranh giới giữa một title hấp dẫn và một title hứa quá mức.
 
 **Claim khái quát phải đúng với từng hàng của bảng.** Nếu điều thắng thực sự là trade-off, hãy viết về trade-off; nếu một mô hình đảo ngược khuôn mẫu, đó là một phát hiện chứ không phải ngoại lệ để lờ đi.
 
 **Giải thích metric đối xử thế nào với lớp phương pháp đang đề xuất, báo con số bất lợi trước khi lập luận, và phân loại thất bại có tỷ lệ.** Ba thói quen này là nền móng cho một mục Limitations thuyết phục.
 
-### Khi viết paper về visual/multimodal prompt injection
+### Áp dụng cho paper về visual/multimodal prompt injection
 
 VisualWebArena-Adv bị loại khỏi MELON vì tấn công chuyển hướng mục tiêu bằng ảnh chỉ đạt ASR 1% trên GPT-4o. Với paper *tấn công* đa phương thức, đây là lý do nên báo cáo ASR trên chính những mô hình mà paper phòng vệ dùng và phát hành tấn công dưới dạng cắm được vào một benchmark agent; nếu không, cộng đồng phòng vệ sẽ bỏ qua kênh ảnh. Với paper *phòng vệ*, ý tưởng chạy lại có che chuyển được sang agent đa phương thức (che yêu cầu người dùng, giữ ảnh chụp màn hình), nhưng phép so sánh phải được thiết kế lại cho hành động như click hay tọa độ, và bài học về chữ "Provable" càng quan trọng khi nhiễu ảnh có thể được tối ưu liên tục để vượt ngưỡng. Reviewer CVPR/ICCV chờ ví dụ trực quan, ngân sách nhiễu rõ ràng và đánh giá trên nhiều VLM; reviewer NeurIPS/ICML/ICLR chờ một nguyên lý tổng quát cùng phần lý thuyết có giả định kiểm chứng được; reviewer ACL/EMNLP quan tâm tới cách mô hình diễn giải chỉ dẫn bị chèn và đòi một mục Limitations riêng.
 
@@ -178,5 +186,5 @@ MELON dựng câu chuyện quanh một dấu hiệu hành vi của prompt inject
 1. Viết lại abstract của MELON với hai con số từ Table 1, một câu nói rõ điều gì được chứng minh, và một câu kết quả phát biểu đúng về trade-off.
 2. Với phòng vệ hoặc tấn công trong dự án hiện tại, viết một đoạn "cách làm hiển nhiên, các thách thức, các thiết kế" theo khuôn Section 3.2, rồi thiết kế bảng ablation sao cho mỗi dòng bỏ đúng một thiết kế.
 3. Viết lại Section 3.4 thành một mệnh đề có đủ giả định, mô tả một thí nghiệm đo $\mu_B$, $\mu_V$ và kiểm tra bound theo $n$, rồi tính lại con số minh họa của paper bằng một dòng code.
-4. Thiết kế, ở mức mô tả và không viết prompt cụ thể, ba tấn công thích nghi nhắm vào MELON, mỗi tấn công khai thác một giả định khác nhau; với mỗi tấn công, viết một câu cho mục Limitations.
+4. Liệt kê ba giả định mà MELON dựa vào (về hành vi của agent, về kẻ tấn công và về cấu hình của người phòng vệ). Với mỗi giả định, viết một câu cho mục Limitations và một câu mô tả loại đánh giá thích nghi mà paper cần có để kiểm tra giả định đó, ở mức thiết kế thí nghiệm, không đi vào cách xây dựng tấn công.
 5. Giả sử chuyển MELON sang một web agent nhận ảnh chụp màn hình: mô tả hàm che, cách biểu diễn hành động để so sánh, và một threat model ba câu cho phiên bản này.

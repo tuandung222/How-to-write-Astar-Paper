@@ -1,10 +1,14 @@
 # Checklist tổng hợp
 
-Checklist này tập hợp những điểm kiểm tra quan trọng nhất của toàn bộ giáo trình, sắp xếp theo các giai đoạn của một paper. Cách dùng hiệu quả nhất là gắn mỗi nhóm với một mốc cụ thể: nhóm A khi chốt ý tưởng và trước khi đầu tư thí nghiệm lớn; nhóm B và C khi có bản thảo đầy đủ đầu tiên, và một lần nữa khoảng một tuần trước hạn nộp; nhóm D trong 48 giờ cuối; nhóm E khi nhận review; nhóm F sau khi bài được chấp nhận. Nhóm G chứa các mục riêng theo cộng đồng và nên được rà cùng với nhóm B, C, D. Mỗi mục chỉ được đánh dấu khi đã thực sự kiểm tra, và với những mục về độ rõ ràng (chẳng hạn "Figure 1 hiểu được trong vài giây"), việc kiểm tra nên do một người không tham gia viết thực hiện, vì tác giả luôn hiểu bài của chính họ. Checklist không thay thế bài giảng: mỗi nhóm có liên kết tới chương tương ứng, nơi giải thích vì sao các mục đó quan trọng. Cuối cùng, vì luật của các hội nghị thay đổi theo năm, nhóm tác giả nên bổ sung vào checklist những yêu cầu mới trong Call for Papers của năm nộp, sao chép checklist vào tài liệu chung của nhóm và phân công người chịu trách nhiệm cho từng nhóm mục.
+Checklist này tập hợp những điểm kiểm tra quan trọng nhất của toàn bộ giáo trình, sắp xếp theo các giai đoạn của một paper. Cách dùng hiệu quả nhất là gắn mỗi nhóm với một mốc cụ thể: phần đầu của nhóm A khi chốt ý tưởng, phần sau của nhóm A ngay trước khi bắt đầu thí nghiệm chính và đầu tư tài nguyên tính toán lớn; nhóm B và C khi có bản thảo đầy đủ đầu tiên, và một lần nữa khoảng một tuần trước hạn nộp; nhóm D trong 48 giờ cuối; nhóm E khi nhận review; nhóm F sau khi bài được chấp nhận. Nhóm G chứa các mục riêng theo cộng đồng và nên được rà cùng với nhóm B, C, D. Mỗi mục chỉ được đánh dấu khi đã thực sự kiểm tra, và với những mục về độ rõ ràng (chẳng hạn "Figure 1 hiểu được trong vài giây"), việc kiểm tra nên do một người không tham gia viết thực hiện, vì tác giả luôn hiểu bài của chính họ. Checklist không thay thế bài giảng: mỗi nhóm có liên kết tới chương tương ứng, nơi giải thích vì sao các mục đó quan trọng. Cuối cùng, vì luật của các hội nghị thay đổi theo năm, nhóm tác giả nên bổ sung vào checklist những yêu cầu mới trong Call for Papers của năm nộp, sao chép checklist vào tài liệu chung của nhóm và phân công người chịu trách nhiệm cho từng nhóm mục.
 
 ## A. Ý tưởng và chuẩn bị
 
-Xem [Chương 1. Trước khi viết](../01-truoc-khi-viet/index.md).
+Xem [Chương 1. Nghiên cứu trước khi viết](../01-truoc-khi-viet/index.md).
+
+### Khi chốt ý tưởng
+
+Các bài liên quan: [Đọc và lập bản đồ tài liệu](../01-truoc-khi-viet/literature.md), [Tìm khoảng trống và nguồn ý tưởng](../01-truoc-khi-viet/tim-khoang-trong.md), [Thẩm định ý tưởng](../01-truoc-khi-viet/y-tuong.md), [Xây "câu chuyện" của paper](../01-truoc-khi-viet/cau-chuyen.md).
 
 - [ ] Bài toán được phát biểu trong một câu, không dùng thuật ngữ riêng của nhóm
 - [ ] Insight được phát biểu trong một đến hai câu
@@ -14,6 +18,23 @@ Xem [Chương 1. Trước khi viết](../01-truoc-khi-viet/index.md).
 - [ ] Đã chọn cộng đồng đích và đọc 3–5 paper gần đây cùng chủ đề ở hội nghị đó
 - [ ] One-page pitch đã được người hướng dẫn hoặc đồng nghiệp góp ý
 - [ ] Bảng claim và thí nghiệm tương ứng đầy đủ, mỗi claim có ít nhất một thí nghiệm
+
+### Trước khi bắt đầu thí nghiệm chính
+
+Các bài liên quan: [Lập kế hoạch nghiên cứu](../01-truoc-khi-viet/ke-hoach.md), [Thiết kế thí nghiệm](../01-truoc-khi-viet/thi-nghiem.md), [Vận hành thực nghiệm](../01-truoc-khi-viet/thuc-thi.md).
+
+- [ ] Mỗi contribution dự kiến đã thành một claim kiểm chứng được, kèm kết quả nào sẽ bác bỏ nó
+- [ ] Ma trận thí nghiệm ghép mỗi claim với dữ liệu, metric, baseline và ablation; thí nghiệm rủi ro nhất được xếp chạy trước
+- [ ] Đã làm premortem: liệt kê những lý do dự án có thể thất bại và cách phát hiện sớm từng lý do
+- [ ] Các cổng quyết định có tiêu chí đi tiếp hay dừng viết sẵn, cùng một kế hoạch B
+- [ ] Ngân sách compute và dữ liệu đã được ước lượng, có dự trù cho thí nghiệm bổ sung khi rebuttal
+- [ ] Vai trò của từng thành viên và thỏa thuận tác giả đã được thống nhất bằng văn bản
+- [ ] Baseline mạnh nhất đã được tái tạo trong codebase của nhóm, khớp với số công bố hoặc có giải thích cho chênh lệch
+- [ ] Hạ tầng sẵn sàng: config tách khỏi code, seed được ghi lại, mỗi run lưu commit hash, config và log
+- [ ] Sanity check đã qua: mô hình overfit được một tập rất nhỏ, pipeline dữ liệu và metric được kiểm tra trên ví dụ biết trước đáp án
+- [ ] Siêu tham số đã được phân loại thành scientific, nuisance và fixed (xem [Thuật ngữ](thuat-ngu.md)), và baseline được tinh chỉnh với ngân sách ngang phương pháp đề xuất
+- [ ] Bảng và hình được sinh tự động từ log thí nghiệm, không chép số bằng tay
+- [ ] Nếu dùng coding agent hay trợ lý AI để viết code, nhóm đã thống nhất cách kiểm tra và ghi lại phần code do AI sinh (xem [AI trong lập trình và thực nghiệm](../08-ai-cong-su/thuc-nghiem.md))
 
 ## B. Nội dung
 
@@ -46,7 +67,7 @@ Xem [Chương 3. Kỹ thuật & văn phong](../03-ky-thuat/index.md).
 - [ ] Bảng dùng kiểu booktabs, không kẻ dọc; kết quả tốt nhất được đánh dấu nhất quán
 - [ ] Không còn `??`, `[?]`, ghi chú nội bộ hay lệnh comment hiển thị
 - [ ] Tài liệu tham khảo sạch: không trùng, có đủ venue và năm, viết hoa đúng
-- [ ] Đã kiểm tra chính tả và ngữ pháp; công cụ AI (nếu dùng) tuân thủ chính sách của hội nghị
+- [ ] Đã kiểm tra chính tả và ngữ pháp; công cụ AI (nếu dùng) tuân thủ chính sách của hội nghị (xem [Dùng AI hỗ trợ (đúng luật)](../03-ky-thuat/ai-tools.md))
 
 ## D. Nộp bài
 

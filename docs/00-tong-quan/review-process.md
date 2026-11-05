@@ -79,6 +79,8 @@ Trình tự trên thay đổi đôi chút theo cộng đồng. Reviewer CV thư�
 
 Từ hình dung này, có thể rút ra bốn hệ quả trực tiếp cho người viết. Thứ nhất, title, abstract, Figure 1, đoạn đóng góp và bảng kết quả chính quyết định phần lớn ấn tượng của reviewer, nên chúng xứng đáng được đầu tư nhiều thời gian hơn hẳn so với tỉ lệ số trang mà chúng chiếm. Thứ hai, phần Summary trong review là một tấm gương: nếu reviewer tóm tắt sai đóng góp của paper, thì đó gần như luôn là lỗi của cách viết chứ không phải của reviewer. Thứ ba, những câu hỏi mà một reviewer thông minh nhưng vội vàng chắc chắn sẽ đặt ra, như vì sao không so sánh với một phương pháp nào đó, vì sao chọn siêu tham số này, nên được trả lời sẵn trong paper hoặc trong appendix. Thứ tư, paper cũng cần được viết cho AC: AC phải giải thích với các AC khác vì sao paper xứng đáng được nhận, và một câu chuyện có thể tóm tắt trong một câu sẽ giúp AC làm việc đó dễ hơn nhiều.
 
+Phần trên mô tả cách reviewer đọc nhìn *từ phía người viết*, để rút ra hệ quả cho bản thảo. Mặt còn lại của kỹ năng này là chính người viết tập đọc như một reviewer: đánh giá novelty và đóng góp của một paper, đối chiếu từng claim với bằng chứng, nhận diện điểm yếu thực chất thay vì dựa vào những heuristic phản biện lười, và viết thành một bản review có lập luận. Kỹ năng đó được giảng và thực hành trong bài [Đọc paper như một reviewer](../01-truoc-khi-viet/doc-nhu-reviewer.md) ở Chương 1, và nên được rèn từ trước khi viết, vì người đọc tài liệu bằng con mắt reviewer sẽ sớm thấy khoảng trống và điểm yếu của chính ý tưởng đang theo đuổi.
+
 !!! success "Phép thử của tấm gương"
     Trước khi nộp, hãy nhờ một đồng nghiệp không tham gia dự án đọc paper trong khoảng thời gian giới hạn, rồi viết ra ba câu: paper giải quyết vấn đề gì, đóng góp chính là gì, và bằng chứng mạnh nhất là gì. Nếu ba câu đó khác với điều nhóm tác giả muốn truyền tải, thì reviewer thật nhiều khả năng cũng sẽ hiểu sai theo cùng cách. Bài [Quy trình viết & tự review](../03-ky-thuat/quy-trinh-viet.md) trình bày cách tổ chức các vòng đọc thử như vậy.
 
@@ -132,7 +134,7 @@ Mặc dù mỗi paper bị từ chối vì những lý do riêng, các bản rev
 
 | Lý do | Câu nhận xét điển hình | Bài giúp phòng tránh |
 |---|---|---|
-| Đóng góp không đủ mới | *"The method is a straightforward combination of X and Y."* | [Ý tưởng](../01-truoc-khi-viet/y-tuong.md), [Câu chuyện](../01-truoc-khi-viet/cau-chuyen.md), [Introduction](../02-viet-tung-phan/introduction.md) |
+| Đóng góp không đủ mới | *"The method is a straightforward combination of X and Y."* | [Thẩm định ý tưởng](../01-truoc-khi-viet/y-tuong.md), [Câu chuyện](../01-truoc-khi-viet/cau-chuyen.md), [Introduction](../02-viet-tung-phan/introduction.md) |
 | Thiếu so sánh với công trình liên quan | *"The authors did not compare with recent work such as..."* | [Đọc tài liệu](../01-truoc-khi-viet/literature.md), [Related Work](../02-viet-tung-phan/related-work.md) |
 | Baseline yếu hoặc không công bằng | *"Baselines are not tuned and use a weaker backbone."* | [Thiết kế thí nghiệm](../01-truoc-khi-viet/thi-nghiem.md) |
 | Thiếu ablation | *"It is unclear which component contributes to the gain."* | [Experiments](../02-viet-tung-phan/experiments.md) |
@@ -144,7 +146,7 @@ Mặc dù mỗi paper bị từ chối vì những lý do riêng, các bản rev
 | Đánh giá hạn hẹp, thiếu phân tích lỗi (thường gặp ở NLP) | *"Evaluation is limited to a single English dataset and lacks error analysis."* | [Viết cho ACL / EMNLP / NAACL](../06-cong-dong/nlp.md) |
 | Desk reject | Không có review: sai định dạng, lộ danh tính, thiếu mục bắt buộc | [Chuẩn bị nộp bài](../04-nop-va-sau-nop/submission.md) |
 
-Có hai điều đáng chú ý khi đọc bảng này. Điều thứ nhất là phần lớn các lý do nằm ở giai đoạn *trước khi viết*: đóng góp không đủ mới, baseline yếu, thiếu ablation hay claim không được hỗ trợ đều là vấn đề của thiết kế nghiên cứu và câu chuyện, không phải của câu chữ. Đây là lý do Chương 1 được đặt trước Chương 2. Điều thứ hai là nhiều lý do thực chất là vấn đề *trình bày*: một paper có đóng góp mới nhưng không nói rõ điều gì là mới sẽ nhận về nhận xét "limited novelty" không khác gì một paper thực sự thiếu tính mới. Kỹ năng viết, vì vậy, không chỉ làm paper dễ đọc hơn mà còn quyết định việc đóng góp có được nhìn thấy hay không.
+Có hai điều đáng chú ý khi đọc bảng này. Điều thứ nhất là phần lớn các lý do nằm ở giai đoạn *trước khi viết*: đóng góp không đủ mới, baseline yếu, thiếu ablation hay claim không được hỗ trợ đều là vấn đề của thiết kế nghiên cứu và câu chuyện, không phải của câu chữ. Đây là lý do [Chương 1: Nghiên cứu trước khi viết](../01-truoc-khi-viet/index.md) được đặt trước Chương 2. Điều thứ hai là nhiều lý do thực chất là vấn đề *trình bày*: một paper có đóng góp mới nhưng không nói rõ điều gì là mới sẽ nhận về nhận xét "limited novelty" không khác gì một paper thực sự thiếu tính mới. Kỹ năng viết, vì vậy, không chỉ làm paper dễ đọc hơn mà còn quyết định việc đóng góp có được nhìn thấy hay không.
 
 ## Tính ngẫu nhiên của review
 
@@ -156,7 +158,7 @@ Kết quả này cần được diễn giải cẩn thận. Nó không có nghĩ
 
 Số lượng submission tăng nhanh hơn nhiều so với số reviewer có kinh nghiệm, và các hội nghị lớn đã phản ứng bằng cách đặt ra nghĩa vụ review đối với tác giả. Những năm gần đây, nhiều hội nghị ở cả ba cộng đồng, trong đó có CVPR, NeurIPS, ICLR và ARR, yêu cầu mỗi submission phải có ít nhất một tác giả, hoặc mọi tác giả đáp ứng một số điều kiện về kinh nghiệm, đăng ký làm reviewer. Một số hội nghị còn quy định rằng reviewer không hoàn thành nghĩa vụ, nộp review quá muộn hoặc viết review kém chất lượng có thể khiến các paper mà họ đứng tên bị ảnh hưởng, thậm chí bị desk reject. Các quy định này thay đổi nhanh giữa các năm, nên cần đọc kỹ trong Call for Papers.
 
-Với người mới, nghĩa vụ này nên được nhìn như một cơ hội hơn là một gánh nặng. Không có cách nào hiểu reviewer rõ hơn là trực tiếp làm reviewer: đọc năm hay sáu paper trong thời gian giới hạn, cảm nhận trực tiếp paper nào dễ đánh giá và paper nào gây bối rối, và đọc review của các reviewer khác cho cùng một paper. Rất nhiều nhà nghiên cứu cho biết lần review đầu tiên đã thay đổi cách họ viết paper nhiều hơn bất kỳ lời khuyên nào.
+Với người mới, nghĩa vụ này nên được nhìn như một cơ hội hơn là một gánh nặng. Không có cách nào hiểu reviewer rõ hơn là trực tiếp làm reviewer: đọc năm hay sáu paper trong thời gian giới hạn, cảm nhận trực tiếp paper nào dễ đánh giá và paper nào gây bối rối, và đọc review của các reviewer khác cho cùng một paper. Rất nhiều nhà nghiên cứu cho biết lần review đầu tiên đã thay đổi cách họ viết paper nhiều hơn bất kỳ lời khuyên nào. Người chưa từng review nên tập viết vài bản review cho các paper đã công bố trong mảng đang nghiên cứu trước khi nhận lời mời thật, theo quy trình trong bài [Đọc paper như một reviewer](../01-truoc-khi-viet/doc-nhu-reviewer.md), rồi đối chiếu với review công khai trên OpenReview nếu có.
 
 ## Tóm tắt
 

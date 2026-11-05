@@ -24,7 +24,7 @@ Hai nhánh phương pháp thích nghi đã xuất hiện để giải quyết v�
 
 > Ước lượng moment bậc một (trung bình) và bậc hai (bình phương không trừ trung bình) của gradient bằng trung bình trượt mũ, hiệu chỉnh độ lệch gây ra bởi việc khởi tạo các ước lượng bằng 0, rồi dùng tỉ số giữa chúng làm bước cập nhật riêng cho từng tham số; kết quả là một thuật toán vài dòng, ít phải tinh chỉnh, kết hợp ưu điểm của AdaGrad với gradient thưa và của RMSProp với mục tiêu không dừng.
 
-Tên Adam được lấy từ "adaptive moment estimation", tức chính ý tưởng cốt lõi. Câu chuyện có cấu trúc "kết hợp ưu điểm của A và B", một cấu trúc phổ biến nhưng cũng dễ bị reviewer chê là "chỉ là A + B". Adam tránh được nhận xét này nhờ hai điều. Thứ nhất, sự kết hợp không phải là ghép nối máy móc mà có một thành phần mới, bias correction, mà cả hai phương pháp gốc đều không có. Thứ hai, paper chứng minh rằng mỗi ưu điểm được kế thừa thật sự xuất hiện trong thực nghiệm. Người học có thể đối chiếu với thảo luận về ý tưởng dạng "A + B" ở bài [Tìm và thẩm định ý tưởng](../01-truoc-khi-viet/y-tuong.md).
+Tên Adam được lấy từ "adaptive moment estimation", tức chính ý tưởng cốt lõi. Câu chuyện có cấu trúc "kết hợp ưu điểm của A và B", một cấu trúc phổ biến nhưng cũng dễ bị reviewer chê là "chỉ là A + B". Adam tránh được nhận xét này nhờ hai điều. Thứ nhất, sự kết hợp không phải là ghép nối máy móc mà có một thành phần mới, bias correction, mà cả hai phương pháp gốc đều không có. Thứ hai, paper chứng minh rằng mỗi ưu điểm được kế thừa thật sự xuất hiện trong thực nghiệm. Người học có thể đối chiếu với thảo luận về ý tưởng dạng "A + B" ở bài [Thẩm định ý tưởng](../01-truoc-khi-viet/y-tuong.md).
 
 ## Phân tích câu chuyện và cấu trúc paper
 
@@ -36,7 +36,7 @@ Cấu trúc này phù hợp với loại đóng góp. Với một optimizer, câ
 
 ### Algorithm 1: trung tâm của paper
 
-Ngay đầu mục 2 của paper là Algorithm 1, và gần như toàn bộ đóng góp nằm trong khung đó. Dưới đây là thuật toán được trình bày lại theo cách diễn đạt của giáo trình; mọi phép toán trên vector đều thực hiện theo từng phần tử.
+Algorithm 1 được đặt ngay ở trang thứ hai, trước cả mục mô tả chi tiết thuật toán, và gần như toàn bộ đóng góp nằm trong khung đó. Dưới đây là thuật toán được trình bày lại theo cách diễn đạt của giáo trình; mọi phép toán trên vector đều thực hiện theo từng phần tử.
 
 ```text
 Đầu vào: α (kích thước bước), β1, β2 ∈ [0, 1) (tốc độ suy giảm của các ước lượng moment),
@@ -98,7 +98,7 @@ Các mục tiếp theo gồm Related Work (quan hệ với RMSProp, AdaGrad và 
 
 ## Figure và Table then chốt
 
-Paper Adam có rất ít bảng và chủ yếu dùng biểu đồ đường cong huấn luyện. Tuy vậy, có ba thành phần trực quan đóng vai trò then chốt.
+Paper Adam không có bảng kết quả nào và dùng biểu đồ đường cong huấn luyện làm bằng chứng chính. Tuy vậy, có ba thành phần trực quan đóng vai trò then chốt.
 
 **Algorithm 1** là "figure" quan trọng nhất của paper, dù nó không phải hình. Như đã phân tích, nó là điểm neo của mọi phần khác, và là thứ mà người đọc mang đi sau khi đóng paper.
 
@@ -124,9 +124,9 @@ Phần thực nghiệm của Adam được sắp xếp theo một logic rõ: đi
 | Áp dụng cho bài toán không lồi, quy mô lớn | Mạng nhiều lớp trên MNIST, CNN trên CIFAR-10 |
 | Bias correction cần thiết | Khảo sát trên VAE, có và không có hiệu chỉnh |
 | Hội tụ trong khung lồi | Định lý regret $O(\sqrt{T})$, chứng minh ở phụ lục |
-| Ít cần tinh chỉnh | Giá trị mặc định dùng chung cho các thí nghiệm, cùng khảo sát độ nhạy |
+| Ít cần tinh chỉnh | Chỉ gián tiếp: giá trị mặc định nêu trong chú thích Algorithm 1 và khảo sát độ nhạy trên VAE |
 
-Bảng trên cho thấy mỗi tính chất trong abstract có ít nhất một bằng chứng tương ứng. Đây là cách áp dụng nguyên tắc "claim nào cũng phải có thí nghiệm" của bài [Thiết kế thí nghiệm](../01-truoc-khi-viet/thi-nghiem.md) cho một paper thuật toán. Người học cũng nên nhận ra một khoảng cách: bằng chứng lý thuyết chỉ phủ khung lồi, trong khi ứng dụng chính của Adam là bài toán không lồi. Paper không giấu điều này, vì khung phân tích được nêu rõ. Nhưng phần tiếp theo cho thấy ngay cả trong khung lồi, lý thuyết cũng cần được kiểm tra kỹ hơn.
+Bảng trên cho thấy hầu hết tính chất trong abstract có ít nhất một bằng chứng tương ứng. Đây là cách áp dụng nguyên tắc "claim nào cũng phải có thí nghiệm" của bài [Thiết kế thí nghiệm](../01-truoc-khi-viet/thi-nghiem.md) cho một paper thuật toán. Dòng cuối của bảng đáng được đọc kỹ hơn. Phần thực nghiệm của paper nói rõ rằng learning rate và momentum của mọi optimizer, kể cả Adam, được dò trên một lưới dày và kết quả được báo cáo ở cấu hình tốt nhất. Cách làm này công bằng cho phép so sánh, nhưng nó có nghĩa là các thí nghiệm chính không trực tiếp kiểm chứng claim "ít cần tinh chỉnh"; bằng chứng cho claim ấy chủ yếu là hình khảo sát độ nhạy trên VAE. Một thí nghiệm chạy Adam với đúng giá trị mặc định trên mọi bài toán, đặt cạnh các optimizer khác đã được tinh chỉnh, sẽ là bằng chứng trực tiếp. Bài học cho người viết: khi lập bảng tính chất và bằng chứng, hãy hỏi không chỉ "có bằng chứng không" mà cả "bằng chứng có đo đúng điều claim nói không". Người học cũng nên nhận ra một khoảng cách nữa: bằng chứng lý thuyết chỉ phủ khung lồi, trong khi ứng dụng chính của Adam là bài toán không lồi. Paper không giấu điều này, vì khung phân tích được nêu rõ. Nhưng phần tiếp theo cho thấy ngay cả trong khung lồi, lý thuyết cũng cần được kiểm tra kỹ hơn.
 
 ## Bài học về độ chặt chẽ của lý thuyết
 
@@ -171,6 +171,10 @@ Bias correction là một thành phần mà reviewer có thể đề nghị bỏ
 ### Áp dụng sang các cộng đồng khác
 
 Ở **Computer Vision**, các paper đề xuất một kỹ thuật huấn luyện, một hàm loss hay một cách augmentation có thể học trực tiếp từ Adam: một khung pseudo-code ngắn, giá trị mặc định, và khảo sát độ nhạy cho hyperparameter mới. Một reviewer CV thường hỏi "hyperparameter mới có cần tinh chỉnh lại cho từng dataset không?", và một hình khảo sát độ nhạy trả lời câu hỏi đó. Ở **NLP**, các paper đề xuất thuật toán giải mã, thuật toán fine-tune hay chiến lược lấy mẫu dữ liệu cũng hưởng lợi từ khung thuật toán rõ ràng; checklist của ARR yêu cầu báo cáo hyperparameter và cách chọn chúng, nên giá trị mặc định cùng quy trình chọn nên được ghi rõ (xem [Viết cho ACL / EMNLP / NAACL](../06-cong-dong/nlp.md)). Ở **Machine Learning**, bài học về độ chặt chẽ của lý thuyết áp dụng trực tiếp; dự án hư cấu về warmup ở bài [Thực hành](worked-example.md) cho thấy cách kết hợp một phân tích lý thuyết đơn giản với thực nghiệm trên nhiều kiến trúc.
+
+### Nối với các bài kỹ năng
+
+Cấu trúc "A + B cộng một thành phần mới" của Adam là trường hợp mẫu cho mục *Bẫy "A + B" và cách thoát* ở bài [Thẩm định ý tưởng](../01-truoc-khi-viet/y-tuong.md). Phép tính "bước đầu tiên" và hình khảo sát độ nhạy là hai loại sanity check mà bài [Vận hành thực nghiệm](../01-truoc-khi-viet/thuc-thi.md) khuyên chạy trước khi tin vào bất kỳ đường cong huấn luyện nào; bài này cũng bàn cách dò siêu tham số có hệ thống, chính là vấn đề nằm sau claim "ít cần tinh chỉnh". Câu chuyện về chứng minh hội tụ có lỗi là lý do để tác giả đọc phần lý thuyết trong bản thảo với con mắt của bài [Đọc paper như một reviewer](../01-truoc-khi-viet/doc-nhu-reviewer.md), còn cách trình bày pseudo-code có ở bài [Method](../02-viet-tung-phan/method.md). Ở Chương 7, Tình huống 16 trong bài [Khi con số không đẹp](../07-tinh-huong-kho/con-so-khong-dep.md) bàn trường hợp ngược với lời hứa của Adam, khi phương pháp chỉ tốt lúc được tinh chỉnh rất kỹ, và Tình huống 34 trong bài [Bài toán, dữ liệu và phạm vi](../07-tinh-huong-kho/bai-toan-va-pham-vi.md) bàn khoảng cách giữa một lý thuyết đẹp và những thí nghiệm nằm ngoài phạm vi của nó.
 
 ## Tóm tắt
 

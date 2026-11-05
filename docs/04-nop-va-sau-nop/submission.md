@@ -27,9 +27,9 @@ Desk reject là quyết định loại paper do Program Chair (PC) hoặc Area C
 
 **Thiếu abstract registration hoặc dùng abstract giữ chỗ.** Nhiều hội nghị, đặc biệt ở ML, yêu cầu đăng ký title và abstract khoảng một tuần trước deadline full paper. Thông tin này được dùng để phát hiện xung đột lợi ích, mở giai đoạn bidding (reviewer chọn paper muốn đọc) và phân công reviewer. Một abstract kiểu "To be updated" làm hỏng toàn bộ quá trình phân công, nên một số hội nghị ghi rõ rằng submission với abstract giữ chỗ có thể bị gỡ bỏ. Không đăng ký đúng hạn thì thường không thể nộp full paper.
 
-**Thiếu checklist hoặc mục bắt buộc.** NeurIPS yêu cầu Paper Checklist đi kèm PDF; các hội nghị dùng ARR yêu cầu mục Limitations. Thiếu những phần này thường dẫn tới desk reject, vì chúng là điều kiện mà cộng đồng đặt ra cho mọi paper. Mục [Checklist và tuyên bố bắt buộc](#checklist-va-tuyen-bo-bat-buoc-theo-cong-ong) bên dưới trình bày chi tiết.
+**Thiếu checklist hoặc mục bắt buộc.** NeurIPS yêu cầu Paper Checklist đi kèm PDF; các hội nghị dùng ARR yêu cầu mục Limitations. Thiếu những phần này thường dẫn tới desk reject, vì chúng là điều kiện mà cộng đồng đặt ra cho mọi paper. Mục "Checklist và tuyên bố bắt buộc theo cộng đồng" ở phần sau của bài trình bày chi tiết.
 
-**Không hoàn thành nghĩa vụ review.** Số lượng submission tăng nhanh hơn nhiều so với số reviewer có kinh nghiệm, nên các hội nghị ngày càng áp dụng nguyên tắc có đi có lại: người nộp paper phải góp sức review. ARR yêu cầu tác giả đủ điều kiện tham gia review; NeurIPS và ICLR có các chính sách reviewing đối ứng; CVPR trong những năm gần đây đã tuyên bố có thể desk reject paper của những tác giả bị đánh giá là reviewer thiếu trách nhiệm nghiêm trọng. Mức độ áp dụng khác nhau theo năm, nhưng xu hướng chung là ngày càng chặt.
+**Không hoàn thành nghĩa vụ review.** Số lượng submission tăng nhanh hơn nhiều so với số reviewer có kinh nghiệm, nên các hội nghị ngày càng áp dụng nguyên tắc có đi có lại: người nộp paper phải góp sức review. ARR yêu cầu tác giả đủ điều kiện tham gia review; NeurIPS và ICLR có các chính sách reviewing đối ứng; CVPR trong những năm gần đây đã tuyên bố có thể desk reject paper của những tác giả bị đánh giá là reviewer thiếu trách nhiệm nghiêm trọng, và hướng dẫn của ECCV 2026 nêu rõ reviewer trễ hạn review hoặc có review bị coi là "highly irresponsible", kể cả do vi phạm chính sách LLM, có thể khiến mọi paper mà người đó đứng tên bị desk reject. Mức độ áp dụng khác nhau theo năm, nhưng xu hướng chung là ngày càng chặt.
 
 **Đạo văn và vi phạm đạo đức xuất bản.** Sao chép văn bản của người khác là vi phạm hiển nhiên. Ít người để ý hơn là việc **tự đạo văn**: dùng lại nguyên các đoạn văn từ paper cũ của chính nhóm mà không trích dẫn. Một hình thức vi phạm mới xuất hiện trong vài năm gần đây là chèn chỉ dẫn ẩn (chữ trắng, chữ cực nhỏ) nhằm điều khiển các mô hình ngôn ngữ lớn nếu reviewer dùng chúng để đọc paper, một dạng *prompt injection*. Một số hội nghị đã tuyên bố coi hành vi này là vi phạm đạo đức, với hậu quả có thể nặng hơn desk reject. Chính sách về việc dùng AI khi viết được trình bày ở bài [Dùng AI hỗ trợ (đúng luật)](../03-ky-thuat/ai-tools.md).
 
@@ -131,7 +131,7 @@ NeurIPS, ICML và ICLR nhìn chung cho phép preprint. Riêng ICLR, bản thân 
 
 ### NLP
 
-Đây là cộng đồng có thay đổi đáng chú ý nhất. Trong nhiều năm, ACL áp dụng **anonymity period**: từ khoảng một tháng trước deadline cho tới khi có quyết định, tác giả không được đăng hay cập nhật preprint của paper đang nộp. Từ khoảng năm 2024, sau một quá trình thảo luận trong cộng đồng, ACL đã bãi bỏ quy định này, nên theo chính sách hiện hành tác giả có thể đăng preprint vào bất kỳ thời điểm nào; bản nộp lên ARR vẫn phải được ẩn danh đầy đủ. Vì chính sách vừa thay đổi và có thể còn được điều chỉnh, người viết nên kiểm tra Call for Papers của ARR và trang chính sách của ACL ở mỗi chu kỳ.
+Đây là cộng đồng có thay đổi đáng chú ý nhất. Trong nhiều năm, ACL áp dụng **anonymity period**: từ khoảng một tháng trước deadline cho tới khi có quyết định, tác giả không được đăng hay cập nhật preprint của paper đang nộp. Đầu năm 2024, sau một quá trình khảo sát và thảo luận trong cộng đồng, ACL đã bãi bỏ quy định này (quyết định công bố vào tháng 1/2024, áp dụng từ chu kỳ ARR tháng 2/2024), nên theo chính sách hiện hành tác giả có thể đăng và thảo luận preprint vào bất kỳ thời điểm nào; bản nộp lên ARR vẫn phải được ẩn danh đầy đủ. Dù chính sách này đã ổn định vài năm, các chi tiết đi kèm vẫn có thể được điều chỉnh, nên người viết nên kiểm tra Call for Papers của ARR và trang chính sách của ACL ở mỗi chu kỳ.
 
 !!! warning "Preprint không thay thế được ẩn danh của bản nộp"
     Dù hội nghị cho phép arXiv, bản nộp vẫn không được trích dẫn hay link tới bản preprint theo cách cho thấy đó là công trình của chính tác giả. Preprint cũng không được coi là "công bố trước" theo nghĩa dual submission, nhưng nó công khai: nếu paper bị reject, phiên bản chưa hoàn thiện vẫn nằm trên mạng. Vì vậy, nếu quyết định đăng, nhóm tác giả nên đăng một phiên bản đã được trau chuốt, rồi cập nhật sau khi có kết quả.
@@ -157,7 +157,7 @@ Mỗi cộng đồng có thói quen riêng về workshop. Ở CV, nhiều năm C
 
 ## Quy trình nộp trên OpenReview
 
-Khi đã chắc chắn bản thảo hợp lệ về mặt nội dung, việc còn lại là thao tác trên hệ thống nộp bài. **OpenReview** là nền tảng được NeurIPS, ICML, ICLR và ARR sử dụng; những năm gần đây nhiều hội nghị CV cũng đã chuyển từ hệ thống CMT sang OpenReview. Điểm khác biệt quan trọng của OpenReview là nó xoay quanh **profile cá nhân**: mỗi tác giả và reviewer có một hồ sơ chứa lịch sử công tác, danh sách công trình và các mối quan hệ. Hồ sơ này được dùng để tự động phát hiện xung đột lợi ích và để ghép reviewer với paper phù hợp chuyên môn. Vì vậy, chất lượng profile ảnh hưởng trực tiếp tới chất lượng review mà paper nhận được.
+Khi đã chắc chắn bản thảo hợp lệ về mặt nội dung, việc còn lại là thao tác trên hệ thống nộp bài. **OpenReview** là nền tảng được NeurIPS, ICML, ICLR và ARR sử dụng; những năm gần đây CVPR, ICCV và ECCV cũng đã chuyển từ hệ thống CMT sang OpenReview. Điểm khác biệt quan trọng của OpenReview là nó xoay quanh **profile cá nhân**: mỗi tác giả và reviewer có một hồ sơ chứa lịch sử công tác, danh sách công trình và các mối quan hệ. Hồ sơ này được dùng để tự động phát hiện xung đột lợi ích và để ghép reviewer với paper phù hợp chuyên môn. Vì vậy, chất lượng profile ảnh hưởng trực tiếp tới chất lượng review mà paper nhận được.
 
 Các bước dưới đây được trình bày theo thứ tự thời gian, kèm lý do của từng bước.
 
@@ -205,11 +205,11 @@ Trong khoảng một thập kỷ gần đây, các cộng đồng AI liên tục
     English-only benchmarks) is stated in Sec.~1 and discussed in Sec.~6.
 ```
 
-Ví dụ trên cho thấy một câu trả lời tốt: không chỉ nói "Yes" mà chỉ ra bằng chứng nằm ở đâu, đồng thời nêu rõ phạm vi để tránh bị coi là claim quá rộng. ICML trong những năm gần đây yêu cầu một Impact Statement không tính vào giới hạn trang; ICLR khuyến khích các mục ethics statement và reproducibility statement, và đã bổ sung yêu cầu khai báo việc dùng LLM. Hướng dẫn chi tiết về cách viết cho các hội nghị ML nằm ở bài [Viết cho NeurIPS / ICML / ICLR](../06-cong-dong/ml.md).
+Ví dụ trên cho thấy một câu trả lời tốt: không chỉ nói "Yes" mà chỉ ra bằng chứng nằm ở đâu, đồng thời nêu rõ phạm vi để tránh bị coi là claim quá rộng. ICML trong những năm gần đây yêu cầu một Impact Statement không tính vào giới hạn trang; ICLR khuyến khích các mục ethics statement và reproducibility statement, và từ ICLR 2026 yêu cầu khai báo việc dùng LLM, với khả năng desk reject nếu việc dùng đáng kể không được khai báo. Hướng dẫn chi tiết về cách viết cho các hội nghị ML nằm ở bài [Viết cho NeurIPS / ICML / ICLR](../06-cong-dong/ml.md).
 
 ### NLP
 
-Các hội nghị dùng ARR có hai yêu cầu nổi bật. Thứ nhất là mục **Limitations** bắt buộc, đặt sau Conclusion và trước References, không tính vào giới hạn trang; paper thiếu mục này bị desk reject. Mục Limitations không phải nơi liệt kê "future work" một cách hình thức, mà là nơi tác giả nêu trung thực phạm vi áp dụng, các giả định và rủi ro; cách viết được trình bày ở bài [Conclusion, Limitations, Appendix](../02-viet-tung-phan/conclusion-supp.md). Thứ hai là **Responsible NLP Checklist**, điền trong form nộp bài, với các nhóm câu hỏi về artifact đã dùng và license của chúng, về thí nghiệm tính toán, về annotator và người tham gia nghiên cứu, và về việc dùng trợ lý AI. Ngoài ra, ethics statement là tùy chọn nhưng được khuyến khích, đặc biệt với paper giới thiệu bộ dữ liệu mới.
+Các hội nghị dùng ARR có hai yêu cầu nổi bật. Thứ nhất là mục **Limitations** bắt buộc, đặt sau Conclusion và trước References, không tính vào giới hạn trang; paper thiếu mục này bị desk reject. Mục Limitations không phải nơi liệt kê "future work" một cách hình thức, mà là nơi tác giả nêu trung thực phạm vi áp dụng, các giả định và rủi ro; cách viết được trình bày ở bài [Conclusion, Limitations, Appendix](../02-viet-tung-phan/conclusion-supp.md). Thứ hai là **Responsible NLP Checklist**, điền trong form nộp bài, với các nhóm câu hỏi về artifact đã dùng và license của chúng, về thí nghiệm tính toán, về annotator và người tham gia nghiên cứu, và về việc dùng trợ lý AI. Ngoài ra, ethics statement là tùy chọn nhưng được khuyến khích, đặc biệt với paper giới thiệu bộ dữ liệu mới. Cách viết Limitations cho paper NLP và cách trả lời từng nhóm câu hỏi của checklist được trình bày ở bài [Viết cho ACL / EMNLP / NAACL](../06-cong-dong/nlp.md).
 
 ### Computer Vision
 
@@ -226,23 +226,9 @@ Các hội nghị CV theo truyền thống không có một checklist dài như 
 
 Kinh nghiệm chung của cộng đồng là đừng bao giờ coi deadline là thời điểm hoàn thành. Trong vài giờ cuối, hệ thống nộp bài thường chậm do hàng chục nghìn người truy cập cùng lúc; một gói LaTeX được cập nhật có thể làm hỏng lần biên dịch cuối; một đồng tác giả ở múi giờ khác có thể chưa kịp đọc bản cuối. Vì vậy, mục tiêu hợp lý là có một phiên bản hoàn chỉnh trên hệ thống trước deadline khoảng 24 giờ, rồi tiếp tục cập nhật nếu còn thời gian. OpenReview và hầu hết các hệ thống khác cho phép thay file nhiều lần trước deadline, nên một bản nộp sớm chỉ có lợi, không có hại.
 
-Một chi tiết kỹ thuật đáng chuẩn bị từ sớm là cơ chế bật tắt các ghi chú nội bộ. Trong quá trình viết, nhóm tác giả thường dùng macro để để lại nhận xét cho nhau; trước khi nộp, chỉ cần đổi một dòng là mọi ghi chú biến mất, thay vì phải xóa thủ công từng chỗ.
+Một chi tiết kỹ thuật đáng chuẩn bị từ sớm là cơ chế bật tắt các ghi chú nội bộ. Trong quá trình viết, nhóm tác giả thường dùng macro để để lại nhận xét cho nhau; nếu các macro này được điều khiển bằng một công tắc duy nhất, như `\commentstrue` và `\commentsfalse` trong file `macros.tex` của bài [LaTeX & Overleaf](../03-ky-thuat/latex.md), thì trước khi nộp chỉ cần đổi một dòng là mọi ghi chú biến mất, thay vì phải xóa thủ công từng chỗ, và mỗi `\todo` còn sót lại sẽ sinh một cảnh báo trong file log.
 
-```latex
-\newif\ifcomments
-\commentstrue      % đổi thành \commentsfalse trước khi nộp
-\ifcomments
-  \newcommand{\authorA}[1]{\textcolor{blue}{[A: #1]}}
-  \newcommand{\authorB}[1]{\textcolor{teal}{[B: #1]}}
-  \newcommand{\advisor}[1]{\textcolor{red}{[Adv: #1]}}
-\else
-  \newcommand{\authorA}[1]{}
-  \newcommand{\authorB}[1]{}
-  \newcommand{\advisor}[1]{}
-\fi
-```
-
-Song song với việc đọc lại, vài lệnh kiểm tra tự động giúp bắt những lỗi mà mắt người dễ bỏ qua khi đã quá quen với bản thảo.
+Song song với việc đọc lại, vài lệnh kiểm tra tự động giúp bắt những lỗi mà mắt người dễ bỏ qua khi đã quá quen với bản thảo. Các lệnh dưới đây bổ sung cho script `check_pdf.sh` trong cùng bài LaTeX, tập trung vào những dấu vết hay sót lại trong đêm cuối.
 
 ```bash
 # Tham chiếu và trích dẫn chưa xác định trong log biên dịch
@@ -291,8 +277,8 @@ Các mục trên đã lồng ghép nhiều khác biệt giữa ba cộng đồng
 
 | Khía cạnh | Computer Vision | NLP (ARR) | Machine Learning |
 |---|---|---|---|
-| Hệ thống nộp | OpenReview hoặc CMT, tùy hội nghị và năm | OpenReview của ARR, sau đó commit tới hội nghị | OpenReview |
-| Preprint | Thường cho phép; có thể hạn chế quảng bá trong thời gian review | Anonymity period đã được bãi bỏ từ khoảng 2024 | Thường cho phép; ICLR công khai submission ẩn danh |
+| Hệ thống nộp | OpenReview (trước đây là CMT) | OpenReview của ARR, sau đó commit tới hội nghị | OpenReview |
+| Preprint | Thường cho phép; có thể hạn chế quảng bá trong thời gian review | Anonymity period đã được bãi bỏ từ đầu năm 2024 | Thường cho phép; ICLR công khai submission ẩn danh |
 | Supp | File riêng, deadline thường muộn hơn khoảng một tuần | Appendix trong cùng PDF | Appendix trong cùng PDF, thường không giới hạn |
 | Checklist | Câu hỏi trong form nộp | Responsible NLP Checklist, Limitations bắt buộc | NeurIPS Paper Checklist, các tuyên bố của ICML, ICLR |
 | Workshop | Paper workshop dài có proceedings bị coi là công bố trước | Nhiều workshop archival trong ACL Anthology | Phần lớn workshop non-archival |
@@ -302,7 +288,7 @@ Từ bảng này có thể rút ra một nhận xét: CV và ML khác nhau chủ
 
 ## Tóm tắt
 
-Desk reject là kết cục đáng tiếc nhất của một submission, vì paper mất trọn một chu kỳ mà không nhận được phản hồi nào, nhưng gần như mọi nguyên nhân đều phòng tránh được. Mỗi quy định nộp bài bảo vệ một trong ba giá trị: công bằng giữa các submission, tính toàn vẹn của double-blind, và công sức của reviewer. Ẩn danh cần được kiểm tra ở cả ba mức lộ trực tiếp, gián tiếp và qua bối cảnh, trong đó trích dẫn công trình cũ ở ngôi thứ ba là nguyên tắc quan trọng nhất. Chính sách preprint và workshop khác nhau đáng kể giữa ba cộng đồng, đặc biệt ACL đã bãi bỏ anonymity period từ khoảng năm 2024. Quy trình trên OpenReview cần bắt đầu từ việc tạo profile sớm, còn ARR đòi hỏi tính ngược từ hội nghị mục tiêu về chu kỳ review. Cuối cùng, một bản nộp hoàn chỉnh trước deadline 24 giờ, cùng việc quy đổi chính xác giờ AoE, giúp loại bỏ những rủi ro không đáng có trong những giờ cuối.
+Desk reject là kết cục đáng tiếc nhất của một submission, vì paper mất trọn một chu kỳ mà không nhận được phản hồi nào, nhưng gần như mọi nguyên nhân đều phòng tránh được. Mỗi quy định nộp bài bảo vệ một trong ba giá trị: công bằng giữa các submission, tính toàn vẹn của double-blind, và công sức của reviewer. Ẩn danh cần được kiểm tra ở cả ba mức lộ trực tiếp, gián tiếp và qua bối cảnh, trong đó trích dẫn công trình cũ ở ngôi thứ ba là nguyên tắc quan trọng nhất. Chính sách preprint và workshop khác nhau đáng kể giữa ba cộng đồng, đặc biệt ACL đã bãi bỏ anonymity period từ đầu năm 2024. Quy trình trên OpenReview cần bắt đầu từ việc tạo profile sớm, còn ARR đòi hỏi tính ngược từ hội nghị mục tiêu về chu kỳ review. Cuối cùng, một bản nộp hoàn chỉnh trước deadline 24 giờ, cùng việc quy đổi chính xác giờ AoE, giúp loại bỏ những rủi ro không đáng có trong những giờ cuối.
 
 ## Bài tập
 

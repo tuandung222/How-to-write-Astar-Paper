@@ -23,7 +23,7 @@ Trước khi bàn về cấu trúc, cần hình dung phần Method được đ�
 
 Ở lượt **đọc kỹ**, reviewer đọc phần động lực và công thức của từng thành phần, đối chiếu với Related Work để xem phần nào thực sự mới, và tự hỏi liệu có cách đơn giản hơn để đạt cùng mục đích hay không. Đây là lượt quyết định phần lớn các nhận xét về *novelty* và *soundness* trong bài review.
 
-Ở lượt **tái hiện**, người đọc (một reviewer khó tính, hoặc một nhóm khác sau khi paper được đăng) muốn cài đặt lại phương pháp. Họ cần kích thước tensor, giá trị hyperparameter, chi tiết khởi tạo, cách xử lý các trường hợp biên. Những thông tin này thường nằm ở mục implementation details của phần Experiments và trong appendix, nhưng Method phải chỉ rõ chúng nằm ở đâu. Cấu trúc khuyến nghị dưới đây được thiết kế để phục vụ đúng ba lớp ấy.
+Ở lượt **tái hiện**, người đọc (một reviewer khó tính, hoặc một nhóm khác sau khi paper được đăng) muốn cài đặt lại phương pháp. Họ cần kích thước tensor, giá trị hyperparameter, chi tiết khởi tạo, cách xử lý các trường hợp biên. Những thông tin này thường nằm ở mục implementation details của phần [Experiments](experiments.md) và trong appendix, nhưng Method phải chỉ rõ chúng nằm ở đâu. Cấu trúc khuyến nghị dưới đây được thiết kế để phục vụ đúng ba lớp ấy.
 
 ## Cấu trúc khuyến nghị
 
@@ -249,8 +249,8 @@ step size $\eta = 1/(L\sqrt{T})$ satisfies
 where $f^\star = \inf_\theta f(\theta)$.
 \end{theorem}
 
-\noindent\textit{Intuition.} The first term reflects the distance to the
-optimum at initialization; the second is the price of gradient noise.
+\noindent\textit{Intuition.} The first term reflects the initial
+suboptimality $f(\theta_0) - f^\star$; the second is the price of gradient noise.
 Both vanish at rate $1/\sqrt{T}$.
 \textit{Proof sketch.} Apply the descent lemma to one step, take
 expectations, and telescope over $T$ steps. The full proof is given in

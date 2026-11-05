@@ -110,7 +110,7 @@ Tầng cuối cùng là kiểm tra tuân thủ và đánh bóng. Về tuân th�
 
 ## Tự đóng vai reviewer
 
-Mỗi paper sẽ được đánh giá bởi một vài reviewer mà nhóm tác giả không chọn được. Cách phòng thủ tốt nhất là đọc paper theo cách họ sẽ đọc, tìm ra những điểm yếu họ sẽ tìm, và sửa chúng trước khi nộp. Việc tự review có hiệu quả khi thỏa hai điều kiện. Thứ nhất, cần một khoảng cách: sau khi hoàn thành draft đầy đủ, để bản thảo "nguội" một hai ngày, làm việc khác, rồi mới đọc lại. Khoảng cách này giúp người viết quên bớt những gì định nói và nhìn thấy những gì thực sự được viết ra. Thứ hai, cần đọc theo đúng thứ tự của reviewer, như bài [Paper được đánh giá thế nào](../00-tong-quan/review-process.md) đã mô tả: Title, Abstract, hình đầu tiên, Introduction, bảng kết quả chính, rồi mới tới phần còn lại.
+Mỗi paper sẽ được đánh giá bởi một vài reviewer mà nhóm tác giả không chọn được. Cách phòng thủ tốt nhất là đọc paper theo cách họ sẽ đọc, tìm ra những điểm yếu họ sẽ tìm, và sửa chúng trước khi nộp. Kỹ năng nền cho việc này, gồm đánh giá novelty và đóng góp, đối chiếu claim với bằng chứng, nhận diện điểm yếu và tránh các heuristic phản biện lười, được trình bày ở bài [Đọc paper như một reviewer](../01-truoc-khi-viet/doc-nhu-reviewer.md) của Chương 1; mục này áp dụng kỹ năng đó lên chính bản thảo của nhóm. Việc tự review có hiệu quả khi thỏa hai điều kiện. Thứ nhất, cần một khoảng cách: sau khi hoàn thành draft đầy đủ, để bản thảo "nguội" một hai ngày, làm việc khác, rồi mới đọc lại. Khoảng cách này giúp người viết quên bớt những gì định nói và nhìn thấy những gì thực sự được viết ra. Thứ hai, cần đọc theo đúng thứ tự của reviewer, như bài [Paper được đánh giá thế nào](../00-tong-quan/review-process.md) đã mô tả: Title, Abstract, hình đầu tiên, Introduction, bảng kết quả chính, rồi mới tới phần còn lại.
 
 Trong lúc đọc, điền form dưới đây. Form được thiết kế để buộc người viết trả lời những câu hỏi mà reviewer sẽ trả lời trong bản review thật.
 
@@ -130,7 +130,7 @@ SELF-REVIEW FORM
 11. Một câu mà reviewer có thể viết để biện minh cho quyết định reject:
 ```
 
-Câu hỏi 1 kiểm tra xem paper có một thông điệp rõ ràng hay không: nếu chính tác giả không tóm tắt được trong ba câu, reviewer càng không. Câu hỏi 11 thường là câu khó trả lời nhất nhưng hữu ích nhất, vì nó buộc người viết diễn đạt điểm yếu chí mạng của paper bằng lời của người phản đối.
+Câu hỏi 1 kiểm tra xem paper có một thông điệp rõ ràng hay không: nếu chính tác giả không tóm tắt được trong ba câu, reviewer càng không. Câu hỏi 11 thường là câu khó trả lời nhất nhưng hữu ích nhất, vì nó buộc người viết diễn đạt điểm yếu chí mạng của paper bằng lời của người phản đối. Sau khi đã tự điền form, có thể dùng thêm LLM như một lớp phản biện thử nhanh và rẻ, với prompt "reviewer thử" ở bài [Dùng AI hỗ trợ (đúng luật)](ai-tools.md), rồi so sánh danh sách điểm yếu của hai bên; lớp này bổ sung chứ không thay thế form và internal review.
 
 Giá trị của form nằm ở bước tiếp theo: với mỗi điểm yếu ở các câu 4 đến 9, nhóm tác giả chọn một trong ba cách xử lý. Cách thứ nhất là bổ sung bằng chứng, tức chạy thêm thí nghiệm hoặc thêm phân tích. Cách thứ hai là giải thích, khi điểm yếu thực ra đến từ việc paper trình bày chưa rõ. Cách thứ ba là thu hẹp claim, khi bằng chứng không thể bổ sung kịp. Lấy ví dụ một paper NLP chỉ đánh giá trên tiếng Anh: nhóm tác giả có thể thêm thí nghiệm trên một hai ngôn ngữ khác, có thể giải thích rõ vì sao phạm vi nghiên cứu là tiếng Anh, hoặc có thể sửa claim từ "*language models*" thành "*English language models*" và nêu điểm này trong mục Limitations. Cả ba cách đều tốt hơn việc để reviewer tự phát hiện.
 
@@ -176,7 +176,7 @@ Quy trình nhiều tầng chỉ vận hành khi có thời gian, và thời gian
 
 Có bốn thói quen giúp duy trì kỷ luật này. Thứ nhất, tách phiên viết khỏi phiên chạy thí nghiệm: khởi chạy các job trước, rồi viết trong lúc chờ, thay vì liên tục chuyển qua lại giữa việc theo dõi log và viết văn. Thứ hai, quản lý phiên bản cẩn thận: Overleaf lưu lịch sử chỉnh sửa và có thể đồng bộ với Git tùy loại tài khoản; trước mỗi lần sửa lớn, nên đặt nhãn cho phiên bản hiện tại để có thể quay lại. Thứ ba, giữ file `cut.tex` như đã nói ở tầng 3. Thứ tư, ghi một nhật ký viết ngắn ở cuối mỗi phiên: hôm nay đã làm gì, việc tiếp theo là gì; nhờ đó phiên sau bắt đầu ngay mà không mất thời gian nhớ lại.
 
-Ở quy mô lớn hơn, nên lập kế hoạch ngược từ deadline. Bảng dưới đây là một ví dụ; lịch thực tế tùy dự án, và lộ trình đầy đủ của một paper được trình bày trong bài [Lộ trình thực hiện một paper](../00-tong-quan/lo-trinh.md).
+Ở quy mô lớn hơn, nên lập kế hoạch ngược từ deadline. Bảng dưới đây là một ví dụ; lịch thực tế tùy dự án, lộ trình đầy đủ của một paper được trình bày trong bài [Lộ trình thực hiện một paper](../00-tong-quan/lo-trinh.md), còn kế hoạch ở cấp dự án, với các mốc, cổng quyết định và kế hoạch B, nằm ở bài [Lập kế hoạch nghiên cứu](../01-truoc-khi-viet/ke-hoach.md).
 
 | Thời điểm | Mốc cần đạt |
 |---|---|

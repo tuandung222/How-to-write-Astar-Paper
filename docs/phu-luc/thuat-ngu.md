@@ -1,6 +1,6 @@
 # Thuật ngữ
 
-Trang này giải thích các thuật ngữ thường gặp khi viết, nộp và review paper ở ba cộng đồng Computer Vision, NLP và Machine Learning. Phần lớn thuật ngữ được giữ nguyên tiếng Anh trong giáo trình, vì đó là cách cộng đồng nghiên cứu, kể cả ở Việt Nam, sử dụng hằng ngày; việc biết chính xác nghĩa của chúng giúp đọc đúng Call for Papers, hướng dẫn tác giả và các review nhận được. Thuật ngữ được nhóm theo chủ đề để dễ tra cứu theo ngữ cảnh. Với những khái niệm mà quy định cụ thể thay đổi theo năm (số trang, lịch, thang điểm), định nghĩa ở đây chỉ nêu ý nghĩa chung; chi tiết xem ở các bài tương ứng của Chương 0 và Chương 6.
+Trang này giải thích các thuật ngữ thường gặp khi viết, nộp và review paper ở ba cộng đồng Computer Vision, NLP và Machine Learning. Phần lớn thuật ngữ được giữ nguyên tiếng Anh trong giáo trình, vì đó là cách cộng đồng nghiên cứu, kể cả ở Việt Nam, sử dụng hằng ngày; việc biết chính xác nghĩa của chúng giúp đọc đúng Call for Papers, hướng dẫn tác giả và các review nhận được. Thuật ngữ được nhóm theo chủ đề để dễ tra cứu theo ngữ cảnh: từ quy trình review và các hệ thống nộp bài, qua ý tưởng, lập kế hoạch và thí nghiệm, tới việc dùng AI trong nghiên cứu. Với những khái niệm mà quy định cụ thể thay đổi theo năm (số trang, lịch, thang điểm), định nghĩa ở đây chỉ nêu ý nghĩa chung; chi tiết xem ở các bài tương ứng của Chương 0 và Chương 6. Các thuật ngữ về nghiên cứu được giảng kỹ ở [Chương 1](../01-truoc-khi-viet/index.md), còn các thuật ngữ về AI được giảng ở [Chương 8](../08-ai-cong-su/index.md).
 
 ## Quy trình review và các vai trò
 
@@ -136,6 +136,44 @@ Workshop (archival / non-archival)
 Preprint
 :   Bản bài báo được công bố công khai (thường trên arXiv) trước hoặc trong khi được review. Mỗi hội nghị có chính sách riêng về preprint và ẩn danh.
 
+## Ý tưởng và lập kế hoạch nghiên cứu
+
+Research gap (khoảng trống nghiên cứu)
+:   Câu hỏi hoặc điểm yếu mà các công trình hiện có chưa giải quyết thỏa đáng, và là chỗ đứng của đóng góp mới; xem bài [Tìm khoảng trống và nguồn ý tưởng](../01-truoc-khi-viet/tim-khoang-trong.md).
+
+Novelty
+:   Lượng hiểu biết mới mà paper mang lại cho người đọc, có thể nằm ở bài toán, phương pháp, phát hiện hay bằng chứng; không đồng nghĩa với độ phức tạp của phương pháp.
+
+Insight
+:   Nhận định then chốt giải thích vì sao bài toán nên được nhìn theo cách mới hoặc vì sao phương pháp hoạt động; thường là hạt nhân của câu chuyện paper.
+
+Contribution và claim
+:   Contribution là điều paper đóng góp; mỗi contribution cần được phát biểu thành một claim kiểm chứng được, có thí nghiệm hoặc chứng minh đi kèm.
+
+Bit flip (lật giả định)
+:   Cách tìm ý tưởng bằng việc gọi tên một giả định mà lĩnh vực đang ngầm chấp nhận rồi thử đảo ngược nó.
+
+Research taste (gu nghiên cứu)
+:   Khả năng phán đoán bài toán nào vừa quan trọng vừa có cách tấn công, được rèn qua kinh nghiệm, đọc nhiều và nhận phản hồi.
+
+Pilot experiment
+:   Thí nghiệm thăm dò quy mô nhỏ, chạy nhanh, để xem ý tưởng có tín hiệu hay không trước khi đầu tư lớn; nên có tiêu chí dừng đặt trước.
+
+Heilmeier Catechism
+:   Bộ câu hỏi kinh điển để thẩm định một đề xuất nghiên cứu: định làm gì, hiện người ta làm thế nào và giới hạn ở đâu, điều gì mới, ai quan tâm, rủi ro, chi phí, thời gian và cách đo thành công.
+
+Premortem
+:   Kỹ thuật giả định rằng dự án đã thất bại rồi liệt kê các nguyên nhân có thể, để phát hiện và giảm rủi ro ngay từ khi lập kế hoạch.
+
+Cổng quyết định (decision gate, go/no-go)
+:   Mốc trong kế hoạch mà ở đó kết quả được so với tiêu chí viết sẵn để quyết định đi tiếp, điều chỉnh hay dừng.
+
+Kế hoạch B (fallback plan)
+:   Phương án thu hẹp phạm vi hoặc chuyển hướng được chuẩn bị trước, dùng khi giả thuyết chính không đứng vững.
+
+HARKing
+:   Đặt giả thuyết sau khi đã biết kết quả rồi trình bày như thể giả thuyết có từ trước; là một vi phạm trung thực khoa học.
+
 ## Thí nghiệm và đánh giá
 
 Baseline
@@ -149,6 +187,15 @@ Benchmark
 
 Ablation study
 :   Thí nghiệm bỏ hoặc thay từng thành phần của phương pháp để đo đóng góp của thành phần đó.
+
+Sanity check
+:   Phép kiểm tra nhanh để bắt lỗi trước khi tin vào kết quả, ví dụ cho mô hình overfit một batch nhỏ, kiểm tra giá trị loss ban đầu, hay chạy một baseline không nhìn đầu vào.
+
+Scientific, nuisance và fixed hyperparameter
+:   Theo Deep Learning Tuning Playbook: scientific là siêu tham số mà thí nghiệm muốn đo tác động; nuisance là siêu tham số phải tinh chỉnh lại cho từng cấu hình để so sánh công bằng (learning rate là ví dụ điển hình); fixed là siêu tham số giữ cố định, kéo theo giới hạn cho kết luận.
+
+Experiment tracking
+:   Việc ghi lại có hệ thống config, commit hash, seed, log và kết quả của mỗi run, thường bằng các công cụ chuyên dụng, để có thể tái lập và so sánh; xem bài [Vận hành thực nghiệm](../01-truoc-khi-viet/thuc-thi.md).
 
 Toy experiment
 :   Thí nghiệm trên bối cảnh đơn giản hóa có chủ đích (thường là dữ liệu tổng hợp), nơi ground truth được biết và có thể thay đổi từng yếu tố một, nhằm cô lập cơ chế mà paper khẳng định. Đặc biệt được coi trọng ở hội nghị ML.
@@ -199,6 +246,29 @@ Concurrent work
 
 AoE (Anywhere on Earth)
 :   Múi giờ UTC−12, thường dùng cho hạn nộp. Hạn 23:59 AoE tương ứng khoảng 19:00 ngày hôm sau theo giờ Việt Nam (UTC+7).
+
+## AI trong nghiên cứu
+
+Hallucination
+:   Hiện tượng mô hình ngôn ngữ sinh ra nội dung nghe hợp lý nhưng sai hoặc bịa, chẳng hạn một trích dẫn không tồn tại hay một con số không có trong nguồn.
+
+Sycophancy
+:   Xu hướng mô hình chiều theo ý kiến hoặc kỳ vọng của người dùng thay vì đánh giá độc lập; vì vậy lời khen của AI dành cho một ý tưởng không phải là bằng chứng về giá trị của ý tưởng đó.
+
+Deep research
+:   Chế độ của một số trợ lý AI tự tìm kiếm, đọc nhiều nguồn và tổng hợp thành báo cáo; hữu ích để khởi đầu một khảo sát, nhưng mọi nguồn và nhận định trong báo cáo cần được kiểm tra lại.
+
+Coding agent
+:   Trợ lý AI có thể tự đọc codebase, sửa nhiều file, chạy lệnh và kiểm thử theo yêu cầu; code nó viết vẫn phải được kiểm tra kỹ như code của một đồng nghiệp mới.
+
+Prompt injection
+:   Kiểu tấn công chèn chỉ thị vào dữ liệu mà mô hình hoặc agent xử lý (trang web, tài liệu, ảnh), khiến hệ thống làm theo ý kẻ tấn công; xem [Chương 9](../09-ai-security/index.md).
+
+Khai báo sử dụng AI (AI disclosure)
+:   Việc nêu rõ trong paper hoặc trong form nộp bài cách công cụ AI đã được dùng, theo chính sách của từng hội nghị; xem bài [Dùng AI hỗ trợ (đúng luật)](../03-ky-thuat/ai-tools.md).
+
+Bảo mật bài đang review
+:   Nghĩa vụ không chia sẻ nội dung bài được giao review ra ngoài; nhiều hội nghị cấm hoặc hạn chế việc đưa nội dung đó vào công cụ AI bên ngoài.
 
 ## Ngôn ngữ phê bình thường gặp trong review
 

@@ -25,7 +25,7 @@ Computer agent là agent điều khiển máy tính thay người dùng: nhấp,
 
 > Người dùng có kinh nghiệm nhận ra và bỏ qua pop-up đáng ngờ, nhưng agent VLM thì không: một pop-up được ghép từ bốn thành phần đơn giản, không cần tối ưu, khiến agent nhấp vào nó với ASR trung bình 86% trên OSWorld và VisualWebArena, và các phòng vệ cơ bản bằng prompt không đủ để ngăn.
 
-Sức mạnh của câu chuyện nằm ở **sự tương phản giữa người và agent**. Nhưng câu chuyện dựa trên sự đơn giản có một rủi ro: reviewer có thể cho rằng kết quả là hiển nhiên hoặc chỉ là một mẹo. Phần lớn paper vì thế dành để chứng minh sự đơn giản ấy có cấu trúc: tấn công gồm những thành phần nào, thành phần nào thật sự cần, và khi bỏ nội dung đi thì điều gì xảy ra.
+Sức mạnh của câu chuyện nằm ở **sự tương phản giữa người và agent**. Nhưng câu chuyện dựa trên sự đơn giản có một rủi ro: reviewer có thể cho rằng kết quả là hiển nhiên hoặc chỉ là một mẹo, tình huống mà bài [Khi novelty và hiệu quả lệch pha](../07-tinh-huong-kho/novelty-va-hieu-qua.md) phân tích chung cho mọi lĩnh vực. Phần lớn paper vì thế dành để chứng minh sự đơn giản ấy có cấu trúc: tấn công gồm những thành phần nào, thành phần nào thật sự cần, và khi bỏ nội dung đi thì điều gì xảy ra.
 
 ## Title và abstract
 
@@ -147,7 +147,7 @@ Hai paper có lập trường ngược nhau về tính kín đáo và đều đ�
 
 **Phân biệt phần trăm tương đối và điểm phần trăm.** Cùng con số 61 xuất hiện với hai nghĩa khác nhau là loại chi tiết reviewer cẩn thận sẽ bắt được.
 
-### Khi viết paper về visual/multimodal prompt injection
+### Áp dụng cho paper về visual/multimodal prompt injection
 
 Với paper **tấn công**, Pop-ups cho thấy một tấn công không cần tối ưu vẫn đạt chuẩn A* nếu có không gian thiết kế rõ ràng, nới lỏng threat model có hệ thống và đối chứng "tấn công rỗng"; với tấn công dựa trên tối ưu như [CrossInject](crossinject.md) hay [Visual Adversarial Jailbreak](visual-adv-jailbreak.md), câu hỏi tương ứng là thành phần nào của mục tiêu tối ưu thật sự cần và một nhiễu ngẫu nhiên cùng biên độ cho kết quả gì. Với paper **phòng vệ**, bài học là đánh giá bằng metric mức nhiệm vụ (TASR, utility) chứ không chỉ ASR mức bước, và luôn thử ít nhất một biến thể tấn công thích nghi rẻ tiền, không cần tìm kiếm hay tối ưu. Ở **ACL/EMNLP**, trọng tâm là phân tích ngôn ngữ của tấn công và của suy nghĩ agent, cùng các mục Limitations và Ethics đầy đủ, như paper này; ở **CVPR/ICCV**, reviewer quan tâm hơn tới yếu tố thị giác (kích thước, vị trí, độ tương phản của nội dung chèn, so sánh screenshot agent và SoM agent) và hình minh họa; ở **NeurIPS/ICML/ICLR**, cần threat model hình thức hơn, metric định nghĩa chặt, khoảng tin cậy, và tốt nhất là một khung giải thích vì sao tấn công hiệu quả, như Dissecting làm với ARE.
 
