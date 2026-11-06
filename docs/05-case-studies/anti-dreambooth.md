@@ -213,6 +213,8 @@ Văn phong chung của paper rõ và trực tiếp: kịch bản được mô t�
 
 **Hiệu chỉnh ngôn từ kỹ hơn bình thường, và gọi đúng tên mọi thứ.** "All", "slightly", "imperceptible", "guaranteeing" cần được đối chiếu với bảng; ablation khác kiểm chứng tổng quát hóa, user study không phải "qualitative", độ tương đồng không phải khoảng cách.
 
+### Nối với các bài kỹ năng
+
 Phần lớn phân tích trong bài này là một bài tập đọc như reviewer: đối chiếu từng claim với đúng bảng chứng minh nó, và tìm hàng đối chứng còn thiếu. Kỹ năng ấy được giảng có hệ thống ở bài [Đọc paper như một reviewer](../01-truoc-khi-viet/doc-nhu-reviewer.md), và nên được áp dụng cho chính bản thảo của người học trước khi nộp. Hai tình huống của Chương 7 gắn trực tiếp với paper này: tự xây baseline "hiển nhiên" mạnh nhất khi bài toán mới chưa có baseline (như FSMG) ở bài [Bài toán, dữ liệu và phạm vi](../07-tinh-huong-kho/bai-toan-va-pham-vi.md), và những từ ngữ thổi phồng như "all" hay "guarantee" ở bài [Ghép ý tưởng và "độn" đóng góp](../07-tinh-huong-kho/ghep-va-don.md). Ranh giới giữa đóng khung kết quả một cách hợp lệ và phóng đại, vốn đặc biệt quan trọng với paper phòng vệ, được bàn ở bài [Ranh giới trung thực](../07-tinh-huong-kho/ranh-gioi-trung-thuc.md).
 
 ### Áp dụng sang các cộng đồng khác

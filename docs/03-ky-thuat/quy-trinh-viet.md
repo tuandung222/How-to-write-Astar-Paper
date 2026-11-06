@@ -55,7 +55,9 @@ Target venue and track:
 Biggest risk (what a reviewer will attack first):
 ```
 
-Mục cuối cùng thường bị bỏ qua nhưng lại có giá trị nhất. Việc gọi tên trước rủi ro lớn nhất, chẳng hạn "reviewer sẽ hỏi vì sao không so sánh với phương pháp Y" hay "kết quả chỉ trên tiếng Anh", giúp nhóm tác giả lên kế hoạch thí nghiệm bổ sung từ sớm thay vì chống chế trong rebuttal.
+Khung này là phiên bản rút gọn của bản pitch một trang trong bài [Xây "câu chuyện" của paper](../01-truoc-khi-viet/cau-chuyen.md), điều chỉnh cho mục đích khởi động việc viết. Hai thứ này khác với research proposal ở bài [Lập kế hoạch nghiên cứu](../01-truoc-khi-viet/ke-hoach.md). Proposal được viết từ đầu dự án để *thực thi*: nó chứa giả thuyết, ma trận bằng chứng, ngân sách và cổng quyết định. Pitch và Tầng 0 được viết khi đã có kết quả để *thuyết phục*: chúng định hình câu chuyện mà paper sẽ kể. Một dự án tốt thường có cả ba, và các bản sau kế thừa nội dung từ bản trước.
+
+Mục cuối cùng của khung thường bị bỏ qua nhưng lại có giá trị nhất. Việc gọi tên trước rủi ro lớn nhất, chẳng hạn "reviewer sẽ hỏi vì sao không so sánh với phương pháp Y" hay "kết quả chỉ trên tiếng Anh", giúp nhóm tác giả lên kế hoạch thí nghiệm bổ sung từ sớm thay vì chống chế trong rebuttal.
 
 ### Tầng 1: Outline chi tiết
 
@@ -90,7 +92,7 @@ Tầng 2 có một mục tiêu duy nhất: đưa **toàn bộ** nội dung lên 
 
 Một số kỹ thuật giúp viết draft nhanh. Đặt giới hạn thời gian cho từng mục, ví dụ hai giờ cho bản draft Related Work, và dừng khi hết giờ dù chưa hài lòng. Đánh dấu mọi chỗ còn thiếu bằng `\todo{}`, kể cả các con số chưa có: "*improves accuracy by* `\todo{X}` *points*". Khi bí một cách diễn đạt tiếng Anh, viết tạm ý đó bằng tiếng Việt trong một comment rồi đi tiếp; vấn đề câu chữ sẽ được giải quyết ở tầng 4. Không đọc lại những gì vừa viết trong cùng một phiên.
 
-Về thứ tự các mục, không có quy tắc bắt buộc, nhưng nhiều nhóm bắt đầu với Method và Experiments, vì đó là những phần cụ thể nhất và người viết đã nắm rõ. Introduction nên được viết nháp sớm như một phép thử cho câu chuyện, rồi viết lại ở cuối khi mọi kết quả đã rõ. Abstract thường được viết sau cùng, dựa trên Introduction đã hoàn thiện. Chương [Viết từng phần](../02-viet-tung-phan/index.md) trình bày chi tiết cách viết từng mục.
+Về thứ tự các mục trong draft đầy đủ, không có quy tắc bắt buộc. Nhiều nhóm viết Method và Experiments trước, vì đó là những phần cụ thể nhất và người viết đã nắm rõ. Điều này không mâu thuẫn với lời khuyên ở [Chương 2](../02-viet-tung-phan/index.md) rằng Figure 1 và bản Introduction đầu tiên nên có từ rất sớm: hai thứ đó thuộc về Tầng 0 và Tầng 1, tức phép thử cho câu chuyện, và đã tồn tại trước khi draft đầy đủ bắt đầu. Introduction sau đó được viết lại ở cuối, khi mọi kết quả đã rõ. Abstract thường được viết sau cùng, dựa trên Introduction đã hoàn thiện. Chương [Viết từng phần](../02-viet-tung-phan/index.md) trình bày chi tiết cách viết từng mục.
 
 ### Tầng 3: Sửa cấu trúc
 
