@@ -41,7 +41,7 @@ Trang này có một trang anh em là [Lời khuyên từ các nhà nghiên cứ
 Hai mục dưới đây là điểm khởi đầu. Kỹ năng đọc được giảng đầy đủ ở hai bài [Đọc và lập bản đồ tài liệu](../01-truoc-khi-viet/literature.md) và [Đọc paper như một reviewer](../01-truoc-khi-viet/doc-nhu-reviewer.md); các bài viết về đời sống và nghề nghiên cứu được tập hợp ở trang [Lời khuyên từ các nhà nghiên cứu hàng đầu](loi-khuyen.md).
 
 - **S. Keshav**, *How to Read a Paper* (ACM SIGCOMM Computer Communication Review, 2007). Phương pháp đọc paper ba lượt, từ lướt nhanh để nắm cấu trúc đến đọc sâu để tái hiện lập luận. Rất hữu ích khi lập bản đồ tài liệu ở Chương 1.
-- **Andrej Karpathy**, *A Survival Guide to a PhD* (bài blog, 2016). Chia sẻ kinh nghiệm về chọn đề tài, viết paper, trình bày và đời sống nghiên cứu sinh. Phù hợp với nghiên cứu sinh năm đầu.
+- **Andrej Karpathy**, *A Survival Guide to a PhD* (bài blog, 2016). Kinh nghiệm về chọn đề tài, viết paper, trình bày và đời sống nghiên cứu sinh; được phân tích chi tiết ở trang [Lời khuyên từ các nhà nghiên cứu hàng đầu](loi-khuyen.md).
 
 ## Sách
 

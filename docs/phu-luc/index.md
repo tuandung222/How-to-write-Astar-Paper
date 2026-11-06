@@ -9,7 +9,7 @@ Phụ lục bao quát cả ba cộng đồng Computer Vision, NLP và Machine Le
 ## Các trang trong phụ lục
 
 - [Checklist tổng hợp](checklist.md): danh sách kiểm tra theo từng giai đoạn, từ chốt ý tưởng, trước khi bắt đầu thí nghiệm chính, tới nộp bài, rebuttal và camera-ready, kèm các mục riêng cho NeurIPS, ARR và các hội nghị CV.
-- [Lời khuyên từ các nhà nghiên cứu hàng đầu](loi-khuyen.md): tuyển chọn và giảng giải những bài viết, bài giảng kinh điển về nghề nghiên cứu, như cách chọn bài toán đáng làm, rèn "gu" nghiên cứu, giữ tiến độ đều đặn và phát triển bản thân trong nghề, kèm nguồn gốc của từng lời khuyên.
+- [Lời khuyên từ các nhà nghiên cứu hàng đầu](loi-khuyen.md): tuyển chọn và giảng giải hơn ba mươi bài viết, bài giảng và hướng dẫn kinh điển về nghề nghiên cứu, sắp theo vòng đời của một dự án: chọn bài toán và rèn "gu" nghiên cứu, đọc paper và đọc phản biện, tìm ý tưởng và khoảng trống, lập kế hoạch và giữ tiến độ, thực nghiệm, viết và trình bày, review và phản hồi, đời sống nghiên cứu sinh. Trang mở đầu bằng mười điều mà các nhà nghiên cứu hàng đầu cùng nhắc lại, ghi mức xác minh của từng nguồn, và kết thúc bằng ba lộ trình đọc gợi ý.
 - [Template & mẫu câu](templates.md): khung `main.tex` cho CVPR, ACL và NeurIPS, khung Introduction điền chỗ trống, mẫu câu tiếng Anh theo chức năng và mẫu câu cho rebuttal, author response.
 - [Thuật ngữ](thuat-ngu.md): giải thích các thuật ngữ thường gặp trong quá trình nghiên cứu, viết, nộp và review paper ở cả ba cộng đồng, cùng các thuật ngữ về dùng AI trong nghiên cứu.
 - [Tài nguyên](tai-nguyen.md): bài viết và bài giảng kinh điển về viết paper, sách nên đọc, hướng dẫn chính thức của các hội nghị và công cụ hỗ trợ.
