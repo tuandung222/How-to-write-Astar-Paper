@@ -520,6 +520,8 @@ Những điểm yếu, giả định ngầm và claim chưa được chứng min
 
 ## Tài liệu tham khảo của bài
 
+Phần lớn các bài viết và bài giảng dưới đây được chú giải kỹ hơn, cùng với những lời khuyên liên quan khác, ở trang [Lời khuyên từ các nhà nghiên cứu hàng đầu](../phu-luc/loi-khuyen.md).
+
 **Đọc và viết review**
 
 - S. Keshav. *How to Read a Paper*. ACM SIGCOMM Computer Communication Review 37(3), 2007. Bài viết ngắn.

@@ -580,7 +580,7 @@ Mười một phương pháp sinh ra ứng viên khoảng trống với đầu r
 **Bài viết, bài nói và khóa học về nghiên cứu**
 
 - Alon, Uri. *How To Choose a Good Scientific Problem*. Tiểu luận, *Molecular Cell* 35(6), 2009. https://doi.org/10.1016/j.molcel.2009.09.013
-- Alon, Uri. *Why truly innovative science demands a leap into the unknown*. Bài nói TED (thường ghi là TEDGlobal 2013; cần kiểm tra).
+- Alon, Uri. *Why truly innovative science demands a leap into the unknown*. Bài nói tại TEDGlobal 2013.
 - Bernstein, Michael S. *CS 197: Computer Science Research*. Khóa học, Stanford University. https://web.stanford.edu/class/cs197/
 - Black, Michael J. *Novelty in Science: A guide for reviewers*. Bài blog, 2022. https://medium.com/@black_51980/novelty-in-science-8f1fd1a0a143
 - Eisner, Jason. *How to Read a Technical Paper*. Bài viết, 2009. https://www.cs.jhu.edu/~jason/advice/how-to-read-a-paper.html

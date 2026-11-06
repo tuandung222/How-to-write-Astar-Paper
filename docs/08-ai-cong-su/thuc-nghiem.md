@@ -604,7 +604,7 @@ Paper ML đặt nặng thí nghiệm có kiểm soát, nhiều seed, error bar v
 **Research agent, sinh ý tưởng và đánh giá bằng LLM**
 
 - Lu, C., Lu, C., Lange, R. T., Foerster, J., Clune, J., Ha, D. *The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery*. arXiv:2408.06292, 2024. https://github.com/SakanaAI/AI-Scientist
-- *Towards end-to-end automation of AI research*. *Nature* 651, 2026 (phiên bản tạp chí của The AI Scientist; danh sách tác giả cần kiểm tra trên trang của Nature). https://www.nature.com/articles/s41586-026-10265-5
+- *Towards end-to-end automation of AI research*. *Nature* 651, 2026 (phiên bản tạp chí của The AI Scientist). https://www.nature.com/articles/s41586-026-10265-5
 - Yamada, Y. và cộng sự. *The AI Scientist-v2: Workshop-Level Automated Scientific Discovery via Agentic Tree Search*. arXiv:2504.08066, 2025. https://github.com/SakanaAI/AI-Scientist-v2
 - Beel, J., Kan, M.-Y., Baumgart, M. *Evaluating Sakana's AI Scientist for Autonomous Research: Wishful Thinking or an Emerging Reality Towards "Artificial Research Intelligence" (ARI)?* arXiv:2502.14297, 2025.
 - Gottweis, J. và cộng sự (Google). *Towards an AI co-scientist*. arXiv:2502.18864, 2025.

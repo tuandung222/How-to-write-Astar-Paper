@@ -793,6 +793,8 @@ Khi kế hoạch đã qua M0, mỗi cột của ma trận bằng chứng cần �
 
 ## Tài liệu tham khảo của bài
 
+Phần lớn các bài viết và bài giảng dưới đây được chú giải kỹ hơn, cùng với những lời khuyên liên quan khác, ở trang [Lời khuyên từ các nhà nghiên cứu hàng đầu](../phu-luc/loi-khuyen.md).
+
 - Alon, U. (2009). *How To Choose a Good Scientific Problem*. Bài luận, *Molecular Cell* 35(6), 726–728. https://doi.org/10.1016/j.molcel.2009.09.013
 - ACL Rolling Review. *ARR Reviewer Guidelines* (phiên bản có changelog tháng 10/2025; cần kiểm tra bản mới nhất). Trang hướng dẫn. https://aclrollingreview.org/reviewerguidelines
 - Becker, J., Rush, N., Barnes, B., Rein, D. (2025). *Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity*. METR, arXiv:2507.09089. https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/ ; cập nhật của METR (02/2026): https://metr.org/blog/2026-02-24-uplift-update/

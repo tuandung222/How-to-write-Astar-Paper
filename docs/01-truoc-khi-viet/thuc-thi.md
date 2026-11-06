@@ -597,6 +597,8 @@ Khi bảng kết quả đã đứng vững, câu hỏi không còn là "kết qu
 
 ## Tài liệu tham khảo của bài
 
+Phần lớn các bài viết và bài giảng dưới đây được chú giải kỹ hơn, cùng với những lời khuyên liên quan khác, ở trang [Lời khuyên từ các nhà nghiên cứu hàng đầu](../phu-luc/loi-khuyen.md).
+
 - Varun Godbole, George E. Dahl, Justin Gilmer, Christopher J. Shallue, Zachary Nado. *Deep Learning Tuning Playbook*. 2023, tài liệu trên GitHub, phiên bản 1.0 (không phải sản phẩm chính thức của Google). https://github.com/google-research/tuning_playbook
 - Andrej Karpathy. *A Recipe for Training Neural Networks*. 2019, bài blog. https://karpathy.github.io/2019/04/25/recipe/
 - Andrej Karpathy. *A Survival Guide to a PhD*. 2016, bài blog. https://karpathy.github.io/2016/09/07/phd/
