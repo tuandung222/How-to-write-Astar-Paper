@@ -106,15 +106,23 @@ nav:
       - "NLP: ACL, EMNLP, NAACL": 00-tong-quan/he-sinh-thai-nlp.md
       - "ML/DL: NeurIPS, ICML, ICLR": 00-tong-quan/he-sinh-thai-ml.md
       - "Speech: Interspeech, ICASSP": 00-tong-quan/he-sinh-thai-speech.md
-      - "IR & Data Mining: SIGIR, KDD, WWW": 00-tong-quan/he-sinh-thai-ir.md
+      - "IR & Data Mining: SIGIR, KDD, TheWebConf": 00-tong-quan/he-sinh-thai-ir.md
       - Paper được đánh giá thế nào: 00-tong-quan/review-process.md
       - Lộ trình thực hiện một paper: 00-tong-quan/lo-trinh.md
-  - "1. Trước khi viết":
+  - "1. Nghiên cứu trước khi viết":
       - 01-truoc-khi-viet/index.md
-      - Tìm & thẩm định ý tưởng: 01-truoc-khi-viet/y-tuong.md
-      - Đọc & lập bản đồ tài liệu: 01-truoc-khi-viet/literature.md
-      - Thiết kế thí nghiệm: 01-truoc-khi-viet/thi-nghiem.md
-      - Xây "câu chuyện" của paper: 01-truoc-khi-viet/cau-chuyen.md
+      - Đọc và nhìn ra khoảng trống:
+          - Đọc & lập bản đồ tài liệu: 01-truoc-khi-viet/literature.md
+          - Đọc paper như một reviewer: 01-truoc-khi-viet/doc-nhu-reviewer.md
+          - Tìm khoảng trống & nguồn ý tưởng: 01-truoc-khi-viet/tim-khoang-trong.md
+      - Từ ý tưởng tới kế hoạch:
+          - Thẩm định ý tưởng: 01-truoc-khi-viet/y-tuong.md
+          - Lập kế hoạch nghiên cứu: 01-truoc-khi-viet/ke-hoach.md
+      - Thực nghiệm:
+          - Thiết kế thí nghiệm: 01-truoc-khi-viet/thi-nghiem.md
+          - Vận hành thực nghiệm: 01-truoc-khi-viet/thuc-thi.md
+      - Câu chuyện:
+          - Xây "câu chuyện" của paper: 01-truoc-khi-viet/cau-chuyen.md
   - "2. Viết từng phần":
       - 02-viet-tung-phan/index.md
       - Title: 02-viet-tung-phan/title.md
@@ -167,36 +175,43 @@ nav:
       - Viết cho ACL / EMNLP / NAACL: 06-cong-dong/nlp.md
       - Chuyển một paper giữa các cộng đồng: 06-cong-dong/chuyen-doi.md
       - AAAI / IJCAI / KDD / Journal: 06-cong-dong/khac.md
-  - "7. Chuyên đề: AI Security":
-      - 07-ai-security/index.md
-      - Xu hướng đóng góp trong AI Security: 07-ai-security/xu-huong-dong-gop.md
+  - "7. Tình huống trớ trêu":
+      - 07-tinh-huong-kho/index.md
+      - Khi novelty và hiệu quả lệch pha: 07-tinh-huong-kho/novelty-va-hieu-qua.md
+      - Ghép ý tưởng và "độn" đóng góp: 07-tinh-huong-kho/ghep-va-don.md
+      - Khi con số không đẹp: 07-tinh-huong-kho/con-so-khong-dep.md
+      - Khi câu chuyện và bằng chứng không khớp: 07-tinh-huong-kho/cau-chuyen-va-bang-chung.md
+      - Áp lực từ bên ngoài: 07-tinh-huong-kho/ap-luc-ben-ngoai.md
+      - Bài toán, dữ liệu và phạm vi: 07-tinh-huong-kho/bai-toan-va-pham-vi.md
+      - Ranh giới trung thực: 07-tinh-huong-kho/ranh-gioi-trung-thuc.md
+      - "Thực hành: ba dự án đi qua ngõ cụt": 07-tinh-huong-kho/thuc-hanh.md
+  - "8. AI làm cộng sự nghiên cứu":
+      - 08-ai-cong-su/index.md
+      - Nguyên tắc, chính sách và rủi ro: 08-ai-cong-su/nguyen-tac.md
+      - AI trong đọc tài liệu và tìm ý tưởng: 08-ai-cong-su/doc-va-y-tuong.md
+      - AI trong lập trình và thực nghiệm: 08-ai-cong-su/thuc-nghiem.md
+      - "Quy trình mẫu và thư viện prompt": 08-ai-cong-su/quy-trinh-mau.md
+  - "9. Chuyên đề: AI Security":
+      - 09-ai-security/index.md
+      - Xu hướng đóng góp trong AI Security: 09-ai-security/xu-huong-dong-gop.md
       - Tấn công qua ảnh:
-          - Visual Adversarial Jailbreak (AAAI 2024): 07-ai-security/visual-adv-jailbreak.md
-          - CrossInject (ACM MM 2025): 07-ai-security/crossinject.md
+          - Visual Adversarial Jailbreak (AAAI 2024): 09-ai-security/visual-adv-jailbreak.md
+          - CrossInject (ACM MM 2025): 09-ai-security/crossinject.md
       - Tấn công agent đa phương thức:
-          - Dissecting MM Agents (ICLR 2025): 07-ai-security/dissecting-mm-agents.md
-          - Pop-ups (ACL 2025): 07-ai-security/popups.md
-          - EIA (ICLR 2025): 07-ai-security/eia.md
+          - Dissecting MM Agents (ICLR 2025): 09-ai-security/dissecting-mm-agents.md
+          - Pop-ups (ACL 2025): 09-ai-security/popups.md
+          - EIA (ICLR 2025): 09-ai-security/eia.md
       - Hình thức hóa & benchmark:
-          - Formalizing Prompt Injection (USENIX Security 2024): 07-ai-security/formalizing-pi.md
-          - AgentDojo (NeurIPS 2024): 07-ai-security/agentdojo.md
+          - Formalizing Prompt Injection (USENIX Security 2024): 09-ai-security/formalizing-pi.md
+          - AgentDojo (NeurIPS 2024): 09-ai-security/agentdojo.md
       - Phòng vệ:
-          - MELON (ICML 2025): 07-ai-security/melon.md
-          - StruQ (USENIX Security 2025): 07-ai-security/struq.md
-          - VLGuard (ICML 2024): 07-ai-security/vlguard.md
-  - "8. Tình huống trớ trêu":
-      - 08-tinh-huong-kho/index.md
-      - Khi novelty và hiệu quả lệch pha: 08-tinh-huong-kho/novelty-va-hieu-qua.md
-      - Ghép ý tưởng và "độn" đóng góp: 08-tinh-huong-kho/ghep-va-don.md
-      - Khi con số không đẹp: 08-tinh-huong-kho/con-so-khong-dep.md
-      - Khi câu chuyện và bằng chứng không khớp: 08-tinh-huong-kho/cau-chuyen-va-bang-chung.md
-      - Áp lực từ bên ngoài: 08-tinh-huong-kho/ap-luc-ben-ngoai.md
-      - Bài toán, dữ liệu và phạm vi: 08-tinh-huong-kho/bai-toan-va-pham-vi.md
-      - Ranh giới trung thực: 08-tinh-huong-kho/ranh-gioi-trung-thuc.md
-      - "Thực hành: ba dự án đi qua ngõ cụt": 08-tinh-huong-kho/thuc-hanh.md
+          - MELON (ICML 2025): 09-ai-security/melon.md
+          - StruQ (USENIX Security 2025): 09-ai-security/struq.md
+          - VLGuard (ICML 2024): 09-ai-security/vlguard.md
   - Phụ lục:
       - phu-luc/index.md
       - Checklist tổng hợp: phu-luc/checklist.md
+      - Lời khuyên từ các nhà nghiên cứu hàng đầu: phu-luc/loi-khuyen.md
       - Template & mẫu câu: phu-luc/templates.md
       - Thuật ngữ: phu-luc/thuat-ngu.md
       - Tài nguyên: phu-luc/tai-nguyen.md

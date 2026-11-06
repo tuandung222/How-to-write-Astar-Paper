@@ -1,6 +1,6 @@
 # 2. Viết từng phần
 
-Chương 1 đã đưa người học đi qua những việc phải làm trước khi đặt bút: thẩm định ý tưởng, lập bản đồ tài liệu, thiết kế thí nghiệm và xây dựng câu chuyện của paper. Khi các việc đó đã xong, người viết có trong tay một câu chuyện một dòng, một danh sách claim và một bộ kết quả. Chương 2 giải quyết bước tiếp theo: biến những thứ ấy thành văn bản, từng phần một, sao cho mỗi phần làm đúng chức năng của nó trong mắt người đọc.
+[Chương 1](../01-truoc-khi-viet/index.md) đã đưa người học đi qua những việc phải làm trước khi đặt bút: đọc tài liệu và nhìn ra khoảng trống, thẩm định ý tưởng và lập kế hoạch nghiên cứu, thiết kế rồi vận hành thực nghiệm, và cuối cùng là xây dựng câu chuyện của paper. Khi các việc đó đã xong, người viết có trong tay một câu chuyện một dòng, một danh sách claim và một bộ kết quả. Chương 2 giải quyết bước tiếp theo: biến những thứ ấy thành văn bản, từng phần một, sao cho mỗi phần làm đúng chức năng của nó trong mắt người đọc.
 
 Lý do chia chương theo từng phần nằm ở cách một paper hội nghị thực sự được đọc. Gần như không ai đọc paper từ đầu đến cuối theo đúng thứ tự trang. Reviewer chọn bài để nhận chấm (giai đoạn *bidding*) dựa trên title và abstract; khi được phân công, họ thường đọc kỹ introduction và Figure 1 để hình thành ấn tượng, lướt qua bảng kết quả chính, rồi mới quay lại đọc method một cách chi tiết. Người đọc sau này, khi paper đã được công bố, còn đọc chọn lọc hơn nữa. Vì vậy, mỗi phần phải trả lời được một câu hỏi riêng của người đọc và, ở một mức độ nào đó, phải tự đứng được mà không cần các phần khác. Hiểu rõ chức năng của từng phần là điều kiện để viết phần đó cho đúng.
 
@@ -70,13 +70,13 @@ flowchart TD
   H --> I["Bước 9: Title (chốt cuối)"]
 ```
 
-Bước đầu tiên là phác Figure 1 cùng với câu chuyện, vì đây là phép thử nhanh nhất cho độ rõ ràng của ý tưởng. Nếu người viết không hình dung được một hình duy nhất truyền tải thông điệp chính, nhiều khả năng câu chuyện vẫn còn mơ hồ. Với paper NLP hay ML, "Figure 1" có thể là một ví dụ đầu vào–đầu ra hoặc một sơ đồ ý tưởng thay vì một hình kết quả trực quan, nhưng phép thử vẫn như nhau.
+Bước đầu tiên là phác Figure 1 cùng với câu chuyện (bản pitch một trang ở bài [Xây "câu chuyện" của paper](../01-truoc-khi-viet/cau-chuyen.md)), vì đây là phép thử nhanh nhất cho độ rõ ràng của ý tưởng. Nếu người viết không hình dung được một hình duy nhất truyền tải thông điệp chính, nhiều khả năng câu chuyện vẫn còn mơ hồ. Với paper NLP hay ML, "Figure 1" có thể là một ví dụ đầu vào–đầu ra hoặc một sơ đồ ý tưởng thay vì một hình kết quả trực quan, nhưng phép thử vẫn như nhau.
 
-Bước thứ hai là một bản Introduction thô (v0), viết từ rất sớm, có khi trước khi thí nghiệm hoàn tất. Bản này đóng vai trò như một bản cam kết: nó buộc người viết trình bày lập luận từ vấn đề tới đóng góp, qua đó lộ ra những mắt xích còn yếu. Danh sách contributions trong Intro v0 cũng chính là danh sách claim mà phần Experiments sẽ phải chứng minh.
+Bước thứ hai là một bản Introduction thô (v0), viết từ rất sớm, có khi trước khi thí nghiệm hoàn tất. Bản này đóng vai trò như một bản cam kết: nó buộc người viết trình bày lập luận từ vấn đề tới đóng góp, qua đó lộ ra những mắt xích còn yếu. Danh sách contributions trong Intro v0 cũng chính là danh sách claim mà phần Experiments sẽ phải chứng minh; nếu nhóm đã lập ma trận claim–thí nghiệm khi [lập kế hoạch nghiên cứu](../01-truoc-khi-viet/ke-hoach.md) và [thiết kế thí nghiệm](../01-truoc-khi-viet/thi-nghiem.md), danh sách này gần như đã có sẵn.
 
 Method được viết ở bước thứ ba vì đây là phần "an toàn" nhất: người viết đã biết chính xác những gì đã làm, và nên ghi lại khi các chi tiết còn tươi trong trí nhớ. Experiments đi sau, theo nguyên tắc bảng trước, chữ sau. Chữ trong phần thí nghiệm tồn tại để diễn giải bảng và hình; dựng khung bảng với các ô trống từ sớm còn giúp nhìn ra thí nghiệm nào đang thiếu.
 
-Related Work được viết khi Method và Experiments đã rõ, vì chỉ khi đó người viết mới biết chính xác paper khác các công trình trước ở điểm nào, và mới viết được những câu phân biệt sắc nét. Việc thu thập và đọc tài liệu thì đã được làm từ Chương 1; ở bước này, người viết chỉ tổ chức lại bản đồ tài liệu đó theo góc nhìn của paper.
+Related Work được viết khi Method và Experiments đã rõ, vì chỉ khi đó người viết mới biết chính xác paper khác các công trình trước ở điểm nào, và mới viết được những câu phân biệt sắc nét. Việc thu thập, đọc tài liệu và xác định khoảng trống thì đã được làm từ Chương 1 (các bài [Đọc & lập bản đồ tài liệu](../01-truoc-khi-viet/literature.md) và [Tìm khoảng trống & nguồn ý tưởng](../01-truoc-khi-viet/tim-khoang-trong.md)); ở bước này, người viết chỉ tổ chức lại bản đồ tài liệu đó theo góc nhìn của paper.
 
 Bước thứ sáu, viết lại Introduction, là bước hay bị bỏ qua nhất nhưng lại không thể thiếu. Kết quả thật gần như luôn khác với dự kiến lúc viết Intro v0: có claim mạnh hơn, có claim phải thu hẹp, có phát hiện bất ngờ đáng được đưa lên trang đầu. Intro phải khớp với bằng chứng thực có. Sau đó, Conclusion tóm lại điều đã được chứng minh, Abstract nén toàn bộ câu chuyện khi mọi con số đã chốt, và Title được chốt sau cùng, khi người viết đã biết chính xác paper nói gì.
 
@@ -88,7 +88,7 @@ Trên thực tế, thứ tự này cần một điều chỉnh nhỏ. Nhiều h�
 - [Abstract](abstract.md): khuôn 5–6 câu, phân tích abstract của ResNet và BERT, và cách viết lại một abstract yếu.
 - [Introduction & Figure 1](introduction.md): cấu trúc Intro 5–6 đoạn như một lập luận, cách viết contributions và thiết kế teaser figure.
 - [Related Work](related-work.md): dùng Related Work để định vị paper, cấu trúc đoạn có tiêu đề, câu phân biệt và cách xử lý concurrent work.
-- [Method](method.md): trình bày phương pháp sao cho người đọc hiểu được lý do của từng thiết kế và tái hiện được.
-- [Experiments](experiments.md): tổ chức bằng chứng thực nghiệm, từ kết quả chính tới ablation và phân tích.
-- [Figures & Tables](figures-tables.md): nguyên tắc thiết kế hình và bảng để chúng tự truyền tải thông điệp.
-- [Conclusion, Limitations, Appendix](conclusion-supp.md): kết thúc paper một cách trung thực và sử dụng phần bổ sung đúng cách.
+- [Method](method.md): khung cấu trúc từ problem formulation tới inference, khuôn Why–What–How cho từng thành phần, ký hiệu toán học, figure phương pháp, algorithm box và định lý, sao cho người đọc hiểu lý do của từng thiết kế và tái hiện được.
+- [Experiments](experiments.md): ánh xạ mỗi claim tới một bằng chứng, trình bày setup, kết quả chính, ablation và phân tích, báo cáo độ bất định và kiểm định thống kê, và cách xoay xở khi tài nguyên hạn chế.
+- [Figures & Tables](figures-tables.md): nguyên tắc "một hình, một thông điệp", caption tự đứng được, màu thân thiện với người mù màu, bảng booktabs và các quy ước template về hình và bảng.
+- [Conclusion, Limitations, Appendix](conclusion-supp.md): viết Conclusion không lặp abstract, mục Limitations và ethics statement thực chất, tổ chức supplementary hoặc appendix, và ẩn danh code nộp kèm.

@@ -19,7 +19,7 @@ Thời gian để nộp bản camera-ready thường chỉ vài tuần kể từ
 
 ### Chuyển template sang chế độ final
 
-Mỗi template hội nghị có một tùy chọn để chuyển từ bản review (ẩn danh, có số dòng) sang bản final (hiện tên tác giả, bỏ số dòng). Tên tùy chọn khác nhau giữa các template, và đây là chỗ dễ nhầm khi nhóm tác giả từng làm việc với nhiều cộng đồng. Đoạn code dưới đây liệt kê cách chuyển ở một số template phổ biến; tên file style và tùy chọn chính xác thay đổi theo năm, nên luôn dùng author kit của năm được accept.
+Mỗi template hội nghị có một tùy chọn để chuyển từ bản review (ẩn danh, có số dòng) sang bản final (hiện tên tác giả, bỏ số dòng). Tên tùy chọn khác nhau giữa các template, và đây là chỗ dễ nhầm khi nhóm tác giả từng làm việc với nhiều cộng đồng. Đoạn code dưới đây tóm tắt cách chuyển ở một số template phổ biến, như một bảng tra nhanh; phần giải thích đầy đủ về các chế độ review, preprint và final nằm ở bài [LaTeX & Overleaf](../03-ky-thuat/latex.md). Tên file style và tùy chọn chính xác thay đổi theo năm, nên luôn dùng author kit của năm được accept.
 
 ```latex
 % CVPR / ICCV (author kit của CVF)
@@ -63,7 +63,7 @@ Một nguyên tắc cần nhớ là camera-ready không phải cơ hội để b
 
 ### Giới hạn trang của bản cuối
 
-Nhiều hội nghị cho phép thêm trang ở bản camera-ready để tác giả có chỗ thực hiện cam kết. Theo thông lệ những năm gần đây, các hội nghị dùng ARR như ACL, EMNLP, NAACL thường cho phép thêm một trang nội dung; ICML và NeurIPS cũng thường cho phép thêm một trang. Các hội nghị CV như CVPR và ICCV thường giữ nguyên giới hạn của bản nộp. Đây chỉ là xu hướng chung; giới hạn chính xác phải được kiểm tra trong hướng dẫn camera-ready của năm được accept. Nếu không có thêm trang, các cam kết phải được thực hiện bằng cách viết gọn lại hoặc chuyển chi tiết phụ sang appendix.
+Nhiều hội nghị cho phép thêm trang ở bản camera-ready để tác giả có chỗ thực hiện cam kết. Theo thông lệ những năm gần đây, các hội nghị dùng ARR như ACL, EMNLP, NAACL thường cho phép thêm một trang nội dung; ICML và NeurIPS cũng thường cho phép thêm một trang, còn ICLR 2026 nâng giới hạn phần chính từ 9 lên 10 trang ngay từ giai đoạn rebuttal và giữ mức đó cho bản cuối. Các hội nghị CV như CVPR và ICCV thường giữ nguyên giới hạn của bản nộp. Đây chỉ là xu hướng chung; giới hạn chính xác phải được kiểm tra trong hướng dẫn camera-ready của năm được accept. Nếu không có thêm trang, các cam kết phải được thực hiện bằng cách viết gọn lại hoặc chuyển chi tiết phụ sang appendix.
 
 ### Bản quyền và định dạng PDF
 

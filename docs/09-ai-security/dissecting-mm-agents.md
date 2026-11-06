@@ -14,7 +14,7 @@ Hai paper mở đầu phần tấn công qua ảnh của chương, [Visual Adver
 **Dissecting Adversarial Robustness of Multimodal LM Agents**, của Chen Henry Wu, Rishi Shah, Jing Yu Koh, Ruslan Salakhutdinov, Daniel Fried và Aditi Raghunathan (Carnegie Mellon University), ICLR 2025. Phân tích dựa trên bản arXiv 2406.12814v3, cùng title với bản hội nghị; bản chính thức có thể khác ở chi tiết trình bày.
 
 !!! note "Một khối thí nghiệm, hai câu chuyện"
-    Metadata của paper trên Hugging Face vẫn lưu title và abstract của phiên bản arXiv đầu tiên (tháng 6/2024): **Adversarial Attacks on Multimodal Agents**, năm tác giả, abstract xoay quanh hai tấn công (captioner attack, CLIP attack). Phiên bản được phân tích có thêm tác giả Rishi Shah và đặt khung đánh giá ARE vào trung tâm; abstract phiên bản đầu không nhắc tới ARE, reflexion hay tree search. Paper [Pop-ups](popups.md) trích dẫn phiên bản đầu dưới title cũ.
+    Phiên bản arXiv đầu tiên (tháng 6/2024) mang title **Adversarial Attacks on Multimodal Agents**, có năm tác giả, và abstract xoay quanh hai tấn công (captioner attack, CLIP attack); một số trang tổng hợp paper vẫn hiển thị title và abstract cũ này. Phiên bản được phân tích có thêm tác giả Rishi Shah và đặt khung đánh giá ARE vào trung tâm; abstract phiên bản đầu không nhắc tới ARE, reflexion hay tree search. Paper [Pop-ups](popups.md) trích dẫn phiên bản đầu dưới title cũ.
 
 Với người học Việt Nam, paper đáng chú ý vì đóng góp lớn nhất là một môi trường đánh giá và một cách phân tích, không phải một mô hình cần huấn luyện tốn kém: môi trường xây trên benchmark công khai VisualWebArena, tấn công dựa trên gradient chạy trên GPU A6000 hoặc A100 80GB (Appendix B.2), phần còn lại gọi API. Đây là kiểu đóng góp nằm trong tầm với của nhóm có tài nguyên vừa phải.
 
@@ -130,7 +130,7 @@ Các con số tương đối trong abstract và Introduction không hoàn toàn 
 | Evaluator và policy cùng bị tấn công | tăng tương đối 15% | tăng tương đối 20% | 31% lên 36%, tăng khoảng 16% |
 | Value function và policy cùng bị tấn công | tăng tương đối 20% | không nêu | 31% lên 38%, tăng khoảng 23% |
 
-Abstract khớp với Section 5 trong phạm vi làm tròn. Hai con số của Introduction thì khó truy ra: 23% không đạt được từ 31% và 25% kể cả khi tính tới làm tròn, và cùng một so sánh được báo là 15% ở abstract nhưng 20% ở Introduction. Văn bản không cho biết nguồn gốc chênh lệch. Bài học: mọi con số dẫn xuất nên sinh ra từ cùng nguồn với bảng kết quả (chẳng hạn macro LaTeX do script phân tích xuất ra) và được rà lại ở vòng tự review cuối (xem [Quy trình viết & tự review](../03-ky-thuat/quy-trinh-viet.md)). Ngoài ra, giải mã ở nhiệt độ 0 không loại bỏ biến thiên do chọn mẫu nhiệm vụ: với tối đa 200 nhiệm vụ, chênh lệch năm đến bảy điểm phần trăm chưa chắc vượt ngoài biến thiên lấy mẫu, và khoảng tin cậy bootstrap theo nhiệm vụ, như ở case study [Streaming ITN](../05-case-studies/streaming-itn.md), sẽ cho biết phát hiện chính vững đến đâu.
+Abstract khớp với Section 5 trong phạm vi làm tròn. Hai con số của Introduction thì khó truy ra: 23% không đạt được từ 31% và 25% kể cả khi tính tới làm tròn, và cùng một so sánh được báo là 15% ở abstract nhưng 20% ở Introduction. Văn bản không cho biết nguồn gốc chênh lệch. Bài học: mọi con số dẫn xuất nên sinh ra từ cùng nguồn với bảng kết quả (chẳng hạn macro LaTeX do script phân tích xuất ra) và được rà lại ở vòng tự review cuối (xem [Quy trình viết & tự review](../03-ky-thuat/quy-trinh-viet.md)). Ngoài ra, giải mã ở nhiệt độ 0 không loại bỏ biến thiên do chọn mẫu nhiệm vụ: với tối đa 200 nhiệm vụ, chênh lệch năm đến bảy điểm phần trăm chưa chắc vượt ngoài biến thiên lấy mẫu, và khoảng tin cậy bootstrap theo nhiệm vụ, như ở case study [Streaming ITN](../05-case-studies/streaming-itn.md), sẽ cho biết phát hiện chính vững đến đâu. Tình huống 11 trong bài [Khi con số không đẹp](../07-tinh-huong-kho/con-so-khong-dep.md) bàn cách viết khi chênh lệch nằm gần biên dao động như vậy.
 
 ## Giải phẫu theo góc nhìn bảo mật
 
@@ -168,7 +168,7 @@ Conclusion có một ý rất đáng giá: phòng vệ nên được ưu tiên �
 
 **Một nguồn sự thật cho mọi con số, và kiểm soát phạm vi của chữ "up to".** Hai con số khác nhau cho cùng một so sánh là loại lỗi reviewer dùng để nghi ngờ độ chính xác của cả paper.
 
-### Khi viết paper về visual/multimodal prompt injection
+### Áp dụng cho paper về visual/multimodal prompt injection
 
 Với paper **tấn công**, bài học trực tiếp nhất là tổ chức threat model thành một lưới mức truy cập (sửa văn bản hay ảnh; thành phần nào white-box, thành phần nào black-box), đưa một tấn công cho mỗi ô, gọi tên ô bỏ trống, và báo ASR kèm đủ điều kiện tiếp xúc. Với paper **phòng vệ**, góc nhìn agent graph nhắc rằng mỗi bộ lọc hay bộ kiểm tra thêm vào là một nút mới có thể bị tấn công, nên cần tấn công thích nghi nhắm thẳng vào nút đó. Ở **CVPR/ICCV**, reviewer quan tâm nhiều tới tính chất của nhiễu (mức cảm nhận, độ phân giải, chuyển giao giữa bộ mã hóa ảnh) và các phân tích có kiểm soát như Table 3; ở **NeurIPS/ICML/ICLR**, tới định nghĩa hình thức, tấn công thích nghi và độ bất định thống kê; ở **ACL/EMNLP**, tới kênh văn bản (caption, reflection, chuỗi suy nghĩ của agent), phân tích định tính và các mục Limitations, Ethics, như [Pop-ups](popups.md) trong cùng chương.
 

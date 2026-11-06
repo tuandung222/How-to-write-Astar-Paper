@@ -21,7 +21,7 @@ NeurIPS (Conference on Neural Information Processing Systems) là hội nghị l
 
 Hai đặc điểm của NeurIPS cần được biết trước. Thứ nhất, **NeurIPS Paper Checklist** là bắt buộc: paper thiếu checklist có thể bị desk reject. Checklist gồm các câu hỏi về việc các claim trong Abstract và Introduction có khớp với kết quả không, về các giới hạn của công trình, về giả định và chứng minh của các kết quả lý thuyết, về khả năng tái tạo thí nghiệm, về việc công bố dữ liệu và mã nguồn, về chi tiết thiết lập thí nghiệm, về ý nghĩa thống kê, về tài nguyên tính toán, về tuân thủ quy tắc đạo đức, về tác động xã hội, về giấy phép của các tài nguyên được sử dụng, và về nghiên cứu có sự tham gia của con người. Mỗi câu trả lời cần kèm một lời giải thích ngắn hoặc chỉ tới mục tương ứng trong paper, và reviewer được khuyến khích đọc checklist như một phần của việc đánh giá. Thứ hai, NeurIPS có một **track Datasets & Benchmarks** riêng từ khoảng năm 2021, sẽ được trình bày ở phần sau.
 
-Về quy mô, NeurIPS những năm gần đây nhận hơn mười lăm nghìn submission ở track chính, và con số này vẫn tăng nhanh. Tỉ lệ chấp nhận điển hình vào khoảng 25%. Paper được chấp nhận được trình bày dưới dạng poster, một phần nhỏ được chọn làm spotlight hoặc oral. Những năm gần đây, review của các paper được chấp nhận thường được công khai trên OpenReview sau khi có quyết định.
+Về quy mô, NeurIPS những năm gần đây nhận từ mười lăm nghìn tới hơn hai mươi nghìn submission ở track chính (NeurIPS 2025 có khoảng 21.500), và con số này vẫn tăng nhanh. Tỉ lệ chấp nhận điển hình vào khoảng 25%. Paper được chấp nhận được trình bày dưới dạng poster, một phần nhỏ được chọn làm spotlight hoặc oral. Những năm gần đây, review của các paper được chấp nhận thường được công khai trên OpenReview sau khi có quyết định.
 
 ### ICML
 
@@ -31,7 +31,7 @@ ICML có văn hóa gần với NeurIPS, nhưng thường được cảm nhận l
 
 ### ICLR
 
-ICLR (International Conference on Learning Representations) trẻ hơn hai hội nghị kia nhưng nhanh chóng trở thành một trong những hội nghị có ảnh hưởng nhất của ngành. ICLR diễn ra vào khoảng tháng 4 hoặc tháng 5, với deadline vào khoảng cuối tháng 9 hoặc đầu tháng 10 năm trước. Giới hạn trang của ICLR điển hình vào khoảng chín đến mười trang cho phần nội dung chính, thay đổi tùy năm. Tỉ lệ chấp nhận điển hình cao hơn hai hội nghị kia một chút, vào khoảng 30–32%.
+ICLR (International Conference on Learning Representations) trẻ hơn hai hội nghị kia nhưng nhanh chóng trở thành một trong những hội nghị có ảnh hưởng nhất của ngành. ICLR diễn ra vào khoảng tháng 4 hoặc tháng 5, với deadline vào khoảng cuối tháng 9 hoặc đầu tháng 10 năm trước. Giới hạn trang của ICLR điển hình vào khoảng chín đến mười trang cho phần nội dung chính và thay đổi tùy năm: ICLR 2025 cho phép mười trang ngay ở bản nộp, còn ICLR 2026 giới hạn chín trang ở bản nộp và nới lên mười trang trong giai đoạn thảo luận và ở bản camera-ready. Tỉ lệ chấp nhận điển hình cao hơn hai hội nghị kia một chút, vào khoảng 30–32%.
 
 Điểm làm nên bản sắc của ICLR là **tính công khai** của quá trình review. Ngay khi deadline qua, các submission được hiển thị công khai trên OpenReview, dưới dạng ẩn danh. Khi review được đăng, chúng cũng công khai, và toàn bộ cuộc thảo luận giữa tác giả và reviewer diễn ra trước mắt cộng đồng; tùy chính sách từng năm, người ngoài có tài khoản cũng có thể để lại bình luận công khai. Trong giai đoạn thảo luận, nhóm tác giả được phép **cập nhật file PDF**, bổ sung thí nghiệm, sửa lỗi và làm rõ những điểm reviewer chưa hiểu. Kể cả khi paper bị từ chối, submission và review thường vẫn hiển thị công khai; theo chính sách những năm gần đây, paper bị rút cũng có thể vẫn hiển thị.
 
@@ -112,7 +112,7 @@ NeurIPS (tháng 5 đến tháng 12), ICML (cuối tháng 1 đến tháng 7) và 
 
 ## Bài tập
 
-1. Đọc NeurIPS Paper Checklist của năm gần nhất và thử điền cho dự án hiện tại. Đánh dấu những câu mà câu trả lời trung thực sẽ là "No" hoặc "Partial", và lập kế hoạch khắc phục trước deadline.
+1. Đọc NeurIPS Paper Checklist của năm gần nhất và thử điền cho dự án hiện tại. Đánh dấu những câu mà câu trả lời trung thực sẽ là "No" (hoặc phải kèm giải thích dài ở phần justification), và lập kế hoạch khắc phục trước deadline.
 2. Chọn một paper ICLR gần đây trong mảng nghiên cứu đang theo đuổi, đọc toàn bộ review và thảo luận công khai trên OpenReview. Ghi lại ba câu hỏi của reviewer khiến tác giả phải bổ sung thí nghiệm, và cách tác giả đã trả lời.
 3. Với phương pháp chính của dự án, viết một đoạn trả lời câu hỏi "Why does it work?". Sau đó thiết kế một thí nghiệm có kiểm soát trên dữ liệu tổng hợp hoặc thiết lập đơn giản để kiểm chứng câu trả lời đó.
 4. Kiểm tra bảng kết quả chính hiện có: những kết quả nào chưa có error bars, và những cải thiện nào nhỏ hơn độ biến thiên giữa các seed? Ước lượng tài nguyên tính toán cần thiết để chạy thêm seed cho các kết quả đó.

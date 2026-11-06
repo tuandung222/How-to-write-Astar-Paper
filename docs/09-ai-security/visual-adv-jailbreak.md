@@ -23,7 +23,7 @@ Câu chuyện có hai tầng. Tầng thứ nhất là một **luận điểm t�
 
 ### Một title là một khẳng định
 
-Title *"Visual Adversarial Examples Jailbreak Aligned Large Language Models"* là một câu hoàn chỉnh có chủ ngữ và động từ, giống [MAE](../05-case-studies/mae-ldm.md#mae) hay ["Attention Is All You Need"](../05-case-studies/transformer.md). Người đọc biết ngay paper khẳng định điều gì. Chữ *"Aligned"* đặc biệt quan trọng: nó báo hiệu mục tiêu bị tấn công là những mô hình đã được huấn luyện để từ chối yêu cầu có hại, nên kết quả mang tính bất ngờ hơn nhiều so với việc tấn công một mô hình chưa được căn chỉnh.
+Title *"Visual Adversarial Examples Jailbreak Aligned Large Language Models"* là một câu hoàn chỉnh có chủ ngữ và động từ, giống MAE trong case study [MAE & Latent Diffusion](../05-case-studies/mae-ldm.md) hay ["Attention Is All You Need"](../05-case-studies/transformer.md). Người đọc biết ngay paper khẳng định điều gì. Chữ *"Aligned"* đặc biệt quan trọng: nó báo hiệu mục tiêu bị tấn công là những mô hình đã được huấn luyện để từ chối yêu cầu có hại, nên kết quả mang tính bất ngờ hơn nhiều so với việc tấn công một mô hình chưa được căn chỉnh.
 
 ### Abstract dựng theo khung "First – Second – Case study"
 
@@ -45,11 +45,15 @@ Introduction được tổ chức bằng các tiêu đề đoạn in đậm, m�
 
 Đoạn tiếp theo, in đậm toàn bộ câu đầu, giới thiệu nghiên cứu điển hình và Figure 1. Đoạn **"The Intriguing Jailbreaking"** nêu phát hiện bất ngờ: ảnh được tạo từ một tập nhỏ câu có hại về một vài nhóm danh tính, nhưng lại làm mô hình tuân theo cả những loại yêu cầu có hại khác hẳn. Chính chữ "intriguing" và sự bất ngờ này là thứ làm paper đáng nhớ, giống cách [ResNet](../05-case-studies/resnet.md) dựa vào một hiện tượng đáng ngạc nhiên.
 
-Danh sách đóng góp gồm hai mục, khớp với hai tầng của câu chuyện: **Multimodality** (rủi ro tăng theo xu hướng đa phương thức, kèm phỏng đoán về các phương thức khác như âm thanh, lidar) và **Adversarial Examples against Alignment** (nối hai lĩnh vực). Hai mục này là đóng góp về *hiểu biết*, không phải về phương pháp, và paper không giả vờ ngược lại. Đây là sự trung thực về kiểu đóng góp mà bài [Tìm & thẩm định ý tưởng](../01-truoc-khi-viet/y-tuong.md) khuyến khích.
+Danh sách đóng góp gồm hai mục, khớp với hai tầng của câu chuyện: **Multimodality** (rủi ro tăng theo xu hướng đa phương thức, kèm phỏng đoán về các phương thức khác như âm thanh, lidar) và **Adversarial Examples against Alignment** (nối hai lĩnh vực). Hai mục này là đóng góp về *hiểu biết*, không phải về phương pháp, và paper không giả vờ ngược lại. Đây là sự trung thực về kiểu đóng góp mà bài [Thẩm định ý tưởng](../01-truoc-khi-viet/y-tuong.md) khuyến khích.
 
 ### Figure 1: hai đầu ra đặt cạnh nhau
 
 Figure 1 đặt cạnh nhau phản hồi của mô hình với ảnh bình thường (từ chối với xác suất cao) và với ảnh đối kháng (tuân theo với xác suất cao), cùng một ví dụ ngoài phân phối. Nội dung độc hại được che bằng "[redacted]". Caption nói rõ tỉ lệ từ chối và tuân theo được tính bằng kiểm tra thủ công trên 100 mẫu ngẫu nhiên cho mỗi yêu cầu. Một Figure 1 kiểu "trước–sau" như vậy truyền đạt phát hiện chính trong vài giây, đồng thời cho thấy cách xử lý nội dung nhạy cảm một cách có trách nhiệm.
+
+## Related Work: mục "Concurrent Work"
+
+Related Work kết thúc bằng một đoạn **Concurrent Work** ngắn: nêu hai công trình về tấn công đối kháng vào LLM đã căn chỉnh xuất hiện ngay sau phiên bản đầu của paper, rồi phân biệt bằng **động cơ** của từng công trình (paper này nhấn mạnh hệ quả của xu hướng đa phương thức và tính phổ quát của ảnh; hai công trình kia lần lượt nhấn mạnh việc LLM chưa được căn chỉnh trước đối kháng, và tấn công văn bản phổ quát, chuyển giao được). Đây là mẫu mực cho cách xử lý công trình đồng thời mà bài [Related Work](../02-viet-tung-phan/related-work.md) đã bàn: ghi nhận, nêu thời điểm, phân biệt bằng góc nhìn chứ không hạ thấp.
 
 ## Giải phẫu theo góc nhìn bảo mật
 
@@ -59,7 +63,7 @@ Mục 3.1 có một đoạn **Threat Model** riêng. Kẻ tấn công dùng mộ
 
 Đây là một cách phát biểu threat model đáng học vì ba lý do. Mục tiêu của kẻ tấn công được định nghĩa bằng một tính chất có thể kiểm chứng (tính phổ quát). Năng lực của kẻ tấn công được nêu thẳng (white-box), không bị che giấu. Và thiết lập phụ (black-box) được nêu rõ là phụ, nên người đọc không bị dẫn tới nghĩ rằng mọi kết quả đều là black-box. Paper còn có một nhận xét tinh tế ở phần phòng vệ: vì mục tiêu là jailbreak chứ không phải đánh lừa phân loại, nhiễu đối kháng không nhất thiết phải khó nhận thấy, nên giả định "nhiễu nhỏ" của nhiều phòng vệ cổ điển không còn áp dụng.
 
-### Định nghĩa thành công và đo lường
+### Định nghĩa thành công và metric
 
 "Mức độ có hại" là khái niệm khó đo, và paper dùng hai loại bằng chứng bổ sung cho nhau:
 
@@ -79,10 +83,6 @@ Có một đoạn văn đặc biệt đáng học: **"A Conservative Remark"**. 
 Paper đặt một **Ethics Statement** ngay cuối Introduction thay vì dồn xuống cuối paper: nêu mục đích nghiên cứu, khẳng định tôn trọng các nhóm thiểu số, giải thích việc đưa nội dung xúc phạm vào là chỉ phục vụ nghiên cứu, nói rằng thí nghiệm được thực hiện trong môi trường kiểm soát, rằng phần lớn nội dung độc hại đã được che, và rằng phần phòng vệ được đưa vào để đối phó khả năng lạm dụng. Paper cũng dùng các token giữ chỗ trừu tượng để ẩn danh tính của các nhóm bị nhắm tới trong dữ liệu.
 
 Đặt ethics statement sớm là một lựa chọn khôn ngoan với paper có nội dung nhạy cảm: reviewer gặp nó trước khi gặp các ví dụ độc hại. Một điểm cần lưu ý về cách dùng từ: paper gọi việc thảo luận phòng vệ là "responsible disclosure", trong khi trong cộng đồng bảo mật, cụm từ này thường chỉ việc thông báo lỗ hổng cho bên phát triển hệ thống trước khi công bố. Khi viết, nên phân biệt rõ hai việc này, và nếu có liên hệ với nhà phát triển mô hình thì nên nói ra.
-
-### Mục "Concurrent Work"
-
-Related Work kết thúc bằng một đoạn **Concurrent Work** ngắn: nêu hai công trình về tấn công đối kháng vào LLM đã căn chỉnh xuất hiện ngay sau phiên bản đầu của paper, rồi phân biệt bằng **động cơ** của từng công trình (paper này nhấn mạnh hệ quả của xu hướng đa phương thức và tính phổ quát của ảnh; hai công trình kia lần lượt nhấn mạnh việc LLM chưa được căn chỉnh trước đối kháng, và tấn công văn bản phổ quát, chuyển giao được). Đây là mẫu mực cho cách xử lý công trình đồng thời mà bài [Related Work](../02-viet-tung-phan/related-work.md) đã bàn: ghi nhận, nêu thời điểm, phân biệt bằng góc nhìn chứ không hạ thấp.
 
 ## Những chỗ ngôn từ mạnh hơn bằng chứng
 

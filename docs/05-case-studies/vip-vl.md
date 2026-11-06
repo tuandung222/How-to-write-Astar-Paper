@@ -54,7 +54,7 @@ Nhưng abstract cũng thiếu hai thứ mà chính Introduction của paper có.
 
 </div>
 
-Phiên bản này dài hơn, và trong một paper bốn trang, mỗi dòng của abstract đều có giá trị. Đây chính là sự đánh đổi mà người viết paper ngắn phải cân nhắc: abstract là nơi rẻ nhất để đặt insight, vì nó không tính vào khuôn bốn trang theo nghĩa người đọc đều đọc nó trước tiên.
+Phiên bản này dài hơn, và trong một paper bốn trang, mỗi dòng đều phải trả giá bằng chỗ của nội dung khác. Đây chính là sự đánh đổi mà người viết paper ngắn phải cân nhắc. Dù vậy, abstract vẫn là nơi đáng đầu tư nhất để đặt insight: mọi người đọc, từ reviewer tới người lướt chương trình hội nghị, đều đọc nó trước tiên, nên vài dòng thêm ở đây có giá trị hơn vài dòng ở bất kỳ chỗ nào khác của paper.
 
 ## Introduction: ba khoảng trống, ba câu trả lời
 
@@ -88,7 +88,7 @@ Cách nêu khoảng trống này khéo ở chỗ nó không hạ thấp hai côn
 
 Đoạn cuối mở bằng một câu nêu cách tiếp cận ("systematically investigating the mechanics of SSL within an 8× subsampling architecture"), rồi đến câu quan trọng nhất của toàn paper: nhóm tác giả *phát hiện* rằng sự đồng bộ đúng giữa việc che và tốc độ subsampling của encoder là then chốt. Chỉ sau đó, các thiết kế mới được giới thiệu như hệ quả của phát hiện này: mở rộng BEST-RQ với encoder ChunkFormer và sửa vấn đề đồng bộ bằng acoustic stacking, receptive field alignment và chiến lược masking tối ưu.
 
-Thứ tự "phát hiện trước, thiết kế sau" là điều phân biệt một paper có insight với một paper "A + B" như đã bàn ở bài [Tìm & thẩm định ý tưởng](../01-truoc-khi-viet/y-tuong.md). Nếu đảo lại ("we propose three modules…"), cùng một nội dung sẽ đọc như ba thủ thuật rời rạc.
+Thứ tự "phát hiện trước, thiết kế sau" là điều phân biệt một paper có insight với một paper "A + B" như đã bàn ở bài [Thẩm định ý tưởng](../01-truoc-khi-viet/y-tuong.md). Nếu đảo lại ("we propose three modules…"), cùng một nội dung sẽ đọc như ba thủ thuật rời rạc.
 
 Đoạn contributions được viết thành văn xuôi thay vì danh sách gạch đầu dòng, một lựa chọn hợp lý trong bốn trang. Cái giá phải trả là người đọc lướt khó thấy ngay đâu là các claim riêng biệt. Một phương án dung hòa là giữ văn xuôi nhưng đánh dấu từng claim bằng (i), (ii), (iii) và gắn mỗi claim với mục chứng minh nó.
 
@@ -110,7 +110,7 @@ Mục phương pháp được đặt tên theo chính mô hình ("2 ViP-VL") và
 
 ### Trình bày nền tảng có sẵn một cách ngắn gọn và có định hướng
 
-Tiểu mục kiến trúc giải thích vì sao chọn BEST-RQ (bộ lượng tử hóa ngẫu nhiên cố định, không cần huấn luyện codebook hay phân cụm lặp, nhanh hơn wav2vec 2.0 theo công trình trước) và vì sao chọn ChunkFormer làm encoder (xử lý theo khúc, attention cục bộ với một ít ngữ cảnh bên phải, hiệu quả và bền vững). ChunkFormer là công trình trước của chính tác giả đầu, nhưng được trích dẫn như mọi công trình khác, đúng với quy tắc ẩn danh đã học ở bài [Chuẩn bị nộp bài](../04-nop-va-sau-nop/submission.md).
+Tiểu mục kiến trúc giải thích vì sao chọn BEST-RQ (bộ lượng tử hóa ngẫu nhiên cố định, không cần huấn luyện codebook hay phân cụm lặp, nhanh hơn wav2vec 2.0 theo công trình trước) và vì sao chọn ChunkFormer làm encoder (xử lý theo khúc, attention cục bộ với một ít ngữ cảnh bên phải, hiệu quả và bền vững). ChunkFormer là một công trình trước có chung tác giả đầu, và được trích dẫn ở ngôi thứ ba như mọi công trình khác, đúng với quy tắc ẩn danh đã học ở bài [Chuẩn bị nộp bài](../04-nop-va-sau-nop/submission.md).
 
 Tiểu mục mục tiêu huấn luyện trình bày lượng tử hóa và hàm mất mát masked prediction bằng hai phương trình, với ký hiệu được định nghĩa ngay khi xuất hiện. Có một chi tiết nhỏ nhưng đáng học: trước khi đưa ra phép chiếu, paper giải thích vì sao phải chuẩn hóa đầu vào (để phân phối đặc trưng khớp với codebook chuẩn tắc, tránh hiện tượng codebook collapse). Đây là khuôn "Why trước How" áp dụng ở cấp một câu.
 
@@ -197,6 +197,10 @@ Cuối paper là mục **Generative AI Use Disclosure**, nói rõ công cụ AI 
 ### Áp dụng sang các cộng đồng khác
 
 Trong **NLP**, cấu trúc "kiểm chứng trên tiếng Anh, rồi áp dụng cho tiếng Việt" chuyển nguyên vẹn sang các paper về ngôn ngữ ít tài nguyên nộp qua ARR, nhất là khi đóng góp là một phương pháp chứ không chỉ một tài nguyên; các kỹ thuật gọn chỗ của paper bốn trang cũng hữu ích cho ACL short paper. Trong **Computer Vision**, khi đề xuất một mô hình cho một miền dữ liệu đặc thù (ảnh y tế, ảnh vệ tinh Việt Nam), một thí nghiệm trên ImageNet hay COCO trong cùng điều kiện đóng vai trò tương tự LibriSpeech. Trong **Machine Learning**, nguyên tắc "phê bình điều gì thì phải tự làm điều đó" đặc biệt quan trọng: reviewer NeurIPS hay ICLR thường hỏi chính paper câu hỏi mà paper đặt ra cho công trình khác, và một thí nghiệm có kiểm soát cố định dữ liệu hay compute là cách trả lời trước tốt nhất.
+
+### Nối với các bài kỹ năng
+
+Khoảng trống thứ nhất của ViP-VL, các bản cài đặt công khai không tái hiện được kết quả của paper gốc, là một nguồn ý tưởng mà bài [Tìm khoảng trống & nguồn ý tưởng](../01-truoc-khi-viet/tim-khoang-trong.md) xếp vào nhóm tái lập. Thí nghiệm "Proposal Verification" là loại thí nghiệm nên được đặt lên đầu thứ tự giảm rủi ro ở bài [Lập kế hoạch nghiên cứu](../01-truoc-khi-viet/ke-hoach.md): kiểm chứng phương pháp trên một benchmark chung, rẻ hơn và được tin hơn, trước khi đầu tư vào kho dữ liệu lớn của ngôn ngữ đích. Ở phía viết, kỹ thuật gọn chỗ của paper bốn trang có thể đối chiếu với các bài [Abstract](../02-viet-tung-phan/abstract.md) và [Experiments](../02-viet-tung-phan/experiments.md), và với mục viết paper bốn trang ở bài [Speech: Interspeech, ICASSP](../00-tong-quan/he-sinh-thai-speech.md). Chương 7 có hai tình huống mà ViP-VL đi qua theo hướng ngược lại: Tình huống 13 (tái lập baseline không đạt số trong paper gốc) và Tình huống 17 (thắng nhờ dữ liệu nhiều hơn hay mô hình lớn hơn) trong bài [Khi con số không đẹp](../07-tinh-huong-kho/con-so-khong-dep.md); đọc hai tình huống ấy giúp thấy vì sao lời phê bình trong Introduction của ViP-VL buộc paper phải có thí nghiệm cố định dữ liệu.
 
 ## Tóm tắt
 

@@ -37,7 +37,7 @@ Việc nộp ở ICLR đặt ra một thử thách viết riêng: phần lớn n
 
 > Top-K sparse softmax gating được dùng rộng rãi nhưng chưa có lý thuyết, vì hàm gating chia không gian đầu vào thành nhiều vùng có hành vi khác nhau; bằng cách chứng minh các vùng của mô hình ước lượng khớp với các vùng thật và xây dựng các Voronoi loss mới, paper cho thấy khi biết số expert thì mọi thứ hội tụ với tốc độ tham số, còn khi chọn dư expert thì mật độ vẫn hội tụ nhanh nếu số expert được kích hoạt đạt tới một ngưỡng, nhưng nhiều tham số hội tụ chậm hẳn; từ đó rút ra lời khuyên cho người dùng MoE.
 
-Câu chuyện có năm nhịp, khớp với khung ở bài [Xây "câu chuyện" của paper](../01-truoc-khi-viet/cau-chuyen.md): **khoảng trống** giữa thực hành và hiểu biết; **lý do khó** (cấu trúc chia vùng, không chỉ là "chưa ai làm"); **công cụ mới**; **kết quả hai mặt**; và **trở về thực hành** qua Mục 4. Nhịp thứ tư đáng học nhất: "X hội tụ" để lại ít ấn tượng vì người dùng đã thấy X chạy tốt, còn "X hội tụ tốt ở tầng này nhưng chậm hẳn ở tầng kia, với điều kiện sau" cho người đọc điều mà thực nghiệm khó tự phát hiện.
+Câu chuyện có năm nhịp, một biến thể dành cho paper lý thuyết của năm mắt xích (vấn đề, khoảng trống, insight, giải pháp, bằng chứng) ở bài [Xây "câu chuyện" của paper](../01-truoc-khi-viet/cau-chuyen.md): **khoảng trống** giữa thực hành và hiểu biết; **lý do khó** (cấu trúc chia vùng, không chỉ là "chưa ai làm"); **công cụ mới**; **kết quả hai mặt**; và **trở về thực hành** qua Mục 4. Nhịp thứ tư đáng học nhất: "X hội tụ" để lại ít ấn tượng vì người dùng đã thấy X chạy tốt, còn "X hội tụ tốt ở tầng này nhưng chậm hẳn ở tầng kia, với điều kiện sau" cho người đọc điều mà thực nghiệm khó tự phát hiện.
 
 ## Title và abstract
 
@@ -257,6 +257,10 @@ Về văn phong, paper dùng giọng "we" nhất quán, các cụm chuyển ý c
 ### Áp dụng sang các cộng đồng khác
 
 Trong **Machine Learning**, các bài học áp dụng trực tiếp cho paper lý thuyết ở NeurIPS, ICML, ICLR và cho paper phương pháp có mục lý thuyết: khuôn bốn nhịp, giả định có tên, bảng tóm tắt kết quả và mô phỏng log-log có error bar là những thứ reviewer lý thuyết tìm đầu tiên. Trong **NLP**, paper thuần lý thuyết hiếm ở ACL hay EMNLP, nhưng paper phân tích, chẳng hạn giải thích vì sao MoE trong dịch máy (xem [EDWARD-NMT](edward-nmt.md)) hoạt động hay thất bại, cần đúng cấu trúc "vì sao khó, phát biểu chính xác, hệ quả cho người dùng". Trong **Computer Vision**, khi một paper đưa vào một mệnh đề về loss hay tính bất biến của một module, khuôn "phát biểu, con trỏ tới chứng minh, một câu bằng lời, một ví dụ bằng số" giúp reviewer ít đọc chứng minh vẫn thấy mệnh đề quan trọng ở đâu.
+
+### Nối với các bài kỹ năng
+
+Cách paper chọn câu hỏi, đi tiếp một nấc trong chuỗi nghiên cứu về hàm gating và nhắm vào một cấu trúc mà kết quả cũ không xử lý được, là một ví dụ của các phương pháp tìm khoảng trống từ giới hạn và giả định của công trình trước ở bài [Tìm khoảng trống & nguồn ý tưởng](../01-truoc-khi-viet/tim-khoang-trong.md). Bài tập kiểm tra từng hệ quả thực tiễn xem có đúng tầm với định lý không là đúng thao tác "đối chiếu claim với bằng chứng" của bài [Đọc paper như một reviewer](../01-truoc-khi-viet/doc-nhu-reviewer.md), áp dụng cho một paper lý thuyết. Ở phía viết, khuôn trình bày định lý và bảng ký hiệu có ở bài [Method](../02-viet-tung-phan/method.md), còn việc để hướng nghiên cứu tương lai đảm nhận vai trò của Limitations có ở bài [Conclusion, Limitations, Appendix](../02-viet-tung-phan/conclusion-supp.md). Chương 7 có hai chỗ nối trực tiếp: Tình huống 34 trong bài [Bài toán, dữ liệu và phạm vi](../07-tinh-huong-kho/bai-toan-va-pham-vi.md) bàn thế khó "lý thuyết đẹp mà thí nghiệm đồ chơi", và mục về ngôn từ thổi phồng trong bài [Ranh giới trung thực](../07-tinh-huong-kho/ranh-gioi-trung-thuc.md) giúp nhận ra ranh giới giữa dịch một định lý sang ngôn ngữ người dùng và phóng đại nó.
 
 ## Tóm tắt
 

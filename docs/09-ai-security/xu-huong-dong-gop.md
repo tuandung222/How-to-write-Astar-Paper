@@ -5,7 +5,7 @@
 
     - phân biệt sáu kiểu đóng góp thường gặp trong nghiên cứu AI Security về prompt injection và jailbreak, và nhận ra đóng góp chính của một paper;
     - giải thích vì sao nhiều paper được nhận dù gần như không huấn luyện mô hình, và vì sao những thiết kế trông "lạ" như pop-up hay phần tử HTML ẩn là lựa chọn có chủ đích;
-    - mô tả các xu hướng chính của lĩnh vực giai đoạn 2023–2026 qua mười paper của chương;
+    - mô tả các xu hướng chính của lĩnh vực giai đoạn 2023–2025 qua mười paper của chương;
     - nêu tiêu chí mà reviewer ở các hội nghị CV, ML, NLP, Multimedia, AI tổng quát và Security dùng để đánh giá cùng một loại đóng góp;
     - chọn kiểu đóng góp phù hợp cho một dự án visual hoặc multimodal prompt injection và tránh các cái bẫy phổ biến.
 
@@ -53,7 +53,7 @@ Reviewer đòi ở phòng vệ năm loại bằng chứng: hiệu quả trước
 
 Kiểu đóng góp thứ tư là công cụ đo cho phép so sánh công bằng. **Benchmark tĩnh** là tập cố định các trường hợp thử, như 177 bước hành động liên quan tới thông tin cá nhân mà EIA lấy từ Mind2Web, hay 200 nhiệm vụ đối kháng VWA-Adv mà Dissecting chú thích thủ công trên VisualWebArena. **Môi trường động** là khung mở rộng được, trong đó agent thật sự gọi công cụ và thay đổi trạng thái: AgentDojo (NeurIPS 2024 Datasets & Benchmarks) gồm 97 nhiệm vụ và 629 trường hợp kiểm thử bảo mật trong bốn môi trường Workspace, Slack, Travel và Banking.
 
-AgentDojo lập luận rằng benchmark tĩnh không đủ cho prompt injection: rất dễ xây một phòng vệ chặn được một tấn công cụ thể mà không bền, nên cần tấn công thích nghi và khả năng thêm nhiệm vụ, tấn công, phòng vệ mới. AgentDojo còn chấm điểm bằng hàm xác định trên trạng thái môi trường thay vì dùng LLM làm giám khảo, vì tấn công đủ mạnh có thể chiếm quyền cả giám khảo. Reviewer, nhất là ở track Datasets & Benchmarks, xem xét tính thực tế, độ khó (các LLM giải được chưa tới 66% nhiệm vụ của AgentDojo ngay cả khi không bị tấn công), tính đúng đắn của cách chấm và khả năng mở rộng. Chi phí chủ yếu là công sức thiết kế, chú thích và tiền API.
+AgentDojo lập luận rằng benchmark tĩnh không đủ cho prompt injection: rất dễ xây một phòng vệ chặn được một tấn công cụ thể mà không bền, nên cần tấn công thích nghi và khả năng thêm nhiệm vụ, tấn công, phòng vệ mới. AgentDojo còn chấm điểm bằng hàm xác định trên trạng thái môi trường thay vì dùng LLM làm giám khảo, vì tấn công đủ mạnh có thể chiếm quyền cả giám khảo. Reviewer, nhất là ở track Datasets & Benchmarks, xem xét tính thực tế, độ khó (ngay cả mô hình tốt nhất trong bản được phân tích cũng chỉ giải được khoảng 78% nhiệm vụ của AgentDojo khi không bị tấn công), tính đúng đắn của cách chấm và khả năng mở rộng. Chi phí chủ yếu là công sức thiết kế, chú thích và tiền API.
 
 ### Hình thức hóa và đo lường
 
@@ -63,7 +63,7 @@ Reviewer kiểm tra xem khung hình thức có *làm được việc* không. Kh
 
 ### Dataset huấn luyện an toàn
 
-Kiểu đóng góp cuối cùng là tài nguyên dữ liệu để huấn luyện mô hình an toàn hơn. Tập huấn luyện của VLGuard gồm 2.000 ảnh (977 ảnh có hại, 1.023 ảnh an toàn) với khoảng 3.000 cặp chỉ thị–phản hồi sinh bằng GPT-4V theo phân loại bốn nhóm, chín nhóm con nội dung có hại, kèm tập kiểm tra 1.000 ảnh. Mỗi ảnh an toàn đi kèm cả một chỉ thị an toàn lẫn một chỉ thị không an toàn, vì nguy cơ có thể nằm ở văn bản chứ không ở ảnh. StruQ thì đóng góp một công thức dữ liệu: chèn thêm chỉ thị vào phần dữ liệu của một nửa số mẫu instruction tuning, đáp án vẫn chỉ trả lời chỉ thị gốc.
+Kiểu đóng góp cuối cùng là tài nguyên dữ liệu để huấn luyện mô hình an toàn hơn. Tập huấn luyện của VLGuard gồm 2.000 ảnh, xấp xỉ một nửa có hại và một nửa an toàn (văn bản và bảng của paper ghi hai con số 977 và 1.023 theo thứ tự ngược nhau, xem case study), với khoảng 3.000 cặp chỉ thị–phản hồi sinh bằng GPT-4V theo phân loại bốn nhóm, chín nhóm con nội dung có hại, kèm tập kiểm tra 1.000 ảnh. Mỗi ảnh an toàn đi kèm cả một chỉ thị an toàn lẫn một chỉ thị không an toàn, vì nguy cơ có thể nằm ở văn bản chứ không ở ảnh. StruQ thì đóng góp một công thức dữ liệu: chèn thêm chỉ thị vào phần dữ liệu của một nửa số mẫu instruction tuning, đáp án vẫn chỉ trả lời chỉ thị gốc.
 
 Reviewer xem xét độ bao phủ của phân loại nội dung có hại, chất lượng dữ liệu sinh tự động, tác động lên helpfulness và khả năng tổng quát hóa. VLGuard dùng XSTest để phát hiện "an toàn thái quá" (exaggerated safety), như từ chối câu hỏi cách dừng một tiến trình Python, và thử với FigStep, một tấn công chuyển chỉ thị độc hại thành ảnh chữ. Khi trộn vào huấn luyện, dữ liệu an toàn chỉ chiếm khoảng 0,3% dữ liệu giai đoạn hai của LLaVA-v1.5, đúng tinh thần "at (almost) no cost" trong tiêu đề.
 
@@ -98,7 +98,7 @@ Tám trong mười paper không thay đổi trọng số của mô hình đích,
 
 **Phòng vệ suy luận dễ triển khai.** Phương pháp không huấn luyện áp dụng được cho mô hình đóng mà không đòi hạ tầng huấn luyện. MELON đưa lập luận này vào chính threat model của paper khi giả định bên phòng vệ không có tài nguyên huấn luyện LLM và không truy cập được biểu diễn bên trong. Tuy vậy, "không huấn luyện" không có nghĩa là miễn phí: MELON nhân đôi số lần gọi mô hình, còn kiểm tra nhất quán của Dissecting tốn nhiều lần gọi API vì phần lớn trang web trong đánh giá có hơn mười ảnh.
 
-**Nhưng hướng huấn luyện vẫn có chỗ**, với điều kiện có lập luận vì sao phải can thiệp vào trọng số. StruQ lập luận rằng giao diện hiện tại của LLM, vốn trộn chỉ thị với dữ liệu trong một chuỗi, là "unsafe-by-design", và muốn tách hai kênh thì phải huấn luyện mô hình hiểu giao diện mới. VLGuard lập luận rằng nguyên nhân nằm ở dữ liệu tinh chỉnh nên cách sửa cũng nằm ở đó. Dissecting còn gợi ý gián tiếp: GPT-4o bền hơn GPT-4V rõ rệt, và phỏng đoán tốt nhất của tác giả là nhờ instruction hierarchy, một phương pháp huấn luyện giúp mô hình không bị đầu vào không đáng tin dẫn dắt. Phòng vệ huấn luyện vì thế phù hợp với nhà cung cấp mô hình, còn phòng vệ suy luận là thứ nhà phát triển ứng dụng làm được ngay.
+**Nhưng hướng huấn luyện vẫn có chỗ**, với điều kiện có lập luận vì sao phải can thiệp vào trọng số. StruQ lập luận rằng giao diện hiện tại của LLM, vốn trộn chỉ thị với dữ liệu trong một chuỗi, là "unsafe-by-design", và muốn tách hai kênh thì phải huấn luyện mô hình hiểu giao diện mới. VLGuard lập luận rằng nguyên nhân nằm ở dữ liệu tinh chỉnh nên cách sửa cũng nằm ở đó. Dissecting còn gợi ý gián tiếp: GPT-4o bền hơn GPT-4V rõ rệt, và phỏng đoán tốt nhất của tác giả là nhờ instruction hierarchy, một phương pháp huấn luyện giúp mô hình không bị đầu vào không đáng tin dẫn dắt. Phòng vệ huấn luyện vì thế phù hợp với nhà cung cấp mô hình, còn phòng vệ suy luận là thứ nhà phát triển ứng dụng làm được ngay. Với nhóm có tài nguyên hạn chế, bài [Khi con số không đẹp](../07-tinh-huong-kho/con-so-khong-dep.md), ở tình huống không đủ tài nguyên tính toán để đua với lab lớn, bàn chung hơn cách chọn một kiểu đóng góp không đòi hỏi quy mô tính toán.
 
 ### Các "trò lạ" là lựa chọn thiết kế có chủ đích
 
@@ -113,7 +113,7 @@ Những thủ thuật khiến người học ngạc nhiên có chung một logic
 | Che prompt người dùng rồi chạy lại agent | MELON | Bên phòng vệ không có tài nguyên huấn luyện | Hành động của agent còn phụ thuộc vào yêu cầu người dùng không? |
 | Delimiter thành token đặc biệt, lọc khỏi dữ liệu | StruQ | Bên phòng vệ thiết kế giao diện mới cho LLM | Tách kênh có chặn được tấn công giả mạo delimiter không? |
 
-Đọc theo cột cuối, mỗi thủ thuật là một *thí nghiệm có kiểm soát*. Reviewer không chấm độ "thông minh" của thủ thuật mà chấm độ khớp với kẻ tấn công được mô phỏng. Vì vậy Pop-ups thử cả các phiên bản yếu hơn, như phỏng đoán yêu cầu người dùng hay gắn nhãn "ADVERTISEMENT" theo quy định quảng cáo, để trả lời câu hỏi "nếu kẻ tấn công bị ràng buộc hơn thì sao".
+Đọc theo cột cuối, mỗi thủ thuật là một *thí nghiệm có kiểm soát*. Reviewer không chấm độ "thông minh" của thủ thuật mà chấm độ khớp với kẻ tấn công được mô phỏng. Vì vậy Pop-ups thử cả các phiên bản yếu hơn, như phỏng đoán yêu cầu người dùng hay gắn nhãn "ADVERTISEMENT" theo quy định quảng cáo, để trả lời câu hỏi "nếu kẻ tấn công bị ràng buộc hơn thì sao". Khi reviewer vẫn chê một thủ thuật như vậy là "hiển nhiên" hay "chỉ là mẹo", các lối ra được phân tích ở bài [Khi novelty và hiệu quả lệch pha](../07-tinh-huong-kho/novelty-va-hieu-qua.md) áp dụng gần như nguyên vẹn: tách phát hiện khỏi phương pháp, và để phát hiện gánh phần novelty.
 
 ## Xu hướng theo thời gian
 
@@ -129,11 +129,11 @@ Mười paper trải từ các bản arXiv năm 2023 tới hội nghị năm 202
 
 **Từ phòng vệ heuristic sang phòng vệ có bảo đảm hoặc ở mức hệ thống.** StruQ đổi giao diện của LLM; tool filter và Task Shield kiểm soát hành động ở mức hệ thống; MELON bổ sung cận sai số lý thuyết giảm theo hàm mũ với số bộ phát hiện yếu được kết hợp, kèm một điều kiện về độ tương đồng trung bình.
 
-**Tấn công thích nghi trở thành kỳ vọng.** Paper visual adversarial jailbreak đã lưu ý rằng DiffPure có thể thất bại trước tấn công thích nghi tinh vi hơn. AgentDojo đưa tư tưởng này vào chỉ số khi coi một tập tấn công là thành công nếu bất kỳ tấn công nào trong tập thành công; StruQ dành hẳn một mục cho tấn công thích nghi; Dissecting kết luận bằng lời kêu gọi xây dựng tấn công thích nghi mạnh hơn. Nhìn từ năm 2026, một phòng vệ thiếu mục này gần như chắc chắn bị reviewer hỏi tới.
+**Tấn công thích nghi trở thành kỳ vọng.** Paper visual adversarial jailbreak đã lưu ý rằng DiffPure có thể thất bại trước tấn công thích nghi tinh vi hơn. AgentDojo đưa tư tưởng này vào chỉ số khi coi một tập tấn công là thành công nếu bất kỳ tấn công nào trong tập thành công; StruQ dành hẳn một mục cho tấn công thích nghi; Dissecting kết luận bằng lời kêu gọi xây dựng tấn công thích nghi mạnh hơn. Với một phòng vệ nộp trong những năm gần đây, thiếu mục này gần như chắc chắn bị reviewer hỏi tới.
 
 ## Reviewer ở từng loại hội nghị đánh giá thế nào
 
-Mười paper của chương thuộc năm loại hội nghị; không paper nào ở CVPR, ICCV hay ECCV, nhưng các hội nghị CV cũng nhận công trình an toàn đa phương thức. Cùng một kiểu đóng góp được đọc với những câu hỏi khác nhau tùy cộng đồng. Những khác biệt dưới đây là xu hướng điển hình chứ không phải luật; cần đọc Call for Papers của năm nộp. [Chương 6](../06-cong-dong/index.md) bàn kỹ văn hóa từng cộng đồng, còn bài [Chuyển một paper giữa các cộng đồng](../06-cong-dong/chuyen-doi.md) hướng dẫn cách đóng khung lại cùng một kết quả.
+Mười paper của chương thuộc năm loại hội nghị; không paper nào ở CVPR, ICCV hay ECCV, nhưng các hội nghị CV cũng nhận công trình an toàn đa phương thức. Cùng một kiểu đóng góp được đọc với những câu hỏi khác nhau tùy cộng đồng. Những khác biệt dưới đây là xu hướng điển hình chứ không phải luật; cần đọc Call for Papers của năm nộp. Cách đọc một paper từ vị trí reviewer nói chung đã được trình bày ở bài [Đọc paper như một reviewer](../01-truoc-khi-viet/doc-nhu-reviewer.md); mục này chỉ nêu những câu hỏi đặc thù mà mỗi cộng đồng đặt cho một paper AI Security. [Chương 6](../06-cong-dong/index.md) bàn kỹ văn hóa từng cộng đồng, còn bài [Chuyển một paper giữa các cộng đồng](../06-cong-dong/chuyen-doi.md) hướng dẫn cách đóng khung lại cùng một kết quả.
 
 ### Computer Vision
 
@@ -171,7 +171,7 @@ USENIX Security, ACM CCS, IEEE S&P và NDSS thường được coi là bốn h�
 
 ## Chọn kiểu đóng góp cho một dự án visual hoặc multimodal prompt injection
 
-Giả sử một nhóm muốn làm về prompt injection qua ảnh hoặc qua nhiều phương thức đối với VLM và agent. Sai lầm thường gặp là chọn kiểu đóng góp theo sở thích hay theo tài nguyên ("có GPU nên phải huấn luyện gì đó"). Cách tốt hơn là trả lời ba câu hỏi theo thứ tự: nhóm đang có insight gì, tài nguyên thế nào, và hội nghị đích ở cộng đồng nào. Insight quyết định kiểu đóng góp, tài nguyên quyết định phiên bản nào khả thi, hội nghị quyết định cách đóng khung. Sơ đồ dưới đây áp dụng các kỹ thuật của bài [Tìm & thẩm định ý tưởng](../01-truoc-khi-viet/y-tuong.md) vào lĩnh vực này.
+Giả sử một nhóm muốn làm về prompt injection qua ảnh hoặc qua nhiều phương thức đối với VLM và agent. Sai lầm thường gặp là chọn kiểu đóng góp theo sở thích hay theo tài nguyên ("có GPU nên phải huấn luyện gì đó"). Cách tốt hơn là trả lời ba câu hỏi theo thứ tự: nhóm đang có insight gì, tài nguyên thế nào, và hội nghị đích ở cộng đồng nào. Insight quyết định kiểu đóng góp, tài nguyên quyết định phiên bản nào khả thi, hội nghị quyết định cách đóng khung. Sơ đồ dưới đây áp dụng vào lĩnh vực này các kỹ thuật của hai bài [Tìm khoảng trống & nguồn ý tưởng](../01-truoc-khi-viet/tim-khoang-trong.md) và [Thẩm định ý tưởng](../01-truoc-khi-viet/y-tuong.md).
 
 ```mermaid
 flowchart TD
@@ -195,7 +195,7 @@ flowchart TD
 | Chẩn đoán được nguyên nhân trong dữ liệu hay giao diện huấn luyện | Phòng vệ huấn luyện, dataset an toàn | ML, Security | Phân tích nguyên nhân; an toàn thái quá; tấn công chưa thấy; tấn công thích nghi |
 | Các paper trong hướng không so sánh được với nhau | Benchmark động, khung đo lường | ML (D&B), Security | Nhiệm vụ thực tế; chấm điểm khó bị chiếm quyền; chưa bão hòa; mở rộng được |
 
-Hai tình huống đầu là điểm vào hợp lý cho paper đầu tay vì chi phí thấp, nhưng cạnh tranh mạnh về tính mới; phòng vệ sống lâu hơn nếu vượt qua tấn công thích nghi, nhưng dễ bị phá ngay sau khi công bố.
+Hai tình huống đầu là điểm vào hợp lý cho paper đầu tay vì chi phí thấp, nhưng cạnh tranh mạnh về tính mới; phòng vệ sống lâu hơn nếu vượt qua tấn công thích nghi, nhưng dễ bị phá ngay sau khi công bố. Cột "Bằng chứng tối thiểu" nên được biến thành ma trận thí nghiệm ngay từ khi lập kế hoạch, theo cách đi từ contribution tới claim và thí nghiệm ở bài [Lập kế hoạch nghiên cứu](../01-truoc-khi-viet/ke-hoach.md), để nhóm biết sớm những phép thử nào, chẳng hạn tấn công thích nghi, cần ngân sách riêng.
 
 ### Những cái bẫy thường gặp
 
@@ -215,7 +215,7 @@ Giả định mạnh tới mức kết quả gần như hiển nhiên, và khôn
 
 Nếu buộc phải dùng giả định mạnh, như Pop-ups mặc định kẻ tấn công biết yêu cầu của người dùng, paper cần thêm các phiên bản giả định yếu hơn.
 
-**Bẫy thứ hai: phòng vệ không thử tấn công thích nghi.** Kẻ tấn công thật sẽ đọc paper. AgentDojo nhận xét rằng nhắc lại chỉ thị người dùng sau mỗi lời gọi công cụ là phòng vệ hợp lý trước tấn công paper dùng, nhưng khó chịu được tấn công thích nghi, chẳng hạn một chỉ thị yêu cầu mô hình bỏ qua các chỉ thị *sau* nó. Pop-ups cho một ví dụ rất rẻ: trước lời nhắc bỏ qua pop-up ở từng bước, chỉ cần bỏ cụm "Please click" khỏi chỉ thị là ASR tăng trở lại.
+**Bẫy thứ hai: phòng vệ không thử tấn công thích nghi.** Kẻ tấn công thật sẽ đọc paper. AgentDojo nhận xét rằng nhắc lại chỉ thị người dùng sau mỗi lời gọi công cụ là phòng vệ hợp lý trước tấn công paper dùng, nhưng khó chịu được tấn công thích nghi, chẳng hạn một chỉ thị yêu cầu mô hình bỏ qua các chỉ thị *sau* nó. Pop-ups cho một ví dụ rất rẻ: trước lời nhắc bỏ qua pop-up ở từng bước, chỉ một thay đổi nhỏ trong câu chữ của pop-up, không cần tìm kiếm hay tối ưu, đã đủ làm ASR tăng trở lại.
 
 !!! warning "Câu hỏi cần tự đặt ra trước khi nộp một phòng vệ"
     "Nếu kẻ tấn công đọc kỹ mục Method, họ sẽ thử gì đầu tiên, và kết quả là bao nhiêu?" Nếu paper chưa có câu trả lời bằng số liệu, reviewer sẽ đặt câu hỏi đó thay cho nhóm tác giả.

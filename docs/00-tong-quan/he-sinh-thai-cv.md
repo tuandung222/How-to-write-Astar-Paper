@@ -28,7 +28,7 @@ Về uy tín, ba hội nghị được coi là gần như ngang hàng. Trong c�
 | Template | CVPR LaTeX, hai cột | Tương tự CVPR | Springer LNCS, một cột |
 | Giới hạn trang điển hình | 8 trang, không tính references | 8 trang, không tính references | Khoảng 14 trang, không tính references |
 | Hệ thống nộp (những năm gần đây) | OpenReview | OpenReview | OpenReview |
-| Số submission gần đây | Hơn 10.000 | Khoảng 8.000 đến hơn 11.000 | Khoảng 8.000 đến 9.000 |
+| Số submission gần đây | Khoảng 11.500 (2024) tới hơn 16.000 (2026) | Khoảng 8.000 (2023) tới hơn 11.000 (2025) | Khoảng 8.500 (2024) tới hơn 10.000 (2026) |
 | Tỉ lệ chấp nhận gần đây | Khoảng 22–26% | Khoảng 24–27% | Khoảng 25–28% |
 
 Bảng trên cần được đọc với sự thận trọng: các con số là điển hình của những năm gần đây, được làm tròn, và có thể thay đổi đáng kể. Trước khi nộp, cần kiểm tra trang chính thức của từng hội nghị trong năm đó.
@@ -47,7 +47,7 @@ Những năm gần đây, cả ba hội nghị đều chuyển sang dùng OpenRe
 
 Quy trình nộp ở CV thường có một bước đăng ký paper (paper registration) khoảng một tuần trước deadline, trong đó nhóm tác giả khai báo title, abstract, danh sách tác giả và subject area. Ở nhiều năm, danh sách tác giả bị khóa sau một mốc nhất định, nên mọi đồng tác giả cần được thống nhất trước bước đăng ký.
 
-Với hơn mười nghìn submission mỗi năm ở CVPR, hệ thống review cần hàng nghìn reviewer, và phần lớn trong số đó là nghiên cứu sinh và postdoc. Để đáp ứng nhu cầu này, những năm gần đây các hội nghị CV đã đưa ra nghĩa vụ review đối với tác giả: những tác giả đủ điều kiện phải tham gia review, và một reviewer vô trách nhiệm có thể khiến chính các paper mà người đó đứng tên bị ảnh hưởng, thậm chí bị desk reject theo chính sách của một số năm. Một số năm còn đặt giới hạn số paper mà một người được đứng tên. Các chính sách này thay đổi nhanh, nên cần được kiểm tra trong Author Guidelines của năm nộp.
+Với hơn mười nghìn submission mỗi năm ở CVPR, và khoảng mười sáu nghìn ở CVPR 2026, hệ thống review cần hàng nghìn reviewer, và phần lớn trong số đó là nghiên cứu sinh và postdoc. Để đáp ứng nhu cầu này, những năm gần đây các hội nghị CV đã đưa ra nghĩa vụ review đối với tác giả: những tác giả đủ điều kiện phải tham gia review, và một reviewer vô trách nhiệm có thể khiến chính các paper mà người đó đứng tên bị ảnh hưởng, thậm chí bị desk reject theo chính sách của một số năm. Một số năm còn đặt giới hạn số paper mà một người được đứng tên. Các chính sách này thay đổi nhanh, nên cần được kiểm tra trong Author Guidelines của năm nộp.
 
 ## Poster, highlight và oral
 

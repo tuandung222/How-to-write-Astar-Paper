@@ -26,7 +26,7 @@ Trong một paper phương pháp ở CV, có một bộ hình gần như đã th
 | Figure 4: So sánh qualitative | Trong Experiments | Bằng chứng trực quan |
 | Figure 5: Biểu đồ phân tích | Trong Experiments | Hỗ trợ insight, ví dụ cải thiện theo điều kiện |
 
-Ở NLP, bộ tương ứng thường gồm một hình minh họa bài toán hoặc pipeline bằng một ví dụ văn bản cụ thể, một bảng kết quả chính trên nhiều dataset, một bảng ablation, một bảng ví dụ đầu ra và một bảng hoặc biểu đồ phân tích lỗi. Ở ML, Figure 1 thường là một hình minh họa khái niệm hoặc một kết quả trên bài toán đồ chơi, tiếp theo là các biểu đồ đường so sánh hành vi theo thời gian huấn luyện hoặc theo quy mô, và các bảng kết quả trên benchmark. Dù hình thức khác nhau, logic chung là giống nhau: mỗi hình hoặc bảng phải gắn với một bước trong lập luận của paper.
+Ở NLP, bộ tương ứng thường gồm một hình minh họa bài toán hoặc pipeline bằng một ví dụ văn bản cụ thể, một bảng kết quả chính trên nhiều dataset, một bảng ablation, một bảng ví dụ đầu ra và một bảng hoặc biểu đồ phân tích lỗi. Ở ML, Figure 1 thường là một hình minh họa khái niệm hoặc một kết quả trên bài toán đồ chơi, tiếp theo là các biểu đồ đường so sánh hành vi theo thời gian huấn luyện hoặc theo quy mô, và các bảng kết quả trên benchmark. Dù hình thức khác nhau, logic chung là giống nhau: mỗi hình hoặc bảng phải gắn với một bước trong lập luận của paper. Vai trò riêng của Figure 1 và của figure phương pháp đã được bàn ở bài [Introduction & Figure 1](introduction.md) và bài [Method](method.md); bài này tập trung vào những nguyên tắc và công cụ dùng chung cho mọi hình và bảng.
 
 ## Nguyên tắc thiết kế chung
 
@@ -125,6 +125,8 @@ Method B$^\dagger$~\cite{b} & 44 & \underline{40.1} & \underline{59.4} & \underl
 ```
 
 Bảng mẫu thể hiện một loạt quy ước đáng ghi nhớ. Caption nêu điều kiện so sánh (cùng backbone, cùng schedule), giải thích chữ đậm, gạch chân và ký hiệu $^\dagger$, nên bảng tự đứng được. Mũi tên bên cạnh tên metric cho biết chiều tốt, điều đặc biệt cần thiết khi bảng trộn các metric càng cao càng tốt với các metric càng thấp càng tốt. Hàng của phương pháp đề xuất được tách bằng `\midrule` và tô nền nhạt (`\rowcolor`, cần `xcolor` với tùy chọn `table`), giúp người đọc tìm ngay. Ngoài ra, các con số trong một cột nên có **cùng số chữ số thập phân** và được căn giữa hoặc căn phải để các chữ số thẳng hàng.
+
+Bảng kết quả nên được sinh tự động từ file kết quả của các lần chạy thay vì gõ tay, để con số trong bảng luôn khớp với log; quy trình này được bàn ở bài [Vận hành thực nghiệm](../01-truoc-khi-viet/thuc-thi.md).
 
 Khi bảng quá rộng, cách xử lý đúng là giảm cỡ chữ bằng `\small` hoặc `\footnotesize`, giảm `\tabcolsep`, rút gọn tên cột, hoặc chuyển sang bảng rộng toàn trang (`table*`). Cần tránh dùng `\resizebox` để ép bảng vừa khổ, vì nó có thể làm chữ trong bảng nhỏ hơn chữ caption nhiều lần, và một số reviewer coi đây là dấu hiệu của việc nhồi nhét nội dung.
 

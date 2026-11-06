@@ -172,7 +172,7 @@ Mục cuối tên là "Summary", hai đoạn ngắn. Văn phong thẳng thắn, 
 
 **Báo cáo trường hợp xấu nhất và giải thích cơ chế thất bại.** Dòng Max, cột "best attack" và phân tích vì sao TAP thành công làm phần đánh giá đáng tin.
 
-### Bài học cho paper về visual/multimodal prompt injection
+### Áp dụng cho paper về visual/multimodal prompt injection
 
 Khi chỉ dẫn cài cắm nằm trong ảnh, ảnh chụp màn hình hay trang web, câu hỏi tách kênh khó hơn: không token dành riêng nào ngăn được chữ in trong ảnh, nên phần "ranh giới không giả mạo được" của StruQ không chuyển thẳng sang. Một paper **phòng vệ** nên nói rõ phần nào của ý tưởng tách kênh còn giữ được (chẳng hạn mọi nội dung từ ảnh và công cụ đều thuộc kênh dữ liệu) và phần nào phải học, rồi đánh giá bằng tấn công tối ưu hóa trên chính miền ảnh. Một paper **tấn công** nên dùng phòng vệ huấn luyện kiểu StruQ làm đối thủ bên cạnh phòng vệ lúc suy luận như [MELON](melon.md), và báo cáo cả ASR lẫn utility under attack. Nhắm **CVPR/ICCV**, reviewer chú ý tính kín đáo của nội dung cài trong ảnh; nhắm **NeurIPS/ICML/ICLR**, một threat model hình thức (xem [Formalizing Prompt Injection](formalizing-pi.md)) và phân tích vì sao phòng vệ thất bại được đánh giá cao; nhắm **ACL/EMNLP**, reviewer hỏi trước về ranh giới giữa jailbreak và prompt injection và về dữ liệu chỉ dẫn.
 

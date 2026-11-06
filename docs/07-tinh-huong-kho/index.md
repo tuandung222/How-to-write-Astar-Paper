@@ -1,10 +1,10 @@
-# 8. Những tình huống trớ trêu trong nghiên cứu
+# 7. Những tình huống trớ trêu trong nghiên cứu
 
 Các chương trước mô tả con đường suôn sẻ của một paper: ý tưởng được thẩm định, pilot cho tín hiệu tốt, thí nghiệm xác nhận giả thuyết, và câu chuyện được xây trên những bằng chứng đó. Thực tế nghiên cứu hiếm khi đi thẳng như vậy. Người mới thường mất phương hướng không phải vì thiếu nhiệt huyết, mà vì gặp những tình huống mà các tiêu chí của một paper tốt kéo về những hướng khác nhau. Ý tưởng mới và hấp dẫn nhưng số liệu thua baseline. Một mẹo đơn giản đến bất ngờ lại cho kết quả rất tốt, nhưng nghe như chẳng có gì mới. Ghép nhiều thứ lại thì đạt SOTA, nhưng không ai giải thích được cái gì tạo ra kết quả. Phần đóng góp chính có vẻ "thiếu thiếu", nên nảy ra ý thêm một pipeline dữ liệu hay một benchmark vào danh sách contribution cho đủ.
 
 Chương này là một **cẩm nang tình huống**. Ba mươi lăm tình huống thường gặp được chia thành sáu nhóm, và mỗi tình huống được xử lý theo cùng một khung năm bước: *nhận diện* tình huống qua triệu chứng, *chẩn đoán* nguyên nhân, liệt kê *các lối ra* hợp lệ kèm điều kiện áp dụng, hướng dẫn *viết thế nào* với câu mẫu tiếng Anh, và chỉ rõ *điều không được làm*. Hai bài cuối chương không phải nhóm tình huống. Bài thứ nhất bàn về ranh giới giữa việc đóng khung lại một kết quả một cách hợp lệ và việc bóp méo kết quả, vì gần như mọi lối ra trong chương đều chạm tới ranh giới này. Bài thứ hai là bài thực hành, theo chân ba dự án giả định đi qua nhiều tình huống liên tiếp, để thấy các lối ra được kết hợp với nhau như thế nào trong một dự án thật.
 
-Chương được đặt sau các chương về kỹ năng viết, cộng đồng và chuyên đề vì nó giả định người đọc đã nắm khung chuẩn: các kiểu đóng góp, cách xây câu chuyện, cách thiết kế thí nghiệm và cách reviewer đọc paper. Một số tình huống đã được nhắc ngắn gọn ở những chương đó, chẳng hạn bẫy "A + B" và concurrent work trong bài [Tìm và thẩm định ý tưởng](../01-truoc-khi-viet/y-tuong.md), hay mục *Khi kết quả không như mong đợi* trong bài [Xây "câu chuyện" của paper](../01-truoc-khi-viet/cau-chuyen.md). Ở chương này, chúng được mổ xẻ sâu hơn nhiều, cùng với nhiều tình huống chưa được bàn tới.
+Chương được đặt sau các chương về kỹ năng viết, case study và đặc thù từng cộng đồng, và mở đầu nhóm các chuyên đề, vì nó giả định người đọc đã nắm khung chuẩn: các kiểu đóng góp, cách xây câu chuyện, cách thiết kế thí nghiệm và cách reviewer đọc paper. Một số tình huống đã được nhắc ngắn gọn ở những chương đó, chẳng hạn bẫy "A + B" và concurrent work trong bài [Thẩm định ý tưởng](../01-truoc-khi-viet/y-tuong.md), hay mục *Khi kết quả không như mong đợi* trong bài [Xây "câu chuyện" của paper](../01-truoc-khi-viet/cau-chuyen.md). Ở chương này, chúng được mổ xẻ sâu hơn nhiều, cùng với nhiều tình huống chưa được bàn tới. Phần lớn các tình huống cũng có một mặt *phòng ngừa* nằm ở Chương 1: đọc công trình của người khác với con mắt phản biện ([Đọc paper như một reviewer](../01-truoc-khi-viet/doc-nhu-reviewer.md)) giúp nhận ra sớm những điểm yếu mà reviewer sẽ chỉ ra; lập kế hoạch có premortem, cổng quyết định và kế hoạch B ([Lập kế hoạch nghiên cứu](../01-truoc-khi-viet/ke-hoach.md)) giúp nhiều tình huống không bùng phát sát deadline; còn sanity check, quản lý seed và nhật ký thí nghiệm ([Vận hành thực nghiệm](../01-truoc-khi-viet/thuc-thi.md)) là tuyến phòng thủ đầu tiên trước bug, rò rỉ dữ liệu và so sánh không cân sức.
 
 ## Gốc rễ chung: tách phát hiện, phương pháp và bằng chứng
 
@@ -99,6 +99,19 @@ flowchart TD
 | 34 | Lý thuyết đẹp nhưng thí nghiệm ở quy mô đồ chơi, hoặc thực nghiệm mạnh mà không có lý thuyết | [Bài toán, dữ liệu và phạm vi](bai-toan-va-pham-vi.md) |
 | 35 | Kết quả trên benchmark đẹp nhưng không chuyển được sang thực tế | [Bài toán, dữ liệu và phạm vi](bai-toan-va-pham-vi.md) |
 
+## Đối chiếu với các case study
+
+Các tình huống trong chương được minh họa chủ yếu bằng ví dụ giả định, để tập trung vào cơ chế. Muốn thấy chúng trong paper thật, người học có thể đọc các case study ở [Chương 5](../05-case-studies/index.md) và [Chương 9](../09-ai-security/index.md). Mỗi case study đều có đoạn nối ngược về tình huống tương ứng. Bảng dưới đây gom các cặp đối chiếu đáng đọc nhất.
+
+| Bài trong chương | Case study có tình huống tương tự | Điểm đáng chú ý |
+|---|---|---|
+| [Khi novelty và hiệu quả lệch pha](novelty-va-hieu-qua.md) | [ResNet](../05-case-studies/resnet.md), [MAE & Latent Diffusion](../05-case-studies/mae-ldm.md), [DDPM](../05-case-studies/ddpm.md), [VLGuard](../09-ai-security/vlguard.md) | Ý tưởng đơn giản hoặc đã có ở lĩnh vực khác, được đóng khung quanh một phát hiện |
+| [Ghép ý tưởng và "độn" đóng góp](ghep-va-don.md) | [Transformer](../05-case-studies/transformer.md), [SAM & ControlNet](../05-case-studies/sam-controlnet.md), [EDWARD-NMT](../05-case-studies/edward-nmt.md) | Hệ thống nhiều thành phần và cách mỗi thành phần được biện minh |
+| [Khi con số không đẹp](con-so-khong-dep.md) | [Adam](../05-case-studies/adam.md), [NeRF](../05-case-studies/nerf.md), [ViP-VL](../05-case-studies/vip-vl.md), [SwiftBrush](../05-case-studies/swiftbrush.md) | Metric lệch với đánh giá của con người, tuning, so sánh cân sức |
+| [Khi câu chuyện và bằng chứng không khớp](cau-chuyen-va-bang-chung.md) | [CheckList](../05-case-studies/checklist-acl2020.md), [PhoBERT](../05-case-studies/phobert.md) | Phê bình cách đánh giá, nguồn gốc thật của cải thiện |
+| [Bài toán, dữ liệu và phạm vi](bai-toan-va-pham-vi.md) | [Anti-DreamBooth](../05-case-studies/anti-dreambooth.md), [Top-K Sparse MoE](../05-case-studies/topk-moe.md), [Streaming ITN](../05-case-studies/streaming-itn.md) | Bài toán mới cần tự dựng baseline; lý thuyết đi cùng thí nghiệm; khoảng cách giữa benchmark và thực tế |
+| [Ranh giới trung thực](ranh-gioi-trung-thuc.md) | [MELON](../09-ai-security/melon.md), [Thực hành: một paper từ con số 0](../05-case-studies/worked-example.md) | Cách nói về giới hạn và claim một cách chừng mực |
+
 ## Các bài trong chương
 
 - [Khi novelty và hiệu quả lệch pha](novelty-va-hieu-qua.md): ý tưởng mới mà thua, ý tưởng đơn giản mà thắng, lời chê "hiển nhiên", ý tưởng đã có ở nơi khác, và paper "chỉ là ứng dụng".
@@ -107,7 +120,7 @@ flowchart TD
 - [Khi câu chuyện và bằng chứng không khớp](cau-chuyen-va-bang-chung.md): khi ablation phủ nhận câu chuyện, khi không giải thích được vì sao phương pháp hoạt động, kết quả âm tính, paper "reality check", lỗi benchmark, và bug được phát hiện muộn.
 - [Áp lực từ bên ngoài](ap-luc-ben-ngoai.md): bị trùng ý tưởng, mô hình nền mới làm bài toán lỗi thời, deadline, mô hình đóng thay đổi theo thời gian, yêu cầu bất khả thi từ reviewer, và những lần reject lặp lại.
 - [Bài toán, dữ liệu và phạm vi](bai-toan-va-pham-vi.md): bài toán mới chưa có baseline, motivation yếu, phương pháp tốt hơn nhưng tốn kém, dữ liệu riêng không công bố được, khoảng cách giữa lý thuyết và thực nghiệm, và khoảng cách giữa benchmark với thực tế.
-- [Đóng khung lại hay bóp méo: ranh giới trung thực](ranh-gioi-trung-thuc.md): phổ hành vi từ trình bày tốt tới sai phạm, HARKing, khu vườn rẽ nhánh, tập test, ngôn từ thổi phồng, và các phép thử trước khi nộp.
+- [Đóng khung lại hay bóp méo: ranh giới trung thực](ranh-gioi-trung-thuc.md): phổ hành vi từ trình bày tốt tới sai phạm, HARKing, khu vườn rẽ nhánh, các dạng chọn lọc, tập test, ngôn từ thổi phồng, áp lực bảng xếp hạng, cắt lát và nộp trùng, ba phép thử trước khi nộp, và cách nêu quan ngại khi áp lực đến từ trong nhóm.
 - [Thực hành: ba dự án đi qua ngõ cụt](thuc-hanh.md): ba dự án giả định ở Computer Vision, NLP và Machine Learning, mỗi dự án đi qua nhiều tình huống liên tiếp, với abstract và danh sách đóng góp trước và sau khi gỡ, cùng một mẫu nhật ký quyết định.
 
 ## Cách đọc chương

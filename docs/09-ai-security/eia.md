@@ -9,7 +9,7 @@
     - Phân tích cách đo tính kín đáo theo nhiều lớp và cách biến một điểm yếu của chính tấn công thành một mục thảo luận có giá trị.
     - Vận dụng các bài học này khi viết paper tấn công hoặc phòng vệ về visual/multimodal prompt injection.
 
-Chương này đi qua các paper về prompt injection theo bốn hướng: tấn công qua ảnh, tấn công vào agent đa phương thức, hình thức hóa và benchmark, và phòng vệ. Bài này phân tích một paper thuộc hướng thứ hai:
+Chương này đi qua các paper về prompt injection và jailbreak theo bốn hướng: tấn công qua ảnh, tấn công vào agent đa phương thức, hình thức hóa và benchmark, và phòng vệ. Bài này phân tích một paper thuộc hướng thứ hai:
 
 **EIA: Environmental Injection Attack on Generalist Web Agents for Privacy Leakage**, của Zeyi Liao, Lingbo Mo, Chejian Xu, Mintong Kang, Jiawei Zhang, Chaowei Xiao, Yuan Tian, Bo Li và Huan Sun, thuộc The Ohio State University, University of Chicago, University of Wisconsin–Madison, University of Illinois Urbana-Champaign và University of California, Los Angeles. Paper được công bố tại ICLR 2025.
 
@@ -51,7 +51,8 @@ Title theo khuôn "tên viết tắt: tên đầy đủ + đối tượng + hậ
 
 Có một điểm tinh tế về phạm vi. Abstract định nghĩa EIA rất rộng (chèn nội dung độc hại thích nghi với môi trường của agent), rồi nói ngay rằng paper chỉ hiện thực nó cho kịch bản quyền riêng tư trên web. Việc title gắn EIA với "web agents" và "privacy leakage" giữ cho lời hứa của title khớp với bằng chứng, dù cái tên "Environmental Injection Attack" mở ra một phạm trù lớn hơn.
 
-### Abstract mười hai câu: đầy đủ
+### Abstract mười hai câu: đầy đủ nhưng dài
+
 Abstract dài khoảng mười hai câu và theo đúng mạch "bối cảnh – khoảng trống – threat model – phương pháp – dữ liệu – kết quả – hệ quả". Vài điểm về cách viết đáng chú ý.
 
 Trước hết, abstract nêu con số có chọn lọc: "lên tới 70% ASR" cho mục tiêu thứ nhất và "16% ASR" cho mục tiêu khó hơn. Việc đặt một con số cao cạnh một con số thấp, thay vì chỉ khoe con số cao, báo cho reviewer biết paper trung thực về giới hạn của tấn công. Như bài [Abstract](../02-viet-tung-phan/abstract.md) đã bàn, một con số kèm ngữ cảnh ("khó hơn, nhưng phiên bản nới lỏng vẫn đạt 16%") đáng tin hơn một con số trần trụi.
@@ -84,7 +85,7 @@ Phần Related Work của EIA gồm ba đoạn có tiêu đề in đậm: prompt
 
 ## Phương pháp: biến một thủ thuật thành một họ có tham số
 
-Sau khi mô tả threat model (phân tích ở mục sau), phần phương pháp giới thiệu EIA qua một công thức gọn. Về mặt viết lách, công thức này làm một việc quan trọng: nó biến một thủ thuật đơn lẻ thành một họ tấn công có tham số, và chính các tham số đó trở thành khung cho toàn bộ chuỗi thí nghiệm.
+Sau khi mô tả threat model (phân tích ở mục Giải phẫu theo góc nhìn bảo mật ngay sau phần này), phần phương pháp giới thiệu EIA qua một công thức gọn. Về mặt viết lách, công thức này làm một việc quan trọng: nó biến một thủ thuật đơn lẻ thành một họ tấn công có tham số, và chính các tham số đó trở thành khung cho toàn bộ chuỗi thí nghiệm.
 
 ### Một công thức làm xương sống
 
@@ -98,19 +99,27 @@ Paper mô tả hai chiến lược chèn: một chiến lược tạo biểu m�
 
 Paper cũng mô tả một số kỹ thuật làm tăng tính kín đáo của phần chèn, kèm câu chốt rằng đây chỉ là các thành phần chính và trong thực tế kẻ tấn công có thể tinh chỉnh thêm. Giáo trình không nhắc lại các kỹ thuật này; điều đáng học là cách paper tách bạch giữa phần cần cho lập luận (tham số độ mờ và vị trí, vì chúng định hình thí nghiệm) và phần chỉ mang tính cài đặt. Chính paper cũng theo nguyên tắc tiết chế tương tự: nó trình bày đủ để tái lập về mặt khái niệm nhưng không biến mỗi chỉ dẫn thành một công thức tấn công hoàn chỉnh cho mọi trang.
 
-### Giải phẫu theo góc nhìn bảo mật
+## Giải phẫu theo góc nhìn bảo mật
 
 Phần này áp bốn câu hỏi đặc thù của paper AI security lên EIA. Người viết một paper tấn công nên dùng chính bốn câu hỏi đó như một checklist tự rà.
 
-**Threat model.** EIA phát biểu threat model thành ba khối tách bạch: mục tiêu của kẻ tấn công (lấy một PII cụ thể, hoặc lấy toàn bộ yêu cầu của người dùng), ràng buộc, và kịch bản. Phần ràng buộc được viết tốt: kẻ tấn công không biết trước tác vụ hay các hành động đã thực hiện của người dùng, chỉ thiết kế được tấn công dựa trên chức năng có sẵn của trang, và quan trọng là tấn công không được cản trở agent hoàn thành tác vụ, nếu không người dùng dễ phát hiện và chặn trang. Ràng buộc cuối này vừa làm tấn công thực tế hơn vừa định hình cả thiết kế (cơ chế tự gửi chính là để giữ cho luồng hoạt động của agent không bị gãy). Hai kịch bản (nhà phát triển lành tính nhưng dùng thư viện nhiễm độc; nhà phát triển có ý đồ xấu) được neo vào một báo cáo thật của CISA, nên mối đe dọa không bị cảm nhận là giả tưởng.
+### Threat model
+
+EIA phát biểu threat model thành ba khối tách bạch: mục tiêu của kẻ tấn công (lấy một PII cụ thể, hoặc lấy toàn bộ yêu cầu của người dùng), ràng buộc, và kịch bản. Phần ràng buộc được viết tốt: kẻ tấn công không biết trước tác vụ hay các hành động đã thực hiện của người dùng, chỉ thiết kế được tấn công dựa trên chức năng có sẵn của trang, và quan trọng là tấn công không được cản trở agent hoàn thành tác vụ, nếu không người dùng dễ phát hiện và chặn trang. Ràng buộc cuối này vừa làm tấn công thực tế hơn vừa định hình cả thiết kế, vì phần chèn phải được thiết kế sao cho luồng hoạt động của agent không bị gãy. Hai kịch bản (nhà phát triển lành tính nhưng dùng thư viện nhiễm độc; nhà phát triển có ý đồ xấu) được neo vào một báo cáo thật của CISA, nên mối đe dọa không bị cảm nhận là giả tưởng.
 
 Điểm còn ngầm định: paper giả định agent sẽ ghé vào trang bị xâm phạm, nhưng không mô hình hóa việc làm sao dụ agent tới đó; đây là ranh giới phạm vi hợp lý nhưng nên được nói rõ hơn. Một threat model viết chặt luôn nêu cả những gì nó *không* bao phủ.
 
-**Định nghĩa thành công và metric.** Paper tái dùng step Success Rate của Mind2Web cho tác vụ lành tính, rồi định nghĩa Attack Success Rate: một tấn công thành công khi phần tử bị chèn được chọn và giá trị gõ vào có độ tương đồng chuỗi trên 0,95 so với giá trị gốc. Ngưỡng 0,95 được nêu kèm lý do (xử lý vấn đề khoảng trắng trong vài yêu cầu đầy đủ). Paper còn định nghĩa thêm hai biến thể: một biến thể đo tính toàn vẹn chức năng của agent sau khi bị tấn công (hành động kế tiếp vẫn đúng), và một biến thể chỉ tính việc chọn đúng phần tử chèn bất kể giá trị. Ba định nghĩa này cho phép phân tách "chọn nhầm phần tử" khỏi "gõ nhầm nội dung", một sự phân tách hóa ra rất quan trọng khi giải thích vì sao mục tiêu thứ hai thất bại. Bài học: với tấn công nhiều bước, một metric duy nhất thường trộn lẫn nhiều kiểu thành công; tách nhỏ metric giúp chẩn đoán cơ chế.
+### Định nghĩa thành công và metric
 
-**Đánh giá chống lại phản biện.** Paper thử trên ba backbone gồm một mô hình đóng thương mại (GPT-4V) và hai mô hình mở, nên có yếu tố chuyển giao giữa các mô hình. Nó quét tám vị trí chèn và ba chiến lược, nên kết quả không phụ thuộc vào một cấu hình may mắn. Nó thử một phòng vệ (system prompt cảnh báo) và cho thấy phòng vệ đó không hiệu quả, tức là có nhìn trước khả năng mô hình bị phòng vệ. Nó cũng chạy một công cụ quét mã độc web truyền thống (VirusTotal) và cho thấy công cụ này không gắn cờ, nhằm chứng minh tấn công vượt qua phòng tuyến hiện có. Những gì còn thiếu, và paper tự nhận trong Limitations, là đánh giá trực tuyến đầu-cuối trong môi trường web tương tác thời gian thực; toàn bộ thí nghiệm là ngoại tuyến trên ảnh chụp đã lưu. Đây là một hạn chế lớn nhưng được thừa nhận thẳng.
+Paper tái dùng step Success Rate của Mind2Web cho tác vụ lành tính, rồi định nghĩa Attack Success Rate: một tấn công thành công khi phần tử bị chèn được chọn và giá trị gõ vào có độ tương đồng chuỗi trên 0,95 so với giá trị gốc. Ngưỡng 0,95 được nêu kèm lý do (xử lý vấn đề khoảng trắng trong vài yêu cầu đầy đủ). Paper còn định nghĩa thêm hai biến thể: một biến thể đo tính toàn vẹn chức năng của agent sau khi bị tấn công (hành động kế tiếp vẫn đúng), và một biến thể chỉ tính việc chọn đúng phần tử chèn bất kể giá trị. Ba định nghĩa này cho phép phân tách "chọn nhầm phần tử" khỏi "gõ nhầm nội dung", một sự phân tách hóa ra rất quan trọng khi giải thích vì sao mục tiêu thứ hai thất bại. Bài học: với tấn công nhiều bước, một metric duy nhất thường trộn lẫn nhiều kiểu thành công; tách nhỏ metric giúp chẩn đoán cơ chế.
 
-**Đạo đức và công bố có trách nhiệm.** Đây là phần EIA viết mẫu mực. Ethics Statement nêu ba lớp phòng vệ: dữ liệu lấy từ Mind2Web công khai và đã lưu ngoại tuyến nên không tấn công trang thật; PII dùng trong thí nghiệm là bịa, nên không có dữ liệu người dùng thật nào bị rủi ro; và công nghệ web agent còn ở giai đoạn sơ khai, chưa triển khai rộng, nên tấn công chưa gây đe dọa tức thì. Paper phát biểu rõ mục đích không phải tạo điều kiện lạm dụng mà là cảnh báo rủi ro trước khi web agent được dùng rộng rãi. Mục Reproducibility Statement hứa công bố mã sau khi được nhận. Cách đóng khung "phơi bày rủi ro một cách có kiểm soát, trên dữ liệu offline, với PII bịa" là lập luận đạo đức chuẩn cho một paper tấn công; người viết paper tương tự nên chuẩn bị sẵn ba lớp lập luận này.
+### Đánh giá chống lại phản biện
+
+Paper thử trên ba backbone gồm một mô hình đóng thương mại (GPT-4V) và hai mô hình mở, nên có yếu tố chuyển giao giữa các mô hình. Nó quét tám vị trí chèn và ba chiến lược, nên kết quả không phụ thuộc vào một cấu hình may mắn. Nó thử một phòng vệ (system prompt cảnh báo) và cho thấy phòng vệ đó không hiệu quả, tức là đã trả lời trước câu hỏi "một phòng vệ đơn giản có chặn được không". Nó cũng chạy một công cụ quét mã độc web truyền thống (VirusTotal) và cho thấy công cụ này không gắn cờ, nhằm chứng minh tấn công vượt qua phòng tuyến hiện có. Những gì còn thiếu, và paper tự nhận trong Limitations, là đánh giá trực tuyến đầu-cuối trong môi trường web tương tác thời gian thực; toàn bộ thí nghiệm là ngoại tuyến trên ảnh chụp đã lưu. Đây là một hạn chế lớn nhưng được thừa nhận thẳng.
+
+### Đạo đức và công bố có trách nhiệm
+
+Đây là phần EIA viết mẫu mực. Ethics Statement nêu ba lớp phòng vệ: dữ liệu lấy từ Mind2Web công khai và đã lưu ngoại tuyến nên không tấn công trang thật; PII dùng trong thí nghiệm là bịa, nên không có dữ liệu người dùng thật nào bị rủi ro; và công nghệ web agent còn ở giai đoạn sơ khai, chưa triển khai rộng, nên tấn công chưa gây đe dọa tức thì. Paper phát biểu rõ mục đích không phải tạo điều kiện lạm dụng mà là cảnh báo rủi ro trước khi web agent được dùng rộng rãi. Mục Reproducibility Statement hứa công bố mã sau khi được nhận. Cách đóng khung "phơi bày rủi ro một cách có kiểm soát, trên dữ liệu offline, với PII bịa" là lập luận đạo đức chuẩn cho một paper tấn công; người viết paper tương tự nên chuẩn bị sẵn ba lớp lập luận này.
 
 ## Thí nghiệm: để các tham số dẫn dắt câu chuyện
 
@@ -152,7 +161,7 @@ Về văn phong, paper dùng nhiều câu "However,…" và "Instead of…" đ�
 
 **Viết Ethics Statement thành ba lớp phòng vệ cụ thể.** Dữ liệu offline, PII bịa, và khẳng định về mức độ triển khai thực tế là một bộ khung lập luận đạo đức mà bất kỳ paper tấn công nào cũng nên chuẩn bị.
 
-### Áp dụng cho người viết về visual/multimodal prompt injection
+### Áp dụng cho paper về visual/multimodal prompt injection
 
 Với người đang viết một paper tấn công hoặc phòng vệ trong chủ đề visual/multimodal prompt injection, EIA cho vài bài học cụ thể theo từng cộng đồng đích.
 

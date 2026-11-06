@@ -20,7 +20,7 @@ Mục đích thứ hai, và quan trọng nhất, là **khoanh vùng tính mới*
 
 Mục đích thứ ba là **ghi nhận công lao** của những người đi trước. Đây không chỉ là phép lịch sự học thuật: trích dẫn đúng và đủ là một phần của sự trung thực khoa học, và nó cũng giúp người đọc lần theo dòng phát triển của ý tưởng.
 
-Cần phân biệt vai trò của Related Work với vai trò của đoạn khoảng trống trong introduction. Introduction vẽ bức tranh lớn: hai ba hướng chính và hạn chế chung của chúng. Related Work đi vào chi tiết hơn: các công trình tiêu biểu trong từng hướng, và sự khác biệt cụ thể với paper. Hai phần bổ sung cho nhau và không nên lặp lại nhau. Nguyên liệu cho Related Work là bảng tài liệu và bản đồ vị trí đã được xây dựng ở bài [Đọc & lập bản đồ tài liệu](../01-truoc-khi-viet/literature.md); ở bước viết, người viết chỉ cần tổ chức lại nguyên liệu đó theo góc nhìn của paper.
+Cần phân biệt vai trò của Related Work với vai trò của đoạn khoảng trống trong introduction. Introduction vẽ bức tranh lớn: hai ba hướng chính và hạn chế chung của chúng. Related Work đi vào chi tiết hơn: các công trình tiêu biểu trong từng hướng, và sự khác biệt cụ thể với paper. Hai phần bổ sung cho nhau và không nên lặp lại nhau. Nguyên liệu cho Related Work là bảng tài liệu và bản đồ vị trí đã được xây dựng ở bài [Đọc & lập bản đồ tài liệu](../01-truoc-khi-viet/literature.md); ở bước viết, người viết chỉ cần tổ chức lại nguyên liệu đó theo góc nhìn của paper. Tuy vậy, tổ chức lại chưa đủ để định vị. Muốn viết được những câu phân biệt sắc nét, người viết phải biết chính xác paper lấp khoảng trống nào và khoảng trống đó sinh ra từ giả định hay giới hạn nào của các công trình trước, tức là kỹ năng của bài [Tìm khoảng trống & nguồn ý tưởng](../01-truoc-khi-viet/tim-khoang-trong.md). Người viết cũng cần đọc các công trình liên quan, và cả bản nháp của nhóm, với con mắt của reviewer: đối chiếu từng claim về tính mới với những gì đã có, như bài [Đọc paper như một reviewer](../01-truoc-khi-viet/doc-nhu-reviewer.md) hướng dẫn. Hai kỹ năng này quyết định Related Work có thực sự định vị được paper hay không.
 
 ## Cấu trúc: các đoạn có tiêu đề in đậm
 
@@ -43,7 +43,7 @@ struggle at long range. In contrast, we model per-object depth as a
 distribution and refine it with height priors.
 ```
 
-Câu đầu tiên của đoạn vừa giới thiệu hướng vừa nêu cách tiếp cận sớm nhất. Câu thứ hai gom các công trình gần đây thành hai nhóm (hồi quy độ sâu trực tiếp và pseudo-LiDAR), mỗi nhóm một cụm trích dẫn. Câu thứ ba ghi nhận ưu điểm và chỉ ra giả định chung (độ sâu là đại lượng tất định) dẫn tới hạn chế. Câu cuối nêu sự khác biệt. Toàn bộ đoạn chỉ có năm câu nhưng làm tròn cả ba bước.
+Câu đầu tiên của đoạn vừa giới thiệu hướng vừa nêu cách tiếp cận sớm nhất. Câu thứ hai gom các công trình gần đây thành hai nhóm (hồi quy độ sâu trực tiếp và pseudo-LiDAR), mỗi nhóm một cụm trích dẫn. Câu thứ ba ghi nhận ưu điểm và chỉ ra giả định chung (độ sâu là đại lượng tất định) dẫn tới hạn chế. Câu cuối nêu sự khác biệt. Toàn bộ đoạn chỉ có bốn câu nhưng làm tròn cả ba bước.
 
 So sánh với một đoạn yếu cùng chủ đề:
 
@@ -55,11 +55,25 @@ So sánh với một đoạn yếu cùng chủ đề:
 
 Đoạn này có thông tin đúng nhưng không có lập luận. Người đọc không biết các công trình có quan hệ gì với nhau, chúng có chung hạn chế nào, và quan trọng nhất là paper đang viết khác chúng ở đâu. Một đoạn như vậy buộc reviewer tự làm công việc định vị thay cho tác giả, và họ hiếm khi làm điều đó theo hướng có lợi cho paper.
 
+Cấu trúc ba bước không phụ thuộc vào cộng đồng. Đoạn dưới đây viết cho một paper NLP giả định về retrieval-augmented generation, cùng ví dụ được dùng ở bài [Method](method.md), trong đó đóng góp là một bộ lọc bằng chứng tự điều chỉnh số đoạn văn đưa vào mô hình sinh.
+
+```latex
+\paragraph{Retrieval-augmented generation.}
+Retrieval-augmented models condition a generator on passages retrieved
+from an external corpus~\cite{a,b,c}. Follow-up work improves the
+retriever~\cite{d,e} or trains the generator to be robust to irrelevant
+passages~\cite{f,g}. These methods, however, pass a fixed number of
+passages to the generator regardless of the question. In contrast, our
+evidence filter adapts the number of passages to each question.
+```
+
+Đoạn này cũng gom các công trình thành hai nhóm (cải thiện retriever và làm generator chịu được nhiễu), rồi chỉ ra một giả định chung mà cả hai nhóm chia sẻ: số đoạn văn được cố định trước. Câu phân biệt nêu đúng điểm paper thay đổi giả định ấy, thay vì một câu chung chung như "we propose a new filtering module".
+
 ## Câu phân biệt: trái tim của mỗi đoạn
 
 Nếu chỉ được giữ lại một câu trong mỗi đoạn Related Work, đó phải là câu phân biệt ở cuối đoạn. Câu này thường mở bằng "In contrast, …", "Different from these methods, …", "Unlike [X], …" hoặc "While [X] focuses on …, we …". Thiếu câu này, đoạn văn chỉ còn là một bản tóm tắt, và Related Work mất đi chức năng định vị.
 
-Một câu phân biệt tốt chỉ ra sự khác biệt **có thực chất**. Có thể phân loại các khác biệt thực chất thành bốn dạng: khác về **giả định** (công trình trước giả định có camera pose, paper này không cần), khác về **bối cảnh** (công trình trước làm với dữ liệu có nhãn, paper này làm với dữ liệu không nhãn), khác về **cơ chế** (công trình trước coi độ sâu là giá trị, paper này coi là phân phối), và khác về **mục tiêu** (công trình trước tối ưu độ chính xác, paper này tối ưu khả năng hiệu chỉnh độ tin cậy). Ngược lại, những khác biệt như "we use a different backbone" hay "we add an extra module" hiếm khi đủ thuyết phục, vì chúng không trả lời câu hỏi vì sao khác biệt đó quan trọng.
+Một câu phân biệt tốt chỉ ra sự khác biệt **có thực chất**. Có thể phân loại các khác biệt thực chất thành bốn dạng: khác về **giả định** (công trình trước giả định có camera pose, paper này không cần), khác về **bối cảnh** (công trình trước làm với dữ liệu có nhãn, paper này làm với dữ liệu không nhãn), khác về **cơ chế** (công trình trước coi độ sâu là giá trị, paper này coi là phân phối), và khác về **mục tiêu** (công trình trước tối ưu độ chính xác, paper này tối ưu khả năng hiệu chỉnh độ tin cậy). Ngược lại, những khác biệt như "we use a different backbone" hay "we add an extra module" hiếm khi đủ thuyết phục, vì chúng không trả lời câu hỏi vì sao khác biệt đó quan trọng. Bốn dạng khác biệt thực chất này cũng chính là những hướng mà khoảng trống thường được tìm ra: lật một giả định, chuyển sang một bối cảnh mới, thay cơ chế, hay đổi mục tiêu tối ưu. Nếu khoảng trống của dự án đã được xác định có hệ thống từ giai đoạn nghiên cứu, câu phân biệt gần như đã có sẵn; nếu không viết được câu phân biệt nào có thực chất, rất có thể vấn đề nằm ở đóng góp chứ không nằm ở câu chữ.
 
 Khi paper không thực sự khác một hướng nào đó mà bổ sung cho nó, cách viết trung thực là nói rõ điều đó: *"Our work is complementary to these methods: the proposed calibration can be applied on top of any of them."* Một câu như vậy vừa chính xác, vừa mở ra khả năng kết hợp, và thường được reviewer đón nhận tốt hơn một sự khác biệt bị cường điệu.
 
@@ -83,11 +97,11 @@ Câu thứ nhất phủ nhận toàn bộ giá trị của các phương pháp v
 
 Trong số các công trình liên quan, có hai loại cần được xử lý đặc biệt cẩn thận.
 
-Loại thứ nhất là **paper gần nhất**, tức công trình mà một reviewer am hiểu sẽ nghĩ tới đầu tiên khi đọc phương pháp. Paper này không nên chỉ được trích dẫn trong một cụm chung với các paper khác. Nó nên được nhắc tới ngay trong introduction, được thảo luận riêng và kỹ trong Related Work với sự khác biệt được nêu chính xác, và nếu có thể, được so sánh trực tiếp trong phần Experiments. Việc né tránh paper gần nhất, dù vô tình, là một trong những lý do phổ biến khiến reviewer đặt câu hỏi về tính mới.
+Loại thứ nhất là **paper gần nhất**, tức công trình mà một reviewer am hiểu sẽ nghĩ tới đầu tiên khi đọc phương pháp. Paper này không nên chỉ được trích dẫn trong một cụm chung với các paper khác. Nó nên được nhắc tới ngay trong introduction, được thảo luận riêng và kỹ trong Related Work với sự khác biệt được nêu chính xác, và nếu có thể, được so sánh trực tiếp trong phần Experiments. Việc né tránh paper gần nhất, dù vô tình, là một trong những lý do phổ biến khiến reviewer đặt câu hỏi về tính mới. Cách tìm ra paper gần nhất đã được bàn ở mục *Không bỏ sót công trình gần nhất* của bài [Đọc & lập bản đồ tài liệu](../01-truoc-khi-viet/literature.md); ở bước viết, một phép thử hữu ích là đọc lại phần Method như một reviewer am hiểu và ghi ra paper đầu tiên bật ra trong đầu khi đọc từng thành phần.
 
-Loại thứ hai là **concurrent work**, tức những công trình được công bố, thường dưới dạng preprint, trong khoảng thời gian gần với thời điểm nộp paper và giải quyết vấn đề tương tự. Ở các lĩnh vực phát triển nhanh, tình huống này rất hay gặp. Cách xử lý tốt nhất là nhắc tới chúng một cách thẳng thắn, ghi nhận chúng là đồng thời, và nêu sự khác biệt. ResNet đã làm đúng như vậy: Related Work của paper nhắc tới highway networks như một công trình đồng thời cũng dùng kết nối tắt, nhưng có cổng điều khiển phụ thuộc dữ liệu và có tham số, rồi chỉ ra rằng kết nối tắt dạng đồng nhất của ResNet không có tham số và luôn cho thông tin đi qua. Mẫu câu thường dùng:
+Loại thứ hai là **concurrent work**, tức những công trình được công bố, thường dưới dạng preprint, trong khoảng thời gian gần với thời điểm nộp paper và giải quyết vấn đề tương tự. Ở các lĩnh vực phát triển nhanh, tình huống này rất hay gặp. Cách theo dõi và phản ứng khi một công trình đồng thời xuất hiện trong lúc dự án còn đang chạy đã được bàn ở bài [Thẩm định ý tưởng](../01-truoc-khi-viet/y-tuong.md); ở đây chỉ bàn cách viết. Cách xử lý tốt nhất là nhắc tới chúng một cách thẳng thắn, ghi nhận chúng là đồng thời, và nêu sự khác biệt. ResNet đã làm đúng như vậy: Related Work của paper nhắc tới highway networks như một công trình đồng thời cũng dùng kết nối tắt, nhưng có cổng điều khiển phụ thuộc dữ liệu và có tham số, rồi chỉ ra rằng kết nối tắt dạng đồng nhất của ResNet không có tham số và luôn cho thông tin đi qua. Mẫu câu thường dùng:
 
-> *"Concurrent to our work, [X]~\cite{} also explores [idea]; however, they [difference], whereas we [our approach]."*
+> *"Concurrent with our work, [X]~\cite{} also explores [idea]. Unlike our approach, however, [X] [difference]."*
 
 Nhiều hội nghị có quy định trong hướng dẫn dành cho reviewer rằng các công trình công bố trong một khoảng thời gian ngắn trước hạn nộp (thường tính bằng vài tháng) được coi là đồng thời, và tác giả không bị yêu cầu so sánh thực nghiệm với chúng. Khoảng thời gian cụ thể khác nhau giữa các hội nghị và các năm, nên cần kiểm tra Reviewer Guidelines của hội nghị mục tiêu. Tuy vậy, việc *nhắc tới* concurrent work vẫn là thực hành tốt: nó cho thấy tác giả theo sát lĩnh vực, và giúp tránh tình huống reviewer phát hiện ra công trình đó và cho rằng tác giả cố tình lờ đi.
 
@@ -123,7 +137,7 @@ Tuy nhiên, bảng tính chất đòi hỏi sự **trung thực tuyệt đối**
 
 Trong một paper 8 trang hai cột, Related Work thường chiếm khoảng 0,5–1 trang. Nếu phần này dài hơn, đó thường là dấu hiệu người viết đang tóm tắt thay vì định vị, và cách sửa là gom nhóm mạnh tay hơn. Ở các hội nghị ML, nơi appendix không giới hạn, một số paper giữ Related Work ngắn trong thân bài và đưa một bản mở rộng vào appendix; khi làm vậy, thân bài vẫn phải chứa đủ các công trình quan trọng nhất và các câu phân biệt chính.
 
-Về cách trích dẫn, nên **gom trích dẫn** dạng `\cite{a,b,c}` cho các công trình cùng hướng thay vì viết một câu riêng cho mỗi paper. Ngoại lệ là paper gần nhất, như đã nêu, cần được thảo luận riêng. Câu hỏi bao nhiêu trích dẫn là đủ đã được bàn ở bài [Đọc & lập bản đồ tài liệu](../01-truoc-khi-viet/literature.md); ở bước viết, nguyên tắc chung là mọi công trình mà một reviewer am hiểu sẽ mong đợi đều phải có mặt, và mọi trích dẫn có mặt đều phải có lý do.
+Về cách trích dẫn, nên **gom trích dẫn** dạng `\cite{a,b,c}` cho các công trình cùng hướng thay vì viết một câu riêng cho mỗi paper. Ngoại lệ là paper gần nhất, như đã nêu, cần được thảo luận riêng. Câu hỏi bao nhiêu trích dẫn là đủ đã được bàn ở bài [Đọc & lập bản đồ tài liệu](../01-truoc-khi-viet/literature.md); ở bước viết, nguyên tắc chung là mọi công trình mà một reviewer am hiểu sẽ mong đợi đều phải có mặt, và mọi trích dẫn có mặt đều phải có lý do. Nếu có dùng công cụ AI để tìm hoặc tóm tắt tài liệu, mọi mục tham khảo và mọi câu mô tả công trình khác phải được đối chiếu với bản gốc, vì LLM có thể bịa ra paper không tồn tại hoặc gán sai kết quả cho một paper có thật (xem [Dùng AI hỗ trợ (đúng luật)](../03-ky-thuat/ai-tools.md) và [AI trong đọc tài liệu và tìm ý tưởng](../08-ai-cong-su/doc-va-y-tuong.md)).
 
 ## Khác biệt giữa các cộng đồng
 

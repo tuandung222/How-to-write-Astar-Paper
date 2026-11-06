@@ -31,7 +31,7 @@ Câu chuyện có cấu trúc ba bước rất đáng học: **khoảng trống*
 
 ### Một title dài, mô tả đủ, nhưng tự hạ thấp đóng góp
 
-Title gồm mười sáu từ và nêu ba thứ: mục tiêu (efficient simultaneous ITN), nền tảng (pretrained text-to-text model) và đóng góp chính (Read–Tag–Write policy). Chữ "Simultaneous" được chọn có chủ ý: nó là thuật ngữ của SiMT, nên ngay từ title, người đọc thuộc cộng đồng dịch máy đã nhận ra cây cầu khái niệm mà paper bắc qua. Tên policy "Read–Tag–Write" cũng được đặt khéo: nó giữ nguyên khung "read–write" quen thuộc của SiMT và chèn vào giữa đúng thành phần mới (Tag), nên người đọc đoán được ý tưởng chỉ từ cái tên.
+Title khá dài và nêu ba thứ: mục tiêu (efficient simultaneous ITN), nền tảng (pretrained text-to-text model) và đóng góp chính (Read–Tag–Write policy). Chữ "Simultaneous" được chọn có chủ ý: nó là thuật ngữ của SiMT, nên ngay từ title, người đọc thuộc cộng đồng dịch máy đã nhận ra cây cầu khái niệm mà paper bắc qua. Tên policy "Read–Tag–Write" cũng được đặt khéo: nó giữ nguyên khung "read–write" quen thuộc của SiMT và chèn vào giữa đúng thành phần mới (Tag), nên người đọc đoán được ý tưởng chỉ từ cái tên.
 
 Điểm có thể cân nhắc là chữ mở đầu "Towards". Như bài [Title](../02-viet-tung-phan/title.md) đã phân tích, "Towards" báo hiệu một bước tiến chưa trọn vẹn. Trong khi đó, Introduction của paper khẳng định đây là mô hình ITN streaming end-to-end đầu tiên, và kết quả đủ mạnh để đứng vững. Một title như "Efficient Simultaneous Inverse Text Normalization via a Read–Tag–Write Policy" vừa ngắn hơn vừa không tự hạ thấp đóng góp. Đây là một lựa chọn phong cách, không phải lỗi, nhưng người viết nên ý thức rằng mỗi chữ trong title đều phát đi một tín hiệu.
 
@@ -50,7 +50,7 @@ Abstract gồm sáu câu và bám rất sát khuôn ở bài [Abstract](../02-vi
 
 Hai câu khoảng trống được viết thành một cặp đối xứng: hệ lai *streaming được nhưng không mở rộng được*, hệ end-to-end *mở rộng được nhưng không streaming được*. Cặp đối xứng này tạo ra một "ô trống" mà người đọc tự thấy cần được lấp, và câu phương pháp lấp đúng ô đó. Đây là một kỹ thuật dẫn dắt rất hiệu quả cho bất kỳ abstract nào.
 
-Hai điểm có thể làm tốt hơn. Câu kết quả không có con số nào, trong khi paper có những con số rất đáng nêu: tăng tốc 3,43 lần nhờ các tối ưu suy luận, độ trễ mỗi chunk giảm còn khoảng 60 ms, WER gấp gần hai lần thấp hơn hệ lai. Ngoài ra, abstract chỉ nói "Vietnamese datasets", trong khi Section 4.6 còn cho thấy phương pháp hoạt động với tiếng Anh và với một backbone khác. Một nửa câu như "and generalizes to English and to a different backbone" sẽ giúp abstract phản ánh đúng phạm vi bằng chứng, và giúp reviewer quốc tế bớt lo rằng đây chỉ là một kết quả riêng cho tiếng Việt.
+Hai điểm có thể làm tốt hơn. Câu kết quả không có con số nào, trong khi paper có những con số rất đáng nêu: tăng tốc 3,43 lần nhờ các tối ưu suy luận, độ trễ mỗi chunk giảm còn khoảng 60 ms, WER thấp hơn hệ lai gần hai lần. Ngoài ra, abstract chỉ nói "Vietnamese datasets", trong khi Section 4.6 còn cho thấy phương pháp hoạt động với tiếng Anh và với một backbone khác. Một nửa câu như "and generalizes to English and to a different backbone" sẽ giúp abstract phản ánh đúng phạm vi bằng chứng, và giúp reviewer quốc tế bớt lo rằng đây chỉ là một kết quả riêng cho tiếng Việt.
 
 ## Introduction: mượn công cụ, rồi chỉ ra vì sao nó chưa vừa
 
@@ -84,7 +84,7 @@ Thay vì lao ngay vào phương pháp, đoạn thứ tư giới thiệu cách Si
 
 Đoạn thứ năm là trái tim của Introduction. Nó mở bằng "However": các policy của SiMT tạo ra tính toán thừa cho ITN. Lý do được giải thích bằng sự khác biệt về **cấu trúc bài toán**: trong dịch máy, việc sắp xếp lại trật tự từ là xung đột chính giữa chất lượng và độ trễ; còn ITN chỉ gồm những biến đổi cục bộ, giữ nguyên trật tự từ. Vì đầu ra ASR phần lớn là giữ nguyên, độ trễ cố định và chi phí sinh của các policy SiMT có thể phản tác dụng.
 
-Đây là cùng một kỹ thuật mà [MAE](mae-ldm.md#mae) dùng khi hỏi điều gì khiến masked autoencoding khác nhau giữa ngôn ngữ và hình ảnh: **chỉ ra một khác biệt cấu trúc giữa bài toán nguồn và bài toán đích, rồi để khác biệt đó quyết định thiết kế**. Một paper chỉ nói "chúng ta áp dụng X từ lĩnh vực A cho lĩnh vực B" dễ bị coi là incremental; một paper nói "X không vừa với B vì B khác A ở điểm Y, nên cần thiết kế Z" có một lý do để tồn tại.
+Đây là cùng một kỹ thuật mà [MAE](mae-ldm.md) dùng khi hỏi điều gì khiến masked autoencoding khác nhau giữa ngôn ngữ và hình ảnh: **chỉ ra một khác biệt cấu trúc giữa bài toán nguồn và bài toán đích, rồi để khác biệt đó quyết định thiết kế**. Một paper chỉ nói "chúng ta áp dụng X từ lĩnh vực A cho lĩnh vực B" dễ bị coi là incremental; một paper nói "X không vừa với B vì B khác A ở điểm Y, nên cần thiết kế Z" có một lý do để tồn tại.
 
 ### Đoạn 6 và danh sách đóng góp
 
@@ -157,7 +157,7 @@ Khi mô hình đề xuất vượt wait-$k$, paper không dừng ở con số m�
 
 ### Khoảng tin cậy bootstrap cho mọi so sánh
 
-Paper dùng bootstrap với 10.000 lần lặp để tính khoảng tin cậy 95% và trình bày mọi so sánh tương đối theo dạng giá trị trung bình kèm khoảng tin cậy, ví dụ $S_2$ vượt wait-$k$ với hệ số $1{,}67\,[1{,}60;\ 1{,}75]$ lần. Đây là mức độ chặt chẽ thống kê mà bài [Experiments](../02-viet-tung-phan/experiments.md) khuyến nghị nhưng hiếm thấy trong các paper speech. Nhờ khoảng tin cậy, người đọc biết rằng khi paper viết "significantly outperforming", chữ "significantly" có cơ sở: khoảng tin cậy của hệ số nằm hoàn toàn trên 1. So với ViP-VL, nơi chữ "significantly" được dùng mà không có kiểm định, đây là một khác biệt rõ rệt trong cùng một nhóm tác giả, và một phần của khác biệt đó đến từ việc bài dài có chỗ cho phương pháp thống kê.
+Paper dùng bootstrap với 10.000 lần lặp để tính khoảng tin cậy 95% và trình bày mọi so sánh tương đối theo dạng giá trị trung bình kèm khoảng tin cậy, ví dụ $S_2$ vượt wait-$k$ với hệ số $1{,}67\,[1{,}60;\ 1{,}75]$ lần. Đây là mức độ chặt chẽ thống kê mà bài [Experiments](../02-viet-tung-phan/experiments.md) khuyến nghị nhưng hiếm thấy trong các paper speech. Nhờ khoảng tin cậy, người đọc biết rằng khi paper viết "significantly outperforming", chữ "significantly" có cơ sở: khoảng tin cậy của hệ số nằm hoàn toàn trên 1. So với ViP-VL, nơi chữ "significantly" được dùng mà không có kiểm định, đây là một khác biệt rõ rệt giữa hai paper, và có lẽ một phần của khác biệt đó đến từ việc bài dài có chỗ cho phương pháp thống kê.
 
 Tuy vậy, khoảng tin cậy chỉ có giá trị khi được **diễn giải đúng**. Ở đoạn về chi phí của streaming, paper viết rằng $S_2$ "improves performance by $13{,}51\,[-38{,}67;\ 50{,}62]\%$" so với $B_1$ trong thiết lập không có dấu câu. Khoảng tin cậy này chứa 0 và rất rộng, tức là dữ liệu không cho phép kết luận có cải thiện hay không. Cách viết chính xác hơn là "performs on par with $B_1$ (the difference is not statistically significant)". Tương tự, các mức chênh như $0{,}08\,[-0{,}03;\ 0{,}18]\%$ nên được mô tả là "không có khác biệt có ý nghĩa thống kê" thay vì "tăng nhẹ". Bài học: báo cáo khoảng tin cậy là bước một; dùng ngôn từ khớp với khoảng tin cậy là bước hai, và cả hai đều cần thiết.
 
@@ -209,7 +209,7 @@ Phần kết luận tóm tắt các thành phần và kết quả. Hai mục cu�
 
 Bảng so sánh cho thấy những gì bốn trang bổ sung mang lại không phải là thêm kết quả SOTA, mà là thêm **các loại bằng chứng làm tăng độ tin cậy**: khoảng tin cậy, phân tích độ nhạy, đánh giá tính tổng quát, độ trễ đuôi, và một mục Limitations trung thực. Khi người học phải chọn giữa regular track và long track, hoặc phải cắt một paper dài xuống, bảng này gợi ý nên giữ lại cái gì và hy sinh cái gì.
 
-Hai paper cũng có những điểm chung phản ánh "phong cách" của nhóm tác giả: định vị gắn với yêu cầu triển khai thực tế, luôn có một kiểm chứng trên dữ liệu tiếng Anh chuẩn bên cạnh kết quả tiếng Việt, và xây dựng nhất quán trên các công trình trước của chính nhóm (ChunkFormer, Dynamic Right Context masking) với trích dẫn ở ngôi thứ ba. Một chuỗi paper liên kết với nhau như vậy giúp mỗi paper mới đứng trên một nền móng đã được cộng đồng chấp nhận, và là một chiến lược nghiên cứu đáng cân nhắc cho các nhóm nhỏ.
+Hai paper cũng có những điểm chung: định vị gắn với yêu cầu triển khai thực tế, luôn có một kiểm chứng trên dữ liệu tiếng Anh chuẩn bên cạnh kết quả tiếng Việt, và xây dựng nhất quán trên các công trình trước của chính nhóm (ChunkFormer, Dynamic Right Context masking) với trích dẫn ở ngôi thứ ba. Một chuỗi paper liên kết với nhau như vậy giúp mỗi paper mới đứng trên một nền móng đã được cộng đồng chấp nhận, và là một chiến lược nghiên cứu đáng cân nhắc cho các nhóm nhỏ.
 
 ## Bài học cho người viết
 
@@ -228,6 +228,10 @@ Hai paper cũng có những điểm chung phản ánh "phong cách" của nhóm 
 ### Áp dụng sang các cộng đồng khác
 
 Trong **NLP**, paper này gần như có thể nộp ACL hay EMNLP với rất ít thay đổi về thí nghiệm: bootstrap CI, dữ liệu mới có quy trình xây dựng rõ ràng, phân tích lỗi bằng ví dụ và một mục Limitations cụ thể đều là những gì ARR kỳ vọng; điều cần bổ sung chủ yếu là phần mô tả chất lượng dữ liệu tự sinh và Responsible NLP Checklist. Trong **Machine Learning**, kỹ thuật "chỉ ra khác biệt cấu trúc giữa bài toán nguồn và bài toán đích" là cốt lõi của rất nhiều paper về transfer hay adaptation, và phân tích độ nhạy theo $p_{\text{trunc}}$ là kiểu bằng chứng reviewer NeurIPS hay ICLR đánh giá cao. Trong **Computer Vision**, lược đồ đặt tên cấu hình và ablation độ trễ cộng dồn chuyển thẳng sang các paper về mô hình hiệu quả hay xử lý video thời gian thực, nơi độ trễ đuôi cũng quan trọng không kém độ trễ trung bình.
+
+### Nối với các bài kỹ năng
+
+Nước đi trung tâm của paper, mượn read–write policy của dịch máy đồng thời rồi chỉ ra vì sao nó chưa vừa với ITN, là phương pháp chuyển giao giữa các lĩnh vực ở bài [Tìm khoảng trống & nguồn ý tưởng](../01-truoc-khi-viet/tim-khoang-trong.md), kèm một bước mà phương pháp ấy luôn đòi hỏi: gọi tên khác biệt cấu trúc giữa bài toán nguồn và bài toán đích. Lược đồ ký hiệu $B/H/S$, phép đo độ trễ theo từng tối ưu cộng dồn và đường cong theo $p_{\text{trunc}}$ đều là sản phẩm của một quy trình quản lý nhiều run có kỷ luật, được trình bày ở bài [Vận hành thực nghiệm](../01-truoc-khi-viet/thuc-thi.md). Ở phía viết, cách đọc khoảng tin cậy và chọn ngôn từ tương ứng có ở bài [Experiments](../02-viet-tung-phan/experiments.md). Chương 7 có ba tình huống nối trực tiếp: Tình huống 5 ("chỉ là ứng dụng") trong bài [Khi novelty và hiệu quả lệch pha](../07-tinh-huong-kho/novelty-va-hieu-qua.md), rủi ro lớn nhất của một paper mượn công cụ từ lĩnh vực lân cận; Tình huống 11 trong bài [Khi con số không đẹp](../07-tinh-huong-kho/con-so-khong-dep.md), khi cải thiện nằm trong dao động, như các khoảng tin cậy chứa 0 ở trên; và Tình huống 35 trong bài [Bài toán, dữ liệu và phạm vi](../07-tinh-huong-kho/bai-toan-va-pham-vi.md), khi kết quả đẹp trên benchmark chưa chắc chuyển được sang điều kiện triển khai thật, đúng câu hỏi nằm sau cái tên "real-world evaluation".
 
 ## Tóm tắt
 

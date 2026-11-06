@@ -24,6 +24,12 @@ Paper nêu mục tiêu một cách trực tiếp: phát triển cho instance seg
 
 Cấu trúc "đơn giản, miễn là" của câu chuyện này đáng được phân tích kỹ. Vế đầu hứa hẹn sự đơn giản, vế sau chứa điểm mới. Nếu thiếu vế "miễn là", paper nghe như một cải tiến hiển nhiên mà ai cũng làm được; nếu chỉ có hai chi tiết kỹ thuật mà không có khung đơn giản, paper lại nghe như một tập hợp thủ thuật. Sự kết hợp của hai vế tạo ra một thông điệp mạnh hơn từng vế riêng lẻ: framework đơn giản, nhưng sự thành công của nó phụ thuộc vào việc hiểu đúng hai điều mà các phương pháp trước đã bỏ qua. Reviewer muốn bác bỏ paper sẽ phải chứng minh hoặc rằng hai chi tiết đó đã được biết từ trước, hoặc rằng chúng không quan trọng, và cả hai đều bị phần ablation chặn trước.
 
+## Title và abstract
+
+Title chỉ gồm tên phương pháp: *"Mask R-CNN"*. Đây là lựa chọn hiếm gặp và chỉ hiệu quả trong một bối cảnh đặc biệt. Cái tên tự mô tả quan hệ với họ R-CNN, nên người đọc trong cộng đồng hiểu ngay đây là "R-CNN có thêm mask", và chính sự ngắn gọn ấy đã báo trước luận điểm đơn giản. Với một phương pháp không thuộc một dòng dõi nổi tiếng, title chỉ có tên thường không đủ để người đọc biết paper giải bài toán gì, như bài [Title](../02-viet-tung-phan/title.md) phân tích.
+
+Abstract mang đúng giọng của luận điểm ấy. Câu đầu tự giới thiệu một framework "conceptually simple, flexible, and general" cho instance segmentation. Một câu duy nhất mô tả cơ chế: mở rộng Faster R-CNN bằng một nhánh dự đoán mask chạy song song với nhánh nhận dạng hộp. Các câu tiếp theo định lượng sự đơn giản (chỉ thêm một chi phí nhỏ so với Faster R-CNN, chạy 5 khung hình mỗi giây), nêu tính tổng quát (ước lượng tư thế người trong cùng framework), rồi tới kết quả: dẫn đầu cả ba hạng mục của bộ thử thách COCO và vượt mọi hệ thống single-model, kể cả các đội thắng COCO 2016, "without bells and whistles". Câu áp chót bày tỏ mong muốn phương pháp trở thành một baseline vững chắc cho các nghiên cứu sau, khớp với mục tiêu "framework nền" ở Introduction. Điểm đáng học là mỗi tính từ khen ngợi trong abstract đều có một con số hoặc một phép so sánh đi kèm ngay sau nó.
+
 ## Phân tích câu chuyện và cấu trúc
 
 ### Gọi tên kỳ vọng của người đọc rồi đảo ngược nó
@@ -84,9 +90,10 @@ Tiếp theo là bảng ablation, được tổ chức thành nhiều bảng con,
 
 - Backbone sâu hơn và tốt hơn có giúp ích không? Có, và điều này cho thấy framework hưởng lợi trực tiếp từ những tiến bộ của backbone.
 - Mask đa lớp (softmax) hay mask độc lập (sigmoid)? Mask độc lập tốt hơn rõ rệt, xác nhận insight về việc tách mask khỏi phân lớp.
-- Mask riêng cho từng lớp hay một mask chung không phân biệt lớp? Mask chung gần như hiệu quả tương đương, càng củng cố thêm rằng việc tách hai nhiệm vụ là hợp lý.
 - RoIPool, RoIWarp hay RoIAlign? RoIAlign cải thiện lớn, đặc biệt ở AP75 (độ chính xác trung bình tính với ngưỡng trùng khớp chặt 75%) và với đặc trưng có stride lớn, đúng nơi mà độ lệch do làm tròn gây hại nhiều nhất.
 - Nhánh mask dạng FCN hay dạng MLP? FCN tốt hơn, cho thấy việc giữ cấu trúc không gian của mask là quan trọng.
+
+Bên cạnh các bảng con, phần văn bản của mục ablation còn trả lời thêm một câu hỏi không cần bảng riêng: mask riêng cho từng lớp hay một mask chung không phân biệt lớp? Mask chung gần như hiệu quả tương đương (29,7 so với 30,3 mask AP trên ResNet-50-C4), càng củng cố thêm rằng việc tách hai nhiệm vụ là hợp lý. Một kết quả chỉ cần một cặp số thì đặt trong câu văn là đủ; bảng con dành cho những câu hỏi có nhiều phương án để so.
 
 Sau ablation, paper báo cáo kết quả phát hiện đối tượng (hộp), cho thấy huấn luyện thêm nhánh mask còn cải thiện cả chất lượng hộp, và tách bạch phần cải thiện do RoIAlign với phần do huấn luyện đa nhiệm. Rồi đến phần tốc độ, chứng minh cho claim "chi phí nhỏ", và cuối cùng là ước lượng tư thế người cho claim tổng quát hóa.
 
@@ -94,7 +101,7 @@ Sau ablation, paper báo cáo kết quả phát hiện đối tượng (hộp), 
 |---|---|
 | Đơn giản mà vượt các hệ thống phức tạp | Bảng kết quả chính so với các hệ thống thắng cuộc thi COCO 2015, 2016 |
 | RoIAlign là chi tiết then chốt | Bảng con so sánh các phép pooling, nhấn vào AP75 và stride lớn |
-| Tách mask khỏi phân lớp là then chốt | Bảng con softmax so với sigmoid; mask riêng từng lớp so với mask chung |
+| Tách mask khỏi phân lớp là then chốt | Bảng con softmax so với sigmoid; so sánh mask riêng từng lớp với mask chung trong văn bản |
 | Chi phí thêm nhỏ, chạy nhanh | Phân tích tốc độ huấn luyện và suy luận |
 | Framework tổng quát | Ước lượng tư thế người với thay đổi tối thiểu |
 
@@ -168,9 +175,13 @@ Mask R-CNN cung cấp một chiến lược hoàn chỉnh để trình bày mộ
 
 Chiến lược này áp dụng trực tiếp cho NLP và Machine Learning, nơi những đóng góp "đơn giản" rất phổ biến: một thay đổi trong objective huấn luyện, một cách chuẩn hóa mới, một sửa đổi trong cách khởi tạo hay cách tạo prompt. Ở NLP, người viết có thể chỉ ra một sự không khớp bị bỏ qua, chẳng hạn giữa điều kiện lúc pre-training và lúc fine-tuning, cô lập nó bằng một ablation riêng, rồi chứng minh tính tổng quát bằng cách áp dụng trên nhiều tác vụ hoặc nhiều ngôn ngữ. Ở Machine Learning, nơi reviewer đặc biệt nhạy với nhận xét "incremental", cách phản bác hiệu quả nhất vẫn là cô lập cơ chế bằng thí nghiệm có kiểm soát và cho thấy sửa đổi chuyển được qua nhiều kiến trúc và nhiều tập dữ liệu. Phong cách bảng con cũng không phải đặc quyền của CV: bất kỳ paper nào có nhiều lựa chọn thiết kế đều hưởng lợi từ việc mỗi câu hỏi có một bảng nhỏ và một kết luận rõ ràng.
 
+### Nối với các bài kỹ năng
+
+Các bài kỹ năng liên quan trong giáo trình giúp áp dụng chiến lược này một cách có hệ thống. Việc chỉ ra một khiếm khuyết bị bỏ qua trong một thành phần ai cũng dùng, như phép làm tròn của RoIPool, là một nguồn ý tưởng được bàn ở bài [Tìm khoảng trống & nguồn ý tưởng](../01-truoc-khi-viet/tim-khoang-trong.md). Bảng ablation dạng bảng con là ứng dụng trực tiếp của bài [Thiết kế thí nghiệm](../01-truoc-khi-viet/thi-nghiem.md) và bài [Figures & Tables](../02-viet-tung-phan/figures-tables.md). Còn khi reviewer vẫn chê ý tưởng là "hiển nhiên" hay "incremental", bài [Khi novelty và hiệu quả lệch pha](../07-tinh-huong-kho/novelty-va-hieu-qua.md) ở Chương 7 trình bày các lối ra và câu mẫu tương ứng; bài [Ghép ý tưởng và "độn" đóng góp](../07-tinh-huong-kho/ghep-va-don.md) nhắc lại tinh thần "without bells and whistles" như lý do để cắt bỏ những thành phần không có vai trò được chứng minh.
+
 ## Tóm tắt
 
-Mask R-CNN cho thấy sự đơn giản có thể là luận điểm chính của một paper xuất sắc, với điều kiện nó được đóng khung đúng và được bảo chứng đầy đủ. Paper định vị đóng góp như một framework nền, gọi tên kỳ vọng "phải phức tạp" của người đọc rồi đảo ngược nó, và chỉ ra hai chi tiết then chốt (RoIAlign và việc tách mask khỏi phân lớp) mà sự đơn giản phụ thuộc vào. Mỗi chi tiết có một ablation riêng trong một bảng gồm nhiều bảng con, mỗi claim trong Introduction có một thí nghiệm tương ứng, và khả năng mở rộng sang ước lượng tư thế người củng cố tính tổng quát. Hệ thống hình ảnh, từ sơ đồ tối giản tới hình so sánh nhắm đúng điểm yếu của phương pháp cũ, mỗi hình đảm nhận một vai trò riêng trong lập luận.
+Mask R-CNN cho thấy sự đơn giản có thể là luận điểm chính của một paper xuất sắc, với điều kiện nó được đóng khung đúng và được bảo chứng đầy đủ. Title chỉ gồm tên phương pháp nhưng đã báo trước quan hệ với họ R-CNN, còn abstract gắn mỗi lời khen với một con số. Paper định vị đóng góp như một framework nền, gọi tên kỳ vọng "phải phức tạp" của người đọc rồi đảo ngược nó, và chỉ ra hai chi tiết then chốt (RoIAlign và việc tách mask khỏi phân lớp) mà sự đơn giản phụ thuộc vào. Mỗi chi tiết có một ablation riêng trong một bảng gồm nhiều bảng con, mỗi claim trong Introduction có một thí nghiệm tương ứng, và khả năng mở rộng sang ước lượng tư thế người củng cố tính tổng quát. Hệ thống hình ảnh, từ sơ đồ tối giản tới hình so sánh nhắm đúng điểm yếu của phương pháp cũ, mỗi hình đảm nhận một vai trò riêng trong lập luận.
 
 ## Bài tập
 

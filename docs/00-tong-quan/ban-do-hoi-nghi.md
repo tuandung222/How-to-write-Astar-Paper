@@ -47,7 +47,7 @@ Trí tuệ nhân tạo hiện đại có ba cộng đồng công bố lớn, m�
 
 ### Computer Vision: CVPR, ICCV, ECCV
 
-Cộng đồng thị giác máy tính có ba hội nghị đỉnh. CVPR diễn ra hằng năm vào khoảng tháng 6 và là hội nghị lớn nhất, với hơn mười nghìn submission mỗi năm gần đây. ICCV và ECCV luân phiên nhau: ICCV diễn ra vào các năm lẻ, ECCV vào các năm chẵn, cả hai đều vào khoảng tháng 9 hoặc tháng 10. Nhờ sự luân phiên này, mỗi năm cộng đồng CV có hai cơ hội nộp bài ở cấp cao nhất. Văn hóa CV đặc biệt coi trọng kết quả trên các benchmark chuẩn, bằng chứng hình ảnh và các thí nghiệm ablation. Chi tiết được trình bày trong bài [Computer Vision: CVPR, ICCV, ECCV](he-sinh-thai-cv.md).
+Cộng đồng thị giác máy tính có ba hội nghị đỉnh. CVPR diễn ra hằng năm vào khoảng tháng 6 và là hội nghị lớn nhất, với hơn mười nghìn submission mỗi năm gần đây; riêng CVPR 2026 nhận khoảng mười sáu nghìn. ICCV và ECCV luân phiên nhau: ICCV diễn ra vào các năm lẻ, ECCV vào các năm chẵn, cả hai đều vào khoảng tháng 9 hoặc tháng 10. Nhờ sự luân phiên này, mỗi năm cộng đồng CV có hai cơ hội nộp bài ở cấp cao nhất. Văn hóa CV đặc biệt coi trọng kết quả trên các benchmark chuẩn, bằng chứng hình ảnh và các thí nghiệm ablation. Chi tiết được trình bày trong bài [Computer Vision: CVPR, ICCV, ECCV](he-sinh-thai-cv.md).
 
 ### NLP: ACL, EMNLP, NAACL và các hội nghị anh em
 
@@ -75,9 +75,9 @@ AAAI và IJCAI là hai hội nghị trí tuệ nhân tạo tổng quát có lị
 
 Trong cộng đồng CV, WACV và BMVC là hai hội nghị được tôn trọng, thường được dùng làm nơi nộp cho những công trình vững chắc nhưng có phạm vi hẹp hơn, hoặc làm điểm dừng sau một lần bị từ chối ở hội nghị đỉnh; WACV có hai vòng nộp mỗi năm. Trong cộng đồng NLP, COLING là hội nghị lâu đời không thuộc hiệp hội ACL nhưng có vị trí quan trọng. Trong cộng đồng ML, AISTATS (giao thoa giữa thống kê và học máy), UAI (suy luận trong điều kiện bất định, mô hình xác suất) và COLT (lý thuyết học) là những hội nghị chuyên sâu được đánh giá rất cao trong các nhánh tương ứng.
 
-Cộng đồng xử lý tiếng nói (speech) có hai hội nghị lớn: Interspeech của ISCA, thường có deadline vào khoảng cuối tháng 2 hoặc tháng 3 và diễn ra vào khoảng tháng 8 đến tháng 10, và ICASSP của IEEE, thường có deadline vào khoảng tháng 9 và diễn ra vào khoảng tháng 4 năm sau. Cả hai đều có paper ngắn, điển hình bốn trang nội dung cộng thêm trang cho tài liệu tham khảo, nên đòi hỏi một lối viết rất cô đọng; riêng Interspeech 2026 có thêm track long paper tám trang. Hai hội nghị này không nằm trong nhóm A\* của CORE, nhưng là nơi công bố hàng đầu của cộng đồng speech. Trang [Speech: Interspeech, ICASSP](he-sinh-thai-speech.md) trình bày chi tiết hai hội nghị này, và case study [ViP-VL](../05-case-studies/vip-vl.md) phân tích cách một paper Interspeech bốn trang được dựng lên.
+Cộng đồng xử lý tiếng nói (speech) có hai hội nghị lớn: Interspeech của ISCA, thường có deadline vào khoảng giữa tháng 2 tới tháng 3 và diễn ra vào khoảng tháng 8 đến tháng 10, và ICASSP của IEEE, thường có deadline vào khoảng tháng 9 và diễn ra vào khoảng tháng 4 năm sau. Cả hai đều có paper ngắn, điển hình bốn trang nội dung cộng thêm trang cho tài liệu tham khảo, nên đòi hỏi một lối viết rất cô đọng; riêng Interspeech 2026 có thêm track long paper tám trang. Hai hội nghị này không nằm trong nhóm A\* của CORE, nhưng là nơi công bố hàng đầu của cộng đồng speech. Trang [Speech: Interspeech, ICASSP](he-sinh-thai-speech.md) trình bày chi tiết hai hội nghị này, và case study [ViP-VL](../05-case-studies/vip-vl.md) phân tích cách một paper Interspeech bốn trang được dựng lên.
 
-Cộng đồng truy hồi thông tin (information retrieval, IR) và khai phá dữ liệu có SIGIR, KDD và TheWebConf (trước đây là WWW) là các hội nghị hàng đầu, cùng CIKM, WSDM, RecSys và ECIR. Đây là nơi phù hợp cho các công trình về tìm kiếm, xếp hạng, hệ khuyến nghị và một phần lớn các công trình retrieval-augmented generation. Trang [IR & Data Mining: SIGIR, KDD, TheWebConf](he-sinh-thai-ir.md) trình bày chi tiết cộng đồng này. Ngoài ra, các công trình về an toàn và bảo mật AI ngày càng xuất hiện ở các hội nghị bảo mật như USENIX Security, ACM CCS, IEEE S&P và NDSS; [Chương 7](../07-ai-security/index.md) bàn về cách viết cho chủ đề này.
+Cộng đồng truy hồi thông tin (information retrieval, IR) và khai phá dữ liệu có SIGIR, KDD và TheWebConf (trước đây là WWW) là các hội nghị hàng đầu, cùng CIKM, WSDM, RecSys và ECIR. Đây là nơi phù hợp cho các công trình về tìm kiếm, xếp hạng, hệ khuyến nghị và một phần lớn các công trình retrieval-augmented generation. Trang [IR & Data Mining: SIGIR, KDD, TheWebConf](he-sinh-thai-ir.md) trình bày chi tiết cộng đồng này. Ngoài ra, các công trình về an toàn và bảo mật AI ngày càng xuất hiện ở các hội nghị bảo mật như USENIX Security, ACM CCS, IEEE S&P và NDSS; [Chương 9](../09-ai-security/index.md) bàn về cách viết cho chủ đề này.
 
 | Hội nghị | Phạm vi | Khi nào nên cân nhắc |
 |---|---|---|
@@ -104,9 +104,9 @@ Sau khi đã biết các hội nghị là gì, câu hỏi thực tế tiếp the
 | NeurIPS | Tháng 5 | Tháng 12 | Hạn abstract khoảng một tuần trước hạn bài đầy đủ |
 | ICML | Cuối tháng 1 | Tháng 7 | |
 | ICLR | Cuối tháng 9 hoặc đầu tháng 10 (năm trước) | Tháng 4 hoặc 5 | Review công khai trên OpenReview |
-| ACL | Qua chu kỳ ARR khoảng tháng 2 | Tháng 7 hoặc 8 | Nộp vào ARR, sau đó commit |
+| ACL | Qua chu kỳ ARR khoảng tháng 1 hoặc 2 | Tháng 7 hoặc 8 | Nộp vào ARR, sau đó commit |
 | EMNLP | Qua chu kỳ ARR khoảng tháng 5 hoặc 6 | Tháng 11 hoặc 12 | Nộp vào ARR, sau đó commit |
-| NAACL, EACL | Qua chu kỳ ARR khoảng tháng 10 (năm trước) | Nửa đầu năm | Không nhất thiết tổ chức mọi năm |
+| NAACL, EACL | Qua chu kỳ ARR khoảng tháng 8 đến tháng 10 (năm trước) | Nửa đầu năm | Không nhất thiết tổ chức mọi năm |
 | AAAI | Tháng 8 (năm trước) | Tháng 2 (có năm cuối tháng 1) | |
 | IJCAI | Tháng 1 | Tháng 8 | |
 
