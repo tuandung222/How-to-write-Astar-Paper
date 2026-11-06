@@ -296,7 +296,7 @@ Phản ứng của reviewer có khác nhau giữa các cộng đồng. Ở NLP, 
 
 ### Điều không được làm
 
-Không được giấu hoặc mô tả mơ hồ việc dùng mô hình đóng. Không được trộn đầu ra từ các phiên bản khác nhau trong cùng một bảng mà không nói rõ. Không được gọi API nhiều lần rồi chỉ giữ lần cho kết quả đẹp nhất mà không khai báo, vì đó chính là một nhánh của "khu vườn rẽ nhánh". Không được công bố đầu ra trái với điều khoản sử dụng, và không được trả lời "Yes" cho câu hỏi về khả năng tái lập trong checklist khi phần cốt lõi của kết quả không thể tái lập. Xem thêm bài [Ranh giới trung thực](ranh-gioi-trung-thuc.md).
+Không được giấu hoặc mô tả mơ hồ việc dùng mô hình đóng. Không được trộn đầu ra từ các phiên bản khác nhau trong cùng một bảng mà không nói rõ. Không được gọi API nhiều lần rồi chỉ giữ lần cho kết quả đẹp nhất mà không khai báo, vì đó chính là một nhánh của "khu vườn rẽ nhánh". Không được công bố đầu ra trái với điều khoản sử dụng, và không được trả lời "Yes" cho câu hỏi về khả năng tái lập trong checklist khi phần cốt lõi của kết quả không thể tái lập. Xem thêm bài [Ranh giới trung thực](ranh-gioi-trung-thuc.md). Quy trình làm việc an toàn với mô hình đóng và coding agent trong thực nghiệm, gồm ghi phiên bản, cache đầu ra và nhật ký sử dụng AI, được trình bày ở bài [AI trong lập trình và thực nghiệm](../08-ai-cong-su/thuc-nghiem.md) của Chương 8.
 
 ## Tình huống 28: Reviewer đòi thí nghiệm không thể làm
 
