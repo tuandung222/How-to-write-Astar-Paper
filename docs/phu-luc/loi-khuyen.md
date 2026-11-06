@@ -90,7 +90,7 @@ Black cho rằng sự đơn giản hay bị nhầm là thiếu novelty, dù ông
 
 ### Điều 9: Bằng chứng phải tương xứng với claim
 
-Lipton và Steinhardt chỉ ra hai lỗi phổ biến: trình bày suy đoán như giải thích, và không xác định cải thiện đến từ đâu. Tài liệu tập huấn reviewer CVPR/ICCV nói ý tưởng càng lạ hoặc càng có vẻ gia tăng thì càng cần kết quả mạnh. Hướng dẫn ARR nói paper chỉ cần đủ bằng chứng cho claim của nó, và SOTA không cần cũng không đủ. Henderson và cộng sự nhắc rằng dao động giữa các lần chạy có thể lớn hơn mức cải thiện.
+Lipton và Steinhardt chỉ ra hai lỗi phổ biến: trình bày suy đoán như giải thích, và không xác định cải thiện đến từ đâu. Tài liệu tập huấn reviewer CVPR/ICCV nói ý tưởng càng lạ hoặc càng có vẻ gia tăng thì càng cần kết quả mạnh. Hướng dẫn ARR nói paper chỉ cần đủ bằng chứng cho claim của nó, và SOTA không cần cũng không đủ. Henderson và cộng sự nhắc rằng nếu thiếu thước đo ý nghĩa thống kê, phương sai giữa các lần chạy khiến khó biết một cải thiện có thật hay không.
 
 - **Nguồn:** Lipton và Steinhardt (2018), tài liệu tập huấn reviewer CVPR/ICCV, ARR Reviewer Guidelines, Henderson và cộng sự (2018).
 - **Trong giáo trình:** [Thiết kế thí nghiệm](../01-truoc-khi-viet/thi-nghiem.md), [Experiments](../02-viet-tung-phan/experiments.md), [Khi câu chuyện và bằng chứng không khớp](../07-tinh-huong-kho/cau-chuyen-va-bang-chung.md).
@@ -179,7 +179,7 @@ Karpathy gọi việc chọn bài toán là "vòng lặp ngoài" của nghề ng
 
 **Ý chính.**
 
-- **Vòng lặp ngoài.** "You spend most of your time on the outer loop, figuring out what problems are worth solving and what problems are ripe for solving." (Phần lớn thời gian dành cho vòng ngoài: tìm bài toán đáng giải và đã chín để giải.) Bài toán quan trọng nhưng chưa có công cụ hay dữ liệu thì chưa chín.
+- **Vòng lặp ngoài.** "You spend most of your time on the outer loop, figuring out what problems are worth solving and what problems are ripe for solving." (Phần lớn thời gian dành cho vòng ngoài: tìm bài toán đáng giải và đã chín để giải.) Có thể hiểu chữ "chín" là bài toán đã có đủ công cụ và dữ liệu để tấn công; bài toán quan trọng mà chưa có những thứ đó thì chưa nên chọn.
 - **Gu có thật và học được.** Người hướng dẫn giỏi đánh giá gần như tức thì tầm quan trọng, độ khó và bối cảnh của một bài toán; khả năng đó học được qua thực hành.
 - **Tham vọng có cách tấn công.** "a 10x more important problem is at most 2-3x harder to achieve" (theo kinh nghiệm của ông, bài toán quan trọng gấp mười lần chỉ khó hơn tối đa hai ba lần). Ông dẫn Hamming về điều kiện có cách tấn công, và khuyên chọn mảnh đất mà các paper có thể nối thành luận án.
 - **Tránh công việc gia tăng.** Paper làm mọi thứ phức tạp hơn để thêm khoảng 2% có thể được nhận nhưng ít được trích dẫn. Ý tưởng kiểu "bước logic tiếp theo" thì nhiều nhóm cùng thấy.

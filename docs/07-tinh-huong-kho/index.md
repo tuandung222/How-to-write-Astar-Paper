@@ -99,6 +99,19 @@ flowchart TD
 | 34 | Lý thuyết đẹp nhưng thí nghiệm ở quy mô đồ chơi, hoặc thực nghiệm mạnh mà không có lý thuyết | [Bài toán, dữ liệu và phạm vi](bai-toan-va-pham-vi.md) |
 | 35 | Kết quả trên benchmark đẹp nhưng không chuyển được sang thực tế | [Bài toán, dữ liệu và phạm vi](bai-toan-va-pham-vi.md) |
 
+## Đối chiếu với các case study
+
+Các tình huống trong chương được minh họa chủ yếu bằng ví dụ giả định, để tập trung vào cơ chế. Muốn thấy chúng trong paper thật, người học có thể đọc các case study ở [Chương 5](../05-case-studies/index.md) và [Chương 9](../09-ai-security/index.md). Mỗi case study đều có đoạn nối ngược về tình huống tương ứng. Bảng dưới đây gom các cặp đối chiếu đáng đọc nhất.
+
+| Bài trong chương | Case study có tình huống tương tự | Điểm đáng chú ý |
+|---|---|---|
+| [Khi novelty và hiệu quả lệch pha](novelty-va-hieu-qua.md) | [ResNet](../05-case-studies/resnet.md), [MAE & Latent Diffusion](../05-case-studies/mae-ldm.md), [DDPM](../05-case-studies/ddpm.md), [VLGuard](../09-ai-security/vlguard.md) | Ý tưởng đơn giản hoặc đã có ở lĩnh vực khác, được đóng khung quanh một phát hiện |
+| [Ghép ý tưởng và "độn" đóng góp](ghep-va-don.md) | [Transformer](../05-case-studies/transformer.md), [SAM & ControlNet](../05-case-studies/sam-controlnet.md), [EDWARD-NMT](../05-case-studies/edward-nmt.md) | Hệ thống nhiều thành phần và cách mỗi thành phần được biện minh |
+| [Khi con số không đẹp](con-so-khong-dep.md) | [Adam](../05-case-studies/adam.md), [NeRF](../05-case-studies/nerf.md), [ViP-VL](../05-case-studies/vip-vl.md), [SwiftBrush](../05-case-studies/swiftbrush.md) | Metric lệch với đánh giá của con người, tuning, so sánh cân sức |
+| [Khi câu chuyện và bằng chứng không khớp](cau-chuyen-va-bang-chung.md) | [CheckList](../05-case-studies/checklist-acl2020.md), [PhoBERT](../05-case-studies/phobert.md) | Phê bình cách đánh giá, nguồn gốc thật của cải thiện |
+| [Bài toán, dữ liệu và phạm vi](bai-toan-va-pham-vi.md) | [Anti-DreamBooth](../05-case-studies/anti-dreambooth.md), [Top-K Sparse MoE](../05-case-studies/topk-moe.md), [Streaming ITN](../05-case-studies/streaming-itn.md) | Bài toán mới cần tự dựng baseline; lý thuyết đi cùng thí nghiệm; khoảng cách giữa benchmark và thực tế |
+| [Ranh giới trung thực](ranh-gioi-trung-thuc.md) | [MELON](../09-ai-security/melon.md), [Thực hành: một paper từ con số 0](../05-case-studies/worked-example.md) | Cách nói về giới hạn và claim một cách chừng mực |
+
 ## Các bài trong chương
 
 - [Khi novelty và hiệu quả lệch pha](novelty-va-hieu-qua.md): ý tưởng mới mà thua, ý tưởng đơn giản mà thắng, lời chê "hiển nhiên", ý tưởng đã có ở nơi khác, và paper "chỉ là ứng dụng".

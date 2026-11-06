@@ -624,6 +624,8 @@ Một dự án có AI làm cộng sự vẫn đi qua chín giai đoạn quen thu
 
 **Bằng chứng về AI trong nghiên cứu**
 
+- Becker, J., Rush, N., Barnes, B., Rein, D. (METR). *Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity*. arXiv:2507.09089, 2025. Blog: https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/
+- METR. *We are Changing our Developer Productivity Experiment Design*. Bài blog, 24/2/2026. https://metr.org/blog/2026-02-24-uplift-update/
 - Si, C., Yang, D., Hashimoto, T. *Can LLMs Generate Novel Research Ideas? A Large-Scale Human Study with 100+ NLP Researchers*. ICLR 2025. https://iclr.cc/virtual/2025/poster/29961
 - Si, C., Hashimoto, T., Yang, D. *The Ideation–Execution Gap: Execution Outcomes of LLM-Generated versus Human Research Ideas*. ICLR 2026. arXiv:2506.20803. https://iclr.cc/virtual/2026/poster/10010564
 - Liang, W. và cộng sự. *Can Large Language Models Provide Useful Feedback on Research Papers? A Large-Scale Empirical Analysis*. *NEJM AI*, 2024. arXiv:2310.01783.
